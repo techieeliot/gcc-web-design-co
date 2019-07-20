@@ -157,12 +157,8 @@ footer {
     grid-gap: 2em;
     
 }
-#dsd-services-container{
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-gap: 2em;
-    
-}
+
+
 
 article#main-col {
     color: black;
@@ -174,5 +170,78 @@ aside#sidebar {
 aside#sidebar p{
     color: white;
     padding-right: 20px;
+} 
+   
+/* SERVICES */
+#dsd-services-container{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-gap: 2em;
+        
+}
+
+
+ul#services {
+
+    list-style: none;
+    padding: 20px;
+    border: #afafaf solid 1px;
+    margin-bottom: 5px;
+    background: #e6e6e6;
+
+}
+
+aside#sidebar .quote input textarea{
+    width: 90%;
+    padding: 5px;
+
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+ 
+    header .container-bar, 
+    header #branding, 
+    header nav, 
+    header nav ul li,
+    .container-bar h1,
+    .container-bar form,
+    section#dsd-content #dsd-content-wrapper .boxes,
+    div#dsd-content-wrapper,
+    article#main-col,
+    aside#sidbar,
+    #dsd-services-container,
+    #services li, 
+    #dsd-about-container
+     {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header {
+        padding-bottom: 20px;
+    }
+
+    #hero h1 {
+        margin-top: 40px; 
+    }
+
+    .container-bar button, .quote button, .quote label {
+        display: block;
+        width: 100%;
+    }
+
+    .container-bar input[type="email"], .quote label, .quote textarea {
+        margin-bottom: 5px; 
+    }
+
+     {
+
+    }
+
+
+    
 
 }
