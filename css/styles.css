@@ -172,6 +172,10 @@ footer {
     color: white;
 }
 
+.copyright #year {
+    color: white;
+}
+
 /* ABOUT MAIN */
 
 #dsd-about-content{
