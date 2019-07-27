@@ -9,6 +9,9 @@
     <meta name="author" content="Eliot Sanford">
     <title>Deep South Devs | Welcome</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/slick-slider/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
 </head>
 <body>
     <div class="container">
@@ -26,10 +29,22 @@
                 </nav>
             </div>
         </header>
-        <section id="hero">
-            <div class="container">
-                <h1>Affordable Responsive Websites Made by Developers in the Deep South</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, laboriosam sapiente! Nam quam amet, odio eum explicabo minus? Ad asperiores, ipsa aperiam tempore fugit eveniet. </p>
+        <section class="autoplay" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+            <div class="hero hero1">
+                <div class="container">
+                    <h1>Welcome to Deep South Devs</h1>
+                    <p>Affordable Responsive Custom Websites</p>
+                </div>
+            </div>
+            <div class="hero hero2">
+                <div class="container">
+                    <h1>Magnolia</h1>
+                </div>
+            </div>
+            <div class="hero hero3">
+                <div class="container">
+                    <h1>Bridge</h1>
+                </div>
             </div>
         </section>
 
@@ -67,5 +82,9 @@
             </div>
         </footer>
     </div>
-</body>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="node_modules/slick-slider/slick/slick.min.js"></script>
+    <script src="js/slickSlider.js"></script>
+    </body>
 </html>

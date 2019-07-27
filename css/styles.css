@@ -57,12 +57,17 @@ header a:hover{
 }
 
 /* HEADER AND NEWSLETTER SHARE */
+.right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+}
+
 .right ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2em;
-    margin: 0;
-    padding: 0;
+    align-content: center;
 }
 
 .container-bar {
@@ -72,23 +77,43 @@ header a:hover{
 }
 
 /* HERO IMAGE */
-#hero {
+.hero {
     min-height: 400px;
-    background: url('../images/riverboat_hero.jpg') no-repeat;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-end;
-}
-#hero h1 {
-    margin-top: 250px;
-    font-size: 26px;
-    margin-bottom: 20px;
+]}
+
+.hero1 {
+    background: url('../images/hero/riverboat_hero.jpg') center / cover no-repeat;
 }
 
-#hero p {
+.hero2 {
+    background: url('../images/hero/magnolia_hero.jpg') center / cover no-repeat;
+}
+.hero3 {
+    background: url('../images/hero/bridge_hero.jpg') center / cover no-repeat;
+}
+
+
+section .hero div.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   
+}
+
+section .hero h1 {
+    font-size: 26px;
+    opacity: 1.0;
+}
+
+section .hero p {
     color: white;
     font-size: 18px;
+}
+
+section .hero h1, section#hero p {
+    text-shadow: 2px 1px black;
+    font-weight: bolder;
 }
 
 /* NEWSLETTER BAR */
@@ -111,11 +136,14 @@ header a:hover{
 }
 
 /* CONTENT */
+
+#dsd-content {
+    margin-top: 2em;
+}
 #dsd-content-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1em;
-    padding: 2em;
     background: white;
 }
 
@@ -123,11 +151,9 @@ header a:hover{
     color: black;
 }
 
-#boxes img {
-    width: 90px;
-}
-#boxes{
-    align: center; 
+.boxes img {
+    width: min-max(50px, 30%);
+    margin-top: 1em;
 }
 
 
@@ -207,13 +233,16 @@ aside#sidebar .quote input textarea{
     header nav ul li,
     .container-bar h1,
     .container-bar form,
-    section#dsd-content #dsd-content-wrapper .boxes,
-    div#dsd-content-wrapper,
+    section#dsd-content div#dsd-content-wrapper .boxes,
+    #dsd-content,
+    #dsd-content-wrapper,
     article#main-col,
     aside#sidbar,
     #dsd-services-container,
     #services li, 
-    #dsd-about-container
+    #dsd-about-container,
+    .right,
+    .boxes img
      {
         display: flex;
         flex-direction: column;
@@ -225,7 +254,7 @@ aside#sidebar .quote input textarea{
     }
 
     #hero h1 {
-        margin-top: 40px; 
+
     }
 
     .container-bar button, .quote button, .quote label {
@@ -235,6 +264,25 @@ aside#sidebar .quote input textarea{
 
     .container-bar input[type="email"], .quote label, .quote textarea {
         margin-bottom: 5px; 
+    }
+
+    .boxes {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .boxes img{
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+     
+    }
+
+    .boxes p {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 1em;
+        margin: 2em;
     }
 
      
