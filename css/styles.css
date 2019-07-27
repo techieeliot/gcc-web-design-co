@@ -80,7 +80,7 @@ header a:hover{
 .hero {
     min-height: 400px;
     background-size: cover;
-]}
+}
 
 .hero1 {
     background: url('../images/hero/riverboat_hero.jpg') center / cover no-repeat;
