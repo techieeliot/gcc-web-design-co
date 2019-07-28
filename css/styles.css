@@ -98,7 +98,6 @@ section .hero div.container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-   
 }
 
 section .hero h1 {
@@ -111,7 +110,7 @@ section .hero p {
     font-size: 18px;
 }
 
-section .hero h1, section#hero p {
+section .hero h1, section .hero p {
     text-shadow: 2px 1px black;
     font-weight: bolder;
 }
@@ -132,7 +131,6 @@ section .hero h1, section#hero p {
     color: white; 
     border: 0;
     padding: 3px 20px;
-
 }
 
 /* CONTENT */
@@ -140,6 +138,7 @@ section .hero h1, section#hero p {
 #dsd-content {
     margin-top: 2em;
 }
+
 #dsd-content-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -156,10 +155,6 @@ section .hero h1, section#hero p {
     margin-top: 1em;
 }
 
-
-
-
-
 footer {
     padding: 20px;
     height: 10vh;
@@ -168,18 +163,16 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
 .copyright p{
     color: white;
 }
 
-.copyright #year {
+.copyright #copyright-year {
     color: white;
 }
 
 /* ABOUT MAIN */
-
-#dsd-about-content{
-}
 
 #dsd-about-container{
     display: grid;
@@ -187,8 +180,6 @@ footer {
     grid-gap: 2em;
     
 }
-
-
 
 article#main-col {
     color: black;
@@ -206,31 +197,26 @@ aside#sidebar p{
 #dsd-services-container{
     display: grid;
     grid-template-columns: 70% 30%;
-    grid-gap: 2em;
-        
+    grid-gap: 2em;  
 }
 
 
 ul#services {
-
     list-style: none;
     padding: 20px;
     border: #afafaf solid 1px;
     margin-bottom: 5px;
     background: #e6e6e6;
-
 }
 
-aside#sidebar .quote input textarea{
+aside#sidebar .quote input textarea {
     width: 90%;
     padding: 5px;
-
 }
 
 /* MEDIA QUERIES */
 
 @media (max-width: 768px) {
- 
     header .container-bar, 
     header #branding, 
     header nav, 
@@ -246,8 +232,7 @@ aside#sidebar .quote input textarea{
     #services li, 
     #dsd-about-container,
     .right,
-    .boxes img
-     {
+    .boxes img {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -255,10 +240,6 @@ aside#sidebar .quote input textarea{
 
     header {
         padding-bottom: 20px;
-    }
-
-    #hero h1 {
-
     }
 
     .container-bar button, .quote button, .quote label {
@@ -275,11 +256,11 @@ aside#sidebar .quote input textarea{
         align-items: center;
         flex-wrap: wrap;
     }
+
     .boxes img{
         width: 50px;
         display: flex;
         flex-direction: column;
-     
     }
 
     .boxes p {
@@ -288,12 +269,5 @@ aside#sidebar .quote input textarea{
         padding: 1em;
         margin: 2em;
     }
-
-     
-
-
-
-
-    
 
 }
