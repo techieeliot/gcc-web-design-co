@@ -1,4 +1,4 @@
-let copyrightYear = document.getElementById("year");
+let copyrightYear = document.getElementById("copyright-year");
 
 
 let getYear = new Date();
