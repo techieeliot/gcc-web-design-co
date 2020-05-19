@@ -1,0 +1,37 @@
+{
+  "name": "gcc-web-design-co",
+  "version": "1.0.0",
+  "description": "dev south consulting llc website",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "openssl": "^1.1.0",
+    "slick-slider": "^1.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techieeliot/gcc-web-design-co.git"
+  },
+  "keywords": [
+    "dev",
+    "south",
+    "consulting",
+    "llc",
+    "web",
+    "development",
+    "consultancy",
+    "software",
+    "engineering",
+    "react",
+    "js",
+    "javascript",
+    "node.js",
+    "react.js"
+  ],
+  "author": "Eliot Sanford",
+  "license": "ISC"
+}
