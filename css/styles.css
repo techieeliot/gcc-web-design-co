@@ -26,7 +26,7 @@ body {
 header {
     padding-top: 30px;
     min-height: 70px;
-    border-bottom: orangered solid 3px;
+    border-bottom: #19ACEE solid 3px;
 }
 
 header a {
@@ -47,7 +47,7 @@ header nav {
 }
 
 header .highlight, header .current a{
-    color: orangered;
+    color: #19ACEE;
     font-weight: bold; 
 }
 
@@ -94,25 +94,26 @@ header a:hover{
 }
 
 
-section .hero div.container {
+.hero div.container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-section .hero h1 {
+.hero h1 {
     font-size: 26px;
     opacity: 1.0;
 }
 
-section .hero p {
+.hero p {
     color: white;
     font-size: 18px;
 }
 
-section .hero h1, section .hero p {
+.hero h1, .hero p {
     text-shadow: 2px 1px black;
     font-weight: bolder;
+    filter: drop-shadow(0 0 0.1rem #19ACEE);
 }
 
 /* NEWSLETTER BAR */
@@ -127,7 +128,7 @@ section .hero h1, section .hero p {
 }
 
 #dsd-newsletter-input button {
-    background: orangered;
+    background: #19ACEE;
     color: white; 
     border: 0;
     padding: 3px 20px;
@@ -158,7 +159,7 @@ section .hero h1, section .hero p {
 footer {
     padding: 20px;
     height: 10vh;
-    background: orangered;
+    background: #19ACEE;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,6 +215,12 @@ aside#sidebar .quote input textarea {
     padding: 5px;
 }
 
+.container-bar button, .quote button, .quote label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 768px) {
@@ -243,7 +250,8 @@ aside#sidebar .quote input textarea {
     }
 
     .container-bar button, .quote button, .quote label {
-        display: block;
+        display: flex;
+        flex-direction: column;
         width: 100%;
     }
 
