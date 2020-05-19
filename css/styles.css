@@ -113,7 +113,7 @@ header a:hover{
 .hero h1, .hero p {
     text-shadow: 2px 1px black;
     font-weight: bolder;
-    filter: drop-shadow(0 0 0.1rem #19ACEE);
+    filter: drop-shadow(0 0 0.1rem #424242);
 }
 
 /* NEWSLETTER BAR */
