@@ -74,12 +74,17 @@ header a:hover{
     display: grid;
     grid-template-columns: repeat(2, 50%);
     background: #424242;
+    min-height: 10vh;
 }
 
 /* HERO IMAGE */
 .hero {
     min-height: 400px;
     background-size: cover;
+}
+
+.hero .container {
+    min-height: 70vh;
 }
 
 .hero1 {
