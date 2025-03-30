@@ -25,22 +25,26 @@ A modern, responsive website built with Next.js for devSouth Consulting, showcas
 ## 🚦 Getting Started
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/yourusername/devsouth.git
 cd devsouth
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Set up environment variables**
+
 ```bash
 cp .env.example .env.local
 ```
 
 4. **Start the development server**
+
 ```bash
 npm run dev
 ```
@@ -85,6 +89,7 @@ Additional documentation for components and features can be found in the `docs` 
 ## 🔄 Continuous Integration
 
 The project uses GitHub Actions for CI/CD:
+
 - Automated testing on pull requests
 - Code quality checks with ESLint
 - Type checking with TypeScript

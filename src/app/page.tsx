@@ -1,7 +1,7 @@
-import FeaturesSection from "components/FeaturesSection";
-import ValueProposition from "components/ValueProposition";
-import ProjectShowcase from "components/ProjectShowcase";
-import BannerSection from "components/BannerSection";
+import FeaturesSection from 'components/FeaturesSection'
+import ValueProposition from 'components/ValueProposition'
+import ProjectShowcase from 'components/ProjectShowcase'
+import BannerSection from 'components/BannerSection'
 
 export default function HomeRoute() {
   return (
@@ -21,5 +21,5 @@ export default function HomeRoute() {
         </div>
       </div>
     </div>
-  );
+  )
 }
