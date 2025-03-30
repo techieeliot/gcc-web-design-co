@@ -53,7 +53,7 @@ export default function Header() {
                   href="/"
                   className={`px-1.5 md:px-2 lg:px-2 xl:px-3 py-2 text-sm md:text-sm lg:text-base rounded-md transition-colors ${
                     pathname === '/'
-                      ? 'bg-gray-700 text-gray-200'
+                      ? 'bg-gray-800/70 text-gray-100'
                       : 'text-gray-400 hover:text-gray-200 active:text-gray-100'
                   }`}
                 >
@@ -65,7 +65,7 @@ export default function Header() {
                   href="/about"
                   className={`px-1.5 md:px-2 lg:px-2 xl:px-3 py-2 text-sm md:text-sm lg:text-base rounded-md transition-colors ${
                     pathname === '/about'
-                      ? 'bg-gray-700 text-gray-200'
+                      ? 'bg-gray-800/70 text-gray-100'
                       : 'text-gray-400 hover:text-gray-200 active:text-gray-100'
                   }`}
                 >
@@ -77,7 +77,7 @@ export default function Header() {
                   href="/services"
                   className={`px-1.5 md:px-2 lg:px-2 xl:px-3 py-2 text-sm md:text-sm lg:text-base rounded-md transition-colors ${
                     pathname === '/services'
-                      ? 'bg-gray-700 text-gray-200'
+                      ? 'bg-gray-800/70 text-gray-100'
                       : 'text-gray-400 hover:text-gray-200 active:text-gray-100'
                   }`}
                 >
@@ -89,7 +89,7 @@ export default function Header() {
                   href="/portfolio"
                   className={`px-1.5 md:px-2 lg:px-2 xl:px-3 py-2 text-sm md:text-sm lg:text-base rounded-md transition-colors ${
                     pathname === '/portfolio'
-                      ? 'bg-gray-700 text-gray-200'
+                      ? 'bg-gray-800/70 text-gray-100'
                       : 'text-gray-400 hover:text-gray-200 active:text-gray-100'
                   }`}
                 >
@@ -101,7 +101,7 @@ export default function Header() {
                   href="/contact"
                   className={`px-1.5 md:px-2 lg:px-2 xl:px-3 py-2 text-sm md:text-sm lg:text-base rounded-md transition-colors ${
                     pathname === '/contact'
-                      ? 'bg-gray-700 text-gray-200'
+                      ? 'bg-gray-800/70 text-gray-100'
                       : 'text-gray-400 hover:text-gray-200 active:text-gray-100'
                   }`}
                 >
@@ -164,7 +164,11 @@ export default function Header() {
                   <Link
                     href="/"
                     onClick={handleLinkClick}
-                    className="text-gray-400 hover:text-gray-200 active:text-gray-100 transition-colors"
+                    className={`block w-full px-3 py-2 rounded-md transition-colors ${
+                      pathname === '/'
+                        ? 'bg-gray-800/70 text-gray-100'
+                        : 'text-gray-400 hover:text-gray-200 active:text-gray-100'
+                    }`}
                   >
                     Welcome
                   </Link>

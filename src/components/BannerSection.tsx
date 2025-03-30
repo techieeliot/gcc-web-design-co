@@ -24,14 +24,22 @@ export default function BannerSection() {
             We Engineer Growth for Startups and Innovators.
           </p>
         </div>
-        <div className="w-full md:w-5/12 lg:w-1/4 flex flex-col gap-3 pt-6 sm:pt-8 md:pt-10 md:pl-10 ">
-          <Link href="/contact" variant="default" size="lg">
+        <div className="w-full md:w-5/12 lg:w-1/4 flex flex-col gap-2 sm:gap-3 pt-4 sm:pt-6 md:pt-10 md:pl-10">
+          <Link
+            href="/contact"
+            variant="default"
+            className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
+          >
             <span className="whitespace-nowrap">Get Started</span>
-            <ArrowRight className="ml-2" />
+            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
-          <Link href="/services" variant="outline" size="lg">
+          <Link
+            href="/services"
+            variant="outline"
+            className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
+          >
             <span className="whitespace-nowrap">Learn More</span>
-            <Rocket className="ml-2 flex-shrink-0" />
+            <Rocket className="ml-2 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
           </Link>
         </div>
       </div>
