@@ -72,7 +72,7 @@ export const ContactSidebar = () => {
         <h4 className="font-semibold text-gray-800 mb-4">Connect With Us</h4>
         <div className="flex gap-4">
           <a
-            href="https://linkedin.com/company/devsouth"
+            href="https://www.linkedin.com/company/65794307/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-full hover:bg-gray-100"
@@ -80,7 +80,7 @@ export const ContactSidebar = () => {
             <Linkedin className="w-5 h-5 text-blue-600" />
           </a>
           <a
-            href="https://twitter.com/devsouth"
+            href="https://x.com/devSouthDotUs"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-full hover:bg-gray-100"
