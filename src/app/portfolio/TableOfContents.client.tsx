@@ -37,8 +37,8 @@ export const TableOfContents = ({ className = '' }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id)
           }
@@ -47,7 +47,7 @@ export const TableOfContents = ({ className = '' }) => {
       { threshold: 0.5 }
     )
 
-    document.querySelectorAll('article').forEach(section => {
+    document.querySelectorAll('article').forEach((section) => {
       observer.observe(section)
     })
 
@@ -96,7 +96,7 @@ export const TableOfContents = ({ className = '' }) => {
       >
         <h2 className="text-lg font-semibold mb-4">Contents</h2>
         <nav className="space-y-4">
-          {sections.map(section => (
+          {sections.map((section) => (
             <div key={section.id} className="mb-4">
               <a
                 href={`#${section.id}`}
@@ -110,7 +110,7 @@ export const TableOfContents = ({ className = '' }) => {
                 {section.title}
               </a>
               <ul className="ml-4 mt-2 space-y-2">
-                {section.subsections.map(subsection => (
+                {section.subsections.map((subsection) => (
                   <li key={subsection}>
                     <a
                       href={`#${section.id}-${subsection.toLowerCase()}`}

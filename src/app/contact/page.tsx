@@ -7,7 +7,8 @@ export default function ContactRoute() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Ready to transform your digital presence? We're here to help you build something amazing.
+          Ready to transform your digital presence? We're here to help you build
+          something amazing.
         </p>
       </div>
 

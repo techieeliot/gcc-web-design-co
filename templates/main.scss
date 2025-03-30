@@ -211,7 +211,10 @@ html {
 body {
   @include vendor(
     'background-image',
-    ('linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0))', 'url("images/bg01.png")')
+    (
+      'linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0))',
+      'url("images/bg01.png")'
+    )
   );
   background-color: #f7f7f7;
   background-position:

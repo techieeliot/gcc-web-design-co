@@ -1,4 +1,4 @@
-import { Linkedin, LinkedinIcon, LucideLinkedin, Mail, X, XIcon } from 'lucide-react'
+import { Linkedin, Mail, X } from 'lucide-react'
 import { Link } from './ui/link'
 
 export default function ContactInfo() {
@@ -16,7 +16,7 @@ export default function ContactInfo() {
           href="https://twitter.com/devsouthdotus"
           className="text-white hover:text-white active:text-white transition-colors"
         >
-          <XIcon className="w-6 h-6" />
+          <X className="w-6 h-6" />
         </Link>
         <Link
           href="https://www.linkedin.com/company/devsouth-consulting-llc/"

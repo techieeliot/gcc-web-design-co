@@ -36,14 +36,17 @@ export const AboutMainContent = () => {
       <div className="mb-8">
         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Our Story</h3>
         <p className="text-gray-600">
-          Founded in 2018, devSouth Consulting emerged from a passion for transforming innovative
-          ideas into successful digital products. Our journey began with a focus on helping
-          pre-revenue startups build scalable MVPs, and has since evolved into partnerships with
-          enterprise clients while maintaining our commitment to startup innovation.
+          Founded in 2018, devSouth Consulting emerged from a passion for
+          transforming innovative ideas into successful digital products. Our
+          journey began with a focus on helping pre-revenue startups build
+          scalable MVPs, and has since evolved into partnerships with enterprise
+          clients while maintaining our commitment to startup innovation.
         </p>
       </div>
       <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Our Approach</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Our Approach
+        </h3>
         <div className="relative h-48 sm:h-56 mb-6 rounded-lg overflow-hidden">
           <Image
             src="/images/pic02.jpg"
@@ -58,9 +61,10 @@ export const AboutMainContent = () => {
           </div>
         </div>
         <p className="text-gray-600">
-          We believe in building not just applications, but partnerships. Our approach combines
-          technical expertise with business acumen, ensuring that every line of code contributes to
-          your business objectives. We emphasize:
+          We believe in building not just applications, but partnerships. Our
+          approach combines technical expertise with business acumen, ensuring
+          that every line of code contributes to your business objectives. We
+          emphasize:
         </p>
         <ul className="mt-4 space-y-2 text-gray-600">
           <li>• Performance-first development methodology</li>
@@ -72,7 +76,9 @@ export const AboutMainContent = () => {
       </div>
 
       <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Community Involvement</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Community Involvement
+        </h3>
         <div className="relative h-48 sm:h-56 mb-6 rounded-lg overflow-hidden">
           <Image
             src="/images/pic01.jpg"
@@ -87,29 +93,36 @@ export const AboutMainContent = () => {
           </div>
         </div>
         <p className="text-gray-600">
-          Beyond our client work, we're deeply committed to fostering tech education and community
-          growth. Our involvement includes:
+          Beyond our client work, we're deeply committed to fostering tech
+          education and community growth. Our involvement includes:
         </p>
         <ul className="mt-4 space-y-2 text-gray-600">
           <li>• Founding and organizing freeCodeCamp Jackson, Mississippi</li>
           <li>• Mentoring at Base Camp Coding Academy</li>
           <li>• Teaching web development to underrepresented youth</li>
-          <li>• Contributing to open source education (University of Helsinki)</li>
+          <li>
+            • Contributing to open source education (University of Helsinki)
+          </li>
           <li>• Supporting nonprofits through GiveCamp Memphis</li>
         </ul>
       </div>
 
       <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Leadership</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Leadership
+        </h3>
         <div className="flex items-start gap-6">
           <div className="flex-1">
-            <h4 className="text-xl font-semibold text-gray-800 mb-2">Eliot Sanford</h4>
+            <h4 className="text-xl font-semibold text-gray-800 mb-2">
+              Eliot Sanford
+            </h4>
             <p className="text-gray-600">Founder & Lead Engineer</p>
             <p className="text-gray-600 mt-4">
-              With over 6 years of specialized experience in the React ecosystem, Eliot has led
-              development initiatives for startups and enterprise clients alike. His focus on
-              performance, accessibility, and scalable architecture has helped numerous
-              organizations achieve their digital transformation goals.
+              With over 6 years of specialized experience in the React
+              ecosystem, Eliot has led development initiatives for startups and
+              enterprise clients alike. His focus on performance, accessibility,
+              and scalable architecture has helped numerous organizations
+              achieve their digital transformation goals.
             </p>
           </div>
         </div>
@@ -121,14 +134,20 @@ export const AboutMainContent = () => {
 export const CompanyFacts = () => {
   const facts = [
     { label: 'Founded', value: 'December 2018', icon: Rocket },
-    { label: 'Location', value: 'Clinton, Mississippi (Remote-first)', icon: Laptop },
+    {
+      label: 'Location',
+      value: 'Clinton, Mississippi (Remote-first)',
+      icon: Laptop,
+    },
     { label: 'Focus', value: 'React Ecosystem Development', icon: Code2 },
     { label: 'Clients Served', value: 'Startups to Enterprise', icon: Users },
   ]
 
   return (
     <section className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">Company Facts</h3>
+      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+        Company Facts
+      </h3>
       <ul className="space-y-4 text-gray-600">
         {facts.map(({ label, value, icon: Icon }) => (
           <li key={label} className="flex items-start gap-3">
@@ -161,7 +180,9 @@ export const ConnectWithUs = () => {
 
   return (
     <section className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">Connect With Us</h3>
+      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+        Connect With Us
+      </h3>
       <div className="space-y-4">
         {socialLinks.map(({ href, label, icon: Icon }) => (
           <Link

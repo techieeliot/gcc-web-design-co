@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const handleLinkClick = () => {
     setIsOpen(false)
@@ -32,7 +32,10 @@ export default function Header() {
               <div className="flex items-center gap-1 md:gap-2 lg:gap-6">
                 <h1 className="text-base sm:text-lg md:text-lg lg:text-2xl font-bold text-gray-300 leading-none whitespace-nowrap">
                   dev<span className="text-blue-700">South</span>
-                  <span className="hidden sm:inline md:hidden lg:inline"> Consulting</span>
+                  <span className="hidden sm:inline md:hidden lg:inline">
+                    {' '}
+                    Consulting
+                  </span>
                 </h1>
                 {/* Tagline - desktop only */}
                 <span className="hidden lg:inline text-gray-400 text-xs lg:text-sm mt-1">
@@ -114,7 +117,12 @@ export default function Header() {
             className="md:hidden p-2 text-gray-400 hover:text-gray-200"
             aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               {isOpen ? (
                 <path
                   strokeLinecap="round"
@@ -134,7 +142,9 @@ export default function Header() {
           </button>
 
           {/* Mobile Nav Drawer */}
-          <div className={`fixed inset-0 z-50 md:hidden ${isOpen ? 'visible' : 'invisible'}`}>
+          <div
+            className={`fixed inset-0 z-50 md:hidden ${isOpen ? 'visible' : 'invisible'}`}
+          >
             {/* Backdrop */}
             <div
               className={`fixed inset-0 bg-gray-900/50 backdrop-blur-sm transition-opacity ${

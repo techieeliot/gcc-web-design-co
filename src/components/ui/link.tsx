@@ -17,11 +17,19 @@ const Link = ({
   ...props
 }: LinkProps & VariantProps<typeof buttonVariants>) => {
   // if external link, use target="_blank" and rel="noopener noreferrer"
-  const isExternal = href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')
+  const isExternal =
+    href.startsWith('http') ||
+    href.startsWith('mailto') ||
+    href.startsWith('tel')
   if (isExternal) {
     return (
       <Button asChild variant={variant} size={size} className={className}>
-        <LinkPrimitive href={href} target="_blank" rel="noopener noreferrer" {...props}>
+        <LinkPrimitive
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          {...props}
+        >
           {children}
         </LinkPrimitive>
       </Button>

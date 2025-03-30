@@ -18,7 +18,8 @@ export const ServicesMainContent = () => {
   const services = [
     {
       title: 'Next.js Application Development',
-      description: 'Modern web applications built with the latest Next.js features including:',
+      description:
+        'Modern web applications built with the latest Next.js features including:',
       features: [
         'Server-side rendering for optimal performance',
         'Static site generation for blazing fast pages',
@@ -63,14 +64,23 @@ export const ServicesMainContent = () => {
         <div key={index} className="bg-white rounded-lg shadow-md p-6">
           <div className="flex gap-4 mb-4">
             {service.icons.map((Icon, iconIndex) => (
-              <Icon key={iconIndex} className="w-6 h-6 text-blue-700" strokeWidth={1.5} />
+              <Icon
+                key={iconIndex}
+                className="w-6 h-6 text-blue-700"
+                strokeWidth={1.5}
+              />
             ))}
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-3">{service.title}</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-3">
+            {service.title}
+          </h2>
           <p className="text-gray-600 mb-4">{service.description}</p>
           <ul className="space-y-2">
             {service.features.map((feature, featureIndex) => (
-              <li key={featureIndex} className="flex items-start gap-2 text-gray-600">
+              <li
+                key={featureIndex}
+                className="flex items-start gap-2 text-gray-600"
+              >
                 <ArrowUpRight className="w-5 h-5 text-blue-700 flex-shrink-0 mt-0.5" />
                 <span>{feature}</span>
               </li>
@@ -114,11 +124,16 @@ export const ServicesSidebar = () => {
         <div key={index} className="bg-white rounded-lg shadow-md p-6">
           <div className="flex items-center gap-2 mb-4">
             <section.icon className="w-5 h-5 text-blue-700" />
-            <h3 className="text-lg font-semibold text-gray-800">{section.title}</h3>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {section.title}
+            </h3>
           </div>
           <ul className="space-y-2">
             {section.items.map((item, itemIndex) => (
-              <li key={itemIndex} className="flex items-center gap-2 text-gray-600">
+              <li
+                key={itemIndex}
+                className="flex items-center gap-2 text-gray-600"
+              >
                 <ArrowUpRight className="w-4 h-4 text-blue-700" />
                 {item}
               </li>

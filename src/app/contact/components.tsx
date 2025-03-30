@@ -1,5 +1,13 @@
 import { Button } from 'components/ui/button'
-import { Mail, MapPin, Clock, Phone, Globe, Send, Linkedin, Twitter } from 'lucide-react'
+import {
+  Mail,
+  MapPin,
+  Clock,
+  Globe,
+  Send,
+  Linkedin,
+  Twitter,
+} from 'lucide-react'
 
 export const ContactSidebar = () => {
   return (
@@ -7,10 +15,12 @@ export const ContactSidebar = () => {
       {/* Contact Info Card */}
       <div className="bg-white p-6 rounded-lg shadow-md">
         <section>
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Get In Touch</h3>
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+            Get In Touch
+          </h3>
           <p className="text-gray-600 mb-6">
-            Have a project in mind or questions for us? Reach out today and let's discuss how we can
-            help your business grow.
+            Have a project in mind or questions for us? Reach out today and
+            let's discuss how we can help your business grow.
           </p>
 
           <div className="space-y-4">
@@ -86,16 +96,26 @@ export const ContactSidebar = () => {
 export const ContactForm = () => {
   return (
     <article>
-      <h2 className="text-3xl font-bold text-gray-950 mb-4">Let's Start a Conversation</h2>
+      <h2 className="text-3xl font-bold text-gray-950 mb-4">
+        Let's Start a Conversation
+      </h2>
       <p className="text-gray-600 mb-8">
-        Whether you need technical consulting, web development, or emergency support, we're here to
-        help. Fill out the form below and we'll get back to you within 24 hours.
+        Whether you need technical consulting, web development, or emergency
+        support, we're here to help. Fill out the form below and we'll get back
+        to you within 24 hours.
       </p>
 
-      <form action="https://formspree.io/f/myynedwg" method="POST" className="space-y-6">
+      <form
+        action="https://formspree.io/f/myynedwg"
+        method="POST"
+        className="space-y-6"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Full Name *
             </label>
             <input
@@ -109,7 +129,10 @@ export const ContactForm = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Email Address *
             </label>
             <input
@@ -124,7 +147,10 @@ export const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="company"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Company Name
           </label>
           <input
@@ -137,7 +163,10 @@ export const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="subject"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Subject *
           </label>
           <select
@@ -155,7 +184,10 @@ export const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Message *
           </label>
           <textarea

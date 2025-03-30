@@ -6,7 +6,8 @@ export default function ValueProposition() {
   const benefits = [
     {
       title: 'Startup-Focused Development',
-      description: 'We understand the unique challenges startups face and deliver MVPs that scale.',
+      description:
+        'We understand the unique challenges startups face and deliver MVPs that scale.',
       icon: Rocket,
     },
     {
@@ -23,7 +24,8 @@ export default function ValueProposition() {
     },
     {
       title: 'Strategic Solutions',
-      description: "We don't just code – we help architect solutions that drive business growth.",
+      description:
+        "We don't just code – we help architect solutions that drive business growth.",
       icon: Brain,
     },
   ]
@@ -40,12 +42,18 @@ export default function ValueProposition() {
         />
         <div className="absolute inset-0 bg-blue-700/30 flex items-center justify-center gap-4">
           {benefits.map(({ icon: Icon }, index) => (
-            <Icon key={index} className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={1.5} />
+            <Icon
+              key={index}
+              className="w-8 h-8 sm:w-10 sm:h-10 text-white"
+              strokeWidth={1.5}
+            />
           ))}
         </div>
       </div>
 
-      <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Why Choose devSouth?</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+        Why Choose devSouth?
+      </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         {benefits.map(({ title, description, icon: Icon }, index) => (
@@ -59,7 +67,11 @@ export default function ValueProposition() {
         ))}
       </div>
 
-      <Link href="/services" variant="default" className="mt-6 w-full sm:w-auto">
+      <Link
+        href="/services"
+        variant="default"
+        className="mt-6 w-full sm:w-auto"
+      >
         Explore Our Services
         <ArrowRight className="ml-2" />
       </Link>

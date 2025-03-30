@@ -19,7 +19,8 @@ export default function PortfolioRoute() {
           <CaseStudyRoomInTheInn />
         </div>
         <div className="w-64 lg:w-72 flex-shrink-0">
-          <TableOfContents className="top-20" /> {/* Add top spacing to avoid header overlap */}
+          <TableOfContents className="top-20" />{' '}
+          {/* Add top spacing to avoid header overlap */}
         </div>
       </div>
     </div>

@@ -10,7 +10,9 @@ export default function FeaturesSection() {
       case 1:
         return <Code2 className="w-32 h-32 text-white/80" strokeWidth={1.5} />
       case 2:
-        return <Lightbulb className="w-32 h-32 text-white/80" strokeWidth={1.5} />
+        return (
+          <Lightbulb className="w-32 h-32 text-white/80" strokeWidth={1.5} />
+        )
       default:
         return null
     }
@@ -44,7 +46,10 @@ export default function FeaturesSection() {
           link: '/about',
         },
       ].map(({ link, image, title, subtitle, description }, index) => (
-        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div
+          key={index}
+          className="bg-white rounded-lg shadow-md overflow-hidden"
+        >
           <Link href={link}>
             <div className="relative h-48 w-full group">
               <Image

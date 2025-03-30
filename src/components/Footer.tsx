@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import QuickLinks from './QuickLinks'
 import ContactInfo from './ContactInfo'
 

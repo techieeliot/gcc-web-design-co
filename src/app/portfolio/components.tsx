@@ -28,12 +28,14 @@ import {
   DollarSign,
   Users2,
   Database,
-  HelpingHand,
 } from 'lucide-react'
 
 export const CaseStudyFourthParty = () => {
   return (
-    <article id="fourthparty" className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md">
+    <article
+      id="fourthparty"
+      className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md"
+    >
       {/* Hero Section */}
       <div className="relative h-64 mb-8 rounded-lg overflow-hidden">
         <Image
@@ -50,14 +52,16 @@ export const CaseStudyFourthParty = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold text-gray-950 mb-6">Case Study: FourthParty.app</h2>
+      <h2 className="text-3xl font-bold text-gray-950 mb-6">
+        Case Study: FourthParty.app
+      </h2>
 
       <div id="fourthparty-challenge" className="mb-8">
         <p className="text-gray-600">
-          <strong>FourthParty.app</strong> is a web-based platform designed to streamline the
-          mediation process. devSouth Consulting collaborated with FourthParty to build a
-          user-friendly, responsive web application to enhance mediation practices, focusing on
-          automation and efficiency.
+          <strong>FourthParty.app</strong> is a web-based platform designed to
+          streamline the mediation process. devSouth Consulting collaborated
+          with FourthParty to build a user-friendly, responsive web application
+          to enhance mediation practices, focusing on automation and efficiency.
         </p>
       </div>
 
@@ -67,11 +71,13 @@ export const CaseStudyFourthParty = () => {
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
               <CalendarClock className="w-6 h-6 text-blue-700" />
-              <h4 className="font-semibold">Automated Scheduling & Reminders</h4>
+              <h4 className="font-semibold">
+                Automated Scheduling & Reminders
+              </h4>
             </div>
             <p className="text-gray-600">
-              Customizable booking intake forms, client notifications, and automated reminders to
-              improve scheduling efficiency.
+              Customizable booking intake forms, client notifications, and
+              automated reminders to improve scheduling efficiency.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -80,8 +86,8 @@ export const CaseStudyFourthParty = () => {
               <h4 className="font-semibold">Streamlined Payments</h4>
             </div>
             <p className="text-gray-600">
-              A simplified payment system that integrates invoicing and payment acceptance all in
-              one place.
+              A simplified payment system that integrates invoicing and payment
+              acceptance all in one place.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -90,8 +96,8 @@ export const CaseStudyFourthParty = () => {
               <h4 className="font-semibold">Client Communication</h4>
             </div>
             <p className="text-gray-600">
-              Easy-to-use chat systems and virtual mediation tools to enhance communication between
-              mediators and clients.
+              Easy-to-use chat systems and virtual mediation tools to enhance
+              communication between mediators and clients.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -100,7 +106,8 @@ export const CaseStudyFourthParty = () => {
               <h4 className="font-semibold">Comprehensive Dashboard</h4>
             </div>
             <p className="text-gray-600">
-              A unified interface for managing appointments, payments, and client communication.
+              A unified interface for managing appointments, payments, and
+              client communication.
             </p>
           </div>
         </div>
@@ -130,34 +137,45 @@ export const CaseStudyFourthParty = () => {
       <section id="fourthparty-results" className="mb-8">
         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Results</h3>
         <p className="text-gray-600">
-          The FourthParty platform has empowered mediators, court ADR programs, and certified
-          neutrals to save time on administrative tasks and focus on their core work: facilitating
-          mediation. By implementing devSouth's solution, FourthParty reduced administrative
-          overhead and improved the overall customer experience for both mediators and clients.
+          The FourthParty platform has empowered mediators, court ADR programs,
+          and certified neutrals to save time on administrative tasks and focus
+          on their core work: facilitating mediation. By implementing devSouth's
+          solution, FourthParty reduced administrative overhead and improved the
+          overall customer experience for both mediators and clients.
         </p>
       </section>
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Technologies Used</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Technologies Used
+        </h3>
         <p className="text-gray-600">
-          The platform was built using React.js for the front-end, integrated with a Laravel
-          back-end. Custom-styled components and third-party API integrations were also employed to
-          deliver a seamless user experience.
+          The platform was built using React.js for the front-end, integrated
+          with a Laravel back-end. Custom-styled components and third-party API
+          integrations were also employed to deliver a seamless user experience.
         </p>
       </section>
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Client Testimonial</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Client Testimonial
+        </h3>
         <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600">
-          "devSouth Consulting helped us create a platform that truly serves our mission of
-          simplifying mediation. Their team was responsive, knowledgeable, and efficient. The app is
-          now a core part of our practice, and we've seen an increase in both client satisfaction
-          and internal efficiency."
-          <footer className="mt-2 font-normal not-italic">- CEO, FourthParty.app</footer>
+          "devSouth Consulting helped us create a platform that truly serves our
+          mission of simplifying mediation. Their team was responsive,
+          knowledgeable, and efficient. The app is now a core part of our
+          practice, and we've seen an increase in both client satisfaction and
+          internal efficiency."
+          <footer className="mt-2 font-normal not-italic">
+            - CEO, FourthParty.app
+          </footer>
         </blockquote>
       </section>
       <section className="mt-12">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Explore FourthParty.app</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Explore FourthParty.app
+        </h3>
         <p className="text-gray-600">
-          To learn more about how FourthParty.app can enhance your mediation practice, visit{' '}
+          To learn more about how FourthParty.app can enhance your mediation
+          practice, visit{' '}
           <a
             href="https://www.fourthparty.app"
             target="_blank"
@@ -175,9 +193,15 @@ export const CaseStudyFourthParty = () => {
 
 export const CaseStudyWeedWarriors = () => {
   return (
-    <article id="weedwarriors" className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md">
+    <article
+      id="weedwarriors"
+      className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md"
+    >
       {/* Fix 1: Add proper section IDs for table of contents navigation */}
-      <div id="weedwarriors-features" className="relative h-64 mb-8 rounded-lg overflow-hidden">
+      <div
+        id="weedwarriors-features"
+        className="relative h-64 mb-8 rounded-lg overflow-hidden"
+      >
         <Image
           src="/images/pic04.jpg"
           alt="Lawn care service platform"
@@ -193,15 +217,17 @@ export const CaseStudyWeedWarriors = () => {
       </div>
 
       {/* Fix 2: Fix heading structure */}
-      <h2 className="text-3xl font-bold text-gray-950 mb-6">Case Study: Weed Warriors</h2>
+      <h2 className="text-3xl font-bold text-gray-950 mb-6">
+        Case Study: Weed Warriors
+      </h2>
 
       {/* Fix 3: Add key to sections for mapping */}
       <div id="weedwarriors-challenge" className="mb-8">
         <p className="text-gray-600">
-          <strong>Weed Warriors</strong> is a leading lawn care service provider looking to
-          modernize their business operations. devSouth Consulting developed a comprehensive digital
-          solution to streamline their scheduling, payment processing, and customer communication
-          systems.
+          <strong>Weed Warriors</strong> is a leading lawn care service provider
+          looking to modernize their business operations. devSouth Consulting
+          developed a comprehensive digital solution to streamline their
+          scheduling, payment processing, and customer communication systems.
         </p>
       </div>
 
@@ -219,15 +245,18 @@ export const CaseStudyWeedWarriors = () => {
         </div>
         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Challenge</h3>
         <p className="text-gray-600">
-          Weed Warriors needed to transition from manual scheduling and paper-based systems to a
-          modern digital platform. They required a solution that could handle automated scheduling,
-          online payments, and maintain strong customer relationships through integrated
+          Weed Warriors needed to transition from manual scheduling and
+          paper-based systems to a modern digital platform. They required a
+          solution that could handle automated scheduling, online payments, and
+          maintain strong customer relationships through integrated
           communication tools.
         </p>
       </section>
 
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Key Features Delivered</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Key Features Delivered
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="p-4 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
@@ -252,7 +281,9 @@ export const CaseStudyWeedWarriors = () => {
               <Smartphone className="w-6 h-6 text-blue-700" />
               <h4 className="font-semibold">Mobile Friendly</h4>
             </div>
-            <p className="text-gray-600">Responsive design for easy access on any device</p>
+            <p className="text-gray-600">
+              Responsive design for easy access on any device
+            </p>
           </div>
           <div className="p-4 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
@@ -290,9 +321,12 @@ export const CaseStudyWeedWarriors = () => {
 
       {/* Fix 5: Add missing section ID */}
       <section id="weedwarriors-technologies" className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Technologies Used</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Technologies Used
+        </h3>
         <p className="text-gray-600">
-          Built with Next.js and React for optimal performance, the platform leverages:
+          Built with Next.js and React for optimal performance, the platform
+          leverages:
         </p>
         <ul className="mt-4 space-y-2">
           <li className="flex items-start gap-2">
@@ -316,11 +350,14 @@ export const CaseStudyWeedWarriors = () => {
 
       {/* Fix 6: Make testimonial section consistent with other case studies */}
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Client Testimonial</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Client Testimonial
+        </h3>
         <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600">
-          "devSouth Consulting transformed our business operations with their digital solution. The
-          automated scheduling and payment systems have saved us countless hours, allowing us to
-          focus on what we do best - keeping our customers' lawns beautiful."
+          "devSouth Consulting transformed our business operations with their
+          digital solution. The automated scheduling and payment systems have
+          saved us countless hours, allowing us to focus on what we do best -
+          keeping our customers' lawns beautiful."
           <footer className="mt-2 font-normal not-italic">
             - Jay Grisham, Owner, Weed Warriors
           </footer>
@@ -328,7 +365,9 @@ export const CaseStudyWeedWarriors = () => {
       </section>
 
       <section className="mt-12">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Visit Weed Warriors</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Visit Weed Warriors
+        </h3>
         <p className="text-gray-600">
           Learn more about Weed Warriors' services at{' '}
           <a
@@ -347,7 +386,10 @@ export const CaseStudyWeedWarriors = () => {
 
 export const CaseStudyGorillaFund = () => {
   return (
-    <article id="gorillafund" className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md">
+    <article
+      id="gorillafund"
+      className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md"
+    >
       {/* Hero Section */}
       <div className="relative h-64 mb-8 rounded-lg overflow-hidden">
         <Image
@@ -370,9 +412,10 @@ export const CaseStudyGorillaFund = () => {
 
       <div id="gorillafund-challenge" className="mb-8">
         <p className="text-gray-600">
-          devSouth Consulting provided technical expertise to Soulheart during the development of
-          the Dian Fossey Gorilla Fund website, focusing on content management optimization,
-          responsive styling, and interactive feature implementation.
+          devSouth Consulting provided technical expertise to Soulheart during
+          the development of the Dian Fossey Gorilla Fund website, focusing on
+          content management optimization, responsive styling, and interactive
+          feature implementation.
         </p>
       </div>
 
@@ -384,7 +427,8 @@ export const CaseStudyGorillaFund = () => {
               <h4 className="font-semibold">CMS Optimization</h4>
             </div>
             <p className="text-gray-600">
-              Enhanced content management workflows and documentation for the organization's team.
+              Enhanced content management workflows and documentation for the
+              organization's team.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -393,7 +437,8 @@ export const CaseStudyGorillaFund = () => {
               <h4 className="font-semibold">CSS Styling</h4>
             </div>
             <p className="text-gray-600">
-              Improved responsive design and visual consistency across the platform.
+              Improved responsive design and visual consistency across the
+              platform.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -402,7 +447,8 @@ export const CaseStudyGorillaFund = () => {
               <h4 className="font-semibold">Interactive Features</h4>
             </div>
             <p className="text-gray-600">
-              Implemented dynamic content loading and enhanced user interactions.
+              Implemented dynamic content loading and enhanced user
+              interactions.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -411,14 +457,17 @@ export const CaseStudyGorillaFund = () => {
               <h4 className="font-semibold">Team Training</h4>
             </div>
             <p className="text-gray-600">
-              Provided technical guidance and best practices for content management.
+              Provided technical guidance and best practices for content
+              management.
             </p>
           </div>
         </div>
       </section>
 
       <section id="gorillafund-impact" className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Collaborative Impact</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Collaborative Impact
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="text-center p-4 bg-gray-50 rounded-lg">
             <PenTool className="w-8 h-8 text-blue-700 mx-auto mb-2" />
@@ -439,7 +488,9 @@ export const CaseStudyGorillaFund = () => {
       </section>
 
       <section id="gorillafund-contributions" className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Technical Contributions</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Technical Contributions
+        </h3>
         <ul className="mt-4 space-y-2">
           <li className="flex items-start gap-2">
             <CheckCircle2 className="w-5 h-5 text-blue-700 mt-1" />
@@ -461,7 +512,9 @@ export const CaseStudyGorillaFund = () => {
       </section>
 
       <section className="mt-12">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Visit Gorilla Fund</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Visit Gorilla Fund
+        </h3>
         <p className="text-gray-600">
           Explore the Dian Fossey Gorilla Fund's mission at{' '}
           <a
@@ -473,7 +526,8 @@ export const CaseStudyGorillaFund = () => {
             gorillafund.org
           </a>{' '}
           <span className="text-sm">
-            (Website developed by Soulheart with technical consulting by devSouth)
+            (Website developed by Soulheart with technical consulting by
+            devSouth)
           </span>
         </p>
       </section>
@@ -483,7 +537,10 @@ export const CaseStudyGorillaFund = () => {
 
 export const CaseStudyDareToShare = () => {
   return (
-    <article id="daretoshare" className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md">
+    <article
+      id="daretoshare"
+      className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md"
+    >
       <div className="relative h-64 mb-8 rounded-lg overflow-hidden">
         <Image
           src="/images/pic05.jpg"
@@ -505,14 +562,17 @@ export const CaseStudyDareToShare = () => {
 
       <div className="mb-8">
         <p className="text-gray-600">
-          When Soulheart faced an unexpected developer transition, devSouth Consulting stepped in to
-          provide emergency technical support, implementing Git best practices and resolving
-          critical front-end issues for the Dare to Share platform.
+          When Soulheart faced an unexpected developer transition, devSouth
+          Consulting stepped in to provide emergency technical support,
+          implementing Git best practices and resolving critical front-end
+          issues for the Dare to Share platform.
         </p>
       </div>
 
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Emergency Solutions</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Emergency Solutions
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
@@ -520,7 +580,8 @@ export const CaseStudyDareToShare = () => {
               <h4 className="font-semibold">Version Control Setup</h4>
             </div>
             <p className="text-gray-600">
-              Implemented Git workflow and Bitbucket best practices for the development team.
+              Implemented Git workflow and Bitbucket best practices for the
+              development team.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -529,7 +590,8 @@ export const CaseStudyDareToShare = () => {
               <h4 className="font-semibold">Critical Bug Fixes</h4>
             </div>
             <p className="text-gray-600">
-              Resolved JavaScript functionality issues and CSS styling bugs on the homepage.
+              Resolved JavaScript functionality issues and CSS styling bugs on
+              the homepage.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -538,7 +600,8 @@ export const CaseStudyDareToShare = () => {
               <h4 className="font-semibold">Documentation</h4>
             </div>
             <p className="text-gray-600">
-              Created comprehensive Git workflow documentation and development guides.
+              Created comprehensive Git workflow documentation and development
+              guides.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -554,7 +617,9 @@ export const CaseStudyDareToShare = () => {
       </section>
 
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Response Metrics</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Response Metrics
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="text-center p-4 bg-gray-50 rounded-lg">
             <Clock className="w-8 h-8 text-blue-700 mx-auto mb-2" />
@@ -575,7 +640,9 @@ export const CaseStudyDareToShare = () => {
       </section>
 
       <section className="mt-12">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Visit Dare to Share</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Visit Dare to Share
+        </h3>
         <p className="text-gray-600">
           Explore Dare to Share's mission at{' '}
           <a
@@ -597,7 +664,10 @@ export const CaseStudyDareToShare = () => {
 
 export const CaseStudyRoomInTheInn = () => {
   return (
-    <article id="roominnmemphis" className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md">
+    <article
+      id="roominnmemphis"
+      className="prose lg:prose-lg bg-white p-6 rounded-lg shadow-md"
+    >
       <div className="relative h-64 mb-8 rounded-lg overflow-hidden">
         <Image
           src="/images/pic06.jpg"
@@ -619,14 +689,17 @@ export const CaseStudyRoomInTheInn = () => {
 
       <div className="mb-8">
         <p className="text-gray-600">
-          As part of GiveCamp Memphis, devSouth contributed to a complete website redesign for Room
-          in the Inn Memphis, a nonprofit organization providing shelter and support for individuals
-          experiencing homelessness.
+          As part of GiveCamp Memphis, devSouth contributed to a complete
+          website redesign for Room in the Inn Memphis, a nonprofit organization
+          providing shelter and support for individuals experiencing
+          homelessness.
         </p>
       </div>
 
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Weekend Sprint</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Weekend Sprint
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
@@ -634,7 +707,8 @@ export const CaseStudyRoomInTheInn = () => {
               <h4 className="font-semibold">Collaborative Effort</h4>
             </div>
             <p className="text-gray-600">
-              Part of a three-developer volunteer team working over one weekend at GiveCamp Memphis.
+              Part of a three-developer volunteer team working over one weekend
+              at GiveCamp Memphis.
             </p>
           </div>
           <div className="flex flex-col p-4 border border-gray-200 rounded-lg">
@@ -661,14 +735,17 @@ export const CaseStudyRoomInTheInn = () => {
               <h4 className="font-semibold">Community Impact</h4>
             </div>
             <p className="text-gray-600">
-              Helped reduce operational costs, allowing more resources for their mission.
+              Helped reduce operational costs, allowing more resources for their
+              mission.
             </p>
           </div>
         </div>
       </section>
 
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Project Impact</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Project Impact
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="text-center p-4 bg-gray-50 rounded-lg">
             <Clock className="w-8 h-8 text-blue-700 mx-auto mb-2" />
@@ -689,7 +766,9 @@ export const CaseStudyRoomInTheInn = () => {
       </section>
 
       <section className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Key Contributions</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Key Contributions
+        </h3>
         <ul className="mt-4 space-y-2">
           <li className="flex items-start gap-2">
             <CheckCircle2 className="w-5 h-5 text-blue-700 mt-1" />
@@ -724,8 +803,8 @@ export const CaseStudyRoomInTheInn = () => {
           >
             ritimemphis.org
           </a>{' '}
-          to learn more about their mission and how you can help provide shelter for those
-          experiencing homelessness.
+          to learn more about their mission and how you can help provide shelter
+          for those experiencing homelessness.
         </p>
       </section>
     </article>
