@@ -89,7 +89,7 @@ export default function BlogPage() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Blog & Insights</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              Thoughts, stories, and ideas from the devSouth team on web
+              Thoughts, stories, and ideas from the Sanford Dev team on web
               development, design, and technology.
             </p>
           </div>

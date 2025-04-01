@@ -1,6 +1,6 @@
-# devSouth Consulting Website
+# Sanford Dev Consulting Website
 
-A modern, responsive website built with Next.js for devSouth Consulting, showcasing our software development and technical consulting services.
+A modern, responsive website built with Next.js for Sanford Dev Consulting, showcasing our software development and technical consulting services.
 
 ## 🚀 Features
 
@@ -97,7 +97,7 @@ The project uses GitHub Actions for CI/CD:
 
 ## 📝 License
 
-Copyright © 2024 devSouth Consulting. All rights reserved.
+Copyright © 2024 Sanford Dev Consulting. All rights reserved.
 
 ## 👥 Contributing
 

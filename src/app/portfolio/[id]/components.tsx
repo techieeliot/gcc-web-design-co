@@ -79,10 +79,10 @@ export const CaseStudyFourthParty = () => {
         <div>
           <p className={textStyles.body}>
             <strong>Fourth Party</strong> is a web-based platform designed to
-            streamline the mediation process. devSouth Consulting collaborated
-            with FourthParty to build a user-friendly, responsive web
-            application to enhance mediation practices, focusing on automation
-            and efficiency.
+            streamline the mediation process. Sanford Dev Consulting
+            collaborated with FourthParty to build a user-friendly, responsive
+            web application to enhance mediation practices, focusing on
+            automation and efficiency.
           </p>
         </div>
 
@@ -117,11 +117,11 @@ export const CaseStudyFourthParty = () => {
               textStyles.body
             )}
           >
-            "devSouth Consulting helped us create a platform that truly serves
-            our mission of simplifying mediation. Their team was responsive,
-            knowledgeable, and efficient. The app is now a core part of our
-            practice, and we've seen an increase in both client satisfaction and
-            internal efficiency."
+            "Sanford Dev Consulting helped us create a platform that truly
+            serves our mission of simplifying mediation. Their team was
+            responsive, knowledgeable, and efficient. The app is now a core part
+            of our practice, and we've seen an increase in both client
+            satisfaction and internal efficiency."
             <footer
               className={cn(
                 textStyles['body-small'],
@@ -245,10 +245,10 @@ export const CaseStudyWeedWarriors = () => {
               textStyles.body
             )}
           >
-            "devSouth Consulting transformed our business operations with their
-            digital solution. The automated scheduling and payment systems have
-            saved us countless hours, allowing us to focus on what we do best -
-            keeping our customers' lawns beautiful."
+            "Sanford Dev Consulting transformed our business operations with
+            their digital solution. The automated scheduling and payment systems
+            have saved us countless hours, allowing us to focus on what we do
+            best - keeping our customers' lawns beautiful."
             <footer
               className={cn(
                 textStyles['body-small'],
@@ -308,10 +308,10 @@ export const CaseStudyGorillaFund = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            devSouth Consulting provided technical expertise to Soulheart during
-            the development of the Dian Fossey Gorilla Fund website, focusing on
-            content management optimization, responsive styling, and interactive
-            feature implementation.
+            Sanford Dev Consulting provided technical expertise to Soulheart
+            during the development of the Dian Fossey Gorilla Fund website,
+            focusing on content management optimization, responsive styling, and
+            interactive feature implementation.
           </p>
         </div>
 
@@ -483,7 +483,7 @@ export const CaseStudyRoomInTheInn = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            As part of GiveCamp Memphis, devSouth contributed to a complete
+            As part of GiveCamp Memphis, Sanford Dev contributed to a complete
             website redesign for Room in the Inn Memphis, a nonprofit
             organization providing shelter and support for individuals
             experiencing homelessness.

@@ -256,7 +256,7 @@ export default function PrivacyPolicyRoute() {
           </p>
           <div className="space-y-1">
             <p className="text-slate-800 dark:text-powder font-medium">
-              devSouth Consulting LLC
+              Sanford Dev Consulting LLC
             </p>
             <p className="text-slate-600 dark:text-powder/80">
               110 Lake Forest Ln, Clinton, MS 39056

@@ -14,7 +14,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: 'devSouth Consulting',
+  title: 'Sanford Dev Consulting',
   description: 'React ecosystem web development',
 }
 

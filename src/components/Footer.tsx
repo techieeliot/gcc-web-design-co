@@ -100,7 +100,7 @@ export default function Footer() {
                 <div className="rounded-full bg-slate p-3 inline-flex items-center justify-center">
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="devSouth Logo"
+                    alt="Sanford Dev Logo"
                     width={36}
                     height={36}
                     className="w-8 h-8"
@@ -271,7 +271,7 @@ export default function Footer() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-600 dark:text-powder/80 flex items-center">
-              &copy; {currentYear} devSouth Consulting. All rights reserved.
+              &copy; {currentYear} Sanford Dev Consulting. All rights reserved.
             </p>
             <motion.p
               initial={{ opacity: 0 }}

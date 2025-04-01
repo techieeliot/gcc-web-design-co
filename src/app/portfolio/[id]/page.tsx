@@ -33,16 +33,16 @@ export function generateMetadata({
 
   if (!caseStudy) {
     return {
-      title: 'Case Study Not Found | devSouth Consulting',
+      title: 'Case Study Not Found | Sanford Dev Consulting',
       description: 'The requested case study could not be found.',
     }
   }
 
   return {
-    title: `${caseStudy.title} | devSouth Consulting`,
+    title: `${caseStudy.title} | Sanford Dev Consulting`,
     description: caseStudy.description,
     openGraph: {
-      title: `${caseStudy.title} | devSouth Consulting`,
+      title: `${caseStudy.title} | Sanford Dev Consulting`,
       description: caseStudy.description,
       images: [
         {

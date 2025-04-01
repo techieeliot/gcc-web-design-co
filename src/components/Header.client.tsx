@@ -233,7 +233,7 @@ export default function Header() {
                   {/* Logo image */}
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="devSouth Logo"
+                    alt="Sanford Dev Logo"
                     width={36}
                     height={36}
                     className={cn(

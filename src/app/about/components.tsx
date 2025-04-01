@@ -15,6 +15,9 @@ import {
   GraduationCap,
   Github,
   LinkedinIcon,
+  PaintBucket,
+  User2,
+  Quote,
 } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -132,10 +135,132 @@ export const AboutMainContent = () => {
           transforming innovative ideas into successful digital products. Our
           journey began with a focus on helping pre-revenue startups build
           scalable MVPs, and has since evolved into partnerships with enterprise
-          clients while maintaining our commitment to startup innovation.
+          clients while maintaining our commitment to startup innovation. In
+          2025, we rebranded from devSouth to Sanford Dev Consulting.
         </motion.p>
       </motion.div>
 
+      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
+        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+          Our Mission
+        </motion.h3>
+        <motion.div
+          variants={imageVariant}
+          className="relative h-48 sm:h-56 md:h-64 mb-6 lg:mb-8 rounded-lg overflow-hidden"
+        >
+          <Image
+            src="/images/pic04.webp"
+            alt="Building remarkable applications"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 75vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring' }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
+                <PaintBucket
+                  className="w-10 h-10 text-white drop-shadow-lg"
+                  strokeWidth={1.5}
+                />
+                <Heart
+                  className="w-10 h-10 text-white drop-shadow-lg"
+                  strokeWidth={1.5}
+                />
+                <User2
+                  className="w-10 h-10 text-white drop-shadow-lg"
+                  strokeWidth={1.5}
+                />
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
+          Our mission is to build remarkable applications that empower people
+          through technology. We are dedicated to creating innovative solutions
+          that enhance user experiences and drive business success. Our focus on
+          performance, accessibility, and scalability ensures that our products
+          meet the needs of our clients and their users.
+        </motion.p>
+
+        <motion.blockquote className="text-slate-900 dark:text-white">
+          <p className="text-lg font-semibold">
+            "Building remarkable applications that empower people through
+            technology."
+          </p>
+          <cite className="text-sm text-slate-600 dark:text-slate-300">
+            - Eliot Sanford, Founder & Lead Engineer
+          </cite>
+        </motion.blockquote>
+
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
+          <Quote
+            className="w-8 h-8 text-sky dark:text-azure mb-2"
+            strokeWidth={1.5}
+          />
+          <span className="text-slate-900 dark:text-white">
+            Our mission is to:
+          </span>
+          <br />
+          <span className="text-slate-900 dark:text-white">
+            <strong>Build remarkable applications.</strong>
+            <br />
+            <strong>Empower people through technology.</strong>
+            <br />
+            <strong>Foster innovation and growth.</strong>
+            <br />
+            <strong>Support our community.</strong>
+            <br />
+          </span>
+        </motion.p>
+        <motion.p>
+          <strong>
+            Delight the people who use our applications with a focus on creating
+            a remarkable user experience enabling them to achieve their purpose.
+          </strong>
+        </motion.p>
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
+          We strive to build applications that are not only functional but also
+          aesthetically pleasing and easy to use.
+        </motion.p>
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
+          We believe that technology should enhance the user experience, making
+          it more intuitive and enjoyable.
+        </motion.p>
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
+          We are dedicated to continuous learning and innovation, always
+          striving to stay ahead of the curve in the ever-evolving tech
+          landscape. Our goal is to create a positive impact in the communities
+          we serve, fostering growth and development through technology.
+        </motion.p>
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
+          We are committed to building a diverse and inclusive team, where
+          everyone feels valued and empowered to contribute their unique
+          perspectives. We believe that diversity drives innovation and leads to
+          better solutions for our clients.
+        </motion.p>
+      </motion.div>
       <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
         <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Approach
@@ -286,10 +411,21 @@ export const AboutMainContent = () => {
           className="flex flex-col sm:flex-row items-start gap-6"
         >
           <div className="flex-1">
-            <motion.h4 variants={fadeIn} className={textStyles.h4}>
+            <motion.div
+              variants={fadeIn}
+              className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 rounded-full overflow-hidden"
+            >
+              <Image
+                src="/authors/eliot.webp"
+                alt="Eliot Sanford"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 75vw"
+              />
+            </motion.div>
+            <motion.h4 variants={fadeIn} className={cn(textStyles.h4, 'mb-2')}>
               Eliot Sanford
             </motion.h4>
-
             <motion.p
               variants={fadeIn}
               className={cn(
