@@ -1,3 +1,8 @@
+'use client'
+
+import { componentStyles } from '@/lib/component-styles'
+import { textStyles } from '@/lib/text-styles'
+import { cn } from '@/lib/utils'
 import { Link } from 'components/ui/link'
 import {
   ExternalLinkIcon,
@@ -12,122 +17,306 @@ import {
   LinkedinIcon,
 } from 'lucide-react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+
+// Animation variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const imageVariant = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8 },
+  },
+}
+
+const listItem = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.4 },
+  },
+}
 
 export const AboutMainContent = () => {
   return (
-    <article className="prose lg:prose-lg max-w-none bg-white p-6 rounded-lg shadow-md">
+    <motion.article
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      className={cn(
+        componentStyles.card,
+        'prose lg:prose-lg max-w-none',
+        'p-6 sm:p-8 lg:p-10'
+      )}
+    >
       {/* Hero section with image and icons */}
-      <div className="relative h-64 sm:h-72 md:h-80 mb-8 rounded-lg overflow-hidden">
+      <motion.div
+        variants={imageVariant}
+        className="relative h-64 sm:h-72 md:h-80 lg:h-96 mb-8 lg:mb-12 rounded-lg overflow-hidden"
+      >
         <Image
-          src="/images/pic03.jpg"
+          src="/images/pic03.webp"
           alt="Modern development workspace"
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 75vw"
+          priority
         />
-        <div className="absolute inset-0 bg-blue-700/30 flex items-center justify-center gap-6">
-          <Code2 className="w-12 h-12 text-white" strokeWidth={1.5} />
-          <Brain className="w-12 h-12 text-white" strokeWidth={1.5} />
-          <Rocket className="w-12 h-12 text-white" strokeWidth={1.5} />
+        <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: 'spring' }}
+          >
+            <Code2
+              className="w-12 h-12 text-white drop-shadow-lg"
+              strokeWidth={1.5}
+            />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: -5 }}
+            transition={{ type: 'spring' }}
+          >
+            <Brain
+              className="w-12 h-12 text-white drop-shadow-lg"
+              strokeWidth={1.5}
+            />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: 'spring' }}
+          >
+            <Rocket
+              className="w-12 h-12 text-white drop-shadow-lg"
+              strokeWidth={1.5}
+            />
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      <h2 className="text-3xl font-bold text-gray-950 mb-6">About devSouth</h2>
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Our Story</h3>
-        <p className="text-gray-600">
+      <motion.h2
+        variants={fadeIn}
+        className={cn(textStyles.h2, 'mb-6 lg:mb-8')}
+      >
+        About devSouth
+      </motion.h2>
+
+      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
+        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+          Our Story
+        </motion.h3>
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
           Founded in 2018, devSouth Consulting emerged from a passion for
           transforming innovative ideas into successful digital products. Our
           journey began with a focus on helping pre-revenue startups build
           scalable MVPs, and has since evolved into partnerships with enterprise
           clients while maintaining our commitment to startup innovation.
-        </p>
-      </div>
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+        </motion.p>
+      </motion.div>
+
+      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
+        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Approach
-        </h3>
-        <div className="relative h-48 sm:h-56 mb-6 rounded-lg overflow-hidden">
+        </motion.h3>
+
+        <motion.div
+          variants={imageVariant}
+          className="relative h-48 sm:h-56 md:h-64 mb-6 lg:mb-8 rounded-lg overflow-hidden"
+        >
           <Image
-            src="/images/pic02.jpg"
+            src="/images/pic02.webp"
             alt="Collaborative development"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 75vw"
           />
-          <div className="absolute inset-0 bg-blue-700/30 flex items-center justify-center gap-4">
-            <Laptop className="w-10 h-10 text-white" strokeWidth={1.5} />
-            <Users className="w-10 h-10 text-white" strokeWidth={1.5} />
+          <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring' }}
+            >
+              <Laptop
+                className="w-10 h-10 text-white drop-shadow-lg"
+                strokeWidth={1.5}
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring' }}
+            >
+              <Users
+                className="w-10 h-10 text-white drop-shadow-lg"
+                strokeWidth={1.5}
+              />
+            </motion.div>
           </div>
-        </div>
-        <p className="text-gray-600">
+        </motion.div>
+
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
           We believe in building not just applications, but partnerships. Our
           approach combines technical expertise with business acumen, ensuring
           that every line of code contributes to your business objectives. We
           emphasize:
-        </p>
-        <ul className="mt-4 space-y-2 text-gray-600">
-          <li>• Performance-first development methodology</li>
-          <li>• Accessibility as a core requirement</li>
-          <li>• Scalable, maintainable architecture</li>
-          <li>• Data-driven decision making</li>
-          <li>• Continuous innovation and learning</li>
-        </ul>
-      </div>
+        </motion.p>
 
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+        <motion.ul
+          variants={staggerContainer}
+          className={cn('mt-6 space-y-3', textStyles.body)}
+        >
+          {[
+            'Performance-first development methodology',
+            'Accessibility as a core requirement',
+            'Scalable, maintainable architecture',
+            'Data-driven decision making',
+            'Continuous innovation and learning',
+          ].map((item, index) => (
+            <motion.li
+              key={index}
+              variants={listItem}
+              className="flex items-start gap-3"
+            >
+              <span className="text-sky dark:text-azure">•</span>
+              <span className="text-slate-700 dark:text-slate-300">{item}</span>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+
+      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
+        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Community Involvement
-        </h3>
-        <div className="relative h-48 sm:h-56 mb-6 rounded-lg overflow-hidden">
+        </motion.h3>
+
+        <motion.div
+          variants={imageVariant}
+          className="relative h-48 sm:h-56 md:h-64 mb-6 lg:mb-8 rounded-lg overflow-hidden"
+        >
           <Image
-            src="/images/pic01.jpg"
+            src="/images/pic01.webp"
             alt="Community and education"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 75vw"
           />
-          <div className="absolute inset-0 bg-blue-700/30 flex items-center justify-center gap-4">
-            <Heart className="w-10 h-10 text-white" strokeWidth={1.5} />
-            <GraduationCap className="w-10 h-10 text-white" strokeWidth={1.5} />
+          <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring' }}
+            >
+              <Heart
+                className="w-10 h-10 text-white drop-shadow-lg"
+                strokeWidth={1.5}
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring' }}
+            >
+              <GraduationCap
+                className="w-10 h-10 text-white drop-shadow-lg"
+                strokeWidth={1.5}
+              />
+            </motion.div>
           </div>
-        </div>
-        <p className="text-gray-600">
+        </motion.div>
+
+        <motion.p
+          variants={fadeIn}
+          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+        >
           Beyond our client work, we're deeply committed to fostering tech
           education and community growth. Our involvement includes:
-        </p>
-        <ul className="mt-4 space-y-2 text-gray-600">
-          <li>• Founding and organizing freeCodeCamp Jackson, Mississippi</li>
-          <li>• Mentoring at Base Camp Coding Academy</li>
-          <li>• Teaching web development to underrepresented youth</li>
-          <li>
-            • Contributing to open source education (University of Helsinki)
-          </li>
-          <li>• Supporting nonprofits through GiveCamp Memphis</li>
-        </ul>
-      </div>
+        </motion.p>
 
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+        <motion.ul
+          variants={staggerContainer}
+          className={cn('mt-6 space-y-3', textStyles.body)}
+        >
+          {[
+            'Founding and organizing freeCodeCamp Jackson, Mississippi',
+            'Mentoring at Base Camp Coding Academy',
+            'Teaching web development to underrepresented youth',
+            'Contributing to open source education (University of Helsinki)',
+            'Supporting nonprofits through GiveCamp Memphis',
+          ].map((item, index) => (
+            <motion.li
+              key={index}
+              variants={listItem}
+              className="flex items-start gap-3"
+            >
+              <span className="text-sky dark:text-azure">•</span>
+              <span className="text-slate-700 dark:text-slate-300">{item}</span>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+
+      <motion.div variants={fadeIn} className="mb-8">
+        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Leadership
-        </h3>
-        <div className="flex items-start gap-6">
+        </motion.h3>
+
+        <motion.div
+          variants={fadeIn}
+          className="flex flex-col sm:flex-row items-start gap-6"
+        >
           <div className="flex-1">
-            <h4 className="text-xl font-semibold text-gray-800 mb-2">
+            <motion.h4 variants={fadeIn} className={textStyles.h4}>
               Eliot Sanford
-            </h4>
-            <p className="text-gray-600">Founder & Lead Engineer</p>
-            <p className="text-gray-600 mt-4">
+            </motion.h4>
+
+            <motion.p
+              variants={fadeIn}
+              className={cn(
+                textStyles.body,
+                'mt-2 text-sky dark:text-azure font-medium'
+              )}
+            >
+              Founder & Lead Engineer
+            </motion.p>
+
+            <motion.p
+              variants={fadeIn}
+              className={cn(
+                textStyles.body,
+                'mt-4 text-slate-700 dark:text-slate-300'
+              )}
+            >
               With over 6 years of specialized experience in the React
               ecosystem, Eliot has led development initiatives for startups and
               enterprise clients alike. His focus on performance, accessibility,
               and scalable architecture has helped numerous organizations
               achieve their digital transformation goals.
-            </p>
+            </motion.p>
           </div>
-        </div>
-      </div>
-    </article>
+        </motion.div>
+      </motion.div>
+    </motion.article>
   )
 }
 
@@ -144,23 +333,41 @@ export const CompanyFacts = () => {
   ]
 
   return (
-    <section className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      className={cn(componentStyles.container, 'p-6 sm:p-8', 'rounded-xl')}
+    >
+      <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-6')}>
         Company Facts
-      </h3>
-      <ul className="space-y-4 text-gray-600">
+      </motion.h3>
+
+      <motion.ul variants={staggerContainer} className="space-y-5">
         {facts.map(({ label, value, icon: Icon }) => (
-          <li key={label} className="flex items-start gap-3">
-            <Icon className="w-5 h-5 text-blue-700 mt-1 flex-shrink-0" />
-            <div>
-              <strong>{label}:</strong>
+          <motion.li
+            key={label}
+            variants={listItem}
+            whileHover={{ x: 5 }}
+            className="flex items-start gap-3"
+          >
+            <Icon className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0" />
+            <div
+              className={cn(
+                textStyles.body,
+                'text-slate-700 dark:text-slate-300'
+              )}
+            >
+              <strong className="text-slate-900 dark:text-white">
+                {label}:
+              </strong>
               <br />
               {value}
             </div>
-          </li>
+          </motion.li>
         ))}
-      </ul>
-    </section>
+      </motion.ul>
+    </motion.section>
   )
 }
 
@@ -179,23 +386,40 @@ export const ConnectWithUs = () => {
   ]
 
   return (
-    <section className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      className={cn(componentStyles.container, 'p-6 sm:p-8', 'rounded-xl')}
+    >
+      <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-6')}>
         Connect With Us
-      </h3>
-      <div className="space-y-4">
+      </motion.h3>
+
+      <motion.div variants={staggerContainer} className="space-y-5">
         {socialLinks.map(({ href, label, icon: Icon }) => (
-          <Link
+          <motion.div
             key={href}
-            href={href}
-            className="flex items-center gap-2 text-gray-600 hover:text-blue-700 transition-colors w-full"
+            variants={listItem}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <Icon className="w-5 h-5 flex-shrink-0" />
-            <span className="flex-grow text-left">{label}</span>
-            <ExternalLinkIcon className="w-4 h-4 flex-shrink-0" />
-          </Link>
+            <Link
+              href={href}
+              className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            >
+              <Icon className="w-5 h-5 flex-shrink-0 text-sky dark:text-azure" />
+              <span className="flex-grow text-left">{label}</span>
+              <motion.div
+                whileHover={{ x: 3 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+              >
+                <ExternalLinkIcon className="w-4 h-4 flex-shrink-0" />
+              </motion.div>
+            </Link>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   )
 }

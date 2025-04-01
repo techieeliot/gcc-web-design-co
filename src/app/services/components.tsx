@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import {
   Code2,
@@ -13,6 +15,83 @@ import {
   BookOpen,
   Laptop,
 } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { componentStyles } from '@/lib/component-styles'
+import { textStyles } from '@/lib/text-styles'
+import { motion } from 'framer-motion'
+
+// Animation variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+}
+
+const imageVariant = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8 },
+  },
+}
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.2,
+    },
+  }),
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const featureItem = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.3 },
+  },
+}
+
+const iconContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+}
+
+const iconAnimation = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      damping: 12,
+    },
+  },
+}
 
 export const ServicesMainContent = () => {
   const services = [
@@ -44,51 +123,138 @@ export const ServicesMainContent = () => {
   ]
 
   return (
-    <main className="lg:col-span-8 space-y-8">
-      <div className="relative h-64 rounded-lg overflow-hidden">
+    <motion.main
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      className="lg:col-span-8 space-y-8"
+    >
+      <motion.div
+        variants={imageVariant}
+        className="relative h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden shadow-lg"
+      >
         <Image
-          src="/images/pic02.jpg"
+          src="/images/pic02.webp"
           alt="Modern development workspace"
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 66vw"
+          priority
         />
-        <div className="absolute inset-0 bg-blue-700/30 flex items-center justify-center gap-6">
-          <Code2 className="w-12 h-12 text-white" strokeWidth={1.5} />
-          <Rocket className="w-12 h-12 text-white" strokeWidth={1.5} />
-          <SearchCode className="w-12 h-12 text-white" strokeWidth={1.5} />
-        </div>
-      </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="absolute inset-0 bg-gradient-to-br from-sky/40 to-azure/30 dark:from-sky/50 dark:to-azure/40 flex items-center justify-center gap-6"
+        >
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            whileHover={{ scale: 1.1, rotate: -5 }}
+          >
+            <Code2
+              className="w-12 h-12 text-white drop-shadow-lg"
+              strokeWidth={1.5}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
+            <Rocket
+              className="w-12 h-12 text-white drop-shadow-lg"
+              strokeWidth={1.5}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1 }}
+            whileHover={{ scale: 1.1, rotate: -5 }}
+          >
+            <SearchCode
+              className="w-12 h-12 text-white drop-shadow-lg"
+              strokeWidth={1.5}
+            />
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       {services.map((service, index) => (
-        <div key={index} className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex gap-4 mb-4">
+        <motion.div
+          key={index}
+          custom={index}
+          variants={cardVariant}
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.2 }}
+          className={cn(
+            componentStyles.card,
+            'p-6 sm:p-8',
+            'shadow-sm hover:shadow-md transition-shadow'
+          )}
+        >
+          <motion.div
+            variants={iconContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex gap-4 mb-6"
+          >
             {service.icons.map((Icon, iconIndex) => (
-              <Icon
+              <motion.div
                 key={iconIndex}
-                className="w-6 h-6 text-blue-700"
-                strokeWidth={1.5}
-              />
-            ))}
-          </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-3">
-            {service.title}
-          </h2>
-          <p className="text-gray-600 mb-4">{service.description}</p>
-          <ul className="space-y-2">
-            {service.features.map((feature, featureIndex) => (
-              <li
-                key={featureIndex}
-                className="flex items-start gap-2 text-gray-600"
+                variants={iconAnimation}
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <ArrowUpRight className="w-5 h-5 text-blue-700 flex-shrink-0 mt-0.5" />
-                <span>{feature}</span>
-              </li>
+                <Icon
+                  className="w-6 h-6 text-sky dark:text-azure"
+                  strokeWidth={1.5}
+                />
+              </motion.div>
             ))}
-          </ul>
-        </div>
+          </motion.div>
+
+          <motion.h2 variants={fadeIn} className={cn(textStyles.h2, 'mb-3')}>
+            {service.title}
+          </motion.h2>
+
+          <motion.p
+            variants={fadeIn}
+            className={cn(
+              textStyles.body,
+              'mb-6 text-slate-600 dark:text-slate-300'
+            )}
+          >
+            {service.description}
+          </motion.p>
+
+          <motion.ul
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="space-y-3"
+          >
+            {service.features.map((feature, featureIndex) => (
+              <motion.li
+                key={featureIndex}
+                variants={featureItem}
+                className="flex items-start gap-3"
+              >
+                <ArrowUpRight className="w-5 h-5 text-sky dark:text-azure flex-shrink-0 mt-0.5" />
+                <span className="text-slate-600 dark:text-slate-300">
+                  {feature}
+                </span>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
       ))}
-    </main>
+    </motion.main>
   )
 }
 
@@ -119,28 +285,62 @@ export const ServicesSidebar = () => {
   ]
 
   return (
-    <aside className="lg:col-span-4 space-y-6">
+    <motion.aside
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="lg:col-span-4 space-y-6 lg:sticky lg:top-8 self-start"
+    >
       {implementations.map((section, index) => (
-        <div key={index} className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <section.icon className="w-5 h-5 text-blue-700" />
-            <h3 className="text-lg font-semibold text-gray-800">
-              {section.title}
-            </h3>
-          </div>
-          <ul className="space-y-2">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
+          whileHover={{ y: -5 }}
+          className={cn(
+            componentStyles.card,
+            'p-6 sm:p-8',
+            'shadow-sm hover:shadow-md transition-all'
+          )}
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
+            className="flex items-center gap-3 mb-4"
+          >
+            <motion.div
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <section.icon className="w-5 h-5 text-sky dark:text-azure" />
+            </motion.div>
+            <h3 className={textStyles.h3}>{section.title}</h3>
+          </motion.div>
+
+          <motion.ul
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-3"
+          >
             {section.items.map((item, itemIndex) => (
-              <li
+              <motion.li
                 key={itemIndex}
-                className="flex items-center gap-2 text-gray-600"
+                variants={featureItem}
+                whileHover={{ x: 3 }}
+                className="flex items-center gap-2 text-slate-600 dark:text-slate-300"
               >
-                <ArrowUpRight className="w-4 h-4 text-blue-700" />
+                <ArrowUpRight className="w-4 h-4 text-sky dark:text-azure" />
                 {item}
-              </li>
+              </motion.li>
             ))}
-          </ul>
-        </div>
+          </motion.ul>
+        </motion.div>
       ))}
-    </aside>
+    </motion.aside>
   )
 }

@@ -360,7 +360,7 @@ table {
 /* Row */
 
 .row {
-  @include html-grid((40px, 40px));
+  @include html-grid((40px, 40px);
 
   @include breakpoint('<=xlarge') {
     @include html-grid((40px, 40px), 'xlarge');
@@ -1280,7 +1280,7 @@ ul.menu {
   #navPanel {
     @include vendor('backface-visibility', 'hidden');
     @include vendor('transform', 'translateX(#{_size(navPanel) * -1})');
-    @include vendor('transition', ('transform #{_duration(navPanel)} ease'));
+    @include vendor('transition', ('transform #{_duration(navPanel)} ease');
     display: block;
     height: 100%;
     left: 0;

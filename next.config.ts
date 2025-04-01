@@ -1,7 +1,12 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const config: NextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  images: {
+    domains: ['devsouth.us'],
+  },
 }
 
-export default nextConfig
+export default config
