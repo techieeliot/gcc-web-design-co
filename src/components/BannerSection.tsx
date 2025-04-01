@@ -80,8 +80,8 @@ export default function BannerSection() {
         >
           <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/images/pic12.webp"
-              alt="Modern web development"
+              src="blueberry-atom.svg"
+              alt="Web development illustration"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
