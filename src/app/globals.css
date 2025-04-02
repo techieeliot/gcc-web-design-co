@@ -9,8 +9,24 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-powder: var(--powder);
+  --color-sky: var(--sky);
+  --color-azure: var(--azure);
+  --color-blueberry: var(--blueberry);
+  --color-midnight: var(--midnight);
+  --color-slate: var(--slate);
+  --color-white: var(--white);
+  --color-mist: var(--mist);
+  --color-graphite: var(--graphite);
+  --color-destructive: var(--destructive);
+  --color-navbar: var(--navbar);
+  --color-navbar-foreground: var(--navbar-foreground);
+  --color-footer: var(--footer);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
+
+  --font-sans: var(--poppins);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -56,31 +72,63 @@ body {
   overflow-x: hidden;
 }
 
+/* Base Colors and Variables */
 :root {
+  --offwhite: #f9fafb;
+  --powder: #e3edfa;
+  --sky: #2c97dd;
+  --azure: #1453bb;
+  --blueberry: #0d3086;
+  --midnight: #0e2d7f;
+  --slate: #242b4b;
+  --white: #ffffff;
+  --mist: #b8bbca;
+  --graphite: #424242;
+  --destructive: #ff0000;
+  --deep-navy: #0a1c40;
+
+  /* Define explicit values for slate colors */
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a; /* Explicitly define slate-900 */
+
+  /* Base Radius */
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Light Theme by Default */
+  --background: var(--offwhite);
+  --foreground: var(--slate);
+  --card: var(--blueberry);
+  --card-foreground: var(--white);
+  --popover: var(--blueberry);
+  --popover-foreground: var(--white);
+  --primary: var(--blueberry);
+  --primary-foreground: var(--white);
+  --secondary: var(--sky);
+  --secondary-foreground: var(--white);
+  --tertiary: var(--blueberry);
+  --tertiary-foreground: var(--white);
+  --destructive: var(--destructive);
+  --destructive-foreground: var(--white);
+  /* --muted: var(--azure) / 0.25; */
+  --muted-foreground: var(--sky);
+  /* --accent: var(--azure) / 0.25); */
+  --accent-foreground: var(--white);
+  /* --border: var(--white) / 0.12); */
+  /* --input: var(--white) / 0.12); */
+  --ring: var(--sky);
+  --navbar: var(--blueberry);
+  --navbar-foreground: var(--white);
+  --footer: var(--blueberry);
+  --footer-foreground: var(--white);
+
+  /* Sidebar Colors */
   --sidebar: oklch(0.984 0.003 247.858);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
   --sidebar-primary: oklch(0.208 0.042 265.755);
@@ -89,47 +137,66 @@ body {
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Fonts */
+  --font-sans: var(--font-poppins);
+
+  /* Text Colors */
+  --text-primary: var(--slate-800);
+  --text-secondary: var(--slate-600);
+  --text-primary-dark: var(--powder);
+  --text-secondary-dark: rgba(227, 237, 250, 0.8); /* powder at 80% opacity */
 }
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+/* Dark Theme */
+:root[data-theme='dark'] {
+  --background: var(--slate-900);
+  --foreground: var(--white);
+  --card: var(--slate-800);
+  --card-foreground: var(--white);
+  --popover: var(--slate-800);
+  --popover-foreground: var(--white);
+  --primary: var(--sky);
+  --primary-foreground: var(--white);
+  --secondary: var(--azure);
+  --secondary-foreground: var(--white);
+  --tertiary: var(--slate-800);
+  --tertiary-foreground: var(--white);
+  --muted-foreground: var(--powder);
+  --accent-foreground: var(--powder);
+  --navbar: var(--slate-800);
+  --navbar-foreground: var(--white);
+  --footer: var(--slate-800);
+  --footer-foreground: var(--white);
+
+  /* Text Colors */
+  --text-primary: var(--powder);
+  --text-secondary: rgba(227, 237, 250, 0.8);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Add this after your existing CSS */
+
+/* Force background inheritance */
+html,
+body,
+div,
+main,
+section,
+article,
+aside,
+nav,
+header,
+footer {
+  background-color: transparent;
 }
+
+/* Ensure dark mode background applies to the entire viewport */
+html.dark {
+  background-color: var(--slate-900);
+}
+
+/* Add a debug outline to see container boundaries in development */
+/* Remove this in production */
+/* .debug * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */

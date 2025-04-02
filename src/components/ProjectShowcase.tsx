@@ -1,110 +1,104 @@
-import {
-  Binary,
-  BookOpen,
-  BriefcaseBusiness,
-  CircuitBoard,
-  Code2,
-  Gavel,
-  HandHeart,
-  Heart,
-  Leaf,
-  Scale,
-  Sprout,
-  Star,
-  TreePine,
-  Users,
-} from 'lucide-react'
-import { Link } from './ui/link'
+'use client'
+
+import { componentStyles } from '@/lib/component-styles'
+import { textStyles } from '@/lib/text-styles'
+import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ProjectShowcase() {
-  const projects = [
-    {
-      image: '/images/pic04.jpg',
-      icons: [Scale, Gavel, BookOpen],
-      alt: 'Legal Services Project',
-      description: 'Legal Practice Management',
-    },
-    {
-      image: '/images/pic05.jpg',
-      icons: [CircuitBoard, Code2, Binary],
-      alt: 'Tech Company Project',
-      description: 'SaaS Platform',
-    },
-    {
-      image: '/images/pic06.jpg',
-      icons: [Sprout, Leaf, TreePine],
-      alt: 'Lawn Management Project',
-      description: 'Lawn Service Portal',
-    },
-    {
-      image: '/images/pic07.jpg',
-      icons: [Heart, Users, HandHeart],
-      alt: 'Nonprofit Project',
-      description: 'Charity Dashboard',
-    },
-  ]
   return (
-    <div className="w-full lg:col-span-4 bg-white rounded-lg shadow-md p-4 sm:p-6">
-      <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
-        Recent Projects
-      </h3>
-
-      {/* Further reduced image height */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        {projects.map(({ image, icons, alt, description }, index) => (
-          <div key={index} className="relative h-28 sm:h-24 group">
-            <Image
-              src={image}
-              alt={alt}
-              fill
-              className="object-cover rounded-lg"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-blue-700/30 rounded-lg flex items-center justify-center gap-1">
-              {icons.map((Icon, iconIndex) => (
-                <Icon
-                  key={iconIndex}
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-white"
-                  strokeWidth={1.5}
-                />
-              ))}
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-1 bg-black/50 rounded-b-lg">
-              <p className="text-xs text-white truncate">{description}</p>
-            </div>
-          </div>
-        ))}
+    <motion.div
+      className={cn(componentStyles.card, 'p-6 rounded-xl')}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className="mb-4">
+        <h3 className={cn(textStyles.h3, 'mb-2')}>Featured Work</h3>
+        <p className="text-slate-600 dark:text-slate-300 mb-4">
+          Explore some of our recent projects
+        </p>
       </div>
 
-      <div className="mt-3 space-y-2">
-        <div className="border-t pt-2">
-          <p className="text-gray-600 text-xs">
-            Our portfolio showcases a diverse range of projects, from legal tech
-            solutions to nonprofit platforms.
-          </p>
-        </div>
+      <div className="space-y-6">
+        <ProjectCard
+          title="Fourth Party"
+          description="A web-based platform to streamline the mediation process."
+          image="/images/pic03.webp"
+          tags={['React', 'Modern UI', 'CRM']}
+          link="/portfolio/fourth-party"
+        />
 
-        <div className="bg-gray-50 p-2 rounded-lg">
-          <div className="flex items-center gap-1 mb-1">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className="w-3 h-3 text-yellow-400 fill-yellow-400"
-              />
-            ))}
-          </div>
-          <blockquote className="text-xs text-gray-700 italic">
-            "Working with devSouth transformed our digital presence and exceeded
-            our expectations."
-          </blockquote>
-          <p className="text-xs text-gray-500 mt-1">— Director of Operations</p>
-        </div>
+        <ProjectCard
+          title="Room in the Inn Memphis"
+          description="Complete website redesign for a nonprofit organization providing shelter and support for homeless individuals."
+          image="/images/pic02.webp"
+          tags={['CMS', 'JavaScript']}
+          link="/portfolio/room-in-the-inn-memphis"
+        />
+      </div>
+    </motion.div>
+  )
+}
+
+const ProjectCard = ({
+  title,
+  description,
+  image,
+  tags,
+  link,
+}: {
+  title: string
+  description: string
+  image: string
+  tags: string[]
+  link: string
+}) => {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.2 }}
+      className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800"
+    >
+      <div className="relative h-36">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-sky/30 to-azure/20 dark:from-sky/40 dark:to-azure/30" />
       </div>
 
-      <Link href="/portfolio" className="w-full mt-2 text-sm" variant="default">
-        More Projects <BriefcaseBusiness className="ml-2 w-4 h-4" />
-      </Link>
-    </div>
+      <div className="p-4">
+        <h4 className={cn(textStyles.h4, 'mb-1')}>{title}</h4>
+
+        <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded font-medium"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <Link
+          href={link}
+          className="text-sky dark:text-azure flex items-center gap-1 text-sm font-medium"
+        >
+          View Case Study
+          <ExternalLink className="w-3 h-3" />
+        </Link>
+      </div>
+    </motion.div>
   )
 }
