@@ -130,10 +130,6 @@ const buttonVariants = cva(
         variant: ['default', 'outline', 'secondary', 'light', 'outlineWhite'],
         className: 'hover:scale-[1.02] active:scale-[0.98] transition-all', // Add subtle scaling to buttons
       },
-      {
-        variant: ['default', 'outline', 'secondary', 'light', 'outlineWhite'],
-        className: 'hover:scale-[1.02] active:scale-[0.98] transition-all', // Add subtle scaling to buttons
-      },
     ],
   }
 )
