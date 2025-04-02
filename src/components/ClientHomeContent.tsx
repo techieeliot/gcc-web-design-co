@@ -4,36 +4,29 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import dynamic from 'next/dynamic'
 import { Link } from './ui/link'
+import { LoadingFallback } from './ui/loading-fallback'
 
-// Use dynamic imports with loading fallbacks
+// Use dynamic imports with shared loading fallback
 const BannerSection = dynamic(() => import('@/components/BannerSection'), {
-  ssr: false, // Disable SSR for this heavy component
-  loading: () => (
-    <div className="h-[500px] bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg" />
-  ),
+  ssr: false,
+  loading: () => <LoadingFallback height="h-[500px]" />,
 })
 
 const FeaturesSection = dynamic(() => import('@/components/FeaturesSection'), {
   ssr: false,
-  loading: () => (
-    <div className="h-[400px] bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg" />
-  ),
+  loading: () => <LoadingFallback height="h-[400px]" />,
 })
 
 const ProjectShowcase = dynamic(() => import('@/components/ProjectShowcase'), {
   ssr: false,
-  loading: () => (
-    <div className="h-[300px] bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg" />
-  ),
+  loading: () => <LoadingFallback height="h-[300px]" />,
 })
 
 const ValueProposition = dynamic(
   () => import('@/components/ValueProposition'),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-[400px] bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg" />
-    ),
+    loading: () => <LoadingFallback height="h-[400px]" />,
   }
 )
 

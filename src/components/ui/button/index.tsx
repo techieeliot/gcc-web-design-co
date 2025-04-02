@@ -127,10 +127,6 @@ const buttonVariants = cva(
         className: '[&]:p-0 [&]:h-auto [&]:m-0', // Force override any size-based padding
       },
       {
-        variant: ['default', 'outline', 'secondary'],
-        className: 'hover:scale-[1.02] active:scale-[0.98] transition-all', // Add subtle scaling to buttons
-      },
-      {
         variant: ['default', 'outline', 'secondary', 'light', 'outlineWhite'],
         className: 'hover:scale-[1.02] active:scale-[0.98] transition-all', // Add subtle scaling to buttons
       },
