@@ -316,6 +316,8 @@ export default function ContactForm() {
                   I agree to the{' '}
                   <Link
                     href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="inlineLink"
                     className="text-sm"
                   >
