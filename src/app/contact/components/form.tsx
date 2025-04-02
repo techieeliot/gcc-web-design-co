@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Link } from '@/components/ui/link'
+import { FormField } from './FormField'
 
 // Animation variants
 const fadeIn = {
@@ -116,7 +117,7 @@ export default function ContactForm() {
     'dark:focus:ring-azure/50 dark:focus:border-azure/50'
   )
 
-  const errorClasses = 'text-red-500 dark:text-red-400 text-sm mt-1 font-medium'
+  const errorClasses = 'text-red-500 dark:text-red-400 text-sm font-medium'
 
   return (
     <motion.article
@@ -136,9 +137,11 @@ export default function ContactForm() {
         animate="visible"
         transition={{ delay: 0.2 }}
       >
-        <h2 className={textStyles.h2}>Let's Start a Conversation</h2>
+        <h2 className={cn(textStyles.h2, 'mb-6')}>
+          Let's Start a Conversation
+        </h2>
 
-        <p className={cn(textStyles.body, 'mb-6')}>
+        <p className={cn(textStyles.body, 'mb-6 max-w-2xl mx-auto')}>
           Whether you need technical consulting, web development, or emergency
           support, we're here to help. Fill out the form below and we'll get
           back to you as soon as possible.
@@ -183,10 +186,11 @@ export default function ContactForm() {
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="col-span-1 flex flex-col gap-2">
-                <label htmlFor="name" className={textStyles.label}>
-                  Full Name *
-                </label>
+              <FormField
+                label="Full Name *"
+                id="name"
+                error={errors.name?.message}
+              >
                 <input
                   type="text"
                   id="name"
@@ -196,15 +200,13 @@ export default function ContactForm() {
                     errors.name && 'border-red-500 dark:border-red-500'
                   )}
                 />
-                {errors.name && (
-                  <p className={errorClasses}>{errors.name.message}</p>
-                )}
-              </div>
+              </FormField>
 
-              <div className="col-span-1 flex flex-col gap-2">
-                <label htmlFor="email" className={textStyles.label}>
-                  Email Address *
-                </label>
+              <FormField
+                label="Email Address *"
+                id="email"
+                error={errors.email?.message}
+              >
                 <input
                   type="email"
                   id="email"
@@ -214,35 +216,29 @@ export default function ContactForm() {
                     errors.email && 'border-red-500 dark:border-red-500'
                   )}
                 />
-                {errors.email && (
-                  <p className={errorClasses}>{errors.email.message}</p>
-                )}
-              </div>
+              </FormField>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="col-span-1 flex flex-col gap-2">
-                <label htmlFor="company" className={textStyles.label}>
-                  Company Name
-                </label>
-                <p className="text-xs text-slate-600 dark:text-powder/80 mb-2">
-                  Optional but helps us better understand your context.{' '}
-                </p>
+              <FormField
+                label="Company Name"
+                id="company"
+                description="Optional but helps us better understand your context."
+              >
                 <input
                   type="text"
                   id="company"
                   {...register('company')}
                   className={inputClasses}
                 />
-              </div>
+              </FormField>
 
-              <div className="col-span-1 flex flex-col gap-2">
-                <label htmlFor="subject" className={textStyles.label}>
-                  Subject *
-                </label>
-                <p className="text-xs text-slate-600 dark:text-powder/80 mb-2">
-                  Select a subject that best describes your message.{' '}
-                </p>
+              <FormField
+                label="Subject *"
+                id="subject"
+                error={errors.subject?.message}
+                description="Select a subject that best describes your message."
+              >
                 <select
                   id="subject"
                   {...register('subject')}
@@ -266,24 +262,24 @@ export default function ContactForm() {
                   <option value="Emergency Support">Emergency Support</option>
                   <option value="General Inquiry">General Inquiry</option>
                 </select>
-                {errors.subject && (
-                  <p className={errorClasses}>{errors.subject.message}</p>
-                )}
-              </div>
+              </FormField>
             </div>
 
-            <div className="col-span-1 flex flex-col gap-2">
-              <label htmlFor="message" className={textStyles.label}>
-                Message *
-              </label>
-              <p className="text-xs text-slate-600 dark:text-powder/80 mb-2">
-                Tell us about your project, needs, or any questions you have.
-                The more details, the better!
-                <br />
-                <span className="text-slate-500 dark:text-powder/80">
-                  (e.g., project scope, timeline, budget, etc.)
-                </span>
-              </p>
+            <FormField
+              label="Message *"
+              id="message"
+              error={errors.message?.message}
+              description={
+                <>
+                  Tell us about your project, needs, or any questions you have.
+                  The more details, the better!
+                  <br />
+                  <span className="text-slate-500 dark:text-powder/80">
+                    (e.g., project scope, timeline, budget, etc.)
+                  </span>
+                </>
+              }
+            >
               <textarea
                 id="message"
                 rows={5}
@@ -293,10 +289,7 @@ export default function ContactForm() {
                   errors.message && 'border-red-500 dark:border-red-500'
                 )}
               ></textarea>
-              {errors.message && (
-                <p className={errorClasses}>{errors.message.message}</p>
-              )}
-            </div>
+            </FormField>
 
             <div className="flex items-start gap-2">
               <input
@@ -308,7 +301,7 @@ export default function ContactForm() {
                   errors.privacy && 'border-red-500 dark:border-red-500'
                 )}
               />
-              <div>
+              <div className="flex flex-col">
                 <label
                   htmlFor="privacy"
                   className="text-sm text-slate-600 dark:text-powder/80"
@@ -324,9 +317,15 @@ export default function ContactForm() {
                     privacy policy
                   </Link>
                 </label>
-                {errors.privacy && (
-                  <p className={errorClasses}>{errors.privacy.message}</p>
-                )}
+                {/* Error container for checkbox with icon */}
+                <div className="min-h-[20px] flex items-center gap-1.5">
+                  {errors.privacy && (
+                    <>
+                      <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400" />
+                      <p className={errorClasses}>{errors.privacy.message}</p>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
 
