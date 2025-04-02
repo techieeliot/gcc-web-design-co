@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
 }
 
-// TODO: sould come from a database or CMS
+// TODO: should come from a database or CMS
 const blogPosts = [
   {
     slug: 'getting-started-with-nextjs',

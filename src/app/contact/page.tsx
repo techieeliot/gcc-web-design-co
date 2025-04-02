@@ -56,7 +56,7 @@ export default function ContactRoute() {
 
           {/* Hero content with icon */}
           <div className="flex flex-col items-center gap-6">
-            <div className="rounded-full bg-slate p-4 shadow-lg">
+            <div className="rounded-full bg-slate-200 p-4 shadow-lg">
               <Mail className="w-8 h-8 text-powder" />
             </div>
 

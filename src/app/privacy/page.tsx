@@ -13,31 +13,31 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
-import { Metadata } from 'next'
+// import { Metadata } from 'next'
 import { Link } from '@/components/ui/link'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | SanforDev Consulting',
-  description:
-    'Read our privacy policy to understand how we collect, use, and protect your personal information at SanforDev Consulting.',
-  alternates: {
-    canonical: '/privacy',
-  },
-  openGraph: {
-    title: 'Privacy Policy | SanforDev Consulting',
-    description:
-      'Read our privacy policy to understand how we collect, use, and protect your personal information.',
-    url: 'https://devsouth.us/privacy',
-    images: [
-      {
-        url: '/images/social-card.webp',
-        width: 1200,
-        height: 630,
-        alt: 'SanforDev Consulting Privacy Policy',
-      },
-    ],
-  },
-}
+// export const metadata: Metadata = {
+//   title: 'Privacy Policy | SanforDev Consulting',
+//   description:
+//     'Read our privacy policy to understand how we collect, use, and protect your personal information at SanforDev Consulting.',
+//   alternates: {
+//     canonical: '/privacy',
+//   },
+//   openGraph: {
+//     title: 'Privacy Policy | SanforDev Consulting',
+//     description:
+//       'Read our privacy policy to understand how we collect, use, and protect your personal information.',
+//     url: 'https://devsouth.us/privacy',
+//     images: [
+//       {
+//         url: '/images/social-card.webp',
+//         width: 1200,
+//         height: 630,
+//         alt: 'SanforDev Consulting Privacy Policy',
+//       },
+//     ],
+//   },
+// }
 
 export default function PrivacyPolicyRoute() {
   // Animation variants
