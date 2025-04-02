@@ -38,7 +38,7 @@ const formSchema = z.object({
     .refine((message) => message.trim() !== '', {
       message: 'Message cannot be empty',
     })
-    .refine((message) => !message.includes('<script>'), {
+    .refine((message) => !message.toLowerCase().includes('<script>'), {
       message: 'Message contains invalid content',
     }),
   privacy: z.literal(true, {

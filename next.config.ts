@@ -5,7 +5,7 @@ const config: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['devsouth.us', 'sanfor.dev'],
+    domains: ['localhost', 'devsouth.us', 'sanfor.dev'],
   },
   // Add domain handling
   async rewrites() {

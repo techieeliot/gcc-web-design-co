@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import fs from 'fs'
 import path from 'path'
@@ -12,6 +11,10 @@ import { textStyles } from '@/lib/text-styles'
 import { Callout } from '@/components/mdx/callout'
 import { CodeBlock } from '@/components/mdx/code-block'
 import { Link } from '@/components/ui/link'
+
+import type { ResolvingMetadata, Metadata } from 'next'
+import BlogImage from '@/components/BlogImage'
+import { ImageErrorBoundary } from '@/components/ImageErrorBoundary'
 
 // MDX components mapping
 // Interface for the components object used by MDXRemote
@@ -139,8 +142,10 @@ const blogPosts = {
 }
 
 export async function generateStaticParams() {
-  // TODO: this should come from CMS or database
-  return Object.keys(blogPosts).map((slug) => ({ slug }))
+  // Returns an array of objects with slug property
+  return Object.keys(blogPosts).map((slug) => ({
+    slug,
+  }))
 }
 
 async function getPostBySlug(slug: string) {
@@ -167,12 +172,16 @@ async function getPostBySlug(slug: string) {
   }
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}): Metadata {
-  const post = blogPosts[params.slug as keyof typeof blogPosts]
+// Update generateMetadata
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // Await params before using
+  const resolvedParams = await params
+  const slug = resolvedParams.slug
+
+  const post = blogPosts[slug as keyof typeof blogPosts]
 
   if (!post) {
     return {
@@ -185,7 +194,7 @@ export function generateMetadata({
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `/blog/${params.slug}`,
+      canonical: `/blog/${slug}`,
     },
     authors: [
       {
@@ -203,7 +212,7 @@ export function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://devsouth.us/blog/${params.slug}`,
+      url: `https://devsouth.us/blog/${slug}`,
       type: 'article',
       publishedTime: new Date(post.date).toISOString(),
       authors: [post.author],
@@ -226,18 +235,23 @@ export function generateMetadata({
   }
 }
 
-type Props = {
-  params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+// Update page component
+export default async function BlogPostRoute({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  // Await params before using
+  const resolvedParams = await params
+  const slug = resolvedParams.slug
 
-export default async function BlogPostRoute({ params }: Props) {
-  const post = await getPostBySlug(params.slug)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     notFound()
   }
 
+  // Rest of your component stays the same
   return (
     <div className="min-h-screen pt-20 lg:pt-28 pb-16">
       <div className="container mx-auto px-4">
@@ -281,7 +295,7 @@ export default async function BlogPostRoute({ params }: Props) {
 
           <div className="flex items-center gap-4 mb-8 pb-8 border-b border-slate-200 dark:border-slate-800">
             <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
-              <Image
+              <BlogImage
                 src={post.authorImage}
                 alt={post.author}
                 fill
@@ -316,13 +330,15 @@ export default async function BlogPostRoute({ params }: Props) {
         {/* Featured Image */}
         <div className="max-w-5xl mx-auto mb-12 rounded-xl overflow-hidden shadow-lg">
           <div className="aspect-w-16 aspect-h-9 w-full relative">
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              className="object-cover"
-              priority
-            />
+            <ImageErrorBoundary>
+              <BlogImage
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </ImageErrorBoundary>
           </div>
         </div>
 
