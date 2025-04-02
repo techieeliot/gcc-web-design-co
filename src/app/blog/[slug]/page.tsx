@@ -3,14 +3,15 @@ import fs from 'fs'
 import path from 'path'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { Calendar, User, Tag, ArrowLeft, Clock, Share2 } from 'lucide-react'
+import { Calendar, ArrowLeft, Clock, Share2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
-import Link from 'next/link'
 
 // Components for MDX
 import { Callout } from '@/components/mdx/callout'
 import { CodeBlock } from '@/components/mdx/code-block'
+import { Metadata } from 'next'
+import { Link } from '@/components/ui/link'
 
 // MDX components mapping
 // Interface for the components object used by MDXRemote
@@ -85,7 +86,7 @@ const components: MDXComponents = {
   ),
 }
 
-// In a real app, this metadata would come from a CMS
+// TODO: metadata should come from CMS
 const blogPosts = {
   'getting-started-with-nextjs': {
     title: 'Getting Started with Next.js: A Practical Guide',
@@ -138,12 +139,12 @@ const blogPosts = {
 }
 
 export async function generateStaticParams() {
-  // In a real app, this would come from your CMS or database
+  // TODO: this should come from CMS or database
   return Object.keys(blogPosts).map((slug) => ({ slug }))
 }
 
 async function getPostBySlug(slug: string) {
-  // In a production app, you would fetch this from your CMS or database
+  // TODO: fetch this from CMS or database
   const postData = blogPosts[slug as keyof typeof blogPosts]
 
   if (!postData) {
@@ -166,6 +167,65 @@ async function getPostBySlug(slug: string) {
   }
 }
 
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Metadata {
+  const post = blogPosts[params.slug as keyof typeof blogPosts]
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested blog post could not be found.',
+    }
+  }
+
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: {
+      canonical: `/blog/${params.slug}`,
+    },
+    authors: [
+      {
+        name: post.author,
+        url: 'https://www.techieeliot.com',
+      },
+    ],
+    category: post.category,
+    keywords: [
+      ...post.tags,
+      'software development',
+      'react',
+      'web development',
+    ],
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `https://devsouth.us/blog/${params.slug}`,
+      type: 'article',
+      publishedTime: new Date(post.date).toISOString(),
+      authors: [post.author],
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      tags: post.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [post.image],
+    },
+  }
+}
+
 export default async function BlogPostRoute({
   params,
 }: {
@@ -180,11 +240,11 @@ export default async function BlogPostRoute({
   return (
     <div className="min-h-screen pt-20 lg:pt-28 pb-16">
       <div className="container mx-auto px-4">
-        {/* Back Link */}
         <div className="ml-16 mb-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1 text-slate-600 hover:text-sky dark:text-slate-400 dark:hover:text-azure transition-colors"
+            variant="outline"
+            className="inline-flex items-center gap-1"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Blog

@@ -1,11 +1,10 @@
 'use client'
 
-import { Button } from 'components/ui/button'
 import { Mail, MapPin, Clock, Globe, Linkedin, Twitter } from 'lucide-react'
 import { cn } from 'lib/utils'
 import { textStyles } from 'lib/text-styles'
-import { Link } from 'components/ui/link'
 import { motion } from 'framer-motion'
+import { Link } from '@/components/ui/link'
 
 // Animation variants
 const fadeIn = {
@@ -148,7 +147,7 @@ export default function ContactSidebar() {
         <div className="flex gap-4 mt-4">
           <motion.div variants={iconAnimation}>
             <Link
-              href="https://www.linkedin.com/company/65794307/"
+              href="https://www.linkedin.com/company/devsouth-consulting-llc/"
               variant="nav"
               className={cn(
                 'p-2 rounded-full inline-flex',

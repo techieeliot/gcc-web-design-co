@@ -1,6 +1,6 @@
-# Sanford Dev Consulting Website
+# SanforDev Consulting Website
 
-A modern, responsive website built with Next.js for Sanford Dev Consulting, showcasing our software development and technical consulting services.
+A modern, responsive website built with Next.js for SanforDev Consulting, showcasing our software development and technical consulting services.
 
 ## 🚀 Features
 
@@ -25,11 +25,6 @@ A modern, responsive website built with Next.js for Sanford Dev Consulting, show
 ## 🚦 Getting Started
 
 1. **Clone the repository**
-
-```bash
-git clone https://github.com/yourusername/devsouth.git
-cd devsouth
-```
 
 2. **Install dependencies**
 
@@ -97,7 +92,7 @@ The project uses GitHub Actions for CI/CD:
 
 ## 📝 License
 
-Copyright © 2024 Sanford Dev Consulting. All rights reserved.
+Copyright © 2024 SanforDev Consulting. All rights reserved.
 
 ## 👥 Contributing
 

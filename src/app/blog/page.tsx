@@ -1,10 +1,42 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { FileText, Calendar, User, Tag, ArrowRight } from 'lucide-react'
+import { FileText, Calendar, Tag, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
+import { Metadata } from 'next'
 
-// In a real app, this would come from a database or CMS
+export const metadata: Metadata = {
+  title: 'Blog | React Development Insights & Tutorials',
+  description:
+    'Stay up to date with the latest React ecosystem insights, tutorials, and best practices. Learn about Next.js, TypeScript, performance optimization, and more.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'React Development Blog | SanforDev Consulting',
+    description:
+      'Stay up to date with the latest React ecosystem insights, tutorials, and best practices.',
+    url: 'https://devsouth.us/blog',
+    images: [
+      {
+        url: '/images/blog-social.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SanforDev Consulting Blog',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'React Development Blog | SanforDev Consulting',
+    description:
+      'Stay up to date with the latest React ecosystem insights and tutorials.',
+    images: ['/images/blog-social.webp'],
+  },
+}
+
+// TODO: sould come from a database or CMS
 const blogPosts = [
   {
     slug: 'getting-started-with-nextjs',
@@ -74,12 +106,6 @@ export default function BlogPostsHubRoute() {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12 lg:mb-20 relative">
-          {/* Decorative gradient circles */}
-          <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute right-1/2 -top-32 h-[400px] w-[400px] rounded-full bg-gradient-radial from-azure/20 via-transparent to-transparent blur-3xl" />
-            <div className="absolute left-1/2 -top-40 h-[400px] w-[400px] rounded-full bg-gradient-radial from-sky/20 via-transparent to-transparent blur-3xl" />
-          </div>
-
           {/* Hero content with icon */}
           <div className="flex flex-col items-center gap-6">
             <div className="rounded-full bg-slate p-4 shadow-lg">
@@ -89,7 +115,7 @@ export default function BlogPostsHubRoute() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Blog & Insights</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              Thoughts, stories, and ideas from the Sanford Dev team on web
+              Thoughts, stories, and ideas from the SanforDev team on web
               development, design, and technology.
             </p>
           </div>

@@ -1,14 +1,11 @@
 'use client'
 
 import QuickLinks from './QuickLinks'
-import ContactInfo from './ContactInfo'
-import { Link } from './ui/link'
 import {
   Mail,
   Phone,
   MapPin,
   Heart,
-  ChevronRight,
   ExternalLink,
   Linkedin,
   Twitter,
@@ -17,6 +14,7 @@ import {
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import { Link } from './ui/link'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -88,7 +86,7 @@ export default function Footer() {
             className="text-center sm:text-left lg:col-span-4"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4">
-              About devSouth
+              About SanforDev
             </h3>
 
             <div className="flex items-center justify-center sm:justify-start mb-4">
@@ -100,7 +98,7 @@ export default function Footer() {
                 <div className="rounded-full bg-slate p-3 inline-flex items-center justify-center">
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="Sanford Dev Logo"
+                    alt="SanforDev Logo"
                     width={36}
                     height={36}
                     className="w-8 h-8"
@@ -281,7 +279,7 @@ export default function Footer() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-600 dark:text-powder/80 flex items-center">
-              &copy; {currentYear} Sanford Dev Consulting. All rights reserved.
+              &copy; {currentYear} SanforDev Consulting. All rights reserved.
             </p>
             <motion.p
               initial={{ opacity: 0 }}

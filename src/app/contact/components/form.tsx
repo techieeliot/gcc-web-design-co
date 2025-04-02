@@ -1,15 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
 import { Send, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
-import { Link } from '@/components/ui/link'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { Button } from '@/components/ui/button'
+import { Link } from '@/components/ui/link'
 
 // Animation variants
 const fadeIn = {
@@ -21,7 +21,6 @@ const fadeIn = {
   },
 }
 
-// Define Zod schema for form validation
 const formSchema = z.object({
   name: z
     .string()
@@ -333,7 +332,6 @@ export default function ContactForm() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                // prohibit focus on this div
                 tabIndex={-1}
               >
                 <Button

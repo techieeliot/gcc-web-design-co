@@ -31,7 +31,7 @@ export default function ValueProposition() {
           transition={{ duration: 0.6 }}
           className={cn(textStyles.h2, 'mb-4')}
         >
-          Why Choose Sanford Dev Consulting?
+          Why Choose SanforDev Consulting?
         </motion.h2>
 
         <motion.p
@@ -102,7 +102,7 @@ export default function ValueProposition() {
         className="bg-sky/10 dark:bg-azure/10 p-6 rounded-lg border border-sky/20 dark:border-azure/20"
       >
         <p className="text-slate-700 dark:text-slate-200 italic mb-4">
-          "Sanford Dev transformed our digital presence by creating a fast,
+          "SanforDev transformed our digital presence by creating a fast,
           responsive, and user-friendly platform that has significantly improved
           our customer engagement."
         </p>

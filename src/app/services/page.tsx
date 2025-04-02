@@ -1,4 +1,35 @@
+import { Metadata } from 'next'
 import { ServicesMainContent, ServicesSidebar } from './components'
+
+export const metadata: Metadata = {
+  title: 'Our Services | React & Next.js Development',
+  description:
+    'Specialized React ecosystem services including front-end development, performance optimization, UI/UX implementation, and technical consulting for startups and enterprises.',
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'React & Next.js Development Services | SanforDev Consulting',
+    description:
+      'From front-end development to performance optimization, we offer specialized React ecosystem services for modern web applications.',
+    url: 'https://devsouth.us/services',
+    images: [
+      {
+        url: '/images/services-social.webp',
+        width: 1200,
+        height: 630,
+        alt: 'React & Next.js Development Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'React & Next.js Development Services | SanforDev Consulting',
+    description:
+      'Specialized React ecosystem services for modern web applications.',
+    images: ['/images/services-social.webp'],
+  },
+}
 
 export default function ServicesRoute() {
   return (

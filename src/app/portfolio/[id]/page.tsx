@@ -24,34 +24,54 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({
+// Generate dynamic metadata based on the case study ID
+export async function generateMetadata({
   params,
 }: {
   params: { id: string }
-}): Metadata {
+}): Promise<Metadata> {
+  // Find the case study by ID
   const caseStudy = caseStudies.find((study) => study.id === params.id)
 
+  // Fallback metadata if case study not found
   if (!caseStudy) {
     return {
-      title: 'Case Study Not Found | Sanford Dev Consulting',
+      title: 'Case Study Not Found',
       description: 'The requested case study could not be found.',
     }
   }
 
   return {
-    title: `${caseStudy.title} | Sanford Dev Consulting`,
-    description: caseStudy.description,
+    title: `${caseStudy.title} | Case Study`,
+    description:
+      caseStudy.description ||
+      `Learn how we helped ${caseStudy.title} with React ecosystem development, performance optimization, and modern UI implementation.`,
+    alternates: {
+      canonical: `/portfolio/${params.id}`,
+    },
     openGraph: {
-      title: `${caseStudy.title} | Sanford Dev Consulting`,
-      description: caseStudy.description,
+      title: `${caseStudy.title} | SanforDev Consulting Case Study`,
+      description:
+        caseStudy.description ||
+        `Learn how we helped ${caseStudy.title} with React ecosystem development.`,
+      url: `https://devsouth.us/portfolio/${params.id}`,
       images: [
         {
-          url: caseStudy.image,
+          url: caseStudy.image || '/images/portfolio-social.webp',
           width: 1200,
           height: 630,
-          alt: caseStudy.imageAlt,
+          alt: `${caseStudy.title} Case Study`,
         },
       ],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${caseStudy.title} | SanforDev Consulting Case Study`,
+      description:
+        caseStudy.description ||
+        `Learn how we helped ${caseStudy.title} with React ecosystem development.`,
+      images: [caseStudy.image || '/images/portfolio-social.webp'],
     },
   }
 }

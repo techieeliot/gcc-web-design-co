@@ -1,32 +1,17 @@
-import Image from 'next/image'
 import {
   Users,
   Calendar,
   MessageSquare,
-  Clock,
   CheckCircle2,
-  TrendingUp,
-  Smartphone,
-  Receipt,
-  CalendarClock,
   Sparkles,
   Youtube,
   Scale,
-  Target,
-  LayoutDashboard,
   Code2,
   PenTool,
-  FileCode2,
   GitBranch,
-  Bug,
-  GraduationCap,
   Code,
-  GitPullRequest,
-  BookOpen,
   LifeBuoy,
   Heart,
-  DollarSign,
-  Users2,
   Database,
 } from 'lucide-react'
 import { componentStyles } from '@/lib/component-styles'
@@ -79,10 +64,10 @@ export const CaseStudyFourthParty = () => {
         <div>
           <p className={textStyles.body}>
             <strong>Fourth Party</strong> is a web-based platform designed to
-            streamline the mediation process. Sanford Dev Consulting
-            collaborated with FourthParty to build a user-friendly, responsive
-            web application to enhance mediation practices, focusing on
-            automation and efficiency.
+            streamline the mediation process. SanforDev Consulting collaborated
+            with FourthParty to build a user-friendly, responsive web
+            application to enhance mediation practices, focusing on automation
+            and efficiency.
           </p>
         </div>
 
@@ -117,11 +102,11 @@ export const CaseStudyFourthParty = () => {
               textStyles.body
             )}
           >
-            "Sanford Dev Consulting helped us create a platform that truly
-            serves our mission of simplifying mediation. Their team was
-            responsive, knowledgeable, and efficient. The app is now a core part
-            of our practice, and we've seen an increase in both client
-            satisfaction and internal efficiency."
+            "SanforDev Consulting helped us create a platform that truly serves
+            our mission of simplifying mediation. Their team was responsive,
+            knowledgeable, and efficient. The app is now a core part of our
+            practice, and we've seen an increase in both client satisfaction and
+            internal efficiency."
             <footer
               className={cn(
                 textStyles['body-small'],
@@ -131,6 +116,18 @@ export const CaseStudyFourthParty = () => {
               - CEO, Fourth Party
             </footer>
           </blockquote>
+        </section>
+        {/* Visit Section */}
+        <section>
+          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+            Visit Fourth Party
+          </h3>
+          <p className={textStyles.body}>
+            Explore Fourth Party's platform at{' '}
+            <Link href="https://fourthparty.app" variant="inlineLink">
+              fourthparty.app
+            </Link>
+          </p>
         </section>
       </div>
     </CaseStudyLayout>
@@ -169,7 +166,7 @@ export const CaseStudyWeedWarriors = () => {
         <div>
           <p className={textStyles.body}>
             <strong>Weed Warriors</strong> is a leading lawn care service
-            provider looking to modernize their business operations. devSouth
+            provider looking to modernize their business operations. SanforDev
             Consulting developed a comprehensive digital solution to streamline
             their scheduling, payment processing, and customer communication
             systems.
@@ -245,10 +242,10 @@ export const CaseStudyWeedWarriors = () => {
               textStyles.body
             )}
           >
-            "Sanford Dev Consulting transformed our business operations with
-            their digital solution. The automated scheduling and payment systems
-            have saved us countless hours, allowing us to focus on what we do
-            best - keeping our customers' lawns beautiful."
+            "SanforDev Consulting transformed our business operations with their
+            digital solution. The automated scheduling and payment systems have
+            saved us countless hours, allowing us to focus on what we do best -
+            keeping our customers' lawns beautiful."
             <footer
               className={cn(
                 textStyles['body-small'],
@@ -308,7 +305,7 @@ export const CaseStudyGorillaFund = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            Sanford Dev Consulting provided technical expertise to Soulheart
+            SanforDev Consulting provided technical expertise to Soulheart
             during the development of the Dian Fossey Gorilla Fund website,
             focusing on content management optimization, responsive styling, and
             interactive feature implementation.
@@ -368,7 +365,7 @@ export const CaseStudyGorillaFund = () => {
             </Link>{' '}
             <span className={textStyles['body-small']}>
               (Website developed by Soulheart with technical consulting by
-              devSouth)
+              SanforDev)
             </span>
           </p>
         </section>
@@ -408,7 +405,7 @@ export const CaseStudyDareToShare = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            When Soulheart faced an unexpected developer transition, devSouth
+            When Soulheart faced an unexpected developer transition, SanforDev
             Consulting stepped in to provide emergency technical support,
             implementing Git best practices and resolving critical front-end
             issues for the Dare to Share platform.
@@ -443,7 +440,7 @@ export const CaseStudyDareToShare = () => {
             </Link>{' '}
             <span className={textStyles['body-small']}>
               (Website by Soulheart with emergency technical support by
-              devSouth)
+              SanforDev)
             </span>
           </p>
         </section>
@@ -483,7 +480,7 @@ export const CaseStudyRoomInTheInn = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            As part of GiveCamp Memphis, Sanford Dev contributed to a complete
+            As part of GiveCamp Memphis, SanforDev contributed to a complete
             website redesign for Room in the Inn Memphis, a nonprofit
             organization providing shelter and support for individuals
             experiencing homelessness.

@@ -1,13 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Link } from './ui/link'
 import { ThemeToggle } from './ui/theme-toggle'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { NavLink } from './ui/nav-link.client'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { Link } from './ui/link'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -150,7 +150,6 @@ export default function Header() {
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
           {/* Logo Section - Enhanced with animation */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="relative"
             tabIndex={-1}
@@ -160,9 +159,9 @@ export default function Header() {
               noButtonWrapper={true} // Use this to bypass the Button wrapper
               className={cn(
                 'no-underline flex items-center gap-2 sm:gap-3',
-                'rounded-md px-3 py-3', // Increased padding to accommodate the logo ring
+                'rounded-md px-3 py-3',
                 'hover:bg-azure/10 transition-all duration-300',
-                'relative overflow-visible' // Changed from overflow-hidden to overflow-visible
+                'relative overflow-visible'
               )}
             >
               {/* Logo container with proper spacing and visibility */}
@@ -171,8 +170,7 @@ export default function Header() {
                 <motion.div
                   className={cn(
                     'absolute rounded-full border-2 border-sky/20 dark:border-azure/20',
-                    'w-[calc(100%+8px)] h-[calc(100%+8px)]', // Increased size
-                    '-left-1 -top-1' // Manual offset to center properly
+                    '-left-1 -top-1'
                   )}
                   animate={{
                     opacity: [0.4, 0.8, 0.4],
@@ -234,7 +232,7 @@ export default function Header() {
                   {/* Logo image */}
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="Sanford Dev Logo"
+                    alt="SanforDev Logo"
                     width={36}
                     height={36}
                     className={cn(
@@ -248,7 +246,7 @@ export default function Header() {
                   <motion.div
                     className="absolute inset-0 bg-azure/20 rounded-full"
                     initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.2, opacity: 1 }}
+                    whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
                   />
                 </motion.div>
@@ -256,7 +254,7 @@ export default function Header() {
 
               {/* Brand text */}
               <h1 className="text-slate-700 dark:text-powder font-bold text-base sm:text-lg md:text-lg lg:text-xl leading-none whitespace-nowrap relative z-10">
-                Sanford{' '}
+                Sanfor
                 <motion.span
                   className="text-sky relative inline-block"
                   animate={{

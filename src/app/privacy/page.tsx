@@ -13,7 +13,31 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
+import { Metadata } from 'next'
 import { Link } from '@/components/ui/link'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | SanforDev Consulting',
+  description:
+    'Read our privacy policy to understand how we collect, use, and protect your personal information at SanforDev Consulting.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | SanforDev Consulting',
+    description:
+      'Read our privacy policy to understand how we collect, use, and protect your personal information.',
+    url: 'https://devsouth.us/privacy',
+    images: [
+      {
+        url: '/images/social-card.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SanforDev Consulting Privacy Policy',
+      },
+    ],
+  },
+}
 
 export default function PrivacyPolicyRoute() {
   // Animation variants
@@ -159,7 +183,7 @@ export default function PrivacyPolicyRoute() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Privacy Policy</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              At devSouth, we take your privacy seriously. This policy explains
+              At SanforDev, we take your privacy seriously. This policy explains
               how we collect, use, and protect your personal information.
             </p>
 
@@ -256,7 +280,7 @@ export default function PrivacyPolicyRoute() {
           </p>
           <div className="space-y-1">
             <p className="text-slate-800 dark:text-powder font-medium">
-              Sanford Dev Consulting LLC
+              SanforDev Consulting LLC
             </p>
             <p className="text-slate-600 dark:text-powder/80">
               110 Lake Forest Ln, Clinton, MS 39056

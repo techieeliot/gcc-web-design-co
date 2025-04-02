@@ -1,10 +1,10 @@
 'use client'
 
 import { Linkedin, Mail, Twitter, MapPin, Phone } from 'lucide-react'
-import { Link } from './ui/link'
 import { motion } from 'framer-motion'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
+import { Link } from './ui/link'
 
 const socialLinks = [
   {
@@ -126,7 +126,7 @@ export default function ContactInfo() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="mt-6 text-white/70 text-xs"
       >
-        <p>© {new Date().getFullYear()} Sanford Dev Consulting LLC</p>
+        <p>© {new Date().getFullYear()} SanforDev Consulting LLC</p>
       </motion.div>
     </div>
   )

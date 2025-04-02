@@ -6,12 +6,6 @@ interface PageWrapperProps {
   className?: string
 }
 
-export function PageWrapper({
-  children,
-  className,
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
+export function PageWrapper({ children, className }: PageWrapperProps) {
   return <div className={cn('bg-transparent', className)}>{children}</div>
 }

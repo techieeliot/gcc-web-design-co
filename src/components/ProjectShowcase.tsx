@@ -4,7 +4,7 @@ import { componentStyles } from '@/lib/component-styles'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
-import { ExternalLink, Code, CheckCircle } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 

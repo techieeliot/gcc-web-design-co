@@ -5,6 +5,36 @@ import { Mail } from 'lucide-react'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
 import dynamic from 'next/dynamic'
+// import { Metadata } from 'next'
+
+// export const metadata: Metadata = {
+//   title: 'Contact Us | Get a Free Consultation',
+//   description:
+//     'Ready to transform your digital presence? Contact SanforDev Consulting for React and Next.js development services. Get in touch for a free consultation.',
+//   alternates: {
+//     canonical: '/contact',
+//   },
+//   openGraph: {
+//     title: 'Contact SanforDev Consulting | Get a Free Consultation',
+//     description:
+//       'Ready to transform your digital presence? Contact us for React and Next.js development services.',
+//     url: 'https://devsouth.us/contact',
+//     images: [
+//       {
+//         url: '/images/contact-social.webp',
+//         width: 1200,
+//         height: 630,
+//         alt: 'Contact SanforDev Consulting',
+//       },
+//     ],
+//   },
+//   twitter: {
+//     card: 'summary_large_image',
+//     title: 'Contact SanforDev Consulting | Get a Free Consultation',
+//     description: 'Ready to transform your digital presence? Contact us today.',
+//     images: ['/images/contact-social.webp'],
+//   },
+// }
 
 // Use dynamic import with ssr: false to force client-only rendering of form components
 const ContactSidebar = dynamic(() => import('./components/sidebar'), {
@@ -39,7 +69,7 @@ export default function ContactRoute() {
           </div>
         </div>
 
-        {/* Form section - use suspense to show loading state while dynamic imports load */}
+        {/* Form section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           <Suspense
             fallback={

@@ -25,7 +25,6 @@ export const FeatureGrid = ({ features }: { features: FeatureItem[] }) => (
     className={cn('grid grid-cols-1 sm:grid-cols-2', 'gap-4 sm:gap-6 lg:gap-8')}
   >
     {features.map(({ iconName, title, description }, index) => {
-      // Properly type the icon component
       const IconComponent = LucideIcons[
         iconName as keyof typeof LucideIcons
       ] as LucideIcon
@@ -104,7 +103,6 @@ export const StatsGrid = ({ stats }: { stats: StatItem[] }) => (
   </div>
 )
 
-// Add a SectionHeading component for consistent animations
 export const SectionHeading = ({ children }: { children: React.ReactNode }) => (
   <motion.h3
     className={cn(textStyles.h3, 'mb-4 sm:mb-6')}

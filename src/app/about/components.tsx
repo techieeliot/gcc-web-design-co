@@ -3,7 +3,6 @@
 import { componentStyles } from '@/lib/component-styles'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
-import { Link } from 'components/ui/link'
 import {
   ExternalLinkIcon,
   Rocket,
@@ -12,26 +11,17 @@ import {
   Brain,
   Laptop,
   Heart,
-  GraduationCap,
   Github,
   LinkedinIcon,
-  PaintBucket,
-  User2,
   Quote,
-  Workflow,
-  Plus,
-  View,
-  VenetianMaskIcon,
   Goal,
   Hammer,
-  Pin,
-  Smile,
-  ArrowsUpFromLine,
   Globe,
   Mail,
 } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { Link } from '@/components/ui/link'
 
 // Animation variants
 const fadeIn = {
@@ -130,7 +120,7 @@ export const AboutSection = () => {
         variants={fadeIn}
         className={cn(textStyles.h2, 'mb-6 lg:mb-8')}
       >
-        About devSouth
+        About SanforDev
       </motion.h2>
 
       {/* Our Story - More concise */}
@@ -142,15 +132,14 @@ export const AboutSection = () => {
           variants={fadeIn}
           className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
         >
-          Founded in 2018, Sanford Dev Consulting (formerly devSouth) emerged
-          from a passion for transforming innovative ideas into digital
-          products. We began by helping startups build scalable MVPs and have
-          since expanded to enterprise partnerships while maintaining our
-          commitment to startup innovation.
+          Founded in 2018, SanforDev Consulting (formerly devSouth) emerged from
+          a passion for transforming innovative ideas into digital products. We
+          began by helping startups build scalable MVPs and have since expanded
+          to enterprise partnerships while maintaining our commitment to startup
+          innovation.
         </motion.p>
       </motion.div>
 
-      {/* Mission Statement - Redesigned to stand out */}
       <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
         <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Mission
@@ -191,7 +180,6 @@ export const AboutSection = () => {
 
           {/* Main Quote Content */}
           <div className="relative z-10 text-center">
-            {/* Removed the large centered quote icon */}
             <motion.div className="flex justify-center items-start relative mb-6">
               <Quote
                 className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
@@ -218,7 +206,6 @@ export const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/* Mission Points - More structured and concise */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <motion.div
             variants={fadeIn}
@@ -298,7 +285,6 @@ export const AboutSection = () => {
         </div>
       </motion.div>
 
-      {/* Our Approach - Streamlined */}
       <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
         <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Approach

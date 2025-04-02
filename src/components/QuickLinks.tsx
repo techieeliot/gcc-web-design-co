@@ -1,6 +1,5 @@
 'use client'
 
-import { Link } from './ui/link'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import {
@@ -13,11 +12,9 @@ import {
   FileCode,
   LayoutGrid,
 } from 'lucide-react'
+import { Link } from './ui/link'
 
-export default function QuickLinks({
-  showHeading = false,
-  columnsOnMobile = false,
-}) {
+export default function QuickLinks({ showHeading = false }) {
   const links = [
     {
       href: '/',

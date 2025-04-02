@@ -1,10 +1,9 @@
 'use client'
 
+import { Link } from '@/components/ui/link'
 import { caseStudies } from '@/data/case-studies'
-import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { Link } from '@/components/ui/link'
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {
   const currentIndex = caseStudies.findIndex((study) => study.id === currentId)

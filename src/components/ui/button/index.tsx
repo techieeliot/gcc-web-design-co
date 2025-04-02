@@ -39,33 +39,28 @@ const buttonVariants = cva(
           'transition-all'
         ),
         standaloneLink: cn(
-          // Light mode
           'text-sky font-medium',
           'hover:text-blueberry hover:underline',
           'active:text-azure active:scale-[0.98]',
-          // Dark mode - brighter colors for better visibility
-
           'dark:hover:text-powder dark:hover:underline',
           'dark:active:text-powder/80',
-          'transition-all' // Changed from transition-colors
+          'transition-all'
         ),
         inlineLink: cn(
-          '[&]:inline [&]:p-0 [&]:m-0', // Force override any inherited padding
+          '[&]:inline [&]:p-0 [&]:m-0',
           'font-inherit text-inherit',
           'text-sky hover:text-blueberry',
           'dark:text-sky dark:hover:text-powder',
           'hover:underline active:text-azure active:scale-[0.98]',
-          'transition-all' // Changed from transition-colors
+          'transition-all'
         ),
         nav: cn(
-          'rounded-md transition-all font-medium', // Changed from transition-colors
-          // Light mode - more subtle base state
+          'rounded-md transition-all font-medium',
           'text-slate-600',
           'hover:text-sky hover:bg-sky/5',
           'active:text-blueberry active:scale-[0.98]',
           'data-[active=true]:bg-azure/90',
           'data-[active=true]:text-white',
-          // Dark mode - subtle base with bright active states
           'dark:text-slate-300',
           'dark:hover:text-azure dark:hover:bg-azure/10',
           'dark:active:text-powder dark:active:scale-[0.98]',
@@ -97,7 +92,6 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-    // Add compoundVariants to handle special cases
     compoundVariants: [
       {
         variant: 'inlineLink',

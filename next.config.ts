@@ -5,7 +5,25 @@ const config: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['devsouth.us'],
+    domains: ['devsouth.us', 'sanfor.dev'],
+  },
+  // Add domain handling
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // Handle both domains
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'devsouth.us',
+            },
+          ],
+          destination: 'https://sanfor.dev/:path*', // Redirect to primary domain
+        },
+      ],
+    }
   },
 }
 

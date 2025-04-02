@@ -4,6 +4,37 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+// import { Metadata } from 'next'
+
+// export const metadata: Metadata = {
+//   description:
+//     'Transform your digital presence with SanforDev Consulting. We build high-performance web applications with React, Next.js, and TypeScript for startups and enterprises.',
+//   alternates: {
+//     canonical: '/',
+//   },
+//   openGraph: {
+//     title: 'SanforDev Consulting | React Ecosystem Specialists',
+//     description:
+//       'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
+//     url: 'https://devsouth.us',
+//     images: [
+//       {
+//         url: '/images/home-social.webp',
+//         width: 1200,
+//         height: 630,
+//         alt: 'SanforDev Consulting - React Ecosystem Development Services',
+//       },
+//     ],
+//     type: 'website',
+//   },
+//   twitter: {
+//     card: 'summary_large_image',
+//     title: 'SanforDev Consulting | React Ecosystem Specialists',
+//     description:
+//       'Transform your digital presence with high-performance web applications.',
+//     images: ['/images/home-social.webp'],
+//   },
+// }
 
 // Use dynamic imports to solve loading issues
 const BannerSection = dynamic(
