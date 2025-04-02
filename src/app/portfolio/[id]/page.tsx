@@ -28,10 +28,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }): Promise<Metadata> {
+  // Await params before using
+  const resolvedParams = await params
+  const id = resolvedParams.id
+
   // Find the case study by ID
-  const caseStudy = caseStudies.find((study) => study.id === params.id)
+  const caseStudy = caseStudies.find((study) => study.id === id)
 
   // Fallback metadata if case study not found
   if (!caseStudy) {
@@ -47,14 +51,14 @@ export async function generateMetadata({
       caseStudy.description ||
       `Learn how we helped ${caseStudy.title} with React ecosystem development, performance optimization, and modern UI implementation.`,
     alternates: {
-      canonical: `/portfolio/${params.id}`,
+      canonical: `/portfolio/${id}`,
     },
     openGraph: {
       title: `${caseStudy.title} | SanforDev Consulting Case Study`,
       description:
         caseStudy.description ||
         `Learn how we helped ${caseStudy.title} with React ecosystem development.`,
-      url: `https://devsouth.us/portfolio/${params.id}`,
+      url: `https://devsouth.us/portfolio/${id}`,
       images: [
         {
           url: caseStudy.image || '/images/portfolio-social.webp',
@@ -76,9 +80,17 @@ export async function generateMetadata({
   }
 }
 
-export default function CaseStudyRoute({ params }: { params: { id: string } }) {
+export default async function CaseStudyRoute({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  // Await params before using
+  const resolvedParams = await params
+  const id = resolvedParams.id
+
   const CaseStudyComponent =
-    CaseStudyComponents[params.id as keyof typeof CaseStudyComponents]
+    CaseStudyComponents[id as keyof typeof CaseStudyComponents]
 
   if (!CaseStudyComponent) {
     notFound()
@@ -87,9 +99,9 @@ export default function CaseStudyRoute({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 lg:py-12">
-        <CaseStudyNav currentId={params.id} />
+        <CaseStudyNav currentId={id} />
         <CaseStudyComponent />
-        <CaseStudyNav currentId={params.id} />
+        <CaseStudyNav currentId={id} />
       </div>
     </div>
   )
