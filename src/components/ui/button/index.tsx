@@ -67,6 +67,35 @@ const buttonVariants = cva(
           'dark:data-[active=true]:bg-sky/90',
           'dark:data-[active=true]:text-white'
         ),
+        light: cn(
+          'bg-white text-sky font-medium',
+          'border border-transparent',
+          'shadow-sm',
+          'hover:bg-slate-50 hover:text-azure hover:border-sky/10',
+          'hover:shadow-md',
+          'active:bg-slate-100 active:scale-[0.98] active:shadow-inner',
+          'focus-visible:ring-2 focus-visible:ring-sky/30',
+          'dark:bg-azure dark:text-powder',
+          'dark:hover:bg-azure/90 dark:hover:border-azure/30',
+          'dark:hover:text-white',
+          'dark:active:bg-slate-600',
+          'transition-all duration-200'
+        ),
+        outlineWhite: cn(
+          'bg-transparent border-2',
+          'border-white text-white',
+          'backdrop-blur-[2px]',
+          'hover:bg-white/15 hover:border-white/90',
+          'hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]',
+          'active:bg-white/25 active:scale-[0.98]',
+          'active:shadow-[0_0_8px_rgba(255,255,255,0.2)]',
+          'focus-visible:ring-2 focus-visible:ring-white/50',
+          'dark:border-white/90 dark:text-white/90',
+          'dark:hover:bg-white/10 dark:hover:border-white',
+          'dark:hover:text-white dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]',
+          'dark:active:bg-white/20',
+          'transition-all duration-300'
+        ),
       },
       size: {
         default: cn('h-12 px-6 py-3', 'text-base'),
@@ -98,7 +127,7 @@ const buttonVariants = cva(
         className: '[&]:p-0 [&]:h-auto [&]:m-0', // Force override any size-based padding
       },
       {
-        variant: ['default', 'outline', 'secondary'],
+        variant: ['default', 'outline', 'secondary', 'light', 'outlineWhite'],
         className: 'hover:scale-[1.02] active:scale-[0.98] transition-all', // Add subtle scaling to buttons
       },
     ],

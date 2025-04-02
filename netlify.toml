@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm run build"
   publish = ".next"
 
 [[plugins]]
@@ -8,3 +8,18 @@
 [build.environment]
   NODE_VERSION = "20.11.1"
   NPM_VERSION = "10.2.4"
+
+[functions]
+  # Increase the timeout for functions
+  node_bundler = "esbuild"
+  included_files = ["public/**"]
+  
+  # Adjust function settings
+  [functions.api]
+    external_node_modules = ["next"]
+    included_files = [".next/server/**", ".next/standalone/**"]
+
+  # Increase memory allocation
+  [functions."*"]
+    memory = 2048 # Set to 2GB
+    timeout = 30 # Increase timeout to 30 seconds
