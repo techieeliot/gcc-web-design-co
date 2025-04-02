@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import fs from 'fs'
 import path from 'path'
@@ -10,7 +11,6 @@ import { textStyles } from '@/lib/text-styles'
 // Components for MDX
 import { Callout } from '@/components/mdx/callout'
 import { CodeBlock } from '@/components/mdx/code-block'
-import { Metadata } from 'next'
 import { Link } from '@/components/ui/link'
 
 // MDX components mapping
@@ -226,11 +226,12 @@ export function generateMetadata({
   }
 }
 
-export default async function BlogPostRoute({
-  params,
-}: {
+type Props = {
   params: { slug: string }
-}) {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default async function BlogPostRoute({ params }: Props) {
   const post = await getPostBySlug(params.slug)
 
   if (!post) {
