@@ -79,15 +79,15 @@ export default function BannerSection() {
           className="order-1 lg:order-2 relative"
         >
           <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 to-slate/10 dark:from-white/20 dark:to-sky/20" />
             <Image
               src="blueberry-atom.svg"
               alt="Web development illustration"
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-contain object-center transition-transform duration-500 ease-in-out hover:scale-60 scale-50" // scale down the image to 75% of its original size
+              sizes="(max-width: 768px) 100vw, 400px"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-sky/30 to-azure/30 dark:from-sky/40 dark:to-azure/40" />
           </div>
         </motion.div>
       </div>

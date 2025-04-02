@@ -153,6 +153,7 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="relative"
+            tabIndex={-1}
           >
             <Link
               href="/"

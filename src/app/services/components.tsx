@@ -209,9 +209,10 @@ export const ServicesMainContent = () => {
                 variants={iconAnimation}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
+                tabIndex={-1}
               >
                 <Icon
-                  className="w-6 h-6 text-sky dark:text-azure"
+                  className="w-12 h-12 text-midnight dark:text-sky"
                   strokeWidth={1.5}
                 />
               </motion.div>
@@ -314,8 +315,9 @@ export const ServicesSidebar = () => {
             <motion.div
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
+              tabIndex={-1}
             >
-              <section.icon className="w-5 h-5 text-sky dark:text-azure" />
+              <section.icon className="w-10 h-10 text-midnight dark:text-sky" />
             </motion.div>
             <h3 className={textStyles.h3}>{section.title}</h3>
           </motion.div>

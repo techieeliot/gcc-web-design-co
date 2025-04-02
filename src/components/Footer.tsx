@@ -185,9 +185,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="flex items-center gap-3"
+                className="flex items-center justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
-                <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10">
+                <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
                   <Mail className="w-5 h-5 text-sky dark:text-azure" />
                 </div>
                 <Link
@@ -214,9 +214,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="flex items-center gap-3"
+                className="flex items-center justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
-                <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10">
+                <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
                   <Phone className="w-5 h-5 text-sky dark:text-azure" />
                 </div>
                 <Link
@@ -243,16 +243,26 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="flex items-start gap-3"
+                className="flex items-start justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
-                <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10">
+                <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
                   <MapPin className="w-5 h-5 text-sky dark:text-azure" />
                 </div>
-                <address className="text-slate-600 dark:text-powder/80 not-italic">
-                  110 Lake Forest Ln
-                  <br />
-                  Clinton, MS 39056
-                </address>
+                {/* Linke to google maps */}
+                <Link
+                  href="https://www.google.com/maps/place/110+Lake+Forest+Ln,+Clinton,+MS+39056/@32.3441705,-90.3549285,15z/data=!3m1!4b1!4m6!3m5!1s0x86284b257dbb01fb:0xa0a8d380d4abecd9!8m2!3d32.3441709!4d-90.3446502!16s%2Fg%2F11c5jtsybd?entry=ttu&g_ep=EgoyMDI1MDMzMC4wIKXMDSoASAFQAw%3D%3D"
+                  className={cn(
+                    'text-slate-600 dark:text-powder/80',
+                    'hover:text-sky dark:hover:text-azure',
+                    'group flex items-center gap-1'
+                  )}
+                >
+                  <address className="text-slate-600 dark:text-powder/80 not-italic">
+                    110 Lake Forest Ln
+                    <br />
+                    Clinton, MS 39056
+                  </address>
+                </Link>
               </motion.div>
             </div>
           </motion.section>

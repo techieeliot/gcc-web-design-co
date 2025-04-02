@@ -112,7 +112,6 @@ export const CaseStudyLayout = ({
         {children}
       </motion.div>
 
-      {/* Table of Contents for large screens - will be hidden on mobile */}
       <div className="fixed right-4 lg:right-8 bottom-4 lg:bottom-8">
         <motion.button
           className={cn(

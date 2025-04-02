@@ -56,7 +56,7 @@ export function generateMetadata({
   }
 }
 
-export default function CaseStudyPage({ params }: { params: { id: string } }) {
+export default function CaseStudyRoute({ params }: { params: { id: string } }) {
   const CaseStudyComponent =
     CaseStudyComponents[params.id as keyof typeof CaseStudyComponents]
 
@@ -65,10 +65,11 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 lg:py-12">
         <CaseStudyNav currentId={params.id} />
         <CaseStudyComponent />
+        <CaseStudyNav currentId={params.id} />
       </div>
     </div>
   )

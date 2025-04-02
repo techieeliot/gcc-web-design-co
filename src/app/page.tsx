@@ -25,7 +25,7 @@ const ValueProposition = dynamic(
 
 export default function HomeRoute() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 overflow-hidden">
+    <div className="min-h-screen overflow-hidden">
       {/* Hero section - full width, no container constraints */}
       <section className="relative">
         <BannerSection />

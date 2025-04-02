@@ -49,6 +49,7 @@ export function NavLink({
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="inline-block"
+        tabIndex={-1}
       >
         {label}
       </motion.span>

@@ -150,24 +150,23 @@ body {
 
 /* Dark Theme */
 :root[data-theme='dark'] {
-  /* Update background to use slate-900 instead of deep-navy */
   --background: var(--slate-900);
   --foreground: var(--white);
-  --card: var(--slate-800); /* Updated from midnight */
+  --card: var(--slate-800);
   --card-foreground: var(--white);
-  --popover: var(--slate-800); /* Updated from midnight */
+  --popover: var(--slate-800);
   --popover-foreground: var(--white);
   --primary: var(--sky);
   --primary-foreground: var(--white);
   --secondary: var(--azure);
   --secondary-foreground: var(--white);
-  --tertiary: var(--slate-800); /* Updated from midnight */
+  --tertiary: var(--slate-800);
   --tertiary-foreground: var(--white);
   --muted-foreground: var(--powder);
   --accent-foreground: var(--powder);
-  --navbar: var(--slate-800); /* Updated from midnight */
+  --navbar: var(--slate-800);
   --navbar-foreground: var(--white);
-  --footer: var(--slate-800); /* Updated from midnight */
+  --footer: var(--slate-800);
   --footer-foreground: var(--white);
 
   /* Text Colors */
@@ -198,6 +197,6 @@ html.dark {
 
 /* Add a debug outline to see container boundaries in development */
 /* Remove this in production */
-.debug * {
+/* .debug * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
+} */

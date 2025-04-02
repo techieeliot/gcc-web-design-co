@@ -18,6 +18,17 @@ import {
   PaintBucket,
   User2,
   Quote,
+  Workflow,
+  Plus,
+  View,
+  VenetianMaskIcon,
+  Goal,
+  Hammer,
+  Pin,
+  Smile,
+  ArrowsUpFromLine,
+  Globe,
+  Mail,
 } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -59,8 +70,7 @@ const listItem = {
     transition: { duration: 0.4 },
   },
 }
-
-export const AboutMainContent = () => {
+export const AboutSection = () => {
   return (
     <motion.article
       initial="hidden"
@@ -123,7 +133,8 @@ export const AboutMainContent = () => {
         About devSouth
       </motion.h2>
 
-      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
+      {/* Our Story - More concise */}
+      <motion.div variants={fadeIn} className="mb-10 lg:mb-14">
         <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Story
         </motion.h3>
@@ -131,136 +142,163 @@ export const AboutMainContent = () => {
           variants={fadeIn}
           className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
         >
-          Founded in 2018, devSouth Consulting emerged from a passion for
-          transforming innovative ideas into successful digital products. Our
-          journey began with a focus on helping pre-revenue startups build
-          scalable MVPs, and has since evolved into partnerships with enterprise
-          clients while maintaining our commitment to startup innovation. In
-          2025, we rebranded from devSouth to Sanford Dev Consulting.
+          Founded in 2018, Sanford Dev Consulting (formerly devSouth) emerged
+          from a passion for transforming innovative ideas into digital
+          products. We began by helping startups build scalable MVPs and have
+          since expanded to enterprise partnerships while maintaining our
+          commitment to startup innovation.
         </motion.p>
       </motion.div>
 
+      {/* Mission Statement - Redesigned to stand out */}
       <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
         <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Mission
         </motion.h3>
+
+        {/* Quote Card with Artistic Iconography */}
         <motion.div
           variants={imageVariant}
-          className="relative h-48 sm:h-56 md:h-64 mb-6 lg:mb-8 rounded-lg overflow-hidden"
+          className="relative bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-lg p-8 mb-8 overflow-hidden"
         >
-          <Image
-            src="/images/pic04.webp"
-            alt="Building remarkable applications"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 75vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring' }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
-                <PaintBucket
-                  className="w-10 h-10 text-white drop-shadow-lg"
-                  strokeWidth={1.5}
+          {/* Decorative Quote Marks */}
+          <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 opacity-10">
+            <Quote
+              className="w-32 h-32 text-sky dark:text-azure"
+              strokeWidth={1}
+            />
+          </div>
+          <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 opacity-10">
+            <Quote
+              className="w-32 h-32 text-sky dark:text-azure rotate-180"
+              strokeWidth={1}
+            />
+          </div>
+
+          {/* Subtle Decorative Icons */}
+          <div className="absolute top-1/2 left-2 -translate-y-1/2 opacity-10">
+            <Rocket
+              className="w-16 h-16 text-azure dark:text-sky"
+              strokeWidth={1}
+            />
+          </div>
+          <div className="absolute top-1/2 right-2 -translate-y-1/2 opacity-10">
+            <Code2
+              className="w-16 h-16 text-azure dark:text-sky"
+              strokeWidth={1}
+            />
+          </div>
+
+          {/* Main Quote Content */}
+          <div className="relative z-10 text-center">
+            {/* Removed the large centered quote icon */}
+            <motion.div className="flex justify-center items-start relative mb-6">
+              <Quote
+                className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
+                strokeWidth={2}
+              />
+              <motion.p
+                className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white leading-tight px-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                Building remarkable applications that empower people through
+                technology
+                <Quote
+                  className="w-6 h-6 text-sky dark:text-azure inline-block ml-6 transform translate-y-1 opacity-90"
+                  strokeWidth={2}
                 />
-                <Heart
-                  className="w-10 h-10 text-white drop-shadow-lg"
-                  strokeWidth={1.5}
-                />
-                <User2
-                  className="w-10 h-10 text-white drop-shadow-lg"
-                  strokeWidth={1.5}
-                />
-              </div>
+              </motion.p>
             </motion.div>
+
+            <cite className="block text-sm text-slate-600 dark:text-slate-300 mt-2">
+              — Eliot Sanford, Founder & Lead Engineer
+            </cite>
           </div>
         </motion.div>
 
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          Our mission is to build remarkable applications that empower people
-          through technology. We are dedicated to creating innovative solutions
-          that enhance user experiences and drive business success. Our focus on
-          performance, accessibility, and scalability ensures that our products
-          meet the needs of our clients and their users.
-        </motion.p>
+        {/* Mission Points - More structured and concise */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <motion.div
+            variants={fadeIn}
+            className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <Hammer
+                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                strokeWidth={1.5}
+              />
+              <h4 className="font-semibold text-slate-900 dark:text-white">
+                Build
+              </h4>
+            </div>
+            <p className="text-slate-700 dark:text-slate-300 text-sm">
+              Create remarkable applications that prioritize performance,
+              accessibility, and user experience.
+            </p>
+          </motion.div>
 
-        <motion.blockquote className="text-slate-900 dark:text-white">
-          <p className="text-lg font-semibold">
-            "Building remarkable applications that empower people through
-            technology."
-          </p>
-          <cite className="text-sm text-slate-600 dark:text-slate-300">
-            - Eliot Sanford, Founder & Lead Engineer
-          </cite>
-        </motion.blockquote>
+          <motion.div
+            variants={fadeIn}
+            className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <Users
+                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                strokeWidth={1.5}
+              />
+              <h4 className="font-semibold text-slate-900 dark:text-white">
+                Empower
+              </h4>
+            </div>
+            <p className="text-slate-700 dark:text-slate-300 text-sm">
+              Enable people to achieve more through intuitive, powerful
+              technology solutions.
+            </p>
+          </motion.div>
 
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          <Quote
-            className="w-8 h-8 text-sky dark:text-azure mb-2"
-            strokeWidth={1.5}
-          />
-          <span className="text-slate-900 dark:text-white">
-            Our mission is to:
-          </span>
-          <br />
-          <span className="text-slate-900 dark:text-white">
-            <strong>Build remarkable applications.</strong>
-            <br />
-            <strong>Empower people through technology.</strong>
-            <br />
-            <strong>Foster innovation and growth.</strong>
-            <br />
-            <strong>Support our community.</strong>
-            <br />
-          </span>
-        </motion.p>
-        <motion.p>
-          <strong>
-            Delight the people who use our applications with a focus on creating
-            a remarkable user experience enabling them to achieve their purpose.
-          </strong>
-        </motion.p>
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          We strive to build applications that are not only functional but also
-          aesthetically pleasing and easy to use.
-        </motion.p>
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          We believe that technology should enhance the user experience, making
-          it more intuitive and enjoyable.
-        </motion.p>
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          We are dedicated to continuous learning and innovation, always
-          striving to stay ahead of the curve in the ever-evolving tech
-          landscape. Our goal is to create a positive impact in the communities
-          we serve, fostering growth and development through technology.
-        </motion.p>
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          We are committed to building a diverse and inclusive team, where
-          everyone feels valued and empowered to contribute their unique
-          perspectives. We believe that diversity drives innovation and leads to
-          better solutions for our clients.
-        </motion.p>
+          <motion.div
+            variants={fadeIn}
+            className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <Goal
+                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                strokeWidth={1.5}
+              />
+              <h4 className="font-semibold text-slate-900 dark:text-white">
+                Innovate
+              </h4>
+            </div>
+            <p className="text-slate-700 dark:text-slate-300 text-sm">
+              Foster continuous innovation and learning to stay ahead in the
+              evolving tech landscape.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeIn}
+            className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <Heart
+                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                strokeWidth={1.5}
+              />
+              <h4 className="font-semibold text-slate-900 dark:text-white">
+                Support
+              </h4>
+            </div>
+            <p className="text-slate-700 dark:text-slate-300 text-sm">
+              Contribute to our community and build a diverse, inclusive team
+              dedicated to positive impact.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
+
+      {/* Our Approach - Streamlined */}
       <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
         <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
           Our Approach
@@ -301,17 +339,19 @@ export const AboutMainContent = () => {
 
         <motion.p
           variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+          className={cn(
+            textStyles.body,
+            'text-slate-700 dark:text-slate-300 mb-4'
+          )}
         >
-          We believe in building not just applications, but partnerships. Our
-          approach combines technical expertise with business acumen, ensuring
-          that every line of code contributes to your business objectives. We
-          emphasize:
+          We build partnerships, not just applications. Our approach combines
+          technical expertise with business acumen to ensure every line of code
+          contributes to your objectives:
         </motion.p>
 
         <motion.ul
           variants={staggerContainer}
-          className={cn('mt-6 space-y-3', textStyles.body)}
+          className={cn('space-y-2', textStyles.body)}
         >
           {[
             'Performance-first development methodology',
@@ -332,126 +372,137 @@ export const AboutMainContent = () => {
         </motion.ul>
       </motion.div>
 
-      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
-        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
-          Community Involvement
-        </motion.h3>
+      {/* Combined Community and Leadership Sections */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* Community Section */}
+        <motion.div variants={fadeIn}>
+          <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+            Community Involvement
+          </motion.h3>
 
-        <motion.div
-          variants={imageVariant}
-          className="relative h-48 sm:h-56 md:h-64 mb-6 lg:mb-8 rounded-lg overflow-hidden"
-        >
-          <Image
-            src="/images/pic01.webp"
-            alt="Community and education"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 75vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring' }}
-            >
-              <Heart
-                className="w-10 h-10 text-white drop-shadow-lg"
-                strokeWidth={1.5}
-              />
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring' }}
-            >
-              <GraduationCap
-                className="w-10 h-10 text-white drop-shadow-lg"
-                strokeWidth={1.5}
-              />
-            </motion.div>
-          </div>
+          <motion.p
+            variants={fadeIn}
+            className={cn(
+              textStyles.body,
+              'text-slate-700 dark:text-slate-300 mb-4'
+            )}
+          >
+            Beyond client work, we foster tech education and community growth:
+          </motion.p>
+
+          <motion.ul
+            variants={staggerContainer}
+            className={cn('space-y-2 mb-4', textStyles.body)}
+          >
+            {[
+              'Founding freeCodeCamp Jackson, MS',
+              'Mentoring at Base Camp Coding Academy',
+              'Teaching web development to underrepresented youth',
+              'Contributing to open source education',
+              'Supporting nonprofits through GiveCamp',
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                variants={listItem}
+                className="flex items-start gap-3"
+              >
+                <span className="text-sky dark:text-azure">•</span>
+                <span className="text-slate-700 dark:text-slate-300">
+                  {item}
+                </span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </motion.div>
 
-        <motion.p
-          variants={fadeIn}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
-        >
-          Beyond our client work, we're deeply committed to fostering tech
-          education and community growth. Our involvement includes:
-        </motion.p>
+        {/* Leadership Section */}
+        <motion.div variants={fadeIn}>
+          <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+            Leadership
+          </motion.h3>
 
-        <motion.ul
-          variants={staggerContainer}
-          className={cn('mt-6 space-y-3', textStyles.body)}
-        >
-          {[
-            'Founding and organizing freeCodeCamp Jackson, Mississippi',
-            'Mentoring at Base Camp Coding Academy',
-            'Teaching web development to underrepresented youth',
-            'Contributing to open source education (University of Helsinki)',
-            'Supporting nonprofits through GiveCamp Memphis',
-          ].map((item, index) => (
-            <motion.li
-              key={index}
-              variants={listItem}
-              className="flex items-start gap-3"
-            >
-              <span className="text-sky dark:text-azure">•</span>
-              <span className="text-slate-700 dark:text-slate-300">{item}</span>
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.div>
+          <motion.div
+            variants={fadeIn}
+            className="bg-white/50 dark:bg-slate-800/30 rounded-xl p-6 shadow-sm"
+          >
+            <div className="flex flex-col sm:flex-row gap-6 mb-4">
+              <motion.div
+                variants={fadeIn}
+                className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 mx-auto sm:mx-0"
+              >
+                <Image
+                  src="/authors/eliot.webp"
+                  alt="Eliot Sanford"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+              <div>
+                <motion.h4
+                  variants={fadeIn}
+                  className={cn(textStyles.h4, 'mb-1 text-center sm:text-left')}
+                >
+                  Eliot Sanford
+                </motion.h4>
+                <motion.p
+                  variants={fadeIn}
+                  className={cn(
+                    'text-sky dark:text-azure font-medium mb-2 text-center sm:text-left'
+                  )}
+                >
+                  Founder & Lead Engineer
+                </motion.p>
+                <motion.p
+                  variants={fadeIn}
+                  className="text-sm text-slate-700 dark:text-slate-300 mb-4"
+                >
+                  With 6+ years of React ecosystem experience, Eliot has led
+                  development for startups and enterprise clients, focusing on
+                  performance, accessibility, and scalable architecture.
+                </motion.p>
 
-      <motion.div variants={fadeIn} className="mb-8">
-        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
-          Leadership
-        </motion.h3>
-
-        <motion.div
-          variants={fadeIn}
-          className="flex flex-col sm:flex-row items-start gap-6"
-        >
-          <div className="flex-1">
-            <motion.div
-              variants={fadeIn}
-              className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 rounded-full overflow-hidden"
-            >
-              <Image
-                src="/authors/eliot.webp"
-                alt="Eliot Sanford"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 75vw"
-              />
-            </motion.div>
-            <motion.h4 variants={fadeIn} className={cn(textStyles.h4, 'mb-2')}>
-              Eliot Sanford
-            </motion.h4>
-            <motion.p
-              variants={fadeIn}
-              className={cn(
-                textStyles.body,
-                'mt-2 text-sky dark:text-azure font-medium'
-              )}
-            >
-              Founder & Lead Engineer
-            </motion.p>
-
-            <motion.p
-              variants={fadeIn}
-              className={cn(
-                textStyles.body,
-                'mt-4 text-slate-700 dark:text-slate-300'
-              )}
-            >
-              With over 6 years of specialized experience in the React
-              ecosystem, Eliot has led development initiatives for startups and
-              enterprise clients alike. His focus on performance, accessibility,
-              and scalable architecture has helped numerous organizations
-              achieve their digital transformation goals.
-            </motion.p>
-          </div>
+                {/* Social Links */}
+                <div className="flex flex-wrap gap-3 justify-center sm:justify-start mb-4">
+                  <Link
+                    href="https://www.techieeliot.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                  >
+                    <Globe className="w-4 h-4" />
+                    <span>Website</span>
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/techieeliot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                  >
+                    <LinkedinIcon className="w-4 h-4" />
+                    <span>LinkedIn</span>
+                  </Link>
+                  <Link
+                    href="https://github.com/techieeliot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>GitHub</span>
+                  </Link>
+                  <Link
+                    href="mailto:techieEliot@gmail.com"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Email</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.article>
   )
 }
@@ -539,6 +590,7 @@ export const ConnectWithUs = () => {
             variants={listItem}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
+            tabIndex={-1}
           >
             <Link
               href={href}

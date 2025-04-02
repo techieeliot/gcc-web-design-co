@@ -14,7 +14,7 @@ const ContactForm = dynamic(() => import('./components/form'), { ssr: false })
 
 export default function ContactRoute() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 pt-8 lg:pt-16 pb-16">
+    <div className="min-h-screen pt-8 lg:pt-16 pb-16">
       <div className="container mx-auto px-4">
         {/* Hero Section - this can stay as server-rendered */}
         <div className="text-center mb-12 lg:mb-20 relative">

@@ -166,7 +166,7 @@ async function getPostBySlug(slug: string) {
   }
 }
 
-export default async function BlogPost({
+export default async function BlogPostRoute({
   params,
 }: {
   params: { slug: string }
@@ -178,7 +178,7 @@ export default async function BlogPost({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 pt-20 lg:pt-28 pb-16">
+    <div className="min-h-screen pt-20 lg:pt-28 pb-16">
       <div className="container mx-auto px-4">
         {/* Back Link */}
         <div className="ml-16 mb-8">

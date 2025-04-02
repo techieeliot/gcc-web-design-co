@@ -7,6 +7,6 @@ export const textStyles = {
   h4: 'text-xl font-medium',
   body: 'text-base',
   'body-small': 'text-sm',
-  'body-large': 'text-lg', // Added 'body-large'
-  label: 'text-xs font-medium',
+  'body-large': 'text-lg',
+  label: 'text-xs font-medium text-left',
 }

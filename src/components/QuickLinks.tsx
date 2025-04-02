@@ -103,12 +103,7 @@ export default function QuickLinks({
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className={cn(
-          // Single column layout that's more elegant
-          'space-y-1.5',
-          // Center on mobile, left-align on larger screens
-          'flex flex-col items-center sm:items-start'
-        )}
+        className={cn('space-y-1.5', 'grid grid-cols-2 gap-4 ')}
       >
         {links.map(({ href, label, icon: Icon, description }) => (
           <motion.li
@@ -133,7 +128,7 @@ export default function QuickLinks({
 
               <span className="font-medium">{label}</span>
 
-              <ChevronRight className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-sky dark:group-hover:text-azure opacity-0 group-hover:opacity-100 transition-all ml-auto" />
+              <ChevronRight className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-sky dark:group-hover:text-azure opacity-0 group-hover:opacity-100 transition-all ml-1" />
             </Link>
           </motion.li>
         ))}

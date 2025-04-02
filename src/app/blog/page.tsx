@@ -64,13 +64,13 @@ const blogPosts = [
   },
 ]
 
-export default function BlogPage() {
+export default function BlogPostsHubRoute() {
   // Get featured post for the hero section
   const featuredPost = blogPosts.find((post) => post.featured)
   const regularPosts = blogPosts.filter((post) => !post.featured)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 pt-20 lg:pt-28 pb-16">
+    <div className="min-h-screen pt-20 lg:pt-28 pb-16">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12 lg:mb-20 relative">

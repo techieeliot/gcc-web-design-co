@@ -25,7 +25,7 @@ const buttonVariants = cva(
         ),
         outline: cn(
           'bg-transparent border-2',
-          'border-sky text-sky dark:border-azure dark:text-azure',
+          'border-sky text-sky',
           'shadow-sm',
           'hover:bg-sky/10 dark:hover:bg-azure/10',
           'active:bg-sky/20 active:scale-[0.98] dark:active:bg-azure/20',
@@ -44,7 +44,7 @@ const buttonVariants = cva(
           'hover:text-blueberry hover:underline',
           'active:text-azure active:scale-[0.98]',
           // Dark mode - brighter colors for better visibility
-          'dark:text-azure',
+
           'dark:hover:text-powder dark:hover:underline',
           'dark:active:text-powder/80',
           'transition-all' // Changed from transition-colors
@@ -53,7 +53,7 @@ const buttonVariants = cva(
           '[&]:inline [&]:p-0 [&]:m-0', // Force override any inherited padding
           'font-inherit text-inherit',
           'text-sky hover:text-blueberry',
-          'dark:text-azure dark:hover:text-powder',
+          'dark:text-sky dark:hover:text-powder',
           'hover:underline active:text-azure active:scale-[0.98]',
           'transition-all' // Changed from transition-colors
         ),

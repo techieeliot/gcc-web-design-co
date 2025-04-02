@@ -4,8 +4,7 @@ import { caseStudies } from '@/data/case-studies'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import { textStyles } from '@/lib/text-styles'
+import { Link } from '@/components/ui/link'
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {
   const currentIndex = caseStudies.findIndex((study) => study.id === currentId)
@@ -22,30 +21,27 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
     >
       <Link
         href="/portfolio"
-        className={cn(
-          'flex items-center mb-4 sm:mb-0 gap-2',
-          'text-slate-600 dark:text-slate-300 hover:text-sky dark:hover:text-azure',
-          'transition-colors'
-        )}
+        variant="outline"
+        size="sm"
+        className="mb-4 sm:mb-0"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to All Case Studies</span>
       </Link>
 
-      <div className="flex gap-4">
+      <div className="flex gap-3">
         {prevCase && (
           <Link
             href={`/portfolio/${prevCase.id}`}
-            className={cn(
-              'flex items-center gap-2 text-sm',
-              'text-slate-600 dark:text-slate-300 hover:text-sky dark:hover:text-azure',
-              'transition-colors'
-            )}
+            variant="secondary"
+            size="sm"
+            title={`Previous: ${prevCase.title}`}
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden md:inline">Previous:</span>
-            <span className="truncate max-w-[100px] md:max-w-[200px]">
-              {prevCase.title}
+            <span className="hidden md:inline">
+              {prevCase.title.length > 15
+                ? `${prevCase.title.substring(0, 15)}...`
+                : prevCase.title}
             </span>
           </Link>
         )}
@@ -53,16 +49,15 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
         {nextCase && (
           <Link
             href={`/portfolio/${nextCase.id}`}
-            className={cn(
-              'flex items-center gap-2 text-sm',
-              'text-slate-600 dark:text-slate-300 hover:text-sky dark:hover:text-azure',
-              'transition-colors'
-            )}
+            variant="secondary"
+            size="sm"
+            title={`Next: ${nextCase.title}`}
           >
-            <span className="truncate max-w-[100px] md:max-w-[200px]">
-              {nextCase.title}
+            <span className="hidden md:inline">
+              {nextCase.title.length > 15
+                ? `${nextCase.title.substring(0, 15)}...`
+                : nextCase.title}
             </span>
-            <span className="hidden md:inline">:Next</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         )}

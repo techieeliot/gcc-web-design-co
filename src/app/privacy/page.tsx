@@ -125,7 +125,7 @@ export default function PrivacyPolicyRoute() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 pt-20 lg:pt-28 pb-16">
+    <div className="min-h-screen pt-20 lg:pt-28 pb-16">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <motion.div

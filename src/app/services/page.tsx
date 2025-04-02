@@ -2,7 +2,7 @@ import { ServicesMainContent, ServicesSidebar } from './components'
 
 export default function ServicesRoute() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <header className="mb-12 lg:mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-center lg:text-left">
