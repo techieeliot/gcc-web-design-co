@@ -5,38 +5,7 @@ import { Mail } from 'lucide-react'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
 import dynamic from 'next/dynamic'
-// import { Metadata } from 'next'
 
-// export const metadata: Metadata = {
-//   title: 'Contact Us | Get a Free Consultation',
-//   description:
-//     'Ready to transform your digital presence? Contact SanforDEV Consulting for React and Next.js development services. Get in touch for a free consultation.',
-//   alternates: {
-//     canonical: '/contact',
-//   },
-//   openGraph: {
-//     title: 'Contact SanforDEV Consulting | Get a Free Consultation',
-//     description:
-//       'Ready to transform your digital presence? Contact us for React and Next.js development services.',
-//     url: 'https://devsouth.us/contact',
-//     images: [
-//       {
-//         url: '/images/contact-social.webp',
-//         width: 1200,
-//         height: 630,
-//         alt: 'Contact SanforDEV Consulting',
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: 'summary_large_image',
-//     title: 'Contact SanforDEV Consulting | Get a Free Consultation',
-//     description: 'Ready to transform your digital presence? Contact us today.',
-//     images: ['/images/contact-social.webp'],
-//   },
-// }
-
-// Use dynamic import with ssr: false to force client-only rendering of form components
 const ContactSidebar = dynamic(() => import('./components/sidebar'), {
   ssr: false,
 })
@@ -63,8 +32,12 @@ export default function ContactRoute() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Contact Us</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              Ready to transform your digital presence? We're here to help you
-              build something amazing.
+              Ready to transform your digital presence? We genuinely care about
+              your vision and are here to listen, advise, and partner with you
+              on your next project. Whether you're bursting with a creative idea
+              or have a practical question, our team is ready to support you
+              every step of the way. And if you're wondering, yes—we still find
+              time to laugh about that ever-growing coffee collection ☕.
             </p>
           </div>
         </div>

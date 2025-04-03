@@ -132,11 +132,10 @@ export const AboutSection = () => {
           variants={fadeIn}
           className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
         >
-          Founded in 2018, SanforDEV Consulting (formerly devSouth) emerged from
-          a passion for transforming innovative ideas into digital products. We
-          began by helping startups build scalable MVPs and have since expanded
-          to enterprise partnerships while maintaining our commitment to startup
-          innovation.
+          Since 2018, SanforDEV has been on a journey of transforming bold ideas
+          into breakthrough digital solutions. We started out partnering with
+          passionate startups and today we collaborate with enterprise
+          leaders—all while keeping our innovative spirit alive.
         </motion.p>
       </motion.div>
 
@@ -192,7 +191,7 @@ export const AboutSection = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
                 Building remarkable applications that empower people through
-                technology
+                functional, delightful, and accessible experiences.
                 <Quote
                   className="w-6 h-6 text-sky dark:text-azure inline-block ml-6 transform translate-y-1 opacity-90"
                   strokeWidth={2}
@@ -221,8 +220,8 @@ export const AboutSection = () => {
               </h4>
             </div>
             <p className="text-slate-700 dark:text-slate-300 text-sm">
-              Create remarkable applications that prioritize performance,
-              accessibility, and user experience.
+              We build high-performance, accessible applications that don’t just
+              work—they inspire and connect.
             </p>
           </motion.div>
 
@@ -240,8 +239,8 @@ export const AboutSection = () => {
               </h4>
             </div>
             <p className="text-slate-700 dark:text-slate-300 text-sm">
-              Enable people to achieve more through intuitive, powerful
-              technology solutions.
+              We simplify technology to empower you—making every interaction
+              intuitive and impactful.
             </p>
           </motion.div>
 
@@ -259,8 +258,8 @@ export const AboutSection = () => {
               </h4>
             </div>
             <p className="text-slate-700 dark:text-slate-300 text-sm">
-              Foster continuous innovation and learning to stay ahead in the
-              evolving tech landscape.
+              We lead with creativity and adaptability—constantly exploring new
+              horizons in tech innovation.
             </p>
           </motion.div>
 
@@ -278,84 +277,11 @@ export const AboutSection = () => {
               </h4>
             </div>
             <p className="text-slate-700 dark:text-slate-300 text-sm">
-              Contribute to our community and build a diverse, inclusive team
-              dedicated to positive impact.
+              We stand together—nurturing a community that values diversity,
+              collaboration, and heart.
             </p>
           </motion.div>
         </div>
-      </motion.div>
-
-      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
-        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
-          Our Approach
-        </motion.h3>
-
-        <motion.div
-          variants={imageVariant}
-          className="relative h-48 sm:h-56 md:h-64 mb-6 lg:mb-8 rounded-lg overflow-hidden"
-        >
-          <Image
-            src="/images/pic02.webp"
-            alt="Collaborative development"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 75vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring' }}
-            >
-              <Laptop
-                className="w-10 h-10 text-white drop-shadow-lg"
-                strokeWidth={1.5}
-              />
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring' }}
-            >
-              <Users
-                className="w-10 h-10 text-white drop-shadow-lg"
-                strokeWidth={1.5}
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-
-        <motion.p
-          variants={fadeIn}
-          className={cn(
-            textStyles.body,
-            'text-slate-700 dark:text-slate-300 mb-4'
-          )}
-        >
-          We build partnerships, not just applications. Our approach combines
-          technical expertise with business acumen to ensure every line of code
-          contributes to your objectives:
-        </motion.p>
-
-        <motion.ul
-          variants={staggerContainer}
-          className={cn('space-y-2', textStyles.body)}
-        >
-          {[
-            'Performance-first development methodology',
-            'Accessibility as a core requirement',
-            'Scalable, maintainable architecture',
-            'Data-driven decision making',
-            'Continuous innovation and learning',
-          ].map((item, index) => (
-            <motion.li
-              key={index}
-              variants={listItem}
-              className="flex items-start gap-3"
-            >
-              <span className="text-sky dark:text-azure">•</span>
-              <span className="text-slate-700 dark:text-slate-300">{item}</span>
-            </motion.li>
-          ))}
-        </motion.ul>
       </motion.div>
 
       {/* Combined Community and Leadership Sections */}
@@ -373,7 +299,8 @@ export const AboutSection = () => {
               'text-slate-700 dark:text-slate-300 mb-4'
             )}
           >
-            Beyond client work, we foster tech education and community growth:
+            Beyond client work, we invest in tech education and empower
+            communities to rise together:
           </motion.p>
 
           <motion.ul
@@ -442,11 +369,29 @@ export const AboutSection = () => {
                   variants={fadeIn}
                   className="text-sm text-slate-700 dark:text-slate-300 mb-4"
                 >
-                  With 6+ years of React ecosystem experience, Eliot has led
-                  development for startups and enterprise clients, focusing on
-                  performance, accessibility, and scalable architecture.
+                  With over 6 years steering the React ecosystem, I've helped
+                  guide both startups and enterprise teams focusing on
+                  performance, accessibility, and scalable solutions. Follow me
+                  on Twitter at{' '}
+                  <a
+                    href="https://twitter.com/techieEliot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky dark:text-azure hover:underline"
+                  >
+                    @techieEliot
+                  </a>
+                  .
+                  <br />
+                  <br />
+                  Our logo tells a story close to my heart—a blueberry
+                  encircling a React atom, with its center (the calyx)
+                  representing our core values. The blueberry isn't just a
+                  visual mark—it's a tribute to Mississippi (the official state
+                  fruit here!), evoking memories of my grandfather's farm and
+                  childhood adventures. And fun fact: my car is named
+                  “Blueberry” too!
                 </motion.p>
-
                 {/* Social Links */}
                 <div className="flex flex-wrap gap-3 justify-center sm:justify-start mb-4">
                   <Link

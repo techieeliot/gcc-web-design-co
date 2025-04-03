@@ -73,12 +73,15 @@ export default function ContactSidebar() {
       >
         <section>
           <motion.h3 variants={fadeIn} className={textStyles.h3}>
-            Get In Touch
+            Let's Create Meaningful Change
           </motion.h3>
 
           <motion.p variants={fadeIn} className={cn(textStyles.body, 'mb-6')}>
-            Have a project in mind or questions for us? Reach out today and
-            let's discuss how we can help your business grow.
+            Ready to spark breakthrough ideas? Reach out and let's work together
+            to turn your vision into reality. We’re here to listen, advise, and
+            support you every step of the way. And if our brainstorming ever
+            gets too serious, we'll lighten the mood with a coffee pun or two
+            ☕.
           </motion.p>
 
           <motion.div
@@ -141,7 +144,7 @@ export default function ContactSidebar() {
         )}
       >
         <motion.h4 variants={fadeIn} className={textStyles.h4}>
-          Connect With Us
+          Connect and Collaborate
         </motion.h4>
 
         <div className="flex gap-4 mt-4">

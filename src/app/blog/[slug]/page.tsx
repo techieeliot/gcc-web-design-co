@@ -251,7 +251,6 @@ export default async function BlogPostRoute({
     notFound()
   }
 
-  // Rest of your component stays the same
   return (
     <div className="min-h-screen pt-20 lg:pt-28 pb-16">
       <div className="container mx-auto px-4">
@@ -261,8 +260,7 @@ export default async function BlogPostRoute({
             variant="outline"
             className="inline-flex items-center gap-1"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
+            <ArrowLeft className="w-4 h-4" />← Back to Blog
           </Link>
         </div>
 
@@ -340,6 +338,15 @@ export default async function BlogPostRoute({
               />
             </ImageErrorBoundary>
           </div>
+        </div>
+
+        {/* Inspiring Intro Tagline */}
+        <div className="max-w-3xl mx-auto mb-8">
+          <p className="text-xl font-bold text-slate-900 dark:text-white">
+            Unleash your creative energy and turn challenges into meaningful
+            progress. And here's a little cheer: Why do programmers prefer dark
+            mode? Because light attracts bugs! 😄
+          </p>
         </div>
 
         {/* Article Content */}

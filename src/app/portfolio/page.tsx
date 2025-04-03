@@ -51,8 +51,11 @@ export default function PortfolioRoute() {
               'text-slate-600 dark:text-slate-300'
             )}
           >
-            Explore our case studies to see how we've helped businesses
-            transform their digital presence.
+            At SanforDEV Consulting, we're as down-to-earth as a Mississippi
+            blueberry. We cultivate genuine relationships, gathering top talent
+            and trusted partners to nurture every project from idea to reality.
+            Explore our case studies to see how we help businesses grow—rooted
+            in authenticity, care, and a touch of innovation 🫐.
           </p>
         </header>
 

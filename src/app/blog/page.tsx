@@ -138,6 +138,11 @@ export default function BlogPostsHubRoute() {
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block px-2 py-1 text-xs font-medium bg-slate-900/70 text-white rounded-md backdrop-blur-sm">
+                    {featuredPost.category}
+                  </span>
+                </div>
               </div>
               <div className="lg:col-span-6 p-6 lg:p-8 flex flex-col">
                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-3">
@@ -161,6 +166,10 @@ export default function BlogPostsHubRoute() {
                 <p className={cn(textStyles.body, 'mb-6 line-clamp-3')}>
                   {featuredPost.description}
                 </p>
+                {/* A cheeky note to put a smile on your face */}
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                  P.S. Our donut fund is always overflowing 🍩.
+                </p>
                 <div className="flex items-center gap-3 mt-auto">
                   <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
                     <Image
@@ -182,7 +191,7 @@ export default function BlogPostsHubRoute() {
                     href={`/blog/${featuredPost.slug}`}
                     className="ml-auto inline-flex items-center gap-1 px-4 py-2 bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure rounded-lg text-sm font-medium hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors group"
                   >
-                    Read Article
+                    Read More
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

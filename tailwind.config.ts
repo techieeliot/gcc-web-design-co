@@ -113,6 +113,9 @@ const config: Config = {
       fontFamily: {
         poppins: ['var(--font-poppins)', 'sans-serif'],
       },
+      textShadow: {
+        sm: '0 1px 2px rgba(0, 0, 0, 0.1)',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

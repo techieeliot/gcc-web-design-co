@@ -30,14 +30,12 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>
 }): Promise<Metadata> {
-  // Await params before using
   const resolvedParams = await params
   const id = resolvedParams.id
 
   // Find the case study by ID
   const caseStudy = caseStudies.find((study) => study.id === id)
 
-  // Fallback metadata if case study not found
   if (!caseStudy) {
     return {
       title: 'Case Study Not Found',
@@ -45,19 +43,39 @@ export async function generateMetadata({
     }
   }
 
+  // Craft a down-to-earth, rooted description that embodies our approach—like a Mississippi blueberry.
+  let defaultDescription = `At SanforDEV Consulting, we cultivate strong relationships and bring together exceptional talent to craft solutions as refreshing and grounded as a Mississippi blueberry. We help clients grow—from startups to established brands—by nurturing every detail from design to back-end development. `
+
+  // Append a quirky fun fact depending on the case study
+  switch (id) {
+    case 'fourth-party':
+      defaultDescription += `Fun fact: our mentor once said their partnership was as perfectly paired as a husband and wife startup—with a side of startup incubator magic in Atlanta!`
+      break
+    case 'weed-warriors':
+      defaultDescription += `Fun fact: our friend quipped that after launching his website, he finally had something as legit as his green thumb!`
+      break
+    case 'gorilla-fund':
+      defaultDescription += `Fun fact: during our sprint, we turned blog glitches into giggles while polishing the CMS for a smoother read.`
+      break
+    case 'dare-to-share':
+      defaultDescription += `Fun fact: while enhancing dynamic animations, we joked that our code moved faster than a youth evangelism flash mob!`
+      break
+    case 'room-in-the-inn-memphis':
+      defaultDescription += `Fun fact: collaborating on this project was as smooth as a Memphis jazz night and twice as spirited!`
+      break
+    default:
+      break
+  }
+
   return {
     title: `${caseStudy.title} | Case Study`,
-    description:
-      caseStudy.description ||
-      `Learn how we helped ${caseStudy.title} with React ecosystem development, performance optimization, and modern UI implementation.`,
+    description: caseStudy.description || defaultDescription,
     alternates: {
       canonical: `/portfolio/${id}`,
     },
     openGraph: {
       title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
-      description:
-        caseStudy.description ||
-        `Learn how we helped ${caseStudy.title} with React ecosystem development.`,
+      description: caseStudy.description || defaultDescription,
       url: `https://devsouth.us/portfolio/${id}`,
       images: [
         {
@@ -72,9 +90,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
-      description:
-        caseStudy.description ||
-        `Learn how we helped ${caseStudy.title} with React ecosystem development.`,
+      description: caseStudy.description || defaultDescription,
       images: [caseStudy.image || '/images/portfolio-social.webp'],
     },
   }
@@ -85,7 +101,6 @@ export default async function CaseStudyRoute({
 }: {
   params: Promise<{ id: string }>
 }) {
-  // Await params before using
   const resolvedParams = await params
   const id = resolvedParams.id
 

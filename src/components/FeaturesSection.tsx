@@ -15,39 +15,39 @@ import { motion } from 'framer-motion'
 
 const features = [
   {
-    title: 'React & Next.js Development',
+    title: 'React & Next.js Mastery',
     description:
-      'Building high-performance web applications with the latest React features and Next.js capabilities.',
+      'We build high-performing digital solutions with React’s power and Next.js innovation. Our approach is precise and thoughtfully cultivated.',
     icon: CodeXml,
   },
   {
-    title: 'Responsive Design',
+    title: 'Responsive Experiences',
     description:
-      'Creating seamless experiences across all devices with modern, fluid layouts and optimized interfaces.',
+      'Our designs flow seamlessly across devices—just like nurturing a blueberry crop, our work ensures every touchpoint is naturally engaging.',
     icon: Layers,
   },
   {
-    title: 'SEO Optimization',
+    title: 'SEO & Visibility',
     description:
-      'Implementing best practices to improve search visibility and organic traffic to your digital products.',
+      'We boost your digital presence with smart, sustainable SEO strategies, ensuring your projects grow organically and capture attention.',
     icon: Globe,
   },
   {
-    title: 'UX/UI Enhancement',
+    title: 'Intuitive UX/UI',
     description:
-      'Crafting intuitive user experiences with thoughtful design that prioritizes usability and engagement.',
+      'Merging creative flair with user-first design, we craft experiences that feel as genuine as the first taste of a freshly picked blueberry.',
     icon: PenTool,
   },
   {
     title: 'Performance Optimization',
     description:
-      'Boosting site speed and efficiency through code optimization, lazy loading, and modern best practices.',
+      'Through careful refinement and modern techniques, we make sure your site runs smoothly—harvesting peak performance at every stage.',
     icon: Sparkles,
   },
   {
-    title: 'Accessibility Implementation',
+    title: 'Accessible Solutions',
     description:
-      'Ensuring digital products are usable by people of all abilities through WCAG compliance and testing.',
+      'We design for everyone. Our commitment to accessibility ensures your digital product welcomes all users with open arms.',
     icon: UserCheck,
   },
 ]
@@ -62,10 +62,13 @@ export default function FeaturesSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className={cn(textStyles.h2, 'mb-4')}>Our Core Services</h2>
+        <h2 className={cn(textStyles.h2, 'mb-4')}>
+          Cultivated Digital Solutions
+        </h2>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-          We specialize in modern web development technologies to create
-          exceptional digital experiences.
+          We nurture each project with the dedicated care of a blueberry
+          orchard—melding React expertise with creativity and a genuine
+          commitment to our partners.
         </p>
       </motion.div>
 

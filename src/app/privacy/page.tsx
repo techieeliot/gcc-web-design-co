@@ -13,31 +13,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
-// import { Metadata } from 'next'
 import { Link } from '@/components/ui/link'
-
-// export const metadata: Metadata = {
-//   title: 'Privacy Policy | SanforDEV Consulting',
-//   description:
-//     'Read our privacy policy to understand how we collect, use, and protect your personal information at SanforDEV Consulting.',
-//   alternates: {
-//     canonical: '/privacy',
-//   },
-//   openGraph: {
-//     title: 'Privacy Policy | SanforDEV Consulting',
-//     description:
-//       'Read our privacy policy to understand how we collect, use, and protect your personal information.',
-//     url: 'https://devsouth.us/privacy',
-//     images: [
-//       {
-//         url: '/images/social-card.webp',
-//         width: 1200,
-//         height: 630,
-//         alt: 'SanforDEV Consulting Privacy Policy',
-//       },
-//     ],
-//   },
-// }
 
 export default function PrivacyPolicyRoute() {
   // Animation variants
@@ -72,11 +48,11 @@ export default function PrivacyPolicyRoute() {
       icon: Eye,
       content: `We collect information you provide directly to us when you fill out contact forms, subscribe to newsletters, or communicate with us. This information may include:
         
-        • Name, email address, and phone number
-        • Company name and job title
-        • Project requirements and business needs
-        • IP address and device information
-        • Any other information you choose to provide`,
+• Name, email address, and phone number
+• Company name and job title
+• Project requirements and business needs
+• IP address and device information
+• Any other information you choose to provide`,
     },
     {
       id: 'usage',
@@ -84,13 +60,12 @@ export default function PrivacyPolicyRoute() {
       icon: FileText,
       content: `We use the information we collect to:
         
-        • Provide, maintain, and improve our services
-        • Process and complete transactions
-        • Send you technical notices and support messages
-        • Respond to your comments, questions, and requests
-        • Communicate with you about products, services, and events
-        • Monitor and analyze trends, usage, and activities
-        • Personalize and improve your experience`,
+• Provide and improve our services
+• Process and complete transactions
+• Send technical notices and support messages
+• Respond to your comments and requests
+• Share updates about products, services, and events
+• Analyze trends and personalize your experience`,
     },
     {
       id: 'sharing',
@@ -98,53 +73,56 @@ export default function PrivacyPolicyRoute() {
       icon: Users,
       content: `We may share your information with:
         
-        • Service providers who perform services on our behalf
-        • Professional advisors such as lawyers, accountants, and insurers
-        • Regulatory authorities, government agencies, and law enforcement
+• Service providers who support our operations
+• Professional advisors like lawyers, accountants, and insurers
+• Regulatory authorities, government agencies, and law enforcement
         
-        We do not sell your personal information to third parties.`,
+We do not sell your personal information.`,
     },
     {
       id: 'security',
       title: 'Data Security',
       icon: Lock,
-      content: `We take reasonable measures to help protect information about you from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction. These measures include:
+      content: `We take reasonable measures to protect your information from unauthorized access or mishandling. Our measures include:
         
-        • Encryption of data in transit using SSL
-        • Regular security assessments
-        • Access controls and authentication procedures
-        • Server-side data protection mechanisms`,
+• Data encryption in transit using SSL
+• Regular security assessments
+• Strict access controls and authentication
+• Server-side data protection mechanisms`,
     },
     {
       id: 'cookies',
       title: 'Cookies & Tracking',
       icon: Cookie,
-      content: `We use cookies and similar tracking technologies to track activity on our website and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.
+      content: `We use cookies and similar technologies to track activity on our website and retain certain data. Cookies are small pieces of data that may include an anonymous unique identifier.
         
-        You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our website.`,
+You can instruct your browser to refuse cookies, though some parts of our website might not function properly.`,
     },
     {
       id: 'rights',
       title: 'Your Rights',
       icon: Shield,
-      content: `Depending on your location, you may have certain rights regarding your personal information, including:
+      content: `Depending on your location, you may have rights regarding your personal information, including:
         
-        • Access to your personal information
-        • Correction of inaccurate information
-        • Deletion of your information
-        • Restriction of processing
-        • Data portability
-        • Objection to processing
+• Access, correction, or deletion
+• Restricting processing or objecting to certain uses
+• Data portability
         
-        To exercise any of these rights, please contact us using the information provided below.`,
+Contact us to exercise any rights you have.`,
     },
     {
       id: 'updates',
       title: 'Updates to this Policy',
       icon: Bell,
-      content: `We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date below.
+      content: `We may update this Privacy Policy from time to time. Any changes will be posted on this page along with a revised "Last Updated" date.
         
-        We will let you know via email and/or a prominent notice on our website, prior to the change becoming effective.`,
+We will also provide notice via email and/or a prominent notice on our website before changes take effect.`,
+    },
+    {
+      id: 'legal',
+      title: 'Contractual Provisions',
+      icon: FileText,
+      content: `Our engagements are supported by a comprehensive framework—including a Statement of Work (SOW) and corresponding legal agreements—that outlines scope, deliverables, payment terms, and confidentiality requirements. These provisions ensure mutual accountability and clarity at every stage. Please note that any changes outside the agreed scope may incur additional fees, and all legal matters are governed by the laws of Mississippi. Our standard NDA template is available upon request.`,
     },
   ]
 
@@ -183,8 +161,10 @@ export default function PrivacyPolicyRoute() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Privacy Policy</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              At SanforDEV, we take your privacy seriously. This policy explains
-              how we collect, use, and protect your personal information.
+              At SanforDEV Consulting, we take your privacy seriously. Like a
+              well-cultivated Mississippi blueberry, our approach is rooted in
+              care and nurturing relationships. This policy explains how we
+              collect, use, and guard your information.
             </p>
 
             <motion.div
@@ -193,7 +173,7 @@ export default function PrivacyPolicyRoute() {
               transition={{ delay: 0.4 }}
               className="text-sm text-slate-500 dark:text-slate-400 mt-2"
             >
-              Last Updated: April 1, 2025
+              Last Updated: April 3, 2025
             </motion.div>
           </div>
         </motion.div>
@@ -212,19 +192,18 @@ export default function PrivacyPolicyRoute() {
           >
             <h2 className={cn(textStyles.h3, 'mb-4')}>Introduction</h2>
             <p className={cn(textStyles.body, 'mb-3')}>
-              This Privacy Policy applies to all information collected through
-              our website{' '}
+              This Privacy Policy applies to all data collected via our website{' '}
               <Link href="/" variant="inlineLink">
                 devsouth.us
               </Link>
-              , and any related services, sales, marketing, or events.
+              , along with any services or events associated with SanforDEV
+              Consulting.
             </p>
             <p className={cn(textStyles.body)}>
-              By accessing our website and using our services, you consent to
-              the collection, processing, and storage of your information as
-              described in this Privacy Policy. Please read this policy
-              carefully to understand our practices regarding your personal
-              information.
+              By using our website, you agree to the collection and processing
+              of your information as described here. Our goal is to protect your
+              privacy with the same care we nurture our long-standing client
+              relationships.
             </p>
           </motion.div>
 
@@ -275,8 +254,8 @@ export default function PrivacyPolicyRoute() {
           </div>
           <h2 className={cn(textStyles.h3, 'mb-4')}>Contact Us</h2>
           <p className={cn(textStyles.body, 'mb-6')}>
-            If you have any questions about this Privacy Policy, your personal
-            information, or how to exercise your rights, please contact us at:
+            If you have any questions about this Privacy Policy or our
+            practices, please contact us at:
           </p>
           <div className="space-y-1">
             <p className="text-slate-800 dark:text-powder font-medium">

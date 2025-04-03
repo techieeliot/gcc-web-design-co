@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { ServicesMainContent, ServicesSidebar } from './components'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 export const metadata: Metadata = {
   title: 'Our Services | React & Next.js Development',
@@ -46,8 +47,12 @@ export default function ServicesRoute() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <ServicesMainContent />
-          <ServicesSidebar />
+          <ErrorBoundary>
+            <ServicesMainContent />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <ServicesSidebar />
+          </ErrorBoundary>
         </div>
       </div>
     </div>

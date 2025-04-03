@@ -16,16 +16,17 @@ export default function ProjectShowcase() {
       transition={{ duration: 0.2 }}
     >
       <div className="mb-4">
-        <h3 className={cn(textStyles.h3, 'mb-2')}>Featured Work</h3>
+        <h3 className={cn(textStyles.h3, 'mb-2')}>Our Crafted Stories</h3>
         <p className="text-slate-600 dark:text-slate-300 mb-4">
-          Explore some of our recent projects
+          Discover projects where care meets code—a fusion of React expertise
+          and a down‑to‑earth approach.
         </p>
       </div>
 
       <div className="space-y-6">
         <ProjectCard
           title="Fourth Party"
-          description="A web-based platform to streamline the mediation process."
+          description="An innovative platform designed to simplify mediation with clarity and purpose."
           image="/images/pic03.webp"
           tags={['React', 'Modern UI', 'CRM']}
           link="/portfolio/fourth-party"
@@ -33,7 +34,7 @@ export default function ProjectShowcase() {
 
         <ProjectCard
           title="Room in the Inn Memphis"
-          description="Complete website redesign for a nonprofit organization providing shelter and support for homeless individuals."
+          description="A complete redesign crafted to uplift community impact through empathy and user-first design."
           image="/images/pic02.webp"
           tags={['CMS', 'JavaScript']}
           link="/portfolio/room-in-the-inn-memphis"
@@ -84,7 +85,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded font-medium"
+              className="px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded"
             >
               {tag}
             </span>
@@ -95,7 +96,7 @@ const ProjectCard = ({
           href={link}
           className="text-sky dark:text-azure flex items-center gap-1 text-sm font-medium"
         >
-          View Case Study
+          See More
           <ExternalLink className="w-3 h-3" />
         </Link>
       </div>

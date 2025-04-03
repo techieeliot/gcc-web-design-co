@@ -7,12 +7,11 @@ import { CheckCircle, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
 const benefits = [
-  'Expert React & Next.js development',
-  'Performance optimization focus',
-  'Responsive design across all devices',
-  'Accessible, SEO-friendly structures',
-  'Scalable, maintainable codebases',
-  'Modern tooling and best practices',
+  'React & Next.js expertise that drives performance',
+  'Hands-on solutions for responsive, accessible web apps',
+  'Deep technical insight with modern, scalable approaches',
+  'Curated talent and trusted partners on every project',
+  'Design finesse paired with robust back-end skills',
 ]
 
 export default function ValueProposition() {
@@ -31,7 +30,7 @@ export default function ValueProposition() {
           transition={{ duration: 0.6 }}
           className={cn(textStyles.h2, 'mb-4')}
         >
-          Why Choose SanforDEV Consulting?
+          Why SanforDEV Consulting?
         </motion.h2>
 
         <motion.p
@@ -41,9 +40,13 @@ export default function ValueProposition() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-lg text-slate-600 dark:text-slate-300 mb-8"
         >
-          We're dedicated to transforming your digital vision into reality with
-          a focus on technical excellence, user experience, and business
-          outcomes.
+          Imagine the care and commitment of a blueberry farm—each berry
+          nurtured with patience, passion, and precision. At SanforDEV, we
+          channel that spirit into our digital work. We blend modern React
+          innovation with an unwavering commitment to genuine collaboration.
+          Every solution is a carefully cultivated partnership between our
+          talented team, strong leadership, and trusted design and back-end
+          experts. Let’s harvest some digital greatness together 🫐.
         </motion.p>
       </motion.div>
 
@@ -81,15 +84,18 @@ export default function ValueProposition() {
         <h3 className={cn(textStyles.h3, 'mb-3')}>Our Approach</h3>
 
         <p className="text-slate-600 dark:text-slate-300 mb-4">
-          We focus on understanding your business goals first, then crafting
-          technical solutions that deliver measurable results.
+          We focus on truly understanding your business goals. Our process is
+          about connecting on a personal level—the same way you’d tend a
+          fruitful blueberry orchard. By blending hands-on React expertise with
+          meticulous design and back-end precision, we create digital solutions
+          that feel naturally right.
         </p>
 
         <Link
           href="/services"
           className="text-sky dark:text-azure flex items-center gap-1 font-medium group"
         >
-          Learn about our services
+          Discover our process
           <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </motion.div>
@@ -102,13 +108,12 @@ export default function ValueProposition() {
         className="bg-sky/10 dark:bg-azure/10 p-6 rounded-lg border border-sky/20 dark:border-azure/20"
       >
         <p className="text-slate-700 dark:text-slate-200 italic mb-4">
-          "SanforDEV transformed our digital presence by creating a fast,
-          responsive, and user-friendly platform that has significantly improved
-          our customer engagement."
+          "SanforDEV turned our digital challenges into a harvest of
+          opportunities, merging modern tech with sincere, hands-on care."
         </p>
 
         <div className="flex items-center gap-2 text-sky dark:text-azure">
-          <span className="font-semibold">Melissa Brogdan</span>
+          <span className="font-medium">Melissa Brogdan</span>
           <span className="text-slate-400">|</span>
           <span className="text-sm">Co-Owner, Fourth Party</span>
         </div>
