@@ -55,12 +55,9 @@ export default function Footer() {
 
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
       className={cn(
         'w-full relative overflow-hidden',
-        'bg-slate-50 dark:bg-slate-900',
+        'bg-slate-50 dark:bg-slate-900', // Footer background
         'text-slate-700 dark:text-powder',
         'border-t border-slate-200 dark:border-slate-800'
       )}
@@ -77,7 +74,14 @@ export default function Footer() {
         <div className="absolute -bottom-48 -left-32 w-96 h-96 bg-sky/5 dark:bg-azure/5 rounded-full blur-3xl" />
       </motion.div>
 
-      <footer className="container mx-auto px-4 py-12 lg:py-16 relative z-10">
+      <footer
+        className={cn(
+          'w-full relative overflow-hidden',
+          'bg-slate-50 dark:bg-slate-900', // Footer background
+          'text-slate-700 dark:text-powder',
+          'border-t border-slate-200 dark:border-slate-800'
+        )}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Column 1: Company Info */}
           <motion.div

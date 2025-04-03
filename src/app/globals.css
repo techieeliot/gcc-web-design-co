@@ -176,7 +176,7 @@ body {
 
 /* Add this after your existing CSS */
 
-/* Force background inheritance */
+/* Modify to exclude header and nav */
 html,
 body,
 div,
@@ -184,10 +184,14 @@ main,
 section,
 article,
 aside,
-nav,
-header,
 footer {
   background-color: transparent;
+}
+
+/* And add specific solid backgrounds for header and navigation */
+header,
+nav {
+  background-color: var(--background);
 }
 
 /* Ensure dark mode background applies to the entire viewport */

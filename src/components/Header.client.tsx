@@ -20,7 +20,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only toggle border and shadow, not opacity
+      // Remove any logic that changes the background on scroll
       setIsScrolled(window.scrollY > 10)
     }
 
@@ -146,10 +146,10 @@ export default function Header() {
           'fixed top-0 left-0 right-0',
           'z-[100]',
           'transition-all duration-300 ease-in-out',
-          'bg-white dark:bg-slate-900', // Solid background at all times
-          isScrolled &&
-            'shadow-lg border-b border-slate-200 dark:border-slate-800',
-          isOpen && 'opacity-0' // Only for mobile menu open state
+          'bg-slate-50 dark:bg-slate-900',
+          'shadow-lg border-b border-slate-200 dark:border-slate-800',
+          // Hide the header when mobile nav is open
+          isOpen && 'opacity-0 pointer-events-none'
         )}
       >
         <header className="container mx-auto px-4">

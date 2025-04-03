@@ -47,7 +47,7 @@ export function MobileNav({ isOpen, setIsOpen, links }: MobileNavProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-slate-50 dark:bg-slate-900 z-40"
             onClick={() => setIsOpen(false)}
           />
 
@@ -59,7 +59,7 @@ export function MobileNav({ isOpen, setIsOpen, links }: MobileNavProps) {
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             className={cn(
               'fixed top-0 right-0 h-full w-[280px] z-50',
-              'bg-white dark:bg-slate-900', // Always solid
+              'bg-slate-50 dark:bg-slate-900', // Solid backgrounds here as well
               'border-l border-slate-200 dark:border-slate-800',
               'shadow-xl'
             )}
