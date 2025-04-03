@@ -54,7 +54,7 @@ export async function generateMetadata({
       canonical: `/portfolio/${id}`,
     },
     openGraph: {
-      title: `${caseStudy.title} | SanforDev Consulting Case Study`,
+      title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
       description:
         caseStudy.description ||
         `Learn how we helped ${caseStudy.title} with React ecosystem development.`,
@@ -71,7 +71,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${caseStudy.title} | SanforDev Consulting Case Study`,
+      title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
       description:
         caseStudy.description ||
         `Learn how we helped ${caseStudy.title} with React ecosystem development.`,

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'React Development Blog | SanforDev Consulting',
+    title: 'React Development Blog | SanforDEV Consulting',
     description:
       'Stay up to date with the latest React ecosystem insights, tutorials, and best practices.',
     url: 'https://devsouth.us/blog',
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
         url: '/images/blog-social.webp',
         width: 1200,
         height: 630,
-        alt: 'SanforDev Consulting Blog',
+        alt: 'SanforDEV Consulting Blog',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'React Development Blog | SanforDev Consulting',
+    title: 'React Development Blog | SanforDEV Consulting',
     description:
       'Stay up to date with the latest React ecosystem insights and tutorials.',
     images: ['/images/blog-social.webp'],
@@ -115,7 +115,7 @@ export default function BlogPostsHubRoute() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Blog & Insights</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              Thoughts, stories, and ideas from the SanforDev team on web
+              Thoughts, stories, and ideas from the SanforDEV team on web
               development, design, and technology.
             </p>
           </div>

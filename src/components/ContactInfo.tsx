@@ -126,7 +126,7 @@ export default function ContactInfo() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="mt-6 text-white/70 text-xs"
       >
-        <p>© {new Date().getFullYear()} SanforDev Consulting LLC</p>
+        <p>© {new Date().getFullYear()} SanforDEV Consulting LLC</p>
       </motion.div>
     </div>
   )

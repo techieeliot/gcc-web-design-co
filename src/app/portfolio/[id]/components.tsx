@@ -64,7 +64,7 @@ export const CaseStudyFourthParty = () => {
         <div>
           <p className={textStyles.body}>
             <strong>Fourth Party</strong> is a web-based platform designed to
-            streamline the mediation process. SanforDev Consulting collaborated
+            streamline the mediation process. SanforDEV Consulting collaborated
             with FourthParty to build a user-friendly, responsive web
             application to enhance mediation practices, focusing on automation
             and efficiency.
@@ -102,7 +102,7 @@ export const CaseStudyFourthParty = () => {
               textStyles.body
             )}
           >
-            "SanforDev Consulting helped us create a platform that truly serves
+            "SanforDEV Consulting helped us create a platform that truly serves
             our mission of simplifying mediation. Their team was responsive,
             knowledgeable, and efficient. The app is now a core part of our
             practice, and we've seen an increase in both client satisfaction and
@@ -166,7 +166,7 @@ export const CaseStudyWeedWarriors = () => {
         <div>
           <p className={textStyles.body}>
             <strong>Weed Warriors</strong> is a leading lawn care service
-            provider looking to modernize their business operations. SanforDev
+            provider looking to modernize their business operations. SanforDEV
             Consulting developed a comprehensive digital solution to streamline
             their scheduling, payment processing, and customer communication
             systems.
@@ -242,7 +242,7 @@ export const CaseStudyWeedWarriors = () => {
               textStyles.body
             )}
           >
-            "SanforDev Consulting transformed our business operations with their
+            "SanforDEV Consulting transformed our business operations with their
             digital solution. The automated scheduling and payment systems have
             saved us countless hours, allowing us to focus on what we do best -
             keeping our customers' lawns beautiful."
@@ -305,7 +305,7 @@ export const CaseStudyGorillaFund = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            SanforDev Consulting provided technical expertise to Soulheart
+            SanforDEV Consulting provided technical expertise to Soulheart
             during the development of the Dian Fossey Gorilla Fund website,
             focusing on content management optimization, responsive styling, and
             interactive feature implementation.
@@ -365,7 +365,7 @@ export const CaseStudyGorillaFund = () => {
             </Link>{' '}
             <span className={textStyles['body-small']}>
               (Website developed by Soulheart with technical consulting by
-              SanforDev)
+              SanforDEV)
             </span>
           </p>
         </section>
@@ -405,7 +405,7 @@ export const CaseStudyDareToShare = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            When Soulheart faced an unexpected developer transition, SanforDev
+            When Soulheart faced an unexpected developer transition, SanforDEV
             Consulting stepped in to provide emergency technical support,
             implementing Git best practices and resolving critical front-end
             issues for the Dare to Share platform.
@@ -440,7 +440,7 @@ export const CaseStudyDareToShare = () => {
             </Link>{' '}
             <span className={textStyles['body-small']}>
               (Website by Soulheart with emergency technical support by
-              SanforDev)
+              SanforDEV)
             </span>
           </p>
         </section>
@@ -480,7 +480,7 @@ export const CaseStudyRoomInTheInn = () => {
         {/* Introduction */}
         <div>
           <p className={textStyles.body}>
-            As part of GiveCamp Memphis, SanforDev contributed to a complete
+            As part of GiveCamp Memphis, SanforDEV contributed to a complete
             website redesign for Room in the Inn Memphis, a nonprofit
             organization providing shelter and support for individuals
             experiencing homelessness.

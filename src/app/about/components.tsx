@@ -120,7 +120,7 @@ export const AboutSection = () => {
         variants={fadeIn}
         className={cn(textStyles.h2, 'mb-6 lg:mb-8')}
       >
-        About SanforDev
+        About SanforDEV
       </motion.h2>
 
       {/* Our Story - More concise */}
@@ -132,7 +132,7 @@ export const AboutSection = () => {
           variants={fadeIn}
           className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
         >
-          Founded in 2018, SanforDev Consulting (formerly devSouth) emerged from
+          Founded in 2018, SanforDEV Consulting (formerly devSouth) emerged from
           a passion for transforming innovative ideas into digital products. We
           began by helping startups build scalable MVPs and have since expanded
           to enterprise partnerships while maintaining our commitment to startup

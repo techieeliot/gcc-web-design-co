@@ -232,7 +232,7 @@ export default function Header() {
                   {/* Logo image */}
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="SanforDev Logo"
+                    alt="SanforDEV Logo"
                     width={36}
                     height={36}
                     className={cn(
@@ -266,7 +266,7 @@ export default function Header() {
                     ease: 'easeInOut',
                   }}
                 >
-                  Dev
+                  DEV
                 </motion.span>
                 <span className="hidden sm:inline md:hidden xl:inline">
                   {' '}

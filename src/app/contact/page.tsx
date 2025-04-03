@@ -10,12 +10,12 @@ import dynamic from 'next/dynamic'
 // export const metadata: Metadata = {
 //   title: 'Contact Us | Get a Free Consultation',
 //   description:
-//     'Ready to transform your digital presence? Contact SanforDev Consulting for React and Next.js development services. Get in touch for a free consultation.',
+//     'Ready to transform your digital presence? Contact SanforDEV Consulting for React and Next.js development services. Get in touch for a free consultation.',
 //   alternates: {
 //     canonical: '/contact',
 //   },
 //   openGraph: {
-//     title: 'Contact SanforDev Consulting | Get a Free Consultation',
+//     title: 'Contact SanforDEV Consulting | Get a Free Consultation',
 //     description:
 //       'Ready to transform your digital presence? Contact us for React and Next.js development services.',
 //     url: 'https://devsouth.us/contact',
@@ -24,13 +24,13 @@ import dynamic from 'next/dynamic'
 //         url: '/images/contact-social.webp',
 //         width: 1200,
 //         height: 630,
-//         alt: 'Contact SanforDev Consulting',
+//         alt: 'Contact SanforDEV Consulting',
 //       },
 //     ],
 //   },
 //   twitter: {
 //     card: 'summary_large_image',
-//     title: 'Contact SanforDev Consulting | Get a Free Consultation',
+//     title: 'Contact SanforDEV Consulting | Get a Free Consultation',
 //     description: 'Ready to transform your digital presence? Contact us today.',
 //     images: ['/images/contact-social.webp'],
 //   },

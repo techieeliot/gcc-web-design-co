@@ -4,21 +4,21 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'About Us | Our Story, Mission & Experience',
   description:
-    "Learn about SanforDev Consulting's mission to build remarkable applications that empower people through technology. Founded in 2018, we focus on performance, accessibility, and innovation.",
+    "Learn about SanforDEV Consulting's mission to build remarkable applications that empower people through technology. Founded in 2018, we focus on performance, accessibility, and innovation.",
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About SanforDev Consulting | Our Story & Mission',
+    title: 'About SanforDEV Consulting | Our Story & Mission',
     description:
-      'Founded in 2018, SanforDev Consulting specializes in building remarkable applications that empower people through technology.',
+      'Founded in 2018, SanforDEV Consulting specializes in building remarkable applications that empower people through technology.',
     url: 'https://devsouth.us/about',
     images: [
       {
         url: '/images/about-social.webp',
         width: 1200,
         height: 630,
-        alt: 'About SanforDev Consulting',
+        alt: 'About SanforDEV Consulting',
       },
     ],
   },

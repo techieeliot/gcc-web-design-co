@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: '/services',
   },
   openGraph: {
-    title: 'React & Next.js Development Services | SanforDev Consulting',
+    title: 'React & Next.js Development Services | SanforDEV Consulting',
     description:
       'From front-end development to performance optimization, we offer specialized React ecosystem services for modern web applications.',
     url: 'https://devsouth.us/services',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'React & Next.js Development Services | SanforDev Consulting',
+    title: 'React & Next.js Development Services | SanforDEV Consulting',
     description:
       'Specialized React ecosystem services for modern web applications.',
     images: ['/images/services-social.webp'],

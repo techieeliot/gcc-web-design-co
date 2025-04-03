@@ -1,14 +1,14 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'React Ecosystem Specialists | SanforDev Consulting',
+  title: 'React Ecosystem Specialists | SanforDEV Consulting',
   description:
     'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'SanforDev Consulting | React Ecosystem Specialists',
+    title: 'SanforDEV Consulting | Modern Web Development Services',
     description:
       'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
     url: 'https://devsouth.us',
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
         url: '/images/home-social.webp',
         width: 1200,
         height: 630,
-        alt: 'SanforDev Consulting - React Ecosystem Development Services',
+        alt: 'SanforDEV Consulting - React Ecosystem Development Services',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SanforDev Consulting | React Ecosystem Specialists',
+    title: 'SanforDEV Consulting | Modern Web Development Services',
     description:
       'Transform your digital presence with high-performance web applications.',
     images: ['/images/home-social.webp'],

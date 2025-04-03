@@ -1,6 +1,6 @@
-# SanforDev Consulting Website
+# SanforDEV Consulting Website
 
-A modern, responsive website built with Next.js for SanforDev Consulting, showcasing our software development and technical consulting services.
+A modern, responsive website built with Next.js for SanforDEV Consulting, showcasing our software development and technical consulting services.
 
 ## 🚀 Features
 
@@ -92,7 +92,7 @@ The project uses GitHub Actions for CI/CD:
 
 ## 📝 License
 
-Copyright © 2024 SanforDev Consulting. All rights reserved.
+Copyright © 2024 SanforDEV Consulting. All rights reserved.
 
 ## 👥 Contributing
 

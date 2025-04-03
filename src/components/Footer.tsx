@@ -86,7 +86,7 @@ export default function Footer() {
             className="text-center sm:text-left lg:col-span-4"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4">
-              About SanforDev
+              About SanforDEV
             </h3>
 
             <div className="flex items-center justify-center sm:justify-start mb-4">
@@ -98,7 +98,7 @@ export default function Footer() {
                 <div className="rounded-full bg-slate p-3 inline-flex items-center justify-center">
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="SanforDev Logo"
+                    alt="SanforDEV Logo"
                     width={36}
                     height={36}
                     className="w-8 h-8"
@@ -279,7 +279,7 @@ export default function Footer() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-600 dark:text-powder/80 flex items-center">
-              &copy; {currentYear} SanforDev Consulting. All rights reserved.
+              &copy; {currentYear} SanforDEV Consulting. All rights reserved.
             </p>
             <motion.p
               initial={{ opacity: 0 }}

@@ -8,7 +8,7 @@ export default function OrganizationSchema() {
         __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'ProfessionalService',
-          name: 'SanforDev Consulting',
+          name: 'SanforDEV Consulting',
           alternateName: 'devSouth',
           url: domains.primary,
           logo: `${domains.primary}/images/logo.png`,

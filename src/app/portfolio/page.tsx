@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: '/portfolio',
   },
   openGraph: {
-    title: 'Case Studies & Development Projects | SanforDev Consulting',
+    title: 'Case Studies & Development Projects | SanforDEV Consulting',
     description:
       'Explore our portfolio of successful React and Next.js projects for startups and enterprises.',
     url: 'https://devsouth.us/portfolio',
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: '/images/portfolio-social.webp',
         width: 1200,
         height: 630,
-        alt: 'SanforDev Consulting Portfolio',
+        alt: 'SanforDEV Consulting Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case Studies & Development Projects | SanforDev Consulting',
+    title: 'Case Studies & Development Projects | SanforDEV Consulting',
     description:
       'Explore our portfolio of successful React and Next.js projects.',
     images: ['/images/portfolio-social.webp'],
