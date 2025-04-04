@@ -1,34 +1,34 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-import { ServiceCard } from './ServiceCard'
-import { serviceCategories } from '../data/services'
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { textStyles } from "@/lib/styles";
+import { ServiceCard } from "./ServiceCard";
 import {
   fadeIn,
   imageVariant,
   motion,
   staggeredContainerTransition,
   listItemTransition,
-} from '@/lib/animations'
+} from "@/lib/animations";
+import { serviceCategories } from "@/data";
 
 export function ServicesMainContent() {
   const features = [
     {
-      title: 'Genuine Relationships',
+      title: "Genuine Relationships",
       description:
-        'Building trust through authentic connections and open communication',
+        "Building trust through authentic connections and open communication",
     },
     {
-      title: 'Technical Excellence',
-      description: 'Delivering robust solutions with modern best practices',
+      title: "Technical Excellence",
+      description: "Delivering robust solutions with modern best practices",
     },
     {
-      title: 'Mississippi Values',
-      description: 'Bringing southern hospitality to every project interaction',
+      title: "Mississippi Values",
+      description: "Bringing southern hospitality to every project interaction",
     },
-  ]
+  ];
 
   return (
     <motion.main
@@ -60,7 +60,7 @@ export function ServicesMainContent() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className={cn(textStyles.h1, 'text-white mb-4 drop-shadow-lg')}
+            className={cn(textStyles.h1, "text-white mb-4 drop-shadow-lg")}
           >
             Cultivating Digital Excellence
           </motion.h1>
@@ -94,7 +94,7 @@ export function ServicesMainContent() {
               variants={fadeIn}
               className={cn(
                 textStyles.body,
-                'text-slate-600 dark:text-slate-300'
+                "text-slate-600 dark:text-slate-300",
               )}
             >
               {category.description}
@@ -121,7 +121,7 @@ export function ServicesMainContent() {
         variants={fadeIn}
         className="bg-white dark:bg-slate-800/50 p-8 sm:p-10 rounded-lg shadow-lg"
       >
-        <motion.h2 variants={fadeIn} className={cn(textStyles.h2, 'mb-4')}>
+        <motion.h2 variants={fadeIn} className={cn(textStyles.h2, "mb-4")}>
           Our Down-to-Earth Approach
         </motion.h2>
 
@@ -130,7 +130,7 @@ export function ServicesMainContent() {
             variants={fadeIn}
             className={cn(
               textStyles.body,
-              'text-slate-700 dark:text-slate-300'
+              "text-slate-700 dark:text-slate-300",
             )}
           >
             At SanforDEV Consulting, we cultivate digital solutions with the
@@ -146,7 +146,7 @@ export function ServicesMainContent() {
             variants={fadeIn}
             className={cn(
               textStyles.body,
-              'text-slate-700 dark:text-slate-300'
+              "text-slate-700 dark:text-slate-300",
             )}
           >
             From comprehensive Next.js applications to finely-tuned React
@@ -167,7 +167,7 @@ export function ServicesMainContent() {
                 className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky/10 
                 dark:hover:bg-azure/10 transition-colors"
               >
-                <h3 className={cn(textStyles.h3, 'mb-3')}>{feature.title}</h3>
+                <h3 className={cn(textStyles.h3, "mb-3")}>{feature.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400">
                   {feature.description}
                 </p>
@@ -189,5 +189,5 @@ export function ServicesMainContent() {
         </motion.div>
       </motion.section>
     </motion.main>
-  )
+  );
 }

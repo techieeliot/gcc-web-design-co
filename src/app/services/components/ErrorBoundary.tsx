@@ -1,27 +1,27 @@
-'use client'
+"use client";
 
-import { Component, ErrorInfo, ReactNode } from 'react'
-import { AlertCircle } from 'lucide-react'
+import { AlertCircle } from "@/lib/icons";
+import { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface State {
-  hasError: boolean
+  hasError: boolean;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
-  }
+  };
 
   public static getDerivedStateFromError(_: Error): State {
-    return { hasError: true }
+    return { hasError: true };
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Service component error:', error, errorInfo)
+    console.error("Service component error:", error, errorInfo);
   }
 
   public render() {
@@ -35,9 +35,9 @@ export class ErrorBoundary extends Component<Props, State> {
             Please refresh the page or contact support if the issue persists.
           </p>
         </div>
-      )
+      );
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }

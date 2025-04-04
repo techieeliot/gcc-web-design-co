@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { ArrowUpRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-import { componentStyles } from '@/lib/component-styles'
-import { implementations } from '../data/implementations'
+import { cn } from "@/lib/utils";
+import { textStyles } from "@/lib/styles";
+import { componentStyles } from "@/lib/styles";
 import {
   motion,
   staggeredContainerTransition,
   listItemTransition,
-} from '@/lib/animations'
+} from "@/lib/animations";
+import { ArrowUpRight } from "@/lib/icons";
+import { implementations } from "@/data";
 
 export const ServicesSidebar = () => {
   return (
@@ -29,8 +29,8 @@ export const ServicesSidebar = () => {
           whileHover={{ y: -5 }}
           className={cn(
             componentStyles.card,
-            'p-6 sm:p-8',
-            'shadow-sm hover:shadow-md transition-all'
+            "p-6 sm:p-8",
+            "shadow-sm hover:shadow-md transition-all",
           )}
         >
           <motion.div
@@ -71,5 +71,5 @@ export const ServicesSidebar = () => {
         </motion.div>
       ))}
     </motion.aside>
-  )
-}
+  );
+};

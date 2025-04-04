@@ -1,39 +1,39 @@
-import { Metadata } from 'next'
-import { caseStudies } from '@/data/case-studies'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { CaseStudyCard } from './[id]/CaseStudyCard'
-import BlueberryIcon from '@/components/BlueberryIcon'
+import { Metadata } from "next";
+import { caseStudies } from "@/data";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import { CaseStudyCard } from "./[id]/CaseStudyCard";
+import BlueberryIcon from "@/components/BlueberryIcon";
 
 export const metadata: Metadata = {
-  title: 'Our Work | Case Studies & Development Projects',
+  title: "Our Work | Case Studies & Development Projects",
   description:
     "Explore our case studies showcasing successful React and Next.js projects. See how we've helped startups and enterprises transform their digital presence.",
   alternates: {
-    canonical: '/portfolio',
+    canonical: "/portfolio",
   },
   openGraph: {
-    title: 'Case Studies & Development Projects | SanforDEV Consulting',
+    title: "Case Studies & Development Projects | SanforDEV Consulting",
     description:
-      'Explore our portfolio of successful React and Next.js projects for startups and enterprises.',
-    url: 'https://devsouth.us/portfolio',
+      "Explore our portfolio of successful React and Next.js projects for startups and enterprises.",
+    url: "https://devsouth.us/portfolio",
     images: [
       {
-        url: '/images/portfolio-social.webp',
+        url: "/images/portfolio-social.webp",
         width: 1200,
         height: 630,
-        alt: 'SanforDEV Consulting Portfolio',
+        alt: "SanforDEV Consulting Portfolio",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Case Studies & Development Projects | SanforDEV Consulting',
+    card: "summary_large_image",
+    title: "Case Studies & Development Projects | SanforDEV Consulting",
     description:
-      'Explore our portfolio of successful React and Next.js projects.',
-    images: ['/images/portfolio-social.webp'],
+      "Explore our portfolio of successful React and Next.js projects.",
+    images: ["/images/portfolio-social.webp"],
   },
-}
+};
 
 export default function PortfolioRoute() {
   return (
@@ -41,7 +41,7 @@ export default function PortfolioRoute() {
       <div className="container mx-auto px-4 pb-8 lg:pb-12">
         {/* Page Header */}
         <header className="mb-12 lg:mb-16">
-          <h1 className={cn(textStyles.h1, 'mb-4 text-center lg:text-left')}>
+          <h1 className={cn(textStyles.h1, "mb-4 text-center lg:text-left")}>
             Our Work
           </h1>
 
@@ -49,10 +49,10 @@ export default function PortfolioRoute() {
             {/* Description paragraph */}
             <p
               className={cn(
-                'text-lg lg:text-xl',
-                'max-w-3xl order-2 lg:order-1',
-                'text-center lg:text-left',
-                'text-slate-600 dark:text-slate-300'
+                "text-lg lg:text-xl",
+                "max-w-3xl order-2 lg:order-1",
+                "text-center lg:text-left",
+                "text-slate-600 dark:text-slate-300",
               )}
             >
               At SanforDEV Consulting, we're as down-to-earth as a Mississippi
@@ -74,5 +74,5 @@ export default function PortfolioRoute() {
         </div>
       </div>
     </div>
-  )
+  );
 }

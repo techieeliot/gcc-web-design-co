@@ -1,10 +1,8 @@
-'use client'
+"use client";
 
-import { ArrowUpRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-import { componentStyles } from '@/lib/component-styles'
-import type { Service } from '../types'
+import { cn } from "@/lib/utils";
+import { textStyles } from "@/lib/styles";
+import { componentStyles } from "@/lib/styles";
 import {
   serviceCardVariants,
   iconContainer,
@@ -13,11 +11,13 @@ import {
   staggeredContainerTransition,
   listItemTransition,
   motion,
-} from '@/lib/animations'
+} from "@/lib/animations";
+import { ArrowUpRight } from "@/lib/icons";
+import { Service } from "@/data/types";
 
 interface ServiceCardProps {
-  service: Service
-  index: number
+  service: Service;
+  index: number;
 }
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
@@ -29,8 +29,8 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       transition={{ duration: 0.2 }}
       className={cn(
         componentStyles.card,
-        'p-6 sm:p-8',
-        'shadow-sm hover:shadow-md transition-shadow'
+        "p-6 sm:p-8",
+        "shadow-sm hover:shadow-md transition-shadow",
       )}
     >
       <motion.div
@@ -58,7 +58,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         ))}
       </motion.div>
 
-      <motion.h2 variants={fadeIn} className={cn(textStyles.h2, 'mb-3')}>
+      <motion.h2 variants={fadeIn} className={cn(textStyles.h2, "mb-3")}>
         {service.title}
       </motion.h2>
 
@@ -66,7 +66,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         variants={fadeIn}
         className={cn(
           textStyles.body,
-          'mb-6 text-slate-600 dark:text-slate-300'
+          "mb-6 text-slate-600 dark:text-slate-300",
         )}
       >
         {service.description}
@@ -76,7 +76,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         variants={staggeredContainerTransition}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
+        viewport={{ once: true, margin: "-50px" }}
         className="space-y-3"
       >
         {service.features.map((feature, featureIndex) => (
@@ -93,5 +93,5 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         ))}
       </motion.ul>
     </motion.div>
-  )
+  );
 }

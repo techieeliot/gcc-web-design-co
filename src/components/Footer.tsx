@@ -1,53 +1,33 @@
-'use client'
+"use client";
 
-import QuickLinks from './QuickLinks'
+import QuickLinks from "./QuickLinks";
+
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Link } from "./ui/link";
+import { footerFadeIn, motion } from "@/lib/animations";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Heart,
   ExternalLink,
-  Linkedin,
-  Twitter,
   Github,
-} from 'lucide-react'
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import { Link } from './ui/link'
-import { footerFadeIn, motion } from '@/lib/animations'
+  Heart,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+} from "@/lib/icons";
+import { companySocialLinks } from "@/data";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
-  const socialLinks = [
-    {
-      href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
-      icon: Linkedin,
-      label: 'LinkedIn',
-      color: 'bg-[#0077B5]/20 hover:bg-[#0077B5]/30 text-[#0077B5]',
-    },
-    {
-      href: 'https://twitter.com/devsouthdotus',
-      icon: Twitter,
-      label: 'Twitter',
-      color: 'bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 text-[#1DA1F2]',
-    },
-    {
-      href: 'https://github.com/techieeliot/gcc-web-design-co',
-      icon: Github,
-      label: 'GitHub',
-      color:
-        'bg-slate-500/20 hover:bg-slate-500/30 text-slate-500 dark:text-slate-400',
-    },
-  ]
+  const currentYear = new Date().getFullYear();
 
   return (
     <motion.div
       className={cn(
-        'w-full relative overflow-hidden',
-        'bg-gradient-primary dark:bg-gradient-primary-dark', // Match the body background
-        'text-slate-700 dark:text-powder',
-        'border-t border-slate-200 dark:border-slate-800'
+        "w-full relative overflow-hidden",
+        "bg-gradient-primary dark:bg-gradient-primary-dark", // Match the body background
+        "text-slate-700 dark:text-powder",
+        "border-t border-slate-200 dark:border-slate-800",
       )}
     >
       {/* Decorative elements */}
@@ -78,7 +58,7 @@ export default function Footer() {
             <div className="flex items-center justify-center sm:justify-start mb-4">
               <motion.div
                 whileHover={{ rotate: 360 }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
                 className="relative"
                 transformTemplate={(props, transform) =>
                   `translateZ(0) ${transform}`
@@ -97,15 +77,15 @@ export default function Footer() {
                   className="absolute inset-0 rounded-full"
                   animate={{
                     boxShadow: [
-                      '0 0 0 0px rgba(56, 189, 248, 0)',
-                      '0 0 0 8px rgba(56, 189, 248, 0.1)',
-                      '0 0 0 0px rgba(56, 189, 248, 0)',
+                      "0 0 0 0px rgba(56, 189, 248, 0)",
+                      "0 0 0 8px rgba(56, 189, 248, 0.1)",
+                      "0 0 0 0px rgba(56, 189, 248, 0)",
                     ],
                   }}
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    repeatType: 'loop',
+                    repeatType: "loop",
                   }}
                 />
               </motion.div>
@@ -119,34 +99,36 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex items-center justify-center sm:justify-start gap-3 mt-5">
-              {socialLinks.map(({ href, icon: Icon, label, color }, index) => (
-                <motion.div
-                  key={href}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * (index + 3) }}
-                  whileHover={{ y: -3 }}
-                  transformTemplate={(props, transform) =>
-                    `translateZ(0) ${transform}`
-                  }
-                >
-                  <Link
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      'flex items-center justify-center',
-                      'w-10 h-10 rounded-full',
-                      'transition-all duration-300',
-                      color,
-                      'dark:text-powder/90'
-                    )}
-                    aria-label={label}
+              {companySocialLinks.map(
+                ({ href, icon: Icon, label, color }, index) => (
+                  <motion.div
+                    key={href}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * (index + 3) }}
+                    whileHover={{ y: -3 }}
+                    transformTemplate={(props, transform) =>
+                      `translateZ(0) ${transform}`
+                    }
                   >
-                    <Icon className="w-5 h-5" />
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "flex items-center justify-center",
+                        "w-10 h-10 rounded-full",
+                        "transition-all duration-300",
+                        color,
+                        "dark:text-powder/90",
+                      )}
+                      aria-label={label}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </Link>
+                  </motion.div>
+                ),
+              )}
             </div>
           </motion.div>
 
@@ -174,7 +156,7 @@ export default function Footer() {
             <div className="space-y-4">
               <motion.div
                 whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 transformTemplate={(props, transform) =>
                   `translateZ(0) ${transform}`
                 }
@@ -187,9 +169,9 @@ export default function Footer() {
                   href="mailto:devsouth.us@gmail.com"
                   variant="nav"
                   className={cn(
-                    'text-slate-600 dark:text-powder/80',
-                    'hover:text-sky dark:hover:text-azure',
-                    'group flex items-center gap-1'
+                    "text-slate-600 dark:text-powder/80",
+                    "hover:text-sky dark:hover:text-azure",
+                    "group flex items-center gap-1",
                   )}
                 >
                   devsouth.us@gmail.com
@@ -206,7 +188,7 @@ export default function Footer() {
 
               <motion.div
                 whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 transformTemplate={(props, transform) =>
                   `translateZ(0) ${transform}`
                 }
@@ -219,9 +201,9 @@ export default function Footer() {
                   href="tel:+16623126815"
                   variant="nav"
                   className={cn(
-                    'text-slate-600 dark:text-powder/80',
-                    'hover:text-sky dark:hover:text-azure',
-                    'group flex items-center gap-1'
+                    "text-slate-600 dark:text-powder/80",
+                    "hover:text-sky dark:hover:text-azure",
+                    "group flex items-center gap-1",
                   )}
                 >
                   +1 (662) 312-6815
@@ -238,7 +220,7 @@ export default function Footer() {
 
               <motion.div
                 whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 transformTemplate={(props, transform) =>
                   `translateZ(0) ${transform}`
                 }
@@ -251,9 +233,9 @@ export default function Footer() {
                 <Link
                   href="https://www.google.com/maps/place/110+Lake+Forest+Ln,+Clinton,+MS+39056/@32.3441705,-90.3549285,15z/data=!3m1!4b1!4m6!3m5!1s0x86284b257dbb01fb:0xa0a8d380d4abecd9!8m2!3d32.3441709!4d-90.3446502!16s%2Fg%2F11c5jtsybd?entry=ttu&g_ep=EgoyMDI1MDMzMC4wIKXMDSoASAFQAw%3D%3D"
                   className={cn(
-                    'text-slate-600 dark:text-powder/80',
-                    'hover:text-sky dark:hover:text-azure',
-                    'group flex items-center gap-1'
+                    "text-slate-600 dark:text-powder/80",
+                    "hover:text-sky dark:hover:text-azure",
+                    "group flex items-center gap-1",
                   )}
                 >
                   <address className="text-slate-600 dark:text-powder/80 not-italic">
@@ -274,8 +256,8 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
           className={cn(
-            'border-t border-slate-200 dark:border-slate-800',
-            'mt-12 pt-8 pb-8'
+            "border-t border-slate-200 dark:border-slate-800",
+            "mt-12 pt-8 pb-8",
           )}
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -295,7 +277,7 @@ export default function Footer() {
                 transition={{
                   duration: 1.5,
                   repeat: Infinity,
-                  repeatType: 'loop',
+                  repeatType: "loop",
                 }}
                 transformTemplate={(props, transform) =>
                   `translateZ(0) ${transform}`
@@ -310,5 +292,5 @@ export default function Footer() {
         </motion.div>
       </div>
     </motion.div>
-  )
+  );
 }

@@ -1,33 +1,34 @@
-'use client'
+"use client";
 
-import { componentStyles } from '@/lib/component-styles'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import {
-  ExternalLinkIcon,
-  Rocket,
-  Code2,
-  Users,
-  Brain,
-  Laptop,
-  Heart,
-  Github,
-  LinkedinIcon,
-  Quote,
-  Goal,
-  Hammer,
-  Globe,
-  Mail,
-} from 'lucide-react'
-import Image from 'next/image'
-import { Link } from '@/components/ui/link'
+import { componentStyles } from "@/lib/styles";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+
+import Image from "next/image";
+import { Link } from "@/components/ui/link";
 import {
   fadeInAnimation,
   imageVariant,
   staggeredVisibilityTransition,
   listItemTransition,
   motion,
-} from '@/lib/animations'
+} from "@/lib/animations";
+import {
+  Brain,
+  Code2,
+  ExternalLinkIcon,
+  Github,
+  Globe,
+  Goal,
+  Hammer,
+  Heart,
+  Laptop,
+  LinkedinIcon,
+  Mail,
+  Quote,
+  Rocket,
+  Users,
+} from "@/lib/icons";
 
 export const AboutSection = () => {
   return (
@@ -37,8 +38,8 @@ export const AboutSection = () => {
       variants={fadeInAnimation}
       className={cn(
         componentStyles.card,
-        'prose lg:prose-lg max-w-none',
-        'p-6 sm:p-8 lg:p-10'
+        "prose lg:prose-lg max-w-none",
+        "p-6 sm:p-8 lg:p-10",
       )}
     >
       {/* Hero section with image and icons */}
@@ -57,7 +58,7 @@ export const AboutSection = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: 'spring' }}
+            transition={{ type: "spring" }}
           >
             <Code2
               className="w-12 h-12 text-white drop-shadow-lg"
@@ -66,7 +67,7 @@ export const AboutSection = () => {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.1, rotate: -5 }}
-            transition={{ type: 'spring' }}
+            transition={{ type: "spring" }}
           >
             <Brain
               className="w-12 h-12 text-white drop-shadow-lg"
@@ -75,7 +76,7 @@ export const AboutSection = () => {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: 'spring' }}
+            transition={{ type: "spring" }}
           >
             <Rocket
               className="w-12 h-12 text-white drop-shadow-lg"
@@ -87,7 +88,7 @@ export const AboutSection = () => {
 
       <motion.h2
         variants={fadeInAnimation}
-        className={cn(textStyles.h2, 'mb-6 lg:mb-8')}
+        className={cn(textStyles.h2, "mb-6 lg:mb-8")}
       >
         About SanforDEV
       </motion.h2>
@@ -96,13 +97,13 @@ export const AboutSection = () => {
       <motion.div variants={fadeInAnimation} className="mb-10 lg:mb-14">
         <motion.h3
           variants={fadeInAnimation}
-          className={cn(textStyles.h3, 'mb-4')}
+          className={cn(textStyles.h3, "mb-4")}
         >
           Our Story
         </motion.h3>
         <motion.p
           variants={fadeInAnimation}
-          className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
+          className={cn(textStyles.body, "text-slate-700 dark:text-slate-300")}
         >
           Since 2018, SanforDEV has been on a journey of transforming big ideas
           into breakthrough digital solutions. We started out partnering with
@@ -114,7 +115,7 @@ export const AboutSection = () => {
       <motion.div variants={fadeInAnimation} className="mb-12 lg:mb-16">
         <motion.h3
           variants={fadeInAnimation}
-          className={cn(textStyles.h3, 'mb-4')}
+          className={cn(textStyles.h3, "mb-4")}
         >
           Our Mission
         </motion.h3>
@@ -195,7 +196,7 @@ export const AboutSection = () => {
               </h4>
             </div>
             <p className="text-slate-700 dark:text-slate-300 text-sm">
-              We build high-performance, accessible applications that don’t just
+              We build high-performance, accessible applications that don't just
               work—they inspire and connect.
             </p>
           </motion.div>
@@ -265,7 +266,7 @@ export const AboutSection = () => {
         <motion.div variants={fadeInAnimation}>
           <motion.h3
             variants={fadeInAnimation}
-            className={cn(textStyles.h3, 'mb-4')}
+            className={cn(textStyles.h3, "mb-4")}
           >
             Community Involvement
           </motion.h3>
@@ -274,7 +275,7 @@ export const AboutSection = () => {
             variants={fadeInAnimation}
             className={cn(
               textStyles.body,
-              'text-slate-700 dark:text-slate-300 mb-4'
+              "text-slate-700 dark:text-slate-300 mb-4",
             )}
           >
             Beyond client work, we invest in tech education and empower
@@ -283,14 +284,14 @@ export const AboutSection = () => {
 
           <motion.ul
             variants={staggeredVisibilityTransition}
-            className={cn('space-y-2 mb-4', textStyles.body)}
+            className={cn("space-y-2 mb-4", textStyles.body)}
           >
             {[
-              'Founding freeCodeCamp Jackson, MS',
-              'Mentoring at Base Camp Coding Academy',
-              'Teaching web development to underrepresented youth',
-              'Contributing to open source education',
-              'Supporting nonprofits through GiveCamp',
+              "Founding freeCodeCamp Jackson, MS",
+              "Mentoring at Base Camp Coding Academy",
+              "Teaching web development to underrepresented youth",
+              "Contributing to open source education",
+              "Supporting nonprofits through GiveCamp",
             ].map((item, index) => (
               <motion.li
                 key={index}
@@ -310,7 +311,7 @@ export const AboutSection = () => {
         <motion.div variants={fadeInAnimation}>
           <motion.h3
             variants={fadeInAnimation}
-            className={cn(textStyles.h3, 'mb-4')}
+            className={cn(textStyles.h3, "mb-4")}
           >
             Leadership
           </motion.h3>
@@ -334,14 +335,14 @@ export const AboutSection = () => {
               <div>
                 <motion.h4
                   variants={fadeInAnimation}
-                  className={cn(textStyles.h4, 'mb-1 text-center sm:text-left')}
+                  className={cn(textStyles.h4, "mb-1 text-center sm:text-left")}
                 >
                   Eliot Sanford
                 </motion.h4>
                 <motion.p
                   variants={fadeInAnimation}
                   className={cn(
-                    'text-sky dark:text-azure font-medium mb-2 text-center sm:text-left'
+                    "text-sky dark:text-azure font-medium mb-2 text-center sm:text-left",
                   )}
                 >
                   Founder & Lead Engineer
@@ -353,15 +354,10 @@ export const AboutSection = () => {
                   With over 6 years steering the React ecosystem, I've helped
                   guide both startups and enterprise teams focusing on
                   performance, accessibility, and scalable solutions. Follow me
-                  on Twitter at{' '}
-                  <a
-                    href="https://twitter.com/techieEliot"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sky dark:text-azure hover:underline"
-                  >
+                  on Twitter at{" "}
+                  <Link href="https://twitter.com/techieEliot">
                     @techieEliot
-                  </a>
+                  </Link>
                   .
                 </motion.p>
                 {/* Social Links */}
@@ -415,31 +411,31 @@ export const AboutSection = () => {
         </motion.div>
       </div>
     </motion.article>
-  )
-}
+  );
+};
 
 export const CompanyFacts = () => {
   const facts = [
-    { label: 'Founded', value: 'December 2018', icon: Rocket },
+    { label: "Founded", value: "December 2018", icon: Rocket },
     {
-      label: 'Location',
-      value: 'Clinton, Mississippi (Remote-first)',
+      label: "Location",
+      value: "Clinton, Mississippi (Remote-first)",
       icon: Laptop,
     },
-    { label: 'Focus', value: 'React Ecosystem Development', icon: Code2 },
-    { label: 'Clients Served', value: 'Startups to Enterprise', icon: Users },
-  ]
+    { label: "Focus", value: "React Ecosystem Development", icon: Code2 },
+    { label: "Clients Served", value: "Startups to Enterprise", icon: Users },
+  ];
 
   return (
     <motion.section
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
-      className={cn(componentStyles.container, 'p-6 sm:p-8', 'rounded-xl')}
+      className={cn(componentStyles.container, "p-6 sm:p-8", "rounded-xl")}
     >
       <motion.h3
         variants={fadeInAnimation}
-        className={cn(textStyles.h3, 'mb-6')}
+        className={cn(textStyles.h3, "mb-6")}
       >
         Company Facts
       </motion.h3>
@@ -456,7 +452,7 @@ export const CompanyFacts = () => {
             <div
               className={cn(
                 textStyles.body,
-                'text-slate-700 dark:text-slate-300'
+                "text-slate-700 dark:text-slate-300",
               )}
             >
               <strong className="text-slate-900 dark:text-white">
@@ -469,33 +465,33 @@ export const CompanyFacts = () => {
         ))}
       </motion.ul>
     </motion.section>
-  )
-}
+  );
+};
 
 export const ConnectWithUs = () => {
   const socialLinks = [
     {
-      href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
-      label: 'LinkedIn',
+      href: "https://www.linkedin.com/company/devsouth-consulting-llc/",
+      label: "LinkedIn",
       icon: LinkedinIcon,
     },
     {
-      href: 'https://github.com/techieeliot/gcc-web-design-co',
-      label: 'GitHub',
+      href: "https://github.com/techieeliot/gcc-web-design-co",
+      label: "GitHub",
       icon: Github,
     },
-  ]
+  ];
 
   return (
     <motion.section
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
-      className={cn(componentStyles.container, 'p-6 sm:p-8', 'rounded-xl')}
+      className={cn(componentStyles.container, "p-6 sm:p-8", "rounded-xl")}
     >
       <motion.h3
         variants={fadeInAnimation}
-        className={cn(textStyles.h3, 'mb-6')}
+        className={cn(textStyles.h3, "mb-6")}
       >
         Connect With Us
       </motion.h3>
@@ -520,7 +516,7 @@ export const ConnectWithUs = () => {
               <span className="flex-grow text-left">{label}</span>
               <motion.div
                 whileHover={{ x: 3 }}
-                transition={{ type: 'spring', stiffness: 400 }}
+                transition={{ type: "spring", stiffness: 400 }}
               >
                 <ExternalLinkIcon className="w-4 h-4 flex-shrink-0" />
               </motion.div>
@@ -529,8 +525,8 @@ export const ConnectWithUs = () => {
         ))}
       </motion.div>
     </motion.section>
-  )
-}
+  );
+};
 
 export function BlueberryStory() {
   return (
@@ -548,19 +544,19 @@ export function BlueberryStory() {
 
         {/* Text side */}
         <div className="order-2 lg:order-2">
-          <h3 className={cn(textStyles.h3, 'mb-4')}>The Blueberry Story</h3>
-          <p className={cn(textStyles.body, 'mb-4')}>
+          <h3 className={cn(textStyles.h3, "mb-4")}>The Blueberry Story</h3>
+          <p className={cn(textStyles.body, "mb-4")}>
             Our logo tells a story close to my heart—a blueberry encircling a
             React atom, with its center (the calyx) representing our core
             values. The blueberry isn't just a visual mark—it's a tribute to
             Mississippi (the official state fruit here!), evoking memories of my
             grandfather's farm and childhood adventures.
           </p>
-          <p className={cn(textStyles.body, 'italic')}>
+          <p className={cn(textStyles.body, "italic")}>
             And fun fact: my car is named "Blueberry" too!
           </p>
         </div>
       </div>
     </motion.section>
-  )
+  );
 }

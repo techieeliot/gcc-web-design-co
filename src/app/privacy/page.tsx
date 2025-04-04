@@ -1,11 +1,11 @@
-import { Shield } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-import dynamic from 'next/dynamic'
+import { cn } from "@/lib/utils";
+import { textStyles } from "@/lib/styles";
+import dynamic from "next/dynamic";
+import { Shield } from "@/lib/icons";
 
-export const revalidate = 3600
+export const revalidate = 3600;
 
-const PrivacyContent = dynamic(() => import('./components/PrivacyContent'))
+const PrivacyContent = dynamic(() => import("./components/PrivacyContent"));
 
 export default function PrivacyPolicyRoute() {
   return (
@@ -25,7 +25,7 @@ export default function PrivacyPolicyRoute() {
               <Shield className="w-8 h-8 text-powder" />
             </div>
 
-            <h1 className={cn(textStyles.h1, 'mb-4')}>Privacy Policy</h1>
+            <h1 className={cn(textStyles.h1, "mb-4")}>Privacy Policy</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
               At SanforDEV Consulting, we take your privacy seriously. Like a
@@ -43,5 +43,5 @@ export default function PrivacyPolicyRoute() {
         <PrivacyContent />
       </div>
     </div>
-  )
+  );
 }

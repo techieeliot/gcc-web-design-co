@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { motion } from '@/lib/animations'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { Code, ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { motion } from "@/lib/animations";
+import { ArrowRight, Code } from "@/lib/icons";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function BannerSection() {
   return (
@@ -33,7 +33,7 @@ export default function BannerSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className={cn(textStyles.h1, 'max-w-lg mb-6 leading-tight')}
+            className={cn(textStyles.h1, "max-w-lg mb-6 leading-tight")}
           >
             Digital Solutions You Can Grow With
           </motion.h1>
@@ -42,7 +42,7 @@ export default function BannerSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className={cn(textStyles['paragraph-large'], 'max-w-lg mb-8')}
+            className={cn(textStyles["paragraph-large"], "max-w-lg mb-8")}
           >
             At SanforDEV, we view tech solutions like we're arefully and
             methodically nurturing and cultivating a blueberry patch 🫐.
@@ -61,10 +61,10 @@ export default function BannerSection() {
             <Link
               href="/contact"
               className={cn(
-                'bg-sky hover:bg-sky/90 text-white dark:bg-azure dark:hover:bg-azure/90',
-                'px-6 py-3 rounded-lg font-medium transition-colors',
-                'inline-flex items-center justify-center gap-2',
-                'w-full sm:w-auto text-center'
+                "bg-sky hover:bg-sky/90 text-white dark:bg-azure dark:hover:bg-azure/90",
+                "px-6 py-3 rounded-lg font-medium transition-colors",
+                "inline-flex items-center justify-center gap-2",
+                "w-full sm:w-auto text-center",
               )}
             >
               Get Started
@@ -73,11 +73,11 @@ export default function BannerSection() {
             <Link
               href="/portfolio"
               className={cn(
-                'bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800',
-                'border border-slate-300 dark:border-slate-700',
-                'px-6 py-3 rounded-lg font-medium transition-colors',
-                'text-slate-800 dark:text-powder',
-                'w-full sm:w-auto text-center'
+                "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800",
+                "border border-slate-300 dark:border-slate-700",
+                "px-6 py-3 rounded-lg font-medium transition-colors",
+                "text-slate-800 dark:text-powder",
+                "w-full sm:w-auto text-center",
               )}
             >
               View Our Work
@@ -105,5 +105,5 @@ export default function BannerSection() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

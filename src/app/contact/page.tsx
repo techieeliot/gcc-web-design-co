@@ -1,17 +1,12 @@
-import { Mail } from 'lucide-react'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { Suspense } from 'react'
-import dynamic from 'next/dynamic'
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import { ContactSidebar } from "./components/sidebar";
+import ContactForm from "./components/form";
+import { Mail } from "@/lib/icons";
 
-// Import client components with dynamic imports but WITHOUT ssr: false
-const ContactSidebar = dynamic(() => import('./components/sidebar'))
-const ContactForm = dynamic(() => import('./components/form'))
+export const revalidate = 3600; // Revalidate every hour
 
-// Server-side revalidation
-export const revalidate = 3600 // Revalidate every hour
-
-export default function ContactRoute() {
+export default function ContactPage() {
   return (
     <div className="min-h-screen pt-8 lg:pt-16 pb-16">
       <div className="container mx-auto px-4">
@@ -29,7 +24,7 @@ export default function ContactRoute() {
               <Mail className="w-8 h-8 text-powder" />
             </div>
 
-            <h1 className={cn(textStyles.h1, 'mb-4')}>Contact Us</h1>
+            <h1 className={cn(textStyles.h1, "mb-4")}>Contact Us</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
               Ready to transform your digital presence? We genuinely care about
@@ -44,27 +39,12 @@ export default function ContactRoute() {
 
         {/* Form section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Client component with interactivity */}
-          <Suspense
-            fallback={
-              <div className="lg:col-span-4 h-20 bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg"></div>
-            }
-          >
-            <ContactSidebar />
-          </Suspense>
-
+          <ContactSidebar />
           <div className="lg:col-span-8">
-            {/* Client component with form handling */}
-            <Suspense
-              fallback={
-                <div className="h-60 bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg"></div>
-              }
-            >
-              <ContactForm />
-            </Suspense>
+            <ContactForm />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

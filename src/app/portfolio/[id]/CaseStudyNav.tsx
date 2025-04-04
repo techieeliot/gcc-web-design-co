@@ -1,15 +1,17 @@
-'use client'
+"use client";
 
-import { Link } from '@/components/ui/link'
-import { caseStudies } from '@/data/case-studies'
-import { motion } from '@/lib/animations'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { Link } from "@/components/ui/link";
+import { caseStudies } from "@/data";
+import { motion } from "@/lib/animations";
+import { ArrowLeft, ArrowRight } from "@/lib/icons";
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {
-  const currentIndex = caseStudies.findIndex((study) => study.id === currentId)
-  const prevCase = currentIndex > 0 ? caseStudies[currentIndex - 1] : null
+  const currentIndex = caseStudies.findIndex((study) => study.id === currentId);
+  const prevCase = currentIndex > 0 ? caseStudies[currentIndex - 1] : null;
   const nextCase =
-    currentIndex < caseStudies.length - 1 ? caseStudies[currentIndex + 1] : null
+    currentIndex < caseStudies.length - 1
+      ? caseStudies[currentIndex + 1]
+      : null;
 
   return (
     <motion.div
@@ -62,5 +64,5 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
         )}
       </div>
     </motion.div>
-  )
+  );
 }

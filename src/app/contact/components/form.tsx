@@ -1,54 +1,55 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
+
+import { cn } from "@/lib/utils";
+import { textStyles } from "@/lib/styles";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
+import { FormField } from "./FormField";
+import { fadeInAnimation, motion } from "@/lib/animations";
 import {
-  Send,
-  ArrowRight,
-  AlertCircle,
   CheckCircle,
+  AlertCircle,
+  ArrowRight,
+  Send,
   Rocket,
-} from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-import { Button } from '@/components/ui/button'
-import { Link } from '@/components/ui/link'
-import { FormField } from './FormField'
-import { fadeInAnimation, motion } from '@/lib/animations'
+} from "@/lib/icons";
 
 const formSchema = z.object({
   name: z
     .string()
-    .min(1, 'Name is required')
-    .refine((name) => name.split(' ').length >= 2, {
-      message: 'Please enter your full name',
+    .min(1, "Name is required")
+    .refine((name) => name.split(" ").length >= 2, {
+      message: "Please enter your full name",
     }),
-  email: z.string().email('Please enter a valid email address'),
+  email: z.string().email("Please enter a valid email address"),
   company: z.string().optional(),
-  subject: z.string().min(1, 'Please select a subject'),
+  subject: z.string().min(1, "Please select a subject"),
   message: z
     .string()
-    .min(10, 'Message must be at least 10 characters')
-    .max(5000, 'Message must be less than 5000 characters')
-    .refine((message) => message.trim() !== '', {
-      message: 'Message cannot be empty',
+    .min(10, "Message must be at least 10 characters")
+    .max(5000, "Message must be less than 5000 characters")
+    .refine((message) => message.trim() !== "", {
+      message: "Message cannot be empty",
     })
-    .refine((message) => !message.toLowerCase().includes('<script>'), {
-      message: 'Message contains invalid content',
+    .refine((message) => !message.toLowerCase().includes("<script>"), {
+      message: "Message contains invalid content",
     }),
   privacy: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the privacy policy' }),
+    errorMap: () => ({ message: "You must agree to the privacy policy" }),
   }),
-})
+});
 
-type FormData = z.infer<typeof formSchema>
+type FormData = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
-  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -57,63 +58,63 @@ export default function ContactForm() {
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    mode: 'onBlur',
+    mode: "onBlur",
     defaultValues: {
-      name: '',
-      email: '',
-      company: '',
-      subject: '',
-      message: '',
+      name: "",
+      email: "",
+      company: "",
+      subject: "",
+      message: "",
       // privacy field starts unchecked by default
     },
-  })
+  });
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true)
-    setSubmitError(null)
+    setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
       // Send to Formspree
-      const response = await fetch('https://formspree.io/f/myynedwg', {
-        method: 'POST',
+      const response = await fetch("https://formspree.io/f/myynedwg", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Failed to submit form. Please try again later.')
+        throw new Error("Failed to submit form. Please try again later.");
       }
 
-      setSubmitSuccess(true)
-      reset() // Reset form fields after successful submission
+      setSubmitSuccess(true);
+      reset(); // Reset form fields after successful submission
     } catch (error) {
       setSubmitError(
-        error instanceof Error ? error.message : 'An unexpected error occurred'
-      )
+        error instanceof Error ? error.message : "An unexpected error occurred",
+      );
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const inputClasses = cn(
     // Base styles
-    'w-full px-4 py-2 rounded-lg transition-colors',
+    "w-full px-4 py-2 rounded-lg transition-colors",
     // Background
-    'bg-white dark:bg-slate-800',
+    "bg-white dark:bg-slate-800",
     // Border
-    'border border-slate-300 dark:border-slate-700',
+    "border border-slate-300 dark:border-slate-700",
     // Text
-    'text-slate-900 dark:text-powder',
+    "text-slate-900 dark:text-powder",
     // Placeholder
-    'placeholder:text-slate-500 dark:placeholder:text-slate-400',
+    "placeholder:text-slate-500 dark:placeholder:text-slate-400",
     // Focus states
-    'focus:ring-2 focus:ring-sky/50 focus:border-sky/50',
-    'dark:focus:ring-azure/50 dark:focus:border-azure/50'
-  )
+    "focus:ring-2 focus:ring-sky/50 focus:border-sky/50",
+    "dark:focus:ring-azure/50 dark:focus:border-azure/50",
+  );
 
-  const errorClasses = 'text-red-500 dark:text-red-400 text-sm font-medium'
+  const errorClasses = "text-red-500 dark:text-red-400 text-sm font-medium";
 
   return (
     <motion.article
@@ -121,9 +122,9 @@ export default function ContactForm() {
       animate="visible"
       variants={fadeInAnimation}
       className={cn(
-        'backdrop-blur-md rounded-xl p-8 shadow-lg',
-        'bg-white dark:bg-slate-900',
-        'border border-slate-200 dark:border-slate-800'
+        "backdrop-blur-md rounded-xl p-8 shadow-lg",
+        "bg-white dark:bg-slate-900",
+        "border border-slate-200 dark:border-slate-800",
       )}
     >
       <motion.div
@@ -133,9 +134,9 @@ export default function ContactForm() {
         animate="visible"
         transition={{ delay: 0.2 }}
       >
-        <h2 className={cn(textStyles.h2, 'mb-6')}>Let's Ignite Your Vision</h2>
+        <h2 className={cn(textStyles.h2, "mb-6")}>Let's Ignite Your Vision</h2>
 
-        <p className={cn(textStyles.body, 'mb-6 max-w-2xl mx-auto')}>
+        <p className={cn(textStyles.body, "mb-6 max-w-2xl mx-auto")}>
           Whether you're looking for innovative technical consulting, expertly
           crafted web development, or quick, attentive support, our team is here
           to help bring your vision to life. We genuinely care about your
@@ -152,8 +153,8 @@ export default function ContactForm() {
             >
               <CheckCircle className="w-16 h-16 text-green-500 dark:text-green-400" />
             </motion.div>
-            <h3 className={cn(textStyles.h3, 'mb-2')}>Message Delivered!</h3>
-            <p className={cn(textStyles.body, 'mb-6')}>
+            <h3 className={cn(textStyles.h3, "mb-2")}>Message Delivered!</h3>
+            <p className={cn(textStyles.body, "mb-6")}>
               We received your message. Expect to hear thoughtful feedback and
               next steps soon.
             </p>
@@ -189,10 +190,10 @@ export default function ContactForm() {
                 <input
                   type="text"
                   id="name"
-                  {...register('name')}
+                  {...register("name")}
                   className={cn(
                     inputClasses,
-                    errors.name && 'border-red-500 dark:border-red-500'
+                    errors.name && "border-red-500 dark:border-red-500",
                   )}
                 />
               </FormField>
@@ -205,10 +206,10 @@ export default function ContactForm() {
                 <input
                   type="email"
                   id="email"
-                  {...register('email')}
+                  {...register("email")}
                   className={cn(
                     inputClasses,
-                    errors.email && 'border-red-500 dark:border-red-500'
+                    errors.email && "border-red-500 dark:border-red-500",
                   )}
                 />
               </FormField>
@@ -223,7 +224,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   id="company"
-                  {...register('company')}
+                  {...register("company")}
                   className={inputClasses}
                 />
               </FormField>
@@ -236,10 +237,10 @@ export default function ContactForm() {
               >
                 <select
                   id="subject"
-                  {...register('subject')}
+                  {...register("subject")}
                   className={cn(
                     inputClasses,
-                    errors.subject && 'border-red-500 dark:border-red-500'
+                    errors.subject && "border-red-500 dark:border-red-500",
                   )}
                   defaultValue=""
                 >
@@ -278,10 +279,10 @@ export default function ContactForm() {
               <textarea
                 id="message"
                 rows={5}
-                {...register('message')}
+                {...register("message")}
                 className={cn(
                   inputClasses,
-                  errors.message && 'border-red-500 dark:border-red-500'
+                  errors.message && "border-red-500 dark:border-red-500",
                 )}
               ></textarea>
             </FormField>
@@ -290,10 +291,10 @@ export default function ContactForm() {
               <input
                 type="checkbox"
                 id="privacy"
-                {...register('privacy')}
+                {...register("privacy")}
                 className={cn(
-                  'mt-1 rounded border-slate-300 dark:border-slate-700 text-sky dark:text-azure focus:ring-sky dark:focus:ring-azure/50',
-                  errors.privacy && 'border-red-500 dark:border-red-500'
+                  "mt-1 rounded border-slate-300 dark:border-slate-700 text-sky dark:text-azure focus:ring-sky dark:focus:ring-azure/50",
+                  errors.privacy && "border-red-500 dark:border-red-500",
                 )}
               />
               <div className="flex flex-col">
@@ -301,7 +302,7 @@ export default function ContactForm() {
                   htmlFor="privacy"
                   className="text-sm text-slate-600 dark:text-powder/80"
                 >
-                  I agree to the{' '}
+                  I agree to the{" "}
                   <Link
                     href="/privacy"
                     target="_blank"
@@ -337,7 +338,7 @@ export default function ContactForm() {
                   className="w-full sm:w-auto bg-sky hover:bg-sky/90 dark:bg-azure dark:hover:bg-azure/90 relative overflow-hidden group"
                 >
                   <span className="flex items-center relative z-10">
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                     <span className="ml-2">
                       {isSubmitting ? (
                         <ArrowRight className="w-4 h-4 animate-pulse" />
@@ -348,8 +349,8 @@ export default function ContactForm() {
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-sky via-azure to-sky dark:from-azure dark:via-sky dark:to-azure"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
                     transition={{ duration: 1 }}
                   />
                 </Button>
@@ -366,5 +367,5 @@ export default function ContactForm() {
         )}
       </motion.div>
     </motion.article>
-  )
+  );
 }

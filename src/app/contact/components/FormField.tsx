@@ -1,15 +1,15 @@
-import { ReactNode } from 'react'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { AlertCircle } from 'lucide-react'
+import { ReactNode } from "react";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import { AlertCircle } from "@/lib/icons";
 
 interface FormFieldProps {
-  label: string
-  id: string
-  error?: string
-  description?: ReactNode
-  children: ReactNode
-  className?: string
+  label: string;
+  id: string;
+  error?: string;
+  description?: ReactNode;
+  children: ReactNode;
+  className?: string;
 }
 
 export function FormField({
@@ -20,10 +20,10 @@ export function FormField({
   children,
   className,
 }: FormFieldProps) {
-  const errorClasses = 'text-red-500 dark:text-red-400 text-sm font-medium'
+  const errorClasses = "text-red-500 dark:text-red-400 text-sm font-medium";
 
   return (
-    <div className={cn('col-span-1 flex flex-col gap-2', className)}>
+    <div className={cn("col-span-1 flex flex-col gap-2", className)}>
       <label htmlFor={id} className={textStyles.label}>
         {label}
       </label>
@@ -46,5 +46,5 @@ export function FormField({
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { motion } from '@/lib/animations'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { CheckCircle, ChevronRight } from 'lucide-react'
-import Link from 'next/link'
+import { motion } from "@/lib/animations";
+import { CheckCircle, ChevronRight } from "@/lib/icons";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const benefits = [
-  'React & Next.js expertise that drives performance',
-  'Hands-on solutions for responsive, accessible web apps',
-  'Deep technical insight with modern, scalable approaches',
-  'Curated talent and trusted partners on every project',
-  'Design finesse paired with robust back-end skills',
-]
+  "React & Next.js expertise that drives performance",
+  "Hands-on solutions for responsive, accessible web apps",
+  "Deep technical insight with modern, scalable approaches",
+  "Curated talent and trusted partners on every project",
+  "Design finesse paired with robust back-end skills",
+];
 
 export default function ValueProposition() {
   return (
@@ -28,7 +28,7 @@ export default function ValueProposition() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={cn(textStyles.h2, 'mb-4')}
+          className={cn(textStyles.h2, "mb-4")}
         >
           Why SanforDEV Consulting?
         </motion.h2>
@@ -46,7 +46,7 @@ export default function ValueProposition() {
           innovation with an unwavering commitment to genuine collaboration.
           Every solution is a carefully cultivated partnership between our
           talented team, strong leadership, and trusted design and back-end
-          experts. Let’s harvest some digital greatness together 🫐.
+          experts. Let's harvest some digital greatness together 🫐.
         </motion.p>
       </motion.div>
 
@@ -81,11 +81,11 @@ export default function ValueProposition() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg border border-slate-200 dark:border-slate-700"
       >
-        <h3 className={cn(textStyles.h3, 'mb-3')}>Our Approach</h3>
+        <h3 className={cn(textStyles.h3, "mb-3")}>Our Approach</h3>
 
         <p className="text-slate-600 dark:text-slate-300 mb-4">
           We focus on truly understanding your business goals. Our process is
-          about connecting on a personal level—the same way you’d tend a
+          about connecting on a personal level—the same way you'd tend a
           fruitful blueberry orchard. By blending hands-on React expertise with
           meticulous design and back-end precision, we create digital solutions
           that feel naturally right.
@@ -119,5 +119,5 @@ export default function ValueProposition() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }

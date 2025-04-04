@@ -1,3 +1,10 @@
+---
+title: "Creating Fluid Animations with Framer Motion"
+publishedAt: "2024-04-01"
+summary: "Learn how to create smooth, engaging animations in React applications using Framer Motion with practical examples and best practices."
+image: "/blog/framer-motion-animations.webp"
+---
+
 # Creating Fluid Animations with Framer Motion
 
 Animations can turn a static screen into a vibrant experience—much like the gentle sway of a blueberry field in the breeze. Framer Motion is your go-to tool for crafting these animations in React, adding personality and movement with minimal effort.
@@ -17,7 +24,7 @@ pnpm add framer-motion
 The magic begins with the `motion` component, which brings an element to life:
 
 ```jsx
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 export default function AnimatedBox() {
   return (
@@ -27,7 +34,7 @@ export default function AnimatedBox() {
       transition={{ duration: 0.5 }}
       className="w-32 h-32 bg-blue-500 rounded-lg"
     />
-  )
+  );
 }
 ```
 
@@ -41,8 +48,8 @@ The `animate` prop tells your component its final state. For example:
 <motion.div
   animate={{
     x: 100,
-    backgroundColor: '#ff0000',
-    boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
+    backgroundColor: "#ff0000",
+    boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)",
     rotate: 180,
     scale: 1.2,
   }}
@@ -57,7 +64,7 @@ Customize your animations with the `transition` prop. Framer Motion supports sev
 <motion.div
   animate={{ x: 100 }}
   transition={{
-    type: 'spring',
+    type: "spring",
     stiffness: 260,
     damping: 20,
     delay: 0.2,
@@ -93,7 +100,7 @@ const cardVariants = {
     y: 0,
     transition: { duration: 0.5, staggerChildren: 0.1 },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -102,7 +109,7 @@ const itemVariants = {
     x: 0,
     transition: { duration: 0.3 },
   },
-}
+};
 
 function Card() {
   return (
@@ -125,7 +132,7 @@ function Card() {
         Learn More
       </motion.button>
     </motion.div>
-  )
+  );
 }
 ```
 
@@ -148,10 +155,10 @@ Framer Motion easily adds gestures and drag functionality. For example:
 Use `useScroll` to connect animations to scroll position:
 
 ```jsx
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll } from "framer-motion";
 
 function ScrollAnimatedSection() {
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
 
   return (
     <motion.div
@@ -163,12 +170,12 @@ function ScrollAnimatedSection() {
     >
       <h1 className="text-4xl">Scroll to feel the motion!</h1>
     </motion.div>
-  )
+  );
 }
 ```
 
 ## Conclusion
 
-Framer Motion gives you the tools to animate your React applications with the subtlety of nature—adding movement that feels organic and engaging. Whether you’re drawing users’ attention or injecting life into a static screen, let your animations be as thoughtful and fluid as the growth of a blueberry orchard.
+Framer Motion gives you the tools to animate your React applications with the subtlety of nature—adding movement that feels organic and engaging. Whether you're drawing users' attention or injecting life into a static screen, let your animations be as thoughtful and fluid as the growth of a blueberry orchard.
 
 Happy animating!

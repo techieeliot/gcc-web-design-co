@@ -1,6 +1,13 @@
+---
+title: "Getting Started with Next.js"
+publishedAt: "2024-04-02"
+summary: "A beginner-friendly guide to setting up a Next.js project with TypeScript, App Router, and modern best practices."
+image: "/blog/getting-started-with-nextjs.webp"
+---
+
 # Getting Started with Next.js
 
-There’s something refreshing about starting a new project in Next.js—like stepping into a field of ripe blueberries ready for the picking. This guide walks you through setting up a Next.js project from scratch while embracing best practices for file organization, routing, and performance.
+There's something refreshing about starting a new project in Next.js—like stepping into a field of ripe blueberries ready for the picking. This guide walks you through setting up a Next.js project from scratch while embracing best practices for file organization, routing, and performance.
 
 ## Prerequisites
 
@@ -49,7 +56,7 @@ Every folder has its role—each one as important as a different section of your
 
 ## Building Your First Page
 
-In Next.js, file-based routing is as natural as planting rows in your orchard. Here’s how a simple page looks:
+In Next.js, file-based routing is as natural as planting rows in your orchard. Here's how a simple page looks:
 
 ```tsx
 // app/page.tsx
@@ -59,7 +66,7 @@ export default function Home() {
       <h1 className="text-4xl mb-6">Welcome to My Next.js App</h1>
       <p className="text-xl">Start your journey by editing this page.</p>
     </main>
-  )
+  );
 }
 ```
 
@@ -69,18 +76,18 @@ Layouts keep your design consistent—just like having a standard row spacing in
 
 ```tsx
 // app/layout.tsx
-import './globals.css'
-import type { Metadata } from 'next'
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'My Next.js App',
-  description: 'Created with Next.js',
-}
+  title: "My Next.js App",
+  description: "Created with Next.js",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -94,7 +101,7 @@ export default function RootLayout({
         </footer>
       </body>
     </html>
-  )
+  );
 }
 ```
 
@@ -105,13 +112,13 @@ Next.js makes data fetching as straightforward as watering your plants. In serve
 ```tsx
 // app/posts/page.tsx
 async function getPosts() {
-  const res = await fetch('https://api.example.com/posts')
-  if (!res.ok) throw new Error('Unable to fetch posts')
-  return res.json()
+  const res = await fetch("https://api.example.com/posts");
+  if (!res.ok) throw new Error("Unable to fetch posts");
+  return res.json();
 }
 
 export default async function Posts() {
-  const posts = await getPosts()
+  const posts = await getPosts();
 
   return (
     <div>
@@ -122,27 +129,27 @@ export default async function Posts() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 ```
 
 ## Client Components
 
-For interactivity—like turning a blueberry into a jam—you’ll need client components:
+For interactivity—like turning a blueberry into a jam—you'll need client components:
 
 ```tsx
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
-  )
+  );
 }
 ```
 

@@ -1,67 +1,68 @@
-'use client'
+"use client";
 
-import { cn } from '@/lib/utils'
-import {
-  ChevronRight,
-  Home,
-  Info,
-  Settings,
-  Mail,
-  FileCode,
-  LayoutGrid,
-} from 'lucide-react'
-import { Link } from './ui/link'
+import { cn } from "@/lib/utils";
+
+import { Link } from "./ui/link";
 import {
   motion,
   quickLinkContainerVariants,
   quickLinkItemVariants,
-} from '@/lib/animations'
+} from "@/lib/animations";
+import {
+  ChevronRight,
+  FileCode,
+  Home,
+  Info,
+  LayoutGrid,
+  Mail,
+  Settings,
+} from "@/lib/icons";
 
 export default function QuickLinks({ showHeading = false }) {
   const links = [
     {
-      href: '/',
-      label: 'Home',
+      href: "/",
+      label: "Home",
       icon: Home,
-      description: 'Back to our homepage',
+      description: "Back to our homepage",
     },
     {
-      href: '/about',
-      label: 'About',
+      href: "/about",
+      label: "About",
       icon: Info,
-      description: 'Learn more about us',
+      description: "Learn more about us",
     },
     {
-      href: '/services',
-      label: 'Services',
+      href: "/services",
+      label: "Services",
       icon: Settings,
-      description: 'What we can do for you',
+      description: "What we can do for you",
     },
     {
-      href: '/portfolio',
-      label: 'Portfolio',
+      href: "/portfolio",
+      label: "Portfolio",
       icon: LayoutGrid,
-      description: 'See our past work',
+      description: "See our past work",
     },
+    // {
+    //   href: '/blog',
+    //   label: 'Blog',
+    //   icon: FileCode,
+    //   description: 'Latest tech insights',
+    // },
     {
-      href: '/blog',
-      label: 'Blog',
-      icon: FileCode,
-      description: 'Latest tech insights',
-    },
-    {
-      href: '/contact',
-      label: 'Contact',
+      href: "/contact",
+      label: "Contact",
       icon: Mail,
-      description: 'Get in touch with us',
+      description: "Get in touch with us",
     },
-  ]
+  ];
 
   return (
     <div
       className={cn(
-        'text-center sm:text-left w-full',
-        showHeading ? 'mb-4' : 'mb-0'
+        "text-center sm:text-left w-full",
+        showHeading ? "mb-4" : "mb-0",
       )}
     >
       {showHeading && (
@@ -79,7 +80,7 @@ export default function QuickLinks({ showHeading = false }) {
         initial="hidden"
         animate="visible"
         variants={quickLinkContainerVariants}
-        className={cn('space-y-1.5', 'grid grid-cols-2 gap-4 ')}
+        className={cn("space-y-1.5", "grid grid-cols-2 gap-4 ")}
       >
         {links.map(({ href, label, icon: Icon, description }) => (
           <motion.li
@@ -92,12 +93,12 @@ export default function QuickLinks({ showHeading = false }) {
               href={href}
               variant="standaloneLink"
               className={cn(
-                'group flex items-center gap-2',
-                'py-1 px-2 rounded-md',
-                'hover:bg-sky/5 dark:hover:bg-azure/5',
-                'transition-colors duration-200',
-                'text-slate-700 dark:text-slate-300',
-                'hover:text-sky dark:hover:text-azure'
+                "group flex items-center gap-2",
+                "py-1 px-2 rounded-md",
+                "hover:bg-sky/5 dark:hover:bg-azure/5",
+                "transition-colors duration-200",
+                "text-slate-700 dark:text-slate-300",
+                "hover:text-sky dark:hover:text-azure",
               )}
             >
               <Icon className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-sky dark:group-hover:text-azure transition-colors" />
@@ -110,5 +111,5 @@ export default function QuickLinks({ showHeading = false }) {
         ))}
       </motion.ul>
     </div>
-  )
+  );
 }

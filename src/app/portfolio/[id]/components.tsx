@@ -1,24 +1,8 @@
-import {
-  Users,
-  Calendar,
-  MessageSquare,
-  CheckCircle2,
-  Sparkles,
-  Youtube,
-  Scale,
-  Code2,
-  PenTool,
-  GitBranch,
-  Code,
-  LifeBuoy,
-  Heart,
-  Database,
-} from 'lucide-react'
-import { componentStyles } from '@/lib/component-styles'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { FeatureGrid, StatsGrid } from '@/app/portfolio/[id]/CaseStudySections'
-import { CaseStudyLayout } from '@/app/portfolio/[id]/CaseStudyLayout'
+import { componentStyles } from "@/lib/styles";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import { FeatureGrid, StatsGrid } from "@/app/portfolio/[id]/CaseStudySections";
+import { CaseStudyLayout } from "@/app/portfolio/[id]/CaseStudyLayout";
 import {
   dareToShareFeatures,
   dareToShareStats,
@@ -30,8 +14,24 @@ import {
   roomInTheInnStats,
   weedWarriorsFeatures,
   weedWarriorsStats,
-} from '@/data/case-studies'
-import { Link } from '@/components/ui/link'
+} from "@/data";
+import { Link } from "@/components/ui/link";
+import {
+  Calendar,
+  CheckCircle2,
+  Code,
+  Code2,
+  Database,
+  GitBranch,
+  Heart,
+  LifeBuoy,
+  MessageSquare,
+  PenTool,
+  Scale,
+  Sparkles,
+  Users,
+  Youtube,
+} from "@/lib/icons";
 
 export const CaseStudyFourthParty = () => {
   const icons = [
@@ -50,7 +50,7 @@ export const CaseStudyFourthParty = () => {
       className={componentStyles.icon.large}
       strokeWidth={1.5}
     />,
-  ]
+  ];
 
   return (
     <CaseStudyLayout
@@ -71,7 +71,7 @@ export const CaseStudyFourthParty = () => {
             partners after our MVP and Phase II upgrades. Sometimes, when
             bandwidth is tight, partnering can be the sweetest move.
           </p>
-          <p className={cn(textStyles.body, 'mt-2')}>
+          <p className={cn(textStyles.body, "mt-2")}>
             Fun fact: They say our advice was as refreshing as a chilled
             blueberry lemonade 🍋.
           </p>
@@ -79,26 +79,26 @@ export const CaseStudyFourthParty = () => {
 
         {/* Solution Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>Solution</h3>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>Solution</h3>
           <FeatureGrid features={fourthPartyFeatures} />
         </section>
 
         {/* Impact Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>Results</h3>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>Results</h3>
           <StatsGrid stats={fourthPartyStats} />
         </section>
 
         {/* Client Testimonial */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4')}>Client Testimonial</h3>
+          <h3 className={cn(textStyles.h3, "mb-4")}>Client Testimonial</h3>
           <blockquote
             className={cn(
-              'border-l-4 border-sky/50',
-              'pl-4 sm:pl-6',
-              'py-2 sm:py-4',
-              'italic',
-              textStyles.body
+              "border-l-4 border-sky/50",
+              "pl-4 sm:pl-6",
+              "py-2 sm:py-4",
+              "italic",
+              textStyles.body,
             )}
           >
             "SanforDEV Consulting helped us secure our first clients and
@@ -106,8 +106,8 @@ export const CaseStudyFourthParty = () => {
             feel like you're working with family."
             <footer
               className={cn(
-                textStyles['body-small'],
-                'mt-2 font-normal not-italic'
+                textStyles["body-small"],
+                "mt-2 font-normal not-italic",
               )}
             >
               - CEO, Fourth Party
@@ -117,11 +117,11 @@ export const CaseStudyFourthParty = () => {
 
         {/* Visit Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Visit Fourth Party
           </h3>
           <p className={textStyles.body}>
-            Explore their platform at{' '}
+            Explore their platform at{" "}
             <Link href="https://fourthparty.app" variant="inlineLink">
               fourthparty.app
             </Link>
@@ -129,8 +129,8 @@ export const CaseStudyFourthParty = () => {
         </section>
       </div>
     </CaseStudyLayout>
-  )
-}
+  );
+};
 
 export const CaseStudyWeedWarriors = () => {
   const icons = [
@@ -149,7 +149,7 @@ export const CaseStudyWeedWarriors = () => {
       className={componentStyles.icon.large}
       strokeWidth={1.5}
     />,
-  ]
+  ];
 
   return (
     <CaseStudyLayout
@@ -169,7 +169,7 @@ export const CaseStudyWeedWarriors = () => {
             smoother way to accept payments. We stepped in—especially when a
             form hiccup threatened functionality.
           </p>
-          <p className={cn(textStyles.body, 'mt-2')}>
+          <p className={cn(textStyles.body, "mt-2")}>
             Fun fact: He joked that having a website made his business as 'real'
             as a lawn on a sunny day 🌞.
           </p>
@@ -177,7 +177,7 @@ export const CaseStudyWeedWarriors = () => {
 
         {/* Challenge Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>Challenge</h3>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>Challenge</h3>
           <p className={textStyles.body}>
             Transitioning from no online presence to a full-featured platform
             that handled scheduling, payments, and customer engagement.
@@ -186,7 +186,7 @@ export const CaseStudyWeedWarriors = () => {
 
         {/* Features Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Key Features Delivered
           </h3>
           <FeatureGrid features={weedWarriorsFeatures} />
@@ -194,20 +194,20 @@ export const CaseStudyWeedWarriors = () => {
 
         {/* Impact Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>Results</h3>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>Results</h3>
           <StatsGrid stats={weedWarriorsStats} />
         </section>
 
         {/* Technologies Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Technologies Used
           </h3>
           <p className={textStyles.body}>
             Built with vanilla JavaScript, featuring Content Management System
             and Stripe integrations, plus automated notifications.
           </p>
-          <ul className={cn('mt-4 space-y-2', textStyles.body)}>
+          <ul className={cn("mt-4 space-y-2", textStyles.body)}>
             <li className="flex items-start gap-2">
               <CheckCircle2 className={componentStyles.icon.primary} />
               <span>Stripe integration for secure payments</span>
@@ -229,16 +229,16 @@ export const CaseStudyWeedWarriors = () => {
 
         {/* Client Testimonial */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Client Testimonial
           </h3>
           <blockquote
             className={cn(
-              'border-l-4 border-sky/50',
-              'pl-4 sm:pl-6',
-              'py-2 sm:py-4',
-              'italic',
-              textStyles.body
+              "border-l-4 border-sky/50",
+              "pl-4 sm:pl-6",
+              "py-2 sm:py-4",
+              "italic",
+              textStyles.body,
             )}
           >
             "SanforDEV Consulting turned our vision into a practical reality.
@@ -246,8 +246,8 @@ export const CaseStudyWeedWarriors = () => {
             operations."
             <footer
               className={cn(
-                textStyles['body-small'],
-                'mt-2 font-normal not-italic'
+                textStyles["body-small"],
+                "mt-2 font-normal not-italic",
               )}
             >
               - Jay Grisham, Owner, Weed Warriors
@@ -257,11 +257,11 @@ export const CaseStudyWeedWarriors = () => {
 
         {/* Visit Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Visit Weed Warriors
           </h3>
           <p className={textStyles.body}>
-            Learn more about their services at{' '}
+            Learn more about their services at{" "}
             <Link href="https://weedwarriorsjackson.com/" variant="inlineLink">
               weedwarriorsjackson.com
             </Link>
@@ -269,8 +269,8 @@ export const CaseStudyWeedWarriors = () => {
         </section>
       </div>
     </CaseStudyLayout>
-  )
-}
+  );
+};
 
 export const CaseStudyGorillaFund = () => {
   const icons = [
@@ -289,7 +289,7 @@ export const CaseStudyGorillaFund = () => {
       className={componentStyles.icon.large}
       strokeWidth={1.5}
     />,
-  ]
+  ];
 
   return (
     <CaseStudyLayout
@@ -308,7 +308,7 @@ export const CaseStudyGorillaFund = () => {
             improved searchability—making their content as easy to find as a
             ripe blueberry in a field.
           </p>
-          <p className={cn(textStyles.body, 'mt-2')}>
+          <p className={cn(textStyles.body, "mt-2")}>
             Fun fact: We even joked that our fixes were as smooth as a gorilla's
             getaway!
           </p>
@@ -316,7 +316,7 @@ export const CaseStudyGorillaFund = () => {
 
         {/* Features Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Key Features Delivered
           </h3>
           <FeatureGrid features={gorillaFundFeatures} />
@@ -324,7 +324,7 @@ export const CaseStudyGorillaFund = () => {
 
         {/* Impact Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Collaborative Impact
           </h3>
           <StatsGrid stats={gorillaFundStats} />
@@ -332,10 +332,10 @@ export const CaseStudyGorillaFund = () => {
 
         {/* Technical Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Technical Contributions
           </h3>
-          <ul className={cn('mt-4 space-y-2', textStyles.body)}>
+          <ul className={cn("mt-4 space-y-2", textStyles.body)}>
             <li className="flex items-start gap-2">
               <CheckCircle2 className={componentStyles.icon.primary} />
               <span>Implemented CMS best practices</span>
@@ -357,23 +357,23 @@ export const CaseStudyGorillaFund = () => {
 
         {/* Visit Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Visit Gorilla Fund
           </h3>
           <p className={textStyles.body}>
-            Explore the mission at{' '}
+            Explore the mission at{" "}
             <Link href="https://gorillafund.org" variant="inlineLink">
               gorillafund.org
-            </Link>{' '}
-            <span className={textStyles['body-small']}>
+            </Link>{" "}
+            <span className={textStyles["body-small"]}>
               (with technical consulting by SanforDEV)
             </span>
           </p>
         </section>
       </div>
     </CaseStudyLayout>
-  )
-}
+  );
+};
 
 export const CaseStudyDareToShare = () => {
   const icons = [
@@ -392,7 +392,7 @@ export const CaseStudyDareToShare = () => {
       className={componentStyles.icon.large}
       strokeWidth={1.5}
     />,
-  ]
+  ];
 
   return (
     <CaseStudyLayout
@@ -413,7 +413,7 @@ export const CaseStudyDareToShare = () => {
             available. We made sure the JavaScript-only areas were as friendly
             as possible for non-technical staff.
           </p>
-          <p className={cn(textStyles.body, 'mt-2')}>
+          <p className={cn(textStyles.body, "mt-2")}>
             Fun fact: We quipped that our solution moved faster than a Sunday
             morning prayer chain 🙏.
           </p>
@@ -421,7 +421,7 @@ export const CaseStudyDareToShare = () => {
 
         {/* Emergency Solutions Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Emergency Solutions
           </h3>
           <FeatureGrid features={dareToShareFeatures} />
@@ -429,7 +429,7 @@ export const CaseStudyDareToShare = () => {
 
         {/* Response Metrics Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Response Metrics
           </h3>
           <StatsGrid stats={dareToShareStats} />
@@ -437,23 +437,23 @@ export const CaseStudyDareToShare = () => {
 
         {/* Visit Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Visit Dare to Share
           </h3>
           <p className={textStyles.body}>
-            Discover more at{' '}
+            Discover more at{" "}
             <Link href="https://www.dare2share.org" variant="inlineLink">
               dare2share.org
-            </Link>{' '}
-            <span className={textStyles['body-small']}>
+            </Link>{" "}
+            <span className={textStyles["body-small"]}>
               (with emergency support by SanforDEV)
             </span>
           </p>
         </section>
       </div>
     </CaseStudyLayout>
-  )
-}
+  );
+};
 
 export const CaseStudyRoomInTheInn = () => {
   const icons = [
@@ -472,7 +472,7 @@ export const CaseStudyRoomInTheInn = () => {
       className={componentStyles.icon.large}
       strokeWidth={1.5}
     />,
-  ]
+  ];
 
   return (
     <CaseStudyLayout
@@ -492,7 +492,7 @@ export const CaseStudyRoomInTheInn = () => {
             the community. Our approach is as down-to-earth as our signature
             blueberry logo—rooted in local values and relationships.
           </p>
-          <p className={cn(textStyles.body, 'mt-2')}>
+          <p className={cn(textStyles.body, "mt-2")}>
             Fun fact: We joked that our redesign was so refreshing, even the
             ghosts of old inn rooms cracked a smile 👻.
           </p>
@@ -500,22 +500,22 @@ export const CaseStudyRoomInTheInn = () => {
 
         {/* Weekend Sprint Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>Weekend Sprint</h3>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>Weekend Sprint</h3>
           <FeatureGrid features={roomInTheInnFeatures} />
         </section>
 
         {/* Project Impact Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>Project Results</h3>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>Project Results</h3>
           <StatsGrid stats={roomInTheInnStats} />
         </section>
 
         {/* Key Contributions Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Key Contributions
           </h3>
-          <ul className={cn('mt-4 space-y-2', textStyles.body)}>
+          <ul className={cn("mt-4 space-y-2", textStyles.body)}>
             <li className="flex items-start gap-2">
               <CheckCircle2 className={componentStyles.icon.primary} />
               <span>CMS migration and content reorganization</span>
@@ -537,19 +537,19 @@ export const CaseStudyRoomInTheInn = () => {
 
         {/* Support Section */}
         <section>
-          <h3 className={cn(textStyles.h3, 'mb-4 sm:mb-6')}>
+          <h3 className={cn(textStyles.h3, "mb-4 sm:mb-6")}>
             Support Room in the Inn Memphis
           </h3>
           <p className={textStyles.body}>
-            Visit{' '}
+            Visit{" "}
             <Link href="https://ritimemphis.org" variant="inlineLink">
               ritimemphis.org
-            </Link>{' '}
+            </Link>{" "}
             to learn more about their mission and how you can help provide
             shelter for those experiencing homelessness.
           </p>
         </section>
       </div>
     </CaseStudyLayout>
-  )
-}
+  );
+};

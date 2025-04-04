@@ -1,31 +1,12 @@
-'use client'
+"use client";
+import * as LucideIcon from "lucide-react";
 
-import { Linkedin, Mail, Twitter, MapPin, Phone } from 'lucide-react'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { Link } from './ui/link'
-import { motion } from '@/lib/animations'
-
-const socialLinks = [
-  {
-    href: 'mailto:devsouth.us@gmail.com',
-    icon: Mail,
-    label: 'Email',
-    hoverColor: 'group-hover:text-sky dark:group-hover:text-azure',
-  },
-  {
-    href: 'https://twitter.com/devsouthdotus',
-    icon: Twitter,
-    label: 'Twitter/X',
-    hoverColor: 'group-hover:text-sky dark:group-hover:text-azure',
-  },
-  {
-    href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
-    icon: Linkedin,
-    label: 'LinkedIn',
-    hoverColor: 'group-hover:text-sky dark:group-hover:text-azure',
-  },
-]
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import { Link } from "./ui/link";
+import { motion } from "@/lib/animations";
+import { socialLinks } from "@/data";
+import { MapPin, Phone } from "@/lib/icons";
 
 export default function ContactInfo() {
   return (
@@ -36,7 +17,7 @@ export default function ContactInfo() {
         transition={{ duration: 0.5 }}
         className={cn(
           textStyles.h4,
-          'text-white mb-5 pb-2 border-b border-white/20'
+          "text-white mb-5 pb-2 border-b border-white/20",
         )}
       >
         Contact Us
@@ -58,7 +39,7 @@ export default function ContactInfo() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: 'spring',
+              type: "spring",
               stiffness: 300,
               damping: 15,
               delay: 0.2 + index * 0.1,
@@ -69,16 +50,16 @@ export default function ContactInfo() {
               href={href}
               aria-label={label}
               className={cn(
-                'group p-2 bg-white/10 rounded-full',
-                'hover:bg-white/20 transition-all duration-200',
-                'flex items-center justify-center',
-                'backdrop-blur-sm'
+                "group p-2 bg-white/10 rounded-full",
+                "hover:bg-white/20 transition-all duration-200",
+                "flex items-center justify-center",
+                "backdrop-blur-sm",
               )}
             >
               <Icon
                 className={cn(
-                  'w-5 h-5 text-white transition-all duration-200',
-                  hoverColor
+                  "w-5 h-5 text-white transition-all duration-200",
+                  hoverColor,
                 )}
               />
             </Link>
@@ -95,7 +76,7 @@ export default function ContactInfo() {
         <motion.div
           className="flex items-start gap-2"
           whileHover={{ x: 3 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <MapPin className="w-4 h-4 text-white/70 mt-0.5 flex-shrink-0" />
           <div>
@@ -108,15 +89,10 @@ export default function ContactInfo() {
         <motion.div
           className="flex items-center gap-2"
           whileHover={{ x: 3 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Phone className="w-4 h-4 text-white/70 flex-shrink-0" />
-          <a
-            href="tel:+16623126815"
-            className="hover:text-sky dark:hover:text-azure transition-colors"
-          >
-            +1 (662) 312-6815
-          </a>
+          <Link href="tel:+16623126815">+1 (662) 312-6815</Link>
         </motion.div>
       </motion.address>
 
@@ -129,5 +105,5 @@ export default function ContactInfo() {
         <p>© {new Date().getFullYear()} SanforDEV Consulting LLC</p>
       </motion.div>
     </div>
-  )
+  );
 }

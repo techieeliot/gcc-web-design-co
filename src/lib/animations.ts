@@ -1,18 +1,22 @@
-// Import only what you need instead of the whole library
-import { motion, useAnimation, useInView, AnimatePresence } from 'framer-motion'
+import {
+  motion,
+  useAnimation,
+  useInView,
+  AnimatePresence,
+} from "framer-motion";
 
-import type { Variants } from 'framer-motion'
+import type { Variants } from "framer-motion";
 
 // Create reusable animation presets
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.4 } },
-}
+};
 
 export const slideUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
+};
 
 export const imageVariant: Variants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -21,7 +25,7 @@ export const imageVariant: Variants = {
     scale: 1,
     transition: { duration: 0.8 },
   },
-}
+};
 
 export const serviceCardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -33,7 +37,7 @@ export const serviceCardVariants: Variants = {
       delay: i * 0.2,
     },
   }),
-}
+};
 
 export const staggeredContainerTransition: Variants = {
   hidden: { opacity: 0 },
@@ -43,7 +47,7 @@ export const staggeredContainerTransition: Variants = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 export const listItemTransition: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -52,7 +56,7 @@ export const listItemTransition: Variants = {
     x: 0,
     transition: { duration: 0.3 },
   },
-}
+};
 
 export const iconContainer: Variants = {
   hidden: { opacity: 0 },
@@ -63,7 +67,7 @@ export const iconContainer: Variants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 export const serviceCardIconAnimation: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -71,11 +75,11 @@ export const serviceCardIconAnimation: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: "spring",
       damping: 12,
     },
   },
-}
+};
 
 export const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -86,7 +90,7 @@ export const containerVariants: Variants = {
       delayChildren: 0.3,
     },
   },
-}
+};
 
 export const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -94,12 +98,12 @@ export const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 260,
       damping: 20,
     },
   },
-}
+};
 
 export const fadeInAnimation: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -108,7 +112,7 @@ export const fadeInAnimation: Variants = {
     y: 0,
     transition: { duration: 0.6 },
   },
-}
+};
 
 export const iconVariants: Variants = {
   hidden: { scale: 0.8, opacity: 0 },
@@ -118,10 +122,10 @@ export const iconVariants: Variants = {
     transition: {
       delay: 0.3 + i * 0.1,
       duration: 0.5,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   }),
-}
+};
 
 export const footerFadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -133,7 +137,7 @@ export const footerFadeIn: Variants = {
       duration: 0.5,
     },
   }),
-}
+};
 
 export const desktopLinkVariants: Variants = {
   initial: {
@@ -151,12 +155,12 @@ export const desktopLinkVariants: Variants = {
   hover: {
     y: -2,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 400,
       damping: 20,
     },
   },
-}
+};
 
 export const quickLinkContainerVariants = {
   hidden: { opacity: 0 },
@@ -166,7 +170,7 @@ export const quickLinkContainerVariants = {
       staggerChildren: 0.05,
     },
   },
-}
+};
 
 export const quickLinkItemVariants = {
   hidden: { opacity: 0, x: -5 },
@@ -174,12 +178,12 @@ export const quickLinkItemVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 300,
       damping: 24,
     },
   },
-}
+};
 
 export const staggeredVisibilityTransition = {
   hidden: { opacity: 0 },
@@ -189,7 +193,7 @@ export const staggeredVisibilityTransition = {
       staggerChildren: 0.2,
     },
   },
-}
+};
 
 export const sidebarListItemAnimation = {
   hidden: { opacity: 0, x: -20 },
@@ -197,12 +201,50 @@ export const sidebarListItemAnimation = {
     opacity: 1,
     x: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 300,
       damping: 24,
     },
   },
-}
+};
+
+export const socialIconAnimation = {
+  hidden: { scale: 0, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
+
+export const fadeInOutVariants = {
+  hidden: {
+    opacity: 0,
+    y: 15,
+    scale: 0.97,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.15, 0.45, 0.25, 0.95],
+    },
+  },
+  hover: {
+    y: -4,
+    scale: 1.02,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
+};
 
 // Export only what you need
-export { motion, AnimatePresence, useAnimation, useInView }
+export { motion, AnimatePresence, useAnimation, useInView };

@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import { motion } from '@/lib/animations'
-import { componentStyles } from '@/lib/component-styles'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { ExternalLink } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { motion } from "@/lib/animations";
+import { componentStyles } from "@/lib/styles";
+import { ExternalLink } from "@/lib/icons";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectShowcase() {
   return (
     <motion.div
-      className={cn(componentStyles.card, 'p-6 rounded-xl')}
+      className={cn(componentStyles.card, "p-6 rounded-xl")}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
     >
       <div className="mb-4">
-        <h3 className={cn(textStyles.h3, 'mb-2')}>Our Crafted Stories</h3>
+        <h3 className={cn(textStyles.h3, "mb-2")}>Our Crafted Stories</h3>
         <p className="text-slate-600 dark:text-slate-300 mb-4">
           Discover projects where care meets code—a fusion of React expertise
-          and a down‑to‑earth approach.
+          and a down-to-earth approach.
         </p>
       </div>
 
@@ -28,7 +28,7 @@ export default function ProjectShowcase() {
           title="Fourth Party"
           description="An innovative platform designed to simplify mediation with clarity and purpose."
           image="/images/pic03.webp"
-          tags={['React', 'Modern UI', 'CRM']}
+          tags={["React", "Modern UI", "CRM"]}
           link="/portfolio/fourth-party"
         />
 
@@ -36,12 +36,12 @@ export default function ProjectShowcase() {
           title="Room in the Inn Memphis"
           description="A complete redesign crafted to uplift community impact through empathy and user-first design."
           image="/images/pic02.webp"
-          tags={['CMS', 'JavaScript']}
+          tags={["CMS", "JavaScript"]}
           link="/portfolio/room-in-the-inn-memphis"
         />
       </div>
     </motion.div>
-  )
+  );
 }
 
 const ProjectCard = ({
@@ -51,11 +51,11 @@ const ProjectCard = ({
   tags,
   link,
 }: {
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  link: string
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
 }) => {
   return (
     <motion.div
@@ -75,7 +75,7 @@ const ProjectCard = ({
       </div>
 
       <div className="p-4">
-        <h4 className={cn(textStyles.h4, 'mb-1')}>{title}</h4>
+        <h4 className={cn(textStyles.h4, "mb-1")}>{title}</h4>
 
         <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">
           {description}
@@ -101,5 +101,5 @@ const ProjectCard = ({
         </Link>
       </div>
     </motion.div>
-  )
-}
+  );
+};

@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { fadeInAnimation, iconVariants, motion } from '@/lib/animations'
-import { componentStyles } from '@/lib/component-styles'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { ArrowUp } from 'lucide-react'
-import Image from 'next/image'
+import { fadeInAnimation, iconVariants, motion } from "@/lib/animations";
+import { componentStyles } from "@/lib/styles";
+import { ArrowUp } from "@/lib/icons";
+import { textStyles } from "@/lib/styles";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface CaseStudyProps {
-  id?: string
-  title: string
-  image: string
-  imageAlt: string
-  icons: React.ReactNode[]
-  children: React.ReactNode
+  id?: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  icons: React.ReactNode[];
+  children: React.ReactNode;
 }
 
 export const CaseStudyLayout = ({
@@ -32,17 +32,17 @@ export const CaseStudyLayout = ({
       variants={fadeInAnimation}
       className={cn(
         componentStyles.card,
-        'prose lg:prose-lg',
-        'p-4 sm:p-6 lg:p-8',
-        'mb-8 lg:mb-16',
-        'rounded-xl'
+        "prose lg:prose-lg",
+        "p-4 sm:p-6 lg:p-8",
+        "mb-8 lg:mb-16",
+        "rounded-xl",
       )}
     >
       <motion.div
         className={cn(
-          'relative rounded-lg overflow-hidden',
-          'h-48 sm:h-56 lg:h-64',
-          'mb-6 sm:mb-8 lg:mb-10'
+          "relative rounded-lg overflow-hidden",
+          "h-48 sm:h-56 lg:h-64",
+          "mb-6 sm:mb-8 lg:mb-10",
         )}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -59,7 +59,7 @@ export const CaseStudyLayout = ({
         <div
           className={cn(
             componentStyles.imageOverlay,
-            'gap-4 sm:gap-6 lg:gap-8'
+            "gap-4 sm:gap-6 lg:gap-8",
           )}
         >
           {Array.isArray(icons)
@@ -73,7 +73,7 @@ export const CaseStudyLayout = ({
       </motion.div>
 
       <motion.h2
-        className={cn(textStyles.h2, 'mb-4 sm:mb-6')}
+        className={cn(textStyles.h2, "mb-4 sm:mb-6")}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
@@ -93,19 +93,19 @@ export const CaseStudyLayout = ({
       <div className="fixed right-4 lg:right-8 bottom-4 lg:bottom-8">
         <motion.button
           className={cn(
-            'rounded-full p-3 shadow-lg',
-            'bg-sky/90 dark:bg-azure/90 text-white',
-            'hover:bg-sky dark:hover:bg-azure',
-            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
-            'focus:ring-sky dark:focus:ring-azure'
+            "rounded-full p-3 shadow-lg",
+            "bg-sky/90 dark:bg-azure/90 text-white",
+            "hover:bg-sky dark:hover:bg-azure",
+            "transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
+            "focus:ring-sky dark:focus:ring-azure",
           )}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <ArrowUp className="w-5 h-5" />
         </motion.button>
       </div>
     </motion.article>
-  )
-}
+  );
+};

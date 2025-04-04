@@ -1,106 +1,13 @@
-'use client'
+"use client";
 
-import {
-  Shield,
-  Lock,
-  Eye,
-  FileText,
-  Bell,
-  Users,
-  Cookie,
-  Phone,
-} from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-import { Link } from '@/components/ui/link'
-import { containerVariants, itemVariants, motion } from '@/lib/animations'
+import { cn } from "@/lib/utils";
+import { textStyles } from "@/lib/styles";
+import { Link } from "@/components/ui/link";
+import { containerVariants, itemVariants, motion } from "@/lib/animations";
+import { Bell, Cookie, Eye, FileText, Phone, Shield, Users } from "@/lib/icons";
+import { policyItems } from "@/data";
 
 export default function PrivacyContent() {
-  const policyItems = [
-    {
-      id: 'information',
-      title: 'Information We Collect',
-      icon: Eye,
-      content: `We collect information you provide directly to us when you fill out contact forms, subscribe to newsletters, or communicate with us. This information may include:
-        
-• Name, email address, and phone number
-• Company name and job title
-• Project requirements and business needs
-• IP address and device information
-• Any other information you choose to provide`,
-    },
-    {
-      id: 'usage',
-      title: 'How We Use Your Information',
-      icon: FileText,
-      content: `We use the information we collect to:
-        
-• Provide and improve our services
-• Process and complete transactions
-• Send technical notices and support messages
-• Respond to your comments and requests
-• Share updates about products, services, and events
-• Analyze trends and personalize your experience`,
-    },
-    {
-      id: 'sharing',
-      title: 'Information Sharing',
-      icon: Users,
-      content: `We may share your information with:
-        
-• Service providers who support our operations
-• Professional advisors like lawyers, accountants, and insurers
-• Regulatory authorities, government agencies, and law enforcement
-        
-We do not sell your personal information.`,
-    },
-    {
-      id: 'security',
-      title: 'Data Security',
-      icon: Lock,
-      content: `We take reasonable measures to protect your information from unauthorized access or mishandling. Our measures include:
-        
-• Data encryption in transit using SSL
-• Regular security assessments
-• Strict access controls and authentication
-• Server-side data protection mechanisms`,
-    },
-    {
-      id: 'cookies',
-      title: 'Cookies & Tracking',
-      icon: Cookie,
-      content: `We use cookies and similar technologies to track activity on our website and retain certain data. Cookies are small pieces of data that may include an anonymous unique identifier.
-        
-You can instruct your browser to refuse cookies, though some parts of our website might not function properly.`,
-    },
-    {
-      id: 'rights',
-      title: 'Your Rights',
-      icon: Shield,
-      content: `Depending on your location, you may have rights regarding your personal information, including:
-        
-• Access, correction, or deletion
-• Restricting processing or objecting to certain uses
-• Data portability
-        
-Contact us to exercise any rights you have.`,
-    },
-    {
-      id: 'updates',
-      title: 'Updates to this Policy',
-      icon: Bell,
-      content: `We may update this Privacy Policy from time to time. Any changes will be posted on this page along with a revised "Last Updated" date.
-        
-We will also provide notice via email and/or a prominent notice on our website before changes take effect.`,
-    },
-    {
-      id: 'legal',
-      title: 'Contractual Provisions',
-      icon: FileText,
-      content: `Our engagements are supported by a comprehensive framework—including a Statement of Work (SOW) and corresponding legal agreements—that outlines scope, deliverables, payment terms, and confidentiality requirements. These provisions ensure mutual accountability and clarity at every stage. Please note that any changes outside the agreed scope may incur additional fees, and all legal matters are governed by the laws of Mississippi. Our standard NDA template is available upon request.`,
-    },
-  ]
-
   return (
     <>
       {/* Policy Content */}
@@ -115,9 +22,9 @@ We will also provide notice via email and/or a prominent notice on our website b
           variants={itemVariants}
           className="p-8 border-b border-slate-200 dark:border-slate-800"
         >
-          <h2 className={cn(textStyles.h3, 'mb-4')}>Introduction</h2>
-          <p className={cn(textStyles.body, 'mb-3')}>
-            This Privacy Policy applies to all data collected via our website{' '}
+          <h2 className={cn(textStyles.h3, "mb-4")}>Introduction</h2>
+          <p className={cn(textStyles.body, "mb-3")}>
+            This Privacy Policy applies to all data collected via our website{" "}
             <Link href="/" variant="inlineLink">
               devsouth.us
             </Link>
@@ -138,9 +45,9 @@ We will also provide notice via email and/or a prominent notice on our website b
             key={item.id}
             variants={itemVariants}
             className={cn(
-              'p-8 border-b border-slate-200 dark:border-slate-800',
-              'transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50',
-              index === policyItems.length - 1 ? 'border-b-0' : ''
+              "p-8 border-b border-slate-200 dark:border-slate-800",
+              "transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50",
+              index === policyItems.length - 1 ? "border-b-0" : "",
             )}
           >
             <div className="flex items-center gap-3 mb-4">
@@ -152,10 +59,10 @@ We will also provide notice via email and/or a prominent notice on our website b
               </h2>
             </div>
             <div className="pl-10">
-              {item.content.split('\n\n').map((paragraph, idx) => (
+              {item.content.split("\n\n").map((paragraph, idx) => (
                 <p
                   key={idx}
-                  className={cn(textStyles.body, 'mb-3 whitespace-pre-line')}
+                  className={cn(textStyles.body, "mb-3 whitespace-pre-line")}
                 >
                   {paragraph}
                 </p>
@@ -177,8 +84,8 @@ We will also provide notice via email and/or a prominent notice on our website b
             <Phone className="w-5 h-5 text-sky dark:text-azure" />
           </div>
         </div>
-        <h2 className={cn(textStyles.h3, 'mb-4')}>Contact Us</h2>
-        <p className={cn(textStyles.body, 'mb-6')}>
+        <h2 className={cn(textStyles.h3, "mb-4")}>Contact Us</h2>
+        <p className={cn(textStyles.body, "mb-6")}>
           If you have any questions about this Privacy Policy or our practices,
           please contact us at:
         </p>
@@ -202,5 +109,5 @@ We will also provide notice via email and/or a prominent notice on our website b
         </div>
       </motion.div>
     </>
-  )
+  );
 }
