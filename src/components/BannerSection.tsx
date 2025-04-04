@@ -21,7 +21,7 @@ export default function BannerSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block px-4 py-2 bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure rounded-full mb-4"
+            className="inline-block px-4 py-2 bg-sky/20 dark:bg-azure/30 text-sky-700 dark:text-azure-300 font-medium rounded-full mb-4"
           >
             <div className="flex items-center gap-2">
               <Code className="w-4 h-4" />

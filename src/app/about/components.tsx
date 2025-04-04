@@ -28,7 +28,6 @@ import {
   listItemTransition,
   motion,
 } from '@/lib/animations'
-import BlueberryIcon from '@/components/BlueberryIcon'
 
 export const AboutSection = () => {
   return (
@@ -406,31 +405,13 @@ export const AboutSection = () => {
             </div>
           </motion.div>
         </motion.div>
-        {/* Leadership Section */}
+
+        {/* Blueberry Story Section */}
         <motion.div
           variants={fadeInAnimation}
-          className="col-span-1 md:col-span-2"
+          className="col-span-1 md:col-span-2 mt-8"
         >
-          <div className="flex items-center justify-center gap-6">
-            <div className="hidden lg:block">
-              <BlueberryIcon />
-            </div>
-          </div>
-
-          {/* Text side */}
-          <div className="">
-            <h2 className={cn(textStyles.h4, 'mb-6')}>The Blueberry Story</h2>
-            <p className={cn(textStyles.body, 'mb-6 ')}>
-              Our logo tells a story close to my heart—a blueberry encircling a
-              React atom, with its center (the calyx) representing our core
-              values. The blueberry isn't just a visual mark—it's a tribute to
-              Mississippi (the official state fruit here!), evoking memories of
-              my grandfather's farm and childhood adventures.
-            </p>
-            <p className={cn(textStyles['body-small'], 'italic')}>
-              And fun fact: my car is named "Blueberry" too!
-            </p>
-          </div>
+          <BlueberryStory />
         </motion.div>
       </div>
     </motion.article>
@@ -547,6 +528,39 @@ export const ConnectWithUs = () => {
           </motion.div>
         ))}
       </motion.div>
+    </motion.section>
+  )
+}
+
+export function BlueberryStory() {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="bg-slate-50/50 dark:bg-slate-800/30 rounded-xl p-6 shadow-sm"
+    >
+      <div className="flex flex-col lg:flex-row items-center gap-8">
+        {/* Large blueberry emoji */}
+        <div className="text-9xl order-1 lg:order-1 flex items-center justify-center">
+          🫐
+        </div>
+
+        {/* Text side */}
+        <div className="order-2 lg:order-2">
+          <h3 className={cn(textStyles.h3, 'mb-4')}>The Blueberry Story</h3>
+          <p className={cn(textStyles.body, 'mb-4')}>
+            Our logo tells a story close to my heart—a blueberry encircling a
+            React atom, with its center (the calyx) representing our core
+            values. The blueberry isn't just a visual mark—it's a tribute to
+            Mississippi (the official state fruit here!), evoking memories of my
+            grandfather's farm and childhood adventures.
+          </p>
+          <p className={cn(textStyles.body, 'italic')}>
+            And fun fact: my car is named "Blueberry" too!
+          </p>
+        </div>
+      </div>
     </motion.section>
   )
 }
