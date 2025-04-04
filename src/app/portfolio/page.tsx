@@ -3,6 +3,7 @@ import { caseStudies } from '@/data/case-studies'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
 import { CaseStudyCard } from './[id]/CaseStudyCard'
+import BlueberryIcon from '@/components/BlueberryIcon'
 
 export const metadata: Metadata = {
   title: 'Our Work | Case Studies & Development Projects',
@@ -34,31 +35,35 @@ export const metadata: Metadata = {
   },
 }
 
-export const revalidate = 3600 // Revalidate every hour
-
 export default function PortfolioRoute() {
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 lg:py-12">
+      <div className="container mx-auto px-4 pb-8 lg:pb-12">
         {/* Page Header */}
         <header className="mb-12 lg:mb-16">
           <h1 className={cn(textStyles.h1, 'mb-4 text-center lg:text-left')}>
             Our Work
           </h1>
-          <p
-            className={cn(
-              'text-lg lg:text-xl',
-              'max-w-3xl mx-auto lg:mx-0',
-              'text-center lg:text-left',
-              'text-slate-600 dark:text-slate-300'
-            )}
-          >
-            At SanforDEV Consulting, we're as down-to-earth as a Mississippi
-            blueberry. We cultivate genuine relationships, gathering top talent
-            and trusted partners to nurture every project from idea to reality.
-            Explore our case studies to see how we help businesses grow—rooted
-            in authenticity, care, and a touch of innovation 🫐.
-          </p>
+
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10">
+            {/* Description paragraph */}
+            <p
+              className={cn(
+                'text-lg lg:text-xl',
+                'max-w-3xl order-2 lg:order-1',
+                'text-center lg:text-left',
+                'text-slate-600 dark:text-slate-300'
+              )}
+            >
+              At SanforDEV Consulting, we're as down-to-earth as a Mississippi
+              blueberry. We cultivate genuine relationships, gathering top
+              talent and trusted partners to nurture every project from idea to
+              reality. Explore our case studies to see how we help businesses
+              grow—rooted in authenticity, care, and a touch of innovation.
+            </p>
+
+            <BlueberryIcon />
+          </div>
         </header>
 
         {/* Case Studies Grid */}

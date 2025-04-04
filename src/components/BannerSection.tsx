@@ -42,14 +42,14 @@ export default function BannerSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-lg mb-8"
+            className={cn(textStyles['paragraph-large'], 'max-w-lg mb-8')}
           >
-            At SanforDEV, we cultivate tech solutions like a carefully tended
-            blueberry patch 🫐. Blending modern React expertise with a
-            down‐to‐earth, relationship-focused approach, we bring together
-            exceptional in-house talent and trusted partners for design and
-            back-end mastery. Let’s work together to nurture your digital
-            growth.
+            At SanforDEV, we view tech solutions like we're arefully and
+            methodically nurturing and cultivating a blueberry patch 🫐.
+            Blending modern React expertise with a down-to-earth,
+            relationship-focused approach, we bring together exceptional
+            in-house talent and trusted partners for design and back-end
+            mastery. Let's work together to nurture your digital growth.
           </motion.p>
 
           <motion.div
@@ -76,6 +76,7 @@ export default function BannerSection() {
                 'bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800',
                 'border border-slate-300 dark:border-slate-700',
                 'px-6 py-3 rounded-lg font-medium transition-colors',
+                'text-slate-800 dark:text-powder',
                 'w-full sm:w-auto text-center'
               )}
             >

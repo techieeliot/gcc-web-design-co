@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: 'class', // This enables .dark class-based dark mode
   theme: {
     extend: {
       colors: {
@@ -25,36 +25,12 @@ const config: Config = {
         },
 
         // Custom colors with HSL
-        powder: {
-          DEFAULT: 'var(--powder)',
-          muted: 'rgba(227, 237, 250, 0.8)',
-        },
-        sky: {
-          DEFAULT: 'var(--sky)',
-          muted: 'rgba(44, 151, 221, 0.8)',
-        },
-        azure: {
-          DEFAULT: 'var(--azure)',
-          muted: 'rgba(20, 83, 187, 0.8)',
-        },
-        blueberry: {
-          DEFAULT: 'var(--blueberry))',
-        },
-        midnight: {
-          DEFAULT: 'var(--midnight))',
-        },
-        slate: {
-          DEFAULT: 'var(--slate)',
-          100: 'var(--slate-100)',
-          200: 'var(--slate-200)',
-          300: 'var(--slate-300)',
-          400: 'var(--slate-400)',
-          500: 'var(--slate-500)',
-          600: 'var(--slate-600)',
-          700: 'var(--slate-700)',
-          800: 'var(--slate-800)',
-          900: 'var(--slate-900)',
-        },
+        powder: '#e3edfa',
+        sky: '#2c97dd',
+        azure: '#1453bb',
+        blueberry: '#0d3086',
+        midnight: '#0e2d7f',
+        slate: '#242b4b',
         mist: {
           DEFAULT: 'var(--mist))',
         },
@@ -63,6 +39,11 @@ const config: Config = {
         },
         'deep-navy': {
           DEFAULT: 'var(--deep-navy)',
+        },
+        emerald: {
+          600: '#2f855a',
+          700: '#276749',
+          800: '#22543d',
         },
 
         // Text colors
@@ -112,6 +93,7 @@ const config: Config = {
       },
       fontFamily: {
         poppins: ['var(--font-poppins)', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
       },
       textShadow: {
         sm: '0 1px 2px rgba(0, 0, 0, 0.1)',

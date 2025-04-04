@@ -11,14 +11,16 @@
     "prepare": "husky",
     "pre-commit": "lint-staged",
     "analyze": "ANALYZE=true next build",
-    "analyze:windows": "set ANALYZE=true && next build"
+    "analyze:windows": "set ANALYZE=true && next build",
+    "netlify-build": "next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",
-    "@netlify/plugin-nextjs": "^5.10.1",
+    "@netlify/plugin-nextjs": "^5.10.3",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "critters": "^0.0.23",
     "framer-motion": "^12.6.2",
     "glob": "^10.4.5",
     "lucide-react": "^0.485.0",

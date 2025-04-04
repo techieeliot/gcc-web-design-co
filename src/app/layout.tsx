@@ -1,18 +1,57 @@
 import { Poppins } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from 'components/Footer'
+
 import { Suspense, type ReactNode } from 'react'
-import { cn } from 'lib/utils'
-import { ThemeProvider } from 'providers/theme-provider'
 import { Metadata } from 'next'
 import { domains } from '@/config/domains'
+import Analytics from '@/components/Analytics'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import { PageSkeleton } from '@/components/page-skeleton'
+import { cn } from '@/lib/utils'
+import { Providers } from '@/providers'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
+  display: 'swap', // Add this for better font loading performance
 })
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(poppins.variable, 'font-sans')}
+    >
+      <body
+        className={cn(
+          'min-h-screen antialiased',
+          'bg-slate-50 dark:bg-slate-900',
+          'text-slate-900 dark:text-powder',
+          'transition-colors duration-300',
+          'font-sans'
+        )}
+      >
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <div className="flex-1 pt-24 md:pt-28">
+              <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
+            </div>
+            <Footer />
+          </div>
+        </Providers>
+        <Analytics />
+      </body>
+    </html>
+  )
+}
 
 export const metadata: Metadata = {
   title: {
@@ -135,54 +174,4 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code', // Add your verification code
   },
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Preconnect to domains you'll load resources from */}
-        <link rel="preconnect" href="https://app.netlify.com" />
-
-        {/* Preload critical assets */}
-        <link
-          rel="preload"
-          href="/blueberry-atom.svg"
-          as="image"
-          type="image/svg+xml"
-        />
-      </head>
-      <body
-        className={cn(
-          poppins.variable,
-          'antialiased text-foreground font-poppins min-h-screen',
-          'bg-gradient-primary dark:bg-gradient-primary-dark'
-        )}
-        suppressHydrationWarning
-      >
-        <ThemeProvider defaultTheme="light">
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <div className="flex-1 mt-16 md:mt-20">
-              {/* Remove container here since each page will have its own container */}
-              <main className="w-full py-8">
-                <Suspense
-                  fallback={
-                    <div className="container mx-auto px-4 w-full h-96 bg-gray-200 dark:bg-slate-800 animate-pulse rounded-lg"></div>
-                  }
-                >
-                  {children}
-                </Suspense>
-              </main>
-            </div>
-            <Footer />
-          </div>
-        </ThemeProvider>
-      </body>
-    </html>
-  )
 }

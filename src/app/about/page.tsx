@@ -24,8 +24,6 @@ export const metadata: Metadata = {
   },
 }
 
-export const revalidate = 3600 // Revalidate every hour
-
 export default function AboutRoute() {
   return (
     <div className="container mx-auto px-4 py-8">

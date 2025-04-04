@@ -56,7 +56,7 @@ export default function Header() {
           isOpen && 'opacity-0 pointer-events-none'
         )}
       >
-        <header className="container mx-auto px-4">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50 dark:bg-slate-900 shadow-sm">
           <div
             className={cn(
               'flex justify-between items-center h-14 sm:h-16 md:h-20',

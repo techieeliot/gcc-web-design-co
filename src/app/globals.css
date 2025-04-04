@@ -149,8 +149,7 @@ body {
   --text-secondary-dark: rgba(227, 237, 250, 0.8); /* powder at 80% opacity */
 }
 
-/* Dark Theme */
-:root[data-theme='dark'] {
+.dark {
   --background: var(--slate-900);
   --foreground: var(--white);
   --card: var(--slate-800);
@@ -296,4 +295,17 @@ footer [whileHover],
     rgba(0, 0, 0, 0.2),
     transparent
   );
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Ensure Poppins is applied everywhere */
+  * {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
 }

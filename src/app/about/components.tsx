@@ -28,6 +28,7 @@ import {
   listItemTransition,
   motion,
 } from '@/lib/animations'
+import BlueberryIcon from '@/components/BlueberryIcon'
 
 export const AboutSection = () => {
   return (
@@ -363,15 +364,6 @@ export const AboutSection = () => {
                     @techieEliot
                   </a>
                   .
-                  <br />
-                  <br />
-                  Our logo tells a story close to my heart—a blueberry
-                  encircling a React atom, with its center (the calyx)
-                  representing our core values. The blueberry isn't just a
-                  visual mark—it's a tribute to Mississippi (the official state
-                  fruit here!), evoking memories of my grandfather's farm and
-                  childhood adventures. And fun fact: my car is named
-                  “Blueberry” too!
                 </motion.p>
                 {/* Social Links */}
                 <div className="flex flex-wrap gap-3 justify-center sm:justify-start mb-4">
@@ -413,6 +405,32 @@ export const AboutSection = () => {
               </div>
             </div>
           </motion.div>
+        </motion.div>
+        {/* Leadership Section */}
+        <motion.div
+          variants={fadeInAnimation}
+          className="col-span-1 md:col-span-2"
+        >
+          <div className="flex items-center justify-center gap-6">
+            <div className="hidden lg:block">
+              <BlueberryIcon />
+            </div>
+          </div>
+
+          {/* Text side */}
+          <div className="">
+            <h2 className={cn(textStyles.h4, 'mb-6')}>The Blueberry Story</h2>
+            <p className={cn(textStyles.body, 'mb-6 ')}>
+              Our logo tells a story close to my heart—a blueberry encircling a
+              React atom, with its center (the calyx) representing our core
+              values. The blueberry isn't just a visual mark—it's a tribute to
+              Mississippi (the official state fruit here!), evoking memories of
+              my grandfather's farm and childhood adventures.
+            </p>
+            <p className={cn(textStyles['body-small'], 'italic')}>
+              And fun fact: my car is named "Blueberry" too!
+            </p>
+          </div>
         </motion.div>
       </div>
     </motion.article>
