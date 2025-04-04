@@ -34,6 +34,8 @@ export const metadata: Metadata = {
   },
 }
 
+export const revalidate = 3600 // Revalidate every hour
+
 export default function PortfolioRoute() {
   return (
     <div className="min-h-screen">

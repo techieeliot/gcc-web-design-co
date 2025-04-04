@@ -1,9 +1,9 @@
 'use client'
 
+import { motion, useAnimation, useInView } from '@/lib/animations'
 import { componentStyles } from '@/lib/component-styles'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
-import { motion, useAnimation, useInView } from 'framer-motion'
 import * as LucideIcons from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'

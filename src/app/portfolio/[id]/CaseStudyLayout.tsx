@@ -1,9 +1,9 @@
 'use client'
 
+import { fadeInAnimation, iconVariants, motion } from '@/lib/animations'
 import { componentStyles } from '@/lib/component-styles'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
 import Image from 'next/image'
 
@@ -14,28 +14,6 @@ interface CaseStudyProps {
   imageAlt: string
   icons: React.ReactNode[]
   children: React.ReactNode
-}
-
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
-
-const iconVariants = {
-  hidden: { scale: 0.8, opacity: 0 },
-  visible: (i: number) => ({
-    scale: 1,
-    opacity: 1,
-    transition: {
-      delay: 0.3 + i * 0.1,
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  }),
 }
 
 export const CaseStudyLayout = ({
@@ -51,7 +29,7 @@ export const CaseStudyLayout = ({
       id={id}
       initial="hidden"
       animate="visible"
-      variants={fadeInVariants}
+      variants={fadeInAnimation}
       className={cn(
         componentStyles.card,
         'prose lg:prose-lg',

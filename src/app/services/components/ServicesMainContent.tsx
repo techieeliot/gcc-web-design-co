@@ -1,8 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Code2, Rocket, SearchCode } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
 import { ServiceCard } from './ServiceCard'
@@ -10,9 +8,10 @@ import { serviceCategories } from '../data/services'
 import {
   fadeIn,
   imageVariant,
-  staggerContainer,
-  featureItem,
-} from '../animations'
+  motion,
+  staggeredContainerTransition,
+  listItemTransition,
+} from '@/lib/animations'
 
 export function ServicesMainContent() {
   const features = [
@@ -84,7 +83,7 @@ export function ServicesMainContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          variants={staggeredContainerTransition}
           className="space-y-8"
         >
           <div className="space-y-2">
@@ -158,13 +157,13 @@ export function ServicesMainContent() {
           </motion.p>
 
           <motion.div
-            variants={staggerContainer}
+            variants={staggeredContainerTransition}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                variants={featureItem}
+                variants={listItemTransition}
                 className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky/10 
                 dark:hover:bg-azure/10 transition-colors"
               >

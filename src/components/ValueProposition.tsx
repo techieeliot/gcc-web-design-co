@@ -1,8 +1,8 @@
 'use client'
 
+import { motion } from '@/lib/animations'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import { CheckCircle, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 

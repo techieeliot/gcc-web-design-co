@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import fs from 'fs'
 import path from 'path'
-import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Calendar, ArrowLeft, Clock, Share2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -234,6 +233,8 @@ export async function generateMetadata(
     },
   }
 }
+
+export const revalidate = 3600 // Revalidate every hour
 
 // Update page component
 export default async function BlogPostRoute({

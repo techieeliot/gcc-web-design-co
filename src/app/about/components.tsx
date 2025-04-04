@@ -20,52 +20,21 @@ import {
   Mail,
 } from 'lucide-react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Link } from '@/components/ui/link'
+import {
+  fadeInAnimation,
+  imageVariant,
+  staggeredVisibilityTransition,
+  listItemTransition,
+  motion,
+} from '@/lib/animations'
 
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const imageVariant = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.8 },
-  },
-}
-
-const listItem = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4 },
-  },
-}
 export const AboutSection = () => {
   return (
     <motion.article
       initial="hidden"
       animate="visible"
-      variants={fadeIn}
+      variants={fadeInAnimation}
       className={cn(
         componentStyles.card,
         'prose lg:prose-lg max-w-none',
@@ -117,19 +86,22 @@ export const AboutSection = () => {
       </motion.div>
 
       <motion.h2
-        variants={fadeIn}
+        variants={fadeInAnimation}
         className={cn(textStyles.h2, 'mb-6 lg:mb-8')}
       >
         About SanforDEV
       </motion.h2>
 
       {/* Our Story - More concise */}
-      <motion.div variants={fadeIn} className="mb-10 lg:mb-14">
-        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+      <motion.div variants={fadeInAnimation} className="mb-10 lg:mb-14">
+        <motion.h3
+          variants={fadeInAnimation}
+          className={cn(textStyles.h3, 'mb-4')}
+        >
           Our Story
         </motion.h3>
         <motion.p
-          variants={fadeIn}
+          variants={fadeInAnimation}
           className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
         >
           Since 2018, SanforDEV has been on a journey of transforming bold ideas
@@ -139,8 +111,11 @@ export const AboutSection = () => {
         </motion.p>
       </motion.div>
 
-      <motion.div variants={fadeIn} className="mb-12 lg:mb-16">
-        <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+      <motion.div variants={fadeInAnimation} className="mb-12 lg:mb-16">
+        <motion.h3
+          variants={fadeInAnimation}
+          className={cn(textStyles.h3, 'mb-4')}
+        >
           Our Mission
         </motion.h3>
 
@@ -207,7 +182,7 @@ export const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <motion.div
-            variants={fadeIn}
+            variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
@@ -226,7 +201,7 @@ export const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            variants={fadeIn}
+            variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
@@ -245,7 +220,7 @@ export const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            variants={fadeIn}
+            variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
@@ -264,7 +239,7 @@ export const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            variants={fadeIn}
+            variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
@@ -287,13 +262,16 @@ export const AboutSection = () => {
       {/* Combined Community and Leadership Sections */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {/* Community Section */}
-        <motion.div variants={fadeIn}>
-          <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+        <motion.div variants={fadeInAnimation}>
+          <motion.h3
+            variants={fadeInAnimation}
+            className={cn(textStyles.h3, 'mb-4')}
+          >
             Community Involvement
           </motion.h3>
 
           <motion.p
-            variants={fadeIn}
+            variants={fadeInAnimation}
             className={cn(
               textStyles.body,
               'text-slate-700 dark:text-slate-300 mb-4'
@@ -304,7 +282,7 @@ export const AboutSection = () => {
           </motion.p>
 
           <motion.ul
-            variants={staggerContainer}
+            variants={staggeredVisibilityTransition}
             className={cn('space-y-2 mb-4', textStyles.body)}
           >
             {[
@@ -316,7 +294,7 @@ export const AboutSection = () => {
             ].map((item, index) => (
               <motion.li
                 key={index}
-                variants={listItem}
+                variants={listItemTransition}
                 className="flex items-start gap-3"
               >
                 <span className="text-sky dark:text-azure">•</span>
@@ -329,18 +307,21 @@ export const AboutSection = () => {
         </motion.div>
 
         {/* Leadership Section */}
-        <motion.div variants={fadeIn}>
-          <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-4')}>
+        <motion.div variants={fadeInAnimation}>
+          <motion.h3
+            variants={fadeInAnimation}
+            className={cn(textStyles.h3, 'mb-4')}
+          >
             Leadership
           </motion.h3>
 
           <motion.div
-            variants={fadeIn}
+            variants={fadeInAnimation}
             className="bg-white/50 dark:bg-slate-800/30 rounded-xl p-6 shadow-sm"
           >
             <div className="flex flex-col sm:flex-row gap-6 mb-4">
               <motion.div
-                variants={fadeIn}
+                variants={fadeInAnimation}
                 className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 mx-auto sm:mx-0"
               >
                 <Image
@@ -352,13 +333,13 @@ export const AboutSection = () => {
               </motion.div>
               <div>
                 <motion.h4
-                  variants={fadeIn}
+                  variants={fadeInAnimation}
                   className={cn(textStyles.h4, 'mb-1 text-center sm:text-left')}
                 >
                   Eliot Sanford
                 </motion.h4>
                 <motion.p
-                  variants={fadeIn}
+                  variants={fadeInAnimation}
                   className={cn(
                     'text-sky dark:text-azure font-medium mb-2 text-center sm:text-left'
                   )}
@@ -366,7 +347,7 @@ export const AboutSection = () => {
                   Founder & Lead Engineer
                 </motion.p>
                 <motion.p
-                  variants={fadeIn}
+                  variants={fadeInAnimation}
                   className="text-sm text-slate-700 dark:text-slate-300 mb-4"
                 >
                   With over 6 years steering the React ecosystem, I've helped
@@ -454,18 +435,21 @@ export const CompanyFacts = () => {
     <motion.section
       initial="hidden"
       animate="visible"
-      variants={fadeIn}
+      variants={fadeInAnimation}
       className={cn(componentStyles.container, 'p-6 sm:p-8', 'rounded-xl')}
     >
-      <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-6')}>
+      <motion.h3
+        variants={fadeInAnimation}
+        className={cn(textStyles.h3, 'mb-6')}
+      >
         Company Facts
       </motion.h3>
 
-      <motion.ul variants={staggerContainer} className="space-y-5">
+      <motion.ul variants={staggeredVisibilityTransition} className="space-y-5">
         {facts.map(({ label, value, icon: Icon }) => (
           <motion.li
             key={label}
-            variants={listItem}
+            variants={listItemTransition}
             whileHover={{ x: 5 }}
             className="flex items-start gap-3"
           >
@@ -507,18 +491,24 @@ export const ConnectWithUs = () => {
     <motion.section
       initial="hidden"
       animate="visible"
-      variants={fadeIn}
+      variants={fadeInAnimation}
       className={cn(componentStyles.container, 'p-6 sm:p-8', 'rounded-xl')}
     >
-      <motion.h3 variants={fadeIn} className={cn(textStyles.h3, 'mb-6')}>
+      <motion.h3
+        variants={fadeInAnimation}
+        className={cn(textStyles.h3, 'mb-6')}
+      >
         Connect With Us
       </motion.h3>
 
-      <motion.div variants={staggerContainer} className="space-y-5">
+      <motion.div
+        variants={staggeredVisibilityTransition}
+        className="space-y-5"
+      >
         {socialLinks.map(({ href, label, icon: Icon }) => (
           <motion.div
             key={href}
-            variants={listItem}
+            variants={listItemTransition}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             tabIndex={-1}

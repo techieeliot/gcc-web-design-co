@@ -2,7 +2,7 @@
 
 import { Link } from '@/components/ui/link'
 import { caseStudies } from '@/data/case-studies'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/animations'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {

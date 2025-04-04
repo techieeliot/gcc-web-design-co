@@ -1,19 +1,19 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
 import { componentStyles } from '@/lib/component-styles'
 import type { Service } from '../types'
 import {
+  serviceCardVariants,
   iconContainer,
-  iconAnimation,
-  staggerContainer,
-  featureItem,
+  serviceCardIconAnimation,
   fadeIn,
-  cardVariant,
-} from '../animations'
+  staggeredContainerTransition,
+  listItemTransition,
+  motion,
+} from '@/lib/animations'
 
 interface ServiceCardProps {
   service: Service
@@ -24,7 +24,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   return (
     <motion.div
       custom={index}
-      variants={cardVariant}
+      variants={serviceCardVariants}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
       className={cn(
@@ -43,7 +43,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         {service.icons.map((Icon, iconIndex) => (
           <motion.div
             key={iconIndex}
-            variants={iconAnimation}
+            variants={serviceCardIconAnimation}
             whileHover={{ scale: 1.2, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
             className="relative group cursor-pointer"
@@ -73,7 +73,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       </motion.p>
 
       <motion.ul
-        variants={staggerContainer}
+        variants={staggeredContainerTransition}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
@@ -82,7 +82,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         {service.features.map((feature, featureIndex) => (
           <motion.li
             key={featureIndex}
-            variants={featureItem}
+            variants={listItemTransition}
             className="flex items-start gap-3 group"
           >
             <ArrowUpRight className="w-5 h-5 text-sky dark:text-azure flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-1" />

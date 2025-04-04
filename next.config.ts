@@ -1,30 +1,36 @@
 import type { NextConfig } from 'next'
+import withBundleAnalyzer from '@next/bundle-analyzer'
+import { domainHostnames, domains } from './src/config/domains'
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const config: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['localhost', 'devsouth.us', 'sanfor.dev'],
+    domains: [...domainHostnames, 'localhost'],
+    formats: ['image/avif', 'image/webp'],
   },
-  // Add domain handling
+  // Optimizations - removed swcMinify as it's now enabled by default
+  poweredByHeader: false,
+  compress: true,
+
+  // Redirect all alternate domains to primary domain
   async rewrites() {
+    // Create a rewrite rule for each alternate domain
+    const domainRewrites = domains.alternateHostnames.map((hostname) => ({
+      source: '/:path*',
+      has: [{ type: 'host', key: 'host', value: hostname }],
+      destination: `https://${domains.primaryHostname}/:path*`,
+    }))
+
     return {
-      beforeFiles: [
-        // Handle both domains
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'devsouth.us',
-            },
-          ],
-          destination: 'https://sanfor.dev/:path*', // Redirect to primary domain
-        },
-      ],
+      beforeFiles: domainRewrites,
     }
   },
 }
 
-export default config
+export default bundleAnalyzer(config)

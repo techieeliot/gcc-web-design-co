@@ -3,20 +3,16 @@
 import { useState, useEffect } from 'react'
 import { ThemeToggle } from './ui/theme-toggle'
 import Image from 'next/image'
-import { AnimatePresence, motion } from 'framer-motion'
-import { NavLink } from './ui/nav-link.client'
-import { Menu, X, ChevronRight } from 'lucide-react'
+import { NavLink } from './ui/nav-link'
+import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Link } from './ui/link'
 import { MobileNav } from './MobileNav'
+import { desktopLinkVariants, motion } from '@/lib/animations'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-
-  const handleLinkClick = () => {
-    setIsOpen(false)
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,98 +35,6 @@ export default function Header() {
     }
   }, [isOpen])
 
-  // Enhanced animations
-  const menuVariants = {
-    closed: {
-      x: '100%',
-      opacity: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-    open: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-  }
-
-  const backdropVariants = {
-    closed: {
-      opacity: 0,
-      transition: { duration: 0.2 },
-    },
-    open: {
-      opacity: 1,
-      transition: { duration: 0.2 },
-    },
-  }
-
-  // Animation for mobile menu items
-  const menuItemVariants = {
-    closed: {
-      x: -20,
-      opacity: 0,
-    },
-    open: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-  }
-
-  // Animation for desktop nav links
-  const desktopLinkVariants = {
-    initial: {
-      y: -10,
-      opacity: 0,
-    },
-    animate: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.1 * i,
-        duration: 0.5,
-      },
-    }),
-    hover: {
-      y: -2,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 20,
-      },
-    },
-  }
-
-  // Logo animation
-  const logoVariants = {
-    initial: {
-      y: -20,
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 25,
-        delay: 0.1,
-      },
-    },
-  }
-
   const navLinks = [
     { href: '/', label: 'Welcome' },
     { href: '/about', label: 'About' },
@@ -146,7 +50,6 @@ export default function Header() {
           'fixed top-0 left-0 right-0',
           'z-[100]',
           'transition-all duration-300 ease-in-out',
-          'bg-slate-50 dark:bg-slate-900',
           'shadow-lg border-b border-slate-200 dark:border-slate-800',
           // Hide the header when mobile nav is open
           isOpen && 'opacity-0 pointer-events-none'
@@ -165,6 +68,9 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
               className="relative"
               tabIndex={-1}
+              transformTemplate={(props, transform) =>
+                `translateZ(0) ${transform}`
+              }
             >
               <Link
                 href="/"

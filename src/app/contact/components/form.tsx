@@ -10,23 +10,13 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
-import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Link } from '@/components/ui/link'
 import { FormField } from './FormField'
-
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
+import { fadeInAnimation, motion } from '@/lib/animations'
 
 const formSchema = z.object({
   name: z
@@ -129,7 +119,7 @@ export default function ContactForm() {
     <motion.article
       initial="hidden"
       animate="visible"
-      variants={fadeIn}
+      variants={fadeInAnimation}
       className={cn(
         'backdrop-blur-md rounded-xl p-8 shadow-lg',
         'bg-white dark:bg-slate-900',
@@ -138,7 +128,7 @@ export default function ContactForm() {
     >
       <motion.div
         className="text-center"
-        variants={fadeIn}
+        variants={fadeInAnimation}
         initial="hidden"
         animate="visible"
         transition={{ delay: 0.2 }}

@@ -11,6 +11,8 @@ const ContactSidebar = dynamic(() => import('./components/sidebar'), {
 })
 const ContactForm = dynamic(() => import('./components/form'), { ssr: false })
 
+export const revalidate = 3600 // Revalidate every hour
+
 export default function ContactRoute() {
   return (
     <div className="min-h-screen pt-8 lg:pt-16 pb-16">

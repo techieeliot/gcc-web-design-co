@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from '@/lib/animations'
 import { componentStyles } from '@/lib/component-styles'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
@@ -11,7 +12,6 @@ import {
   UserCheck,
   Layers,
 } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 const features = [
   {

@@ -33,6 +33,8 @@ export const metadata: Metadata = {
 
 import ClientHomeContent from '@/components/ClientHomeContent'
 
+export const revalidate = 3600 // Revalidate every hour
+
 export default function HomeRoute() {
   return <ClientHomeContent />
 }

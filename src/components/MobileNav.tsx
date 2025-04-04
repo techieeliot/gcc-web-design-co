@@ -1,11 +1,10 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { NavLink } from './ui/nav-link.client'
+import { NavLink } from './ui/nav-link'
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import { AnimatePresence, motion } from '@/lib/animations'
 
 interface MobileNavProps {
   isOpen: boolean

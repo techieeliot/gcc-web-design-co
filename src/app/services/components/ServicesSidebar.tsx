@@ -1,12 +1,15 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
 import { componentStyles } from '@/lib/component-styles'
-import { staggerContainer, featureItem } from '../animations'
 import { implementations } from '../data/implementations'
+import {
+  motion,
+  staggeredContainerTransition,
+  listItemTransition,
+} from '@/lib/animations'
 
 export const ServicesSidebar = () => {
   return (
@@ -47,7 +50,7 @@ export const ServicesSidebar = () => {
           </motion.div>
 
           <motion.ul
-            variants={staggerContainer}
+            variants={staggeredContainerTransition}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -56,7 +59,7 @@ export const ServicesSidebar = () => {
             {section.items.map((item, itemIndex) => (
               <motion.li
                 key={itemIndex}
-                variants={featureItem}
+                variants={listItemTransition}
                 whileHover={{ x: 3 }}
                 className="flex items-center gap-2 text-slate-600 dark:text-slate-300"
               >

@@ -1,10 +1,10 @@
 'use client'
 
 import { Linkedin, Mail, Twitter, MapPin, Phone } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
 import { Link } from './ui/link'
+import { motion } from '@/lib/animations'
 
 const socialLinks = [
   {

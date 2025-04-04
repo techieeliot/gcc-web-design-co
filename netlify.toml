@@ -4,6 +4,14 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+    debug = false
+    sendSlicesInResponse = true
+    incrementalCache = true
+
+# Add a dedicated cache handler
+[[plugins]]
+  package = "@netlify/netlify-plugin-cache-nextjs"
 
 [build.environment]
   NODE_VERSION = "20.11.1"
@@ -23,3 +31,27 @@
   [functions."*"]
     memory = 8192 # Set to 8GB
     timeout = 30 # Increase timeout to 30 seconds
+
+[[redirects]]
+  from = "https://devsouth.us/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sanfordev.com/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sanfordev.io/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sanfordev.net/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true

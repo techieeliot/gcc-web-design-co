@@ -11,25 +11,13 @@ import {
   Twitter,
   Github,
 } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { Link } from './ui/link'
+import { footerFadeIn, motion } from '@/lib/animations'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1 * i,
-        duration: 0.5,
-      },
-    }),
-  }
 
   const socialLinks = [
     {
@@ -57,7 +45,7 @@ export default function Footer() {
     <motion.div
       className={cn(
         'w-full relative overflow-hidden',
-        'bg-slate-50 dark:bg-slate-900', // Footer background
+        'bg-gradient-primary dark:bg-gradient-primary-dark', // Match the body background
         'text-slate-700 dark:text-powder',
         'border-t border-slate-200 dark:border-slate-800'
       )}
@@ -74,19 +62,13 @@ export default function Footer() {
         <div className="absolute -bottom-48 -left-32 w-96 h-96 bg-sky/5 dark:bg-azure/5 rounded-full blur-3xl" />
       </motion.div>
 
-      <footer
-        className={cn(
-          'w-full relative overflow-hidden',
-          'bg-slate-50 dark:bg-slate-900', // Footer background
-          'text-slate-700 dark:text-powder',
-          'border-t border-slate-200 dark:border-slate-800'
-        )}
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+      {/* Add container here to match header */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 py-12">
           {/* Column 1: Company Info */}
           <motion.div
             custom={0}
-            variants={fadeIn}
+            variants={footerFadeIn}
             className="text-center sm:text-left lg:col-span-4"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4">
@@ -98,6 +80,9 @@ export default function Footer() {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
                 className="relative"
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
               >
                 <div className="rounded-full bg-slate p-3 inline-flex items-center justify-center">
                   <Image
@@ -165,7 +150,7 @@ export default function Footer() {
           {/* Column 2: Quick Links */}
           <motion.section
             custom={1}
-            variants={fadeIn}
+            variants={footerFadeIn}
             className="widget links lg:col-span-3"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4 text-center sm:text-left">
@@ -177,7 +162,7 @@ export default function Footer() {
           {/* Column 3: Contact Info */}
           <motion.section
             custom={2}
-            variants={fadeIn}
+            variants={footerFadeIn}
             className="widget contact text-center sm:text-left lg:col-span-5"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4">
@@ -278,7 +263,7 @@ export default function Footer() {
           transition={{ delay: 0.5 }}
           className={cn(
             'border-t border-slate-200 dark:border-slate-800',
-            'mt-12 pt-8'
+            'mt-12 pt-8 pb-8'
           )}
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -308,7 +293,7 @@ export default function Footer() {
             </motion.p>
           </div>
         </motion.div>
-      </footer>
+      </div>
     </motion.div>
   )
 }

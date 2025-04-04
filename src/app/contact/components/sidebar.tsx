@@ -3,42 +3,15 @@
 import { Mail, MapPin, Clock, Globe, Linkedin, Twitter } from 'lucide-react'
 import { cn } from 'lib/utils'
 import { textStyles } from 'lib/text-styles'
-import { motion } from 'framer-motion'
 import { Link } from '@/components/ui/link'
+import {
+  fadeInAnimation,
+  motion,
+  sidebarListItemAnimation,
+  staggeredContainerTransition,
+} from '@/lib/animations'
 
 // Animation variants
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-}
-
-const listItem = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 24,
-    },
-  },
-}
 
 const iconAnimation = {
   hidden: { scale: 0, opacity: 0 },
@@ -58,7 +31,7 @@ export default function ContactSidebar() {
     <motion.div
       initial="hidden"
       animate="visible"
-      variants={fadeIn}
+      variants={fadeInAnimation}
       className="lg:col-span-4 space-y-6"
     >
       {/* Contact Info Card */}
@@ -72,11 +45,14 @@ export default function ContactSidebar() {
         )}
       >
         <section>
-          <motion.h3 variants={fadeIn} className={textStyles.h3}>
+          <motion.h3 variants={fadeInAnimation} className={textStyles.h3}>
             Let's Create Meaningful Change
           </motion.h3>
 
-          <motion.p variants={fadeIn} className={cn(textStyles.body, 'mb-6')}>
+          <motion.p
+            variants={fadeInAnimation}
+            className={cn(textStyles.body, 'mb-6')}
+          >
             Ready to spark breakthrough ideas? Reach out and let's work together
             to turn your vision into reality. We’re here to listen, advise, and
             support you every step of the way. And if our brainstorming ever
@@ -85,13 +61,16 @@ export default function ContactSidebar() {
           </motion.p>
 
           <motion.div
-            variants={staggerContainer}
+            variants={staggeredContainerTransition}
             initial="hidden"
             animate="visible"
             className="space-y-4"
           >
             {/* Contact Details */}
-            <motion.div variants={listItem} className="flex items-start gap-3">
+            <motion.div
+              variants={sidebarListItemAnimation}
+              className="flex items-start gap-3"
+            >
               <Mail className="w-5 h-5 text-sky dark:text-azure mt-1" />
               <div>
                 <p className={textStyles.label}>Email</p>
@@ -104,7 +83,10 @@ export default function ContactSidebar() {
               </div>
             </motion.div>
 
-            <motion.div variants={listItem} className="flex items-start gap-3">
+            <motion.div
+              variants={sidebarListItemAnimation}
+              className="flex items-start gap-3"
+            >
               <MapPin className="w-5 h-5 text-sky dark:text-azure mt-1" />
               <div>
                 <p className={textStyles.label}>Location</p>
@@ -113,7 +95,10 @@ export default function ContactSidebar() {
               </div>
             </motion.div>
 
-            <motion.div variants={listItem} className="flex items-start gap-3">
+            <motion.div
+              variants={sidebarListItemAnimation}
+              className="flex items-start gap-3"
+            >
               <Clock className="w-5 h-5 text-sky dark:text-azure mt-1" />
               <div>
                 <p className={textStyles.label}>Business Hours</p>
@@ -122,7 +107,10 @@ export default function ContactSidebar() {
               </div>
             </motion.div>
 
-            <motion.div variants={listItem} className="flex items-start gap-3">
+            <motion.div
+              variants={sidebarListItemAnimation}
+              className="flex items-start gap-3"
+            >
               <Globe className="w-5 h-5 text-sky dark:text-azure mt-1" />
               <div>
                 <p className={textStyles.label}>Service Area</p>
@@ -143,7 +131,7 @@ export default function ContactSidebar() {
           'border border-slate-200 dark:border-slate-800'
         )}
       >
-        <motion.h4 variants={fadeIn} className={textStyles.h4}>
+        <motion.h4 variants={fadeInAnimation} className={textStyles.h4}>
           Connect and Collaborate
         </motion.h4>
 

@@ -36,6 +36,8 @@ export const metadata: Metadata = {
   },
 }
 
+export const revalidate = 3600 // Revalidate every hour
+
 // TODO: should come from a database or CMS
 const blogPosts = [
   {

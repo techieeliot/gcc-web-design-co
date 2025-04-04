@@ -1,11 +1,10 @@
 import { Poppins } from 'next/font/google'
 import './globals.css'
-import Header from 'components/Header.client'
+import Header from '@/components/Header'
 import Footer from 'components/Footer'
 import { Suspense, type ReactNode } from 'react'
 import { cn } from 'lib/utils'
 import { ThemeProvider } from 'providers/theme-provider'
-import { PageWrapper } from '@/components/PageWrapper'
 import { Metadata } from 'next'
 import { domains } from '@/config/domains'
 
@@ -145,11 +144,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preconnect to domains you'll load resources from */}
+        <link rel="preconnect" href="https://app.netlify.com" />
+
+        {/* Preload critical assets */}
+        <link
+          rel="preload"
+          href="/blueberry-atom.svg"
+          as="image"
+          type="image/svg+xml"
+        />
+      </head>
       <body
         className={cn(
           poppins.variable,
           'antialiased text-foreground font-poppins min-h-screen',
-          'bg-gradient-primary dark:bg-gradient-primary-dark' // Move gradient here
+          'bg-gradient-primary dark:bg-gradient-primary-dark'
         )}
         suppressHydrationWarning
       >
@@ -157,10 +168,11 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Header />
             <div className="flex-1 mt-16 md:mt-20">
-              <main className="container mx-auto px-4 py-8">
+              {/* Remove container here since each page will have its own container */}
+              <main className="w-full py-8">
                 <Suspense
                   fallback={
-                    <div className="w-full h-96 bg-gray-200 dark:bg-slate-800 animate-pulse rounded-lg"></div>
+                    <div className="container mx-auto px-4 w-full h-96 bg-gray-200 dark:bg-slate-800 animate-pulse rounded-lg"></div>
                   }
                 >
                   {children}
