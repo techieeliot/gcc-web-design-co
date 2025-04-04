@@ -1,23 +1,21 @@
-'use client'
-
-import { Suspense } from 'react'
 import { Mail } from 'lucide-react'
 import { textStyles } from '@/lib/text-styles'
 import { cn } from '@/lib/utils'
+import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
-const ContactSidebar = dynamic(() => import('./components/sidebar'), {
-  ssr: false,
-})
-const ContactForm = dynamic(() => import('./components/form'), { ssr: false })
+// Import client components with dynamic imports but WITHOUT ssr: false
+const ContactSidebar = dynamic(() => import('./components/sidebar'))
+const ContactForm = dynamic(() => import('./components/form'))
 
+// Server-side revalidation
 export const revalidate = 3600 // Revalidate every hour
 
 export default function ContactRoute() {
   return (
     <div className="min-h-screen pt-8 lg:pt-16 pb-16">
       <div className="container mx-auto px-4">
-        {/* Hero Section - this can stay as server-rendered */}
+        {/* Hero Section - server rendered */}
         <div className="text-center mb-12 lg:mb-20 relative">
           {/* Decorative gradient circles */}
           <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -46,6 +44,7 @@ export default function ContactRoute() {
 
         {/* Form section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Client component with interactivity */}
           <Suspense
             fallback={
               <div className="lg:col-span-4 h-20 bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg"></div>
@@ -53,7 +52,9 @@ export default function ContactRoute() {
           >
             <ContactSidebar />
           </Suspense>
+
           <div className="lg:col-span-8">
+            {/* Client component with form handling */}
             <Suspense
               fallback={
                 <div className="h-60 bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg"></div>

@@ -104,7 +104,7 @@ export const AboutSection = () => {
           variants={fadeInAnimation}
           className={cn(textStyles.body, 'text-slate-700 dark:text-slate-300')}
         >
-          Since 2018, SanforDEV has been on a journey of transforming bold ideas
+          Since 2018, SanforDEV has been on a journey of transforming big ideas
           into breakthrough digital solutions. We started out partnering with
           passionate startups and today we collaborate with enterprise
           leaders—all while keeping our innovative spirit alive.

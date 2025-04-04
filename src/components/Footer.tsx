@@ -126,6 +126,9 @@ export default function Footer() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 3) }}
                   whileHover={{ y: -3 }}
+                  transformTemplate={(props, transform) =>
+                    `translateZ(0) ${transform}`
+                  }
                 >
                   <Link
                     href={href}
@@ -172,6 +175,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="flex items-center justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
                 <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -201,6 +207,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="flex items-center justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
                 <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -230,6 +239,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="flex items-start justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
                 <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -285,6 +297,9 @@ export default function Footer() {
                   repeat: Infinity,
                   repeatType: 'loop',
                 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="inline-block mx-1 text-red-500"
               >
                 <Heart className="w-4 h-4 fill-current" />

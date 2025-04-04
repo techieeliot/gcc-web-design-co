@@ -14,7 +14,18 @@ const config: NextConfig = {
     domains: [...domainHostnames, 'localhost'],
     formats: ['image/avif', 'image/webp'],
   },
-  // Optimizations - removed swcMinify as it's now enabled by default
+
+  // Add this section for Turbopack
+  experimental: {
+    turbo: {
+      // Basic Turbopack configuration
+      resolveAlias: {
+        // Match any aliases you have in tsconfig.json
+        '@': './src',
+      },
+    },
+  },
+
   poweredByHeader: false,
   compress: true,
 

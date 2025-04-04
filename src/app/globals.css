@@ -214,20 +214,6 @@ html.dark {
   }
 }
 
-.shimmer-optimized {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-  transform: translateZ(0); /* Force GPU acceleration */
-  will-change: background-position; /* Hint for browser optimization */
-}
-
-/* For dark mode */
-.dark .shimmer-optimized {
-  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
-  background-size: 200% 100%;
-}
-
 /* Performance optimizations for animations */
 .transform-gpu,
 .motion-safe\:transform-gpu,
@@ -248,4 +234,66 @@ footer [whileHover],
   transform: translateZ(0);
   will-change: transform, opacity;
   backface-visibility: hidden;
+}
+
+/* Target specific animations in the footer */
+.footer-logo-animation,
+.footer-heart-animation,
+.footer-contact-item,
+.footer-social-link {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Optional - fix for any shimmering animations */
+@keyframes optimized-shimmer {
+  0% {
+    transform: translateX(-100%) translateZ(0);
+  }
+  100% {
+    transform: translateX(100%) translateZ(0);
+  }
+}
+
+.shimmer-optimized {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: background-position; /* Hint for browser optimization */
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-optimized::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: optimized-shimmer 2s infinite;
+  transform: translateZ(0);
+}
+
+/* For dark mode */
+.dark .shimmer-optimized {
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+.dark .shimmer-optimized::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
 }

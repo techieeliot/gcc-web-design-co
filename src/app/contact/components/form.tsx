@@ -337,7 +337,7 @@ export default function ContactForm() {
                   className="w-full sm:w-auto bg-sky hover:bg-sky/90 dark:bg-azure dark:hover:bg-azure/90 relative overflow-hidden group"
                 >
                   <span className="flex items-center relative z-10">
-                    {isSubmitting ? 'Sending Boldly...' : 'Send Bold Message'}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <span className="ml-2">
                       {isSubmitting ? (
                         <ArrowRight className="w-4 h-4 animate-pulse" />

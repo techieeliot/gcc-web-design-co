@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react'
 import { ThemeToggle } from './ui/theme-toggle'
 import Image from 'next/image'
-import { NavLink } from './ui/nav-link'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Link } from './ui/link'
 import { MobileNav } from './MobileNav'
 import { desktopLinkVariants, motion } from '@/lib/animations'
+import { NavLink } from './ui/nav-link'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
