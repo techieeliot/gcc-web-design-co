@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && npm export"
   publish = ".next"
 
 [[plugins]]
@@ -21,5 +21,5 @@
 
   # Increase memory allocation
   [functions."*"]
-    memory = 2048 # Set to 2GB
+    memory = 8192 # Set to 8GB
     timeout = 30 # Increase timeout to 30 seconds
