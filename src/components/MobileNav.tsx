@@ -1,10 +1,10 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { NavLink } from './ui/nav-link'
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from '@/lib/animations'
+import { NavLink } from './ui/nav-link'
 
 interface MobileNavProps {
   isOpen: boolean
