@@ -11,25 +11,13 @@ import {
   Twitter,
   Github,
 } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { Link } from './ui/link'
+import { footerFadeIn, motion } from '@/lib/animations'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1 * i,
-        duration: 0.5,
-      },
-    }),
-  }
 
   const socialLinks = [
     {
@@ -55,12 +43,9 @@ export default function Footer() {
 
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
       className={cn(
         'w-full relative overflow-hidden',
-        'bg-slate-50 dark:bg-slate-900',
+        'bg-gradient-primary dark:bg-gradient-primary-dark', // Match the body background
         'text-slate-700 dark:text-powder',
         'border-t border-slate-200 dark:border-slate-800'
       )}
@@ -77,16 +62,17 @@ export default function Footer() {
         <div className="absolute -bottom-48 -left-32 w-96 h-96 bg-sky/5 dark:bg-azure/5 rounded-full blur-3xl" />
       </motion.div>
 
-      <footer className="container mx-auto px-4 py-12 lg:py-16 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+      {/* Add container here to match header */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 py-12">
           {/* Column 1: Company Info */}
           <motion.div
             custom={0}
-            variants={fadeIn}
+            variants={footerFadeIn}
             className="text-center sm:text-left lg:col-span-4"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4">
-              About SanforDev
+              About SanforDEV
             </h3>
 
             <div className="flex items-center justify-center sm:justify-start mb-4">
@@ -94,11 +80,14 @@ export default function Footer() {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
                 className="relative"
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
               >
                 <div className="rounded-full bg-slate p-3 inline-flex items-center justify-center">
                   <Image
                     src="/blueberry-atom.svg"
-                    alt="SanforDev Logo"
+                    alt="SanforDEV Logo"
                     width={36}
                     height={36}
                     className="w-8 h-8"
@@ -137,6 +126,9 @@ export default function Footer() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 3) }}
                   whileHover={{ y: -3 }}
+                  transformTemplate={(props, transform) =>
+                    `translateZ(0) ${transform}`
+                  }
                 >
                   <Link
                     href={href}
@@ -161,7 +153,7 @@ export default function Footer() {
           {/* Column 2: Quick Links */}
           <motion.section
             custom={1}
-            variants={fadeIn}
+            variants={footerFadeIn}
             className="widget links lg:col-span-3"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4 text-center sm:text-left">
@@ -173,7 +165,7 @@ export default function Footer() {
           {/* Column 3: Contact Info */}
           <motion.section
             custom={2}
-            variants={fadeIn}
+            variants={footerFadeIn}
             className="widget contact text-center sm:text-left lg:col-span-5"
           >
             <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-4">
@@ -183,6 +175,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="flex items-center justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
                 <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -212,6 +207,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="flex items-center justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
                 <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -241,6 +239,9 @@ export default function Footer() {
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="flex items-start justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
               >
                 <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -274,12 +275,12 @@ export default function Footer() {
           transition={{ delay: 0.5 }}
           className={cn(
             'border-t border-slate-200 dark:border-slate-800',
-            'mt-12 pt-8'
+            'mt-12 pt-8 pb-8'
           )}
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-600 dark:text-powder/80 flex items-center">
-              &copy; {currentYear} SanforDev Consulting. All rights reserved.
+              &copy; {currentYear} SanforDEV Consulting. All rights reserved.
             </p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -296,6 +297,9 @@ export default function Footer() {
                   repeat: Infinity,
                   repeatType: 'loop',
                 }}
+                transformTemplate={(props, transform) =>
+                  `translateZ(0) ${transform}`
+                }
                 className="inline-block mx-1 text-red-500"
               >
                 <Heart className="w-4 h-4 fill-current" />
@@ -304,7 +308,7 @@ export default function Footer() {
             </motion.p>
           </div>
         </motion.div>
-      </footer>
+      </div>
     </motion.div>
   )
 }

@@ -1,26 +1,22 @@
 'use client'
 
 import { useState } from 'react'
-import { Send, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react'
+import {
+  Send,
+  ArrowRight,
+  AlertCircle,
+  CheckCircle,
+  Rocket,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { textStyles } from '@/lib/text-styles'
-import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Link } from '@/components/ui/link'
 import { FormField } from './FormField'
-
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
+import { fadeInAnimation, motion } from '@/lib/animations'
 
 const formSchema = z.object({
   name: z
@@ -123,7 +119,7 @@ export default function ContactForm() {
     <motion.article
       initial="hidden"
       animate="visible"
-      variants={fadeIn}
+      variants={fadeInAnimation}
       className={cn(
         'backdrop-blur-md rounded-xl p-8 shadow-lg',
         'bg-white dark:bg-slate-900',
@@ -132,19 +128,18 @@ export default function ContactForm() {
     >
       <motion.div
         className="text-center"
-        variants={fadeIn}
+        variants={fadeInAnimation}
         initial="hidden"
         animate="visible"
         transition={{ delay: 0.2 }}
       >
-        <h2 className={cn(textStyles.h2, 'mb-6')}>
-          Let's Start a Conversation
-        </h2>
+        <h2 className={cn(textStyles.h2, 'mb-6')}>Let's Ignite Your Vision</h2>
 
         <p className={cn(textStyles.body, 'mb-6 max-w-2xl mx-auto')}>
-          Whether you need technical consulting, web development, or emergency
-          support, we're here to help. Fill out the form below and we'll get
-          back to you as soon as possible.
+          Whether you're looking for innovative technical consulting, expertly
+          crafted web development, or quick, attentive support, our team is here
+          to help bring your vision to life. We genuinely care about your
+          goals—and yes, our coffee is always strong ☕.
         </p>
 
         {submitSuccess ? (
@@ -157,10 +152,10 @@ export default function ContactForm() {
             >
               <CheckCircle className="w-16 h-16 text-green-500 dark:text-green-400" />
             </motion.div>
-            <h3 className={cn(textStyles.h3, 'mb-2')}>Message Sent!</h3>
+            <h3 className={cn(textStyles.h3, 'mb-2')}>Message Delivered!</h3>
             <p className={cn(textStyles.body, 'mb-6')}>
-              Thank you for reaching out. We appreciate your message and will
-              get back to you as soon as possible.
+              We received your message. Expect to hear thoughtful feedback and
+              next steps soon.
             </p>
             <Button
               onClick={() => setSubmitSuccess(false)}
@@ -223,7 +218,7 @@ export default function ContactForm() {
               <FormField
                 label="Company Name"
                 id="company"
-                description="Optional but helps us better understand your context."
+                description="Optional—but it helps us tailor our approach."
               >
                 <input
                   type="text"
@@ -237,7 +232,7 @@ export default function ContactForm() {
                 label="Subject *"
                 id="subject"
                 error={errors.subject?.message}
-                description="Select a subject that best describes your message."
+                description="Choose the subject that best captures your needs."
               >
                 <select
                   id="subject"
@@ -271,8 +266,8 @@ export default function ContactForm() {
               error={errors.message?.message}
               description={
                 <>
-                  Tell us about your project, needs, or any questions you have.
-                  The more details, the better!
+                  Share the details of your project or question. The more you
+                  tell us now, the more context we bring to your solution.
                   <br />
                   <span className="text-slate-500 dark:text-powder/80">
                     (e.g., project scope, timeline, budget, etc.)
@@ -362,8 +357,8 @@ export default function ContactForm() {
 
               {isSubmitting && (
                 <p className="mt-2 text-sky dark:text-azure flex items-center">
-                  <ArrowRight className="inline mr-2 animate-pulse" />
-                  Sending your message...
+                  <Rocket className="inline mr-2 animate-pulse" />
+                  Igniting your message...
                 </p>
               )}
             </div>

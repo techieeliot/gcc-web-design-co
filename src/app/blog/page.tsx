@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'React Development Blog | SanforDev Consulting',
+    title: 'React Development Blog | SanforDEV Consulting',
     description:
       'Stay up to date with the latest React ecosystem insights, tutorials, and best practices.',
     url: 'https://devsouth.us/blog',
@@ -22,19 +22,21 @@ export const metadata: Metadata = {
         url: '/images/blog-social.webp',
         width: 1200,
         height: 630,
-        alt: 'SanforDev Consulting Blog',
+        alt: 'SanforDEV Consulting Blog',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'React Development Blog | SanforDev Consulting',
+    title: 'React Development Blog | SanforDEV Consulting',
     description:
       'Stay up to date with the latest React ecosystem insights and tutorials.',
     images: ['/images/blog-social.webp'],
   },
 }
+
+export const revalidate = 3600 // Revalidate every hour
 
 // TODO: should come from a database or CMS
 const blogPosts = [
@@ -115,7 +117,7 @@ export default function BlogPostsHubRoute() {
             <h1 className={cn(textStyles.h1, 'mb-4')}>Blog & Insights</h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              Thoughts, stories, and ideas from the SanforDev team on web
+              Thoughts, stories, and ideas from the SanforDEV team on web
               development, design, and technology.
             </p>
           </div>
@@ -138,6 +140,11 @@ export default function BlogPostsHubRoute() {
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block px-2 py-1 text-xs font-medium bg-slate-900/70 text-white rounded-md backdrop-blur-sm">
+                    {featuredPost.category}
+                  </span>
+                </div>
               </div>
               <div className="lg:col-span-6 p-6 lg:p-8 flex flex-col">
                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-3">
@@ -161,6 +168,10 @@ export default function BlogPostsHubRoute() {
                 <p className={cn(textStyles.body, 'mb-6 line-clamp-3')}>
                   {featuredPost.description}
                 </p>
+                {/* A cheeky note to put a smile on your face */}
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                  P.S. Our donut fund is always overflowing 🍩.
+                </p>
                 <div className="flex items-center gap-3 mt-auto">
                   <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
                     <Image
@@ -182,7 +193,7 @@ export default function BlogPostsHubRoute() {
                     href={`/blog/${featuredPost.slug}`}
                     className="ml-auto inline-flex items-center gap-1 px-4 py-2 bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure rounded-lg text-sm font-medium hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors group"
                   >
-                    Read Article
+                    Read More
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'SanforDev Consulting',
-    short_name: 'SanforDev',
+    name: 'SanforDEV Consulting',
+    short_name: 'SanforDEV',
     description: 'Expert React ecosystem development services',
     start_url: '/',
     display: 'standalone',

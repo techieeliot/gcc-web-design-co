@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import {
   ChevronRight,
@@ -8,11 +7,15 @@ import {
   Info,
   Settings,
   Mail,
-  Code,
   FileCode,
   LayoutGrid,
 } from 'lucide-react'
 import { Link } from './ui/link'
+import {
+  motion,
+  quickLinkContainerVariants,
+  quickLinkItemVariants,
+} from '@/lib/animations'
 
 export default function QuickLinks({ showHeading = false }) {
   const links = [
@@ -54,30 +57,6 @@ export default function QuickLinks({ showHeading = false }) {
     },
   ]
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -5 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 24,
-      },
-    },
-  }
-
   return (
     <div
       className={cn(
@@ -99,13 +78,13 @@ export default function QuickLinks({ showHeading = false }) {
       <motion.ul
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
+        variants={quickLinkContainerVariants}
         className={cn('space-y-1.5', 'grid grid-cols-2 gap-4 ')}
       >
         {links.map(({ href, label, icon: Icon, description }) => (
           <motion.li
             key={href}
-            variants={itemVariants}
+            variants={quickLinkItemVariants}
             whileHover={{ x: 3 }}
             className="w-full"
           >

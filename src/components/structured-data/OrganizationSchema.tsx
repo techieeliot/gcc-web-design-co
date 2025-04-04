@@ -8,7 +8,7 @@ export default function OrganizationSchema() {
         __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'ProfessionalService',
-          name: 'SanforDev Consulting',
+          name: 'SanforDEV Consulting',
           alternateName: 'devSouth',
           url: domains.primary,
           logo: `${domains.primary}/images/logo.png`,
@@ -28,7 +28,7 @@ export default function OrganizationSchema() {
             'https://www.linkedin.com/in/techieeliot',
             'https://github.com/techieeliot',
             'https://www.techieeliot.com',
-            domains.legacy, // Add legacy domain as sameAs
+            domains.alternate, // Add legacy domain as sameAs
           ],
           openingHours: 'Mo,Tu,We,Th,Fr 09:00-17:00',
           priceRange: '$$',

@@ -4,12 +4,14 @@ export const componentStyles = {
   card: cn(
     'rounded-xl p-8 shadow-lg backdrop-blur-md',
     'bg-white dark:bg-slate-900',
-    'border border-slate-200 dark:border-slate-800'
+    'border border-slate-200 dark:border-slate-800',
+    'text-slate-900 dark:text-powder'
   ),
   container: cn(
     'rounded-lg shadow-md',
     'bg-white dark:bg-slate-900',
-    'border border-slate-200 dark:border-slate-800'
+    'border border-slate-200 dark:border-slate-800',
+    'text-slate-900 dark:text-powder'
   ),
   input: cn(
     'rounded-md border',
@@ -35,6 +37,7 @@ export const componentStyles = {
   statCard: cn(
     'text-center p-4',
     'bg-gray-50 dark:bg-slate-800/50',
+    'text-slate-900 dark:text-powder',
     'rounded-lg'
   ),
 
@@ -43,7 +46,8 @@ export const componentStyles = {
     'flex flex-col p-4',
     'border border-slate-200 dark:border-slate-700',
     'rounded-lg',
-    'bg-white/50 dark:bg-slate-800/50'
+    'bg-white/50 dark:bg-slate-800/50',
+    'text-slate-900 dark:text-powder'
   ),
 
   // For icons

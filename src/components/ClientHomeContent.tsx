@@ -1,10 +1,11 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import dynamic from 'next/dynamic'
 import { Link } from './ui/link'
 import { LoadingFallback } from './ui/loading-fallback'
+import { Suspense } from 'react'
+import { motion } from '@/lib/animations'
 
 // Use dynamic imports with shared loading fallback
 const BannerSection = dynamic(() => import('@/components/BannerSection'), {
@@ -49,7 +50,9 @@ export default function ClientHomeContent() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <FeaturesSection />
+          <Suspense fallback={<LoadingFallback />}>
+            <FeaturesSection />
+          </Suspense>
         </motion.section>
 
         {/* Showcase and value proposition with improved grid */}
@@ -70,7 +73,9 @@ export default function ClientHomeContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="sticky top-8">
-                <ProjectShowcase />
+                <Suspense fallback={<LoadingFallback />}>
+                  <ProjectShowcase />
+                </Suspense>
               </div>
             </motion.div>
 
@@ -82,7 +87,9 @@ export default function ClientHomeContent() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6 }}
             >
-              <ValueProposition />
+              <Suspense fallback={<LoadingFallback />}>
+                <ValueProposition />
+              </Suspense>
             </motion.div>
           </div>
         </motion.section>

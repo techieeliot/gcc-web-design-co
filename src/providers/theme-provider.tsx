@@ -15,7 +15,7 @@ type ThemeProviderState = {
 }
 
 const initialState: ThemeProviderState = {
-  theme: 'dark',
+  theme: 'light',
   setTheme: () => null,
 }
 
@@ -25,17 +25,27 @@ export function ThemeProvider({
   children,
   defaultTheme = 'light',
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme)
+  // Initialize state with defaultTheme - fix for useState undefined error
+  const [theme, setTheme] = useState<Theme>(
+    typeof window !== 'undefined'
+      ? (localStorage.getItem('theme') as Theme) || defaultTheme
+      : defaultTheme
+  )
 
   useEffect(() => {
     const root = window.document.documentElement
-    root.setAttribute('data-theme', theme)
-    root.classList.remove('light', 'dark')
+    root.classList.remove('dark', 'light')
     root.classList.add(theme)
+    localStorage.setItem('theme', theme)
   }, [theme])
 
+  const value = {
+    theme,
+    setTheme,
+  }
+
   return (
-    <ThemeProviderContext.Provider value={{ theme, setTheme }}>
+    <ThemeProviderContext.Provider value={value}>
       {children}
     </ThemeProviderContext.Provider>
   )
@@ -43,7 +53,8 @@ export function ThemeProvider({
 
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext)
-  if (context === undefined)
+  if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider')
+  }
   return context
 }

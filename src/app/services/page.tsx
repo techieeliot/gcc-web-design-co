@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { ServicesMainContent, ServicesSidebar } from './components'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 export const metadata: Metadata = {
   title: 'Our Services | React & Next.js Development',
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     canonical: '/services',
   },
   openGraph: {
-    title: 'React & Next.js Development Services | SanforDev Consulting',
+    title: 'React & Next.js Development Services | SanforDEV Consulting',
     description:
       'From front-end development to performance optimization, we offer specialized React ecosystem services for modern web applications.',
     url: 'https://devsouth.us/services',
@@ -24,12 +25,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'React & Next.js Development Services | SanforDev Consulting',
+    title: 'React & Next.js Development Services | SanforDEV Consulting',
     description:
       'Specialized React ecosystem services for modern web applications.',
     images: ['/images/services-social.webp'],
   },
 }
+
+export const revalidate = 3600 // Revalidate every hour
 
 export default function ServicesRoute() {
   return (
@@ -46,8 +49,12 @@ export default function ServicesRoute() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <ServicesMainContent />
-          <ServicesSidebar />
+          <ErrorBoundary>
+            <ServicesMainContent />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <ServicesSidebar />
+          </ErrorBoundary>
         </div>
       </div>
     </div>
