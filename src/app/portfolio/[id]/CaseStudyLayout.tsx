@@ -1,9 +1,7 @@
 "use client";
 
 import { fadeInAnimation, iconVariants, motion } from "@/lib/animations";
-import { componentStyles } from "@/lib/styles";
 import { ArrowUp } from "@/lib/icons";
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -30,13 +28,7 @@ export const CaseStudyLayout = ({
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
-      className={cn(
-        componentStyles.card,
-        "prose lg:prose-lg",
-        "p-4 sm:p-6 lg:p-8",
-        "mb-8 lg:mb-16",
-        "rounded-xl",
-      )}
+      className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 prose lg:prose-lg p-4 sm:p-6 lg:p-8 mb-8 lg:mb-16 rounded-xl"
     >
       <motion.div
         className={cn(
@@ -56,12 +48,7 @@ export const CaseStudyLayout = ({
           sizes="(max-width: 768px) 100vw, 75vw"
           priority
         />
-        <div
-          className={cn(
-            componentStyles.imageOverlay,
-            "gap-4 sm:gap-6 lg:gap-8",
-          )}
-        >
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center gap-4 sm:gap-6 lg:gap-8">
           {Array.isArray(icons)
             ? icons.map((icon, index) => (
                 <motion.div key={index} custom={index} variants={iconVariants}>
@@ -73,7 +60,7 @@ export const CaseStudyLayout = ({
       </motion.div>
 
       <motion.h2
-        className={cn(textStyles.h2, "mb-4 sm:mb-6")}
+        className="text-3xl md:text-4xl font-bold tracking-tight mb-4 sm:mb-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}

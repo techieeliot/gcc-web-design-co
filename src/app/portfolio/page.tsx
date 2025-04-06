@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { caseStudies } from "@/data";
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { CaseStudyCard } from "./[id]/CaseStudyCard";
 import BlueberryIcon from "@/components/BlueberryIcon";
@@ -41,7 +40,7 @@ export default function PortfolioRoute() {
       <div className="container mx-auto px-4 pb-8 lg:pb-12">
         {/* Page Header */}
         <header className="mb-12 lg:mb-16">
-          <h1 className={cn(textStyles.h1, "mb-4 text-center lg:text-left")}>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-center lg:text-left">
             Our Work
           </h1>
 

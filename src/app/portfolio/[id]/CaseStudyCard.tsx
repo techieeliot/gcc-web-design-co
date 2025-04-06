@@ -6,9 +6,7 @@ import {
   useAnimation,
   useInView,
 } from "@/lib/animations";
-import { componentStyles } from "@/lib/styles";
 import { lucideIcons } from "@/lib/icons";
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import type { LucideProps } from "lucide-react";
 import Image from "next/image";
@@ -73,11 +71,7 @@ export const CaseStudyCard = ({
       animate={controls}
       whileHover="hover"
       variants={fadeInOutVariants}
-      className={cn(
-        componentStyles.card,
-        "group relative overflow-hidden",
-        "rounded-xl will-change-transform",
-      )}
+      className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group relative overflow-hidden rounded-xl will-change-transform"
     >
       <Link href={`/portfolio/${id}`} className="block h-full">
         <div className="relative h-48 mb-4 overflow-hidden rounded-t-lg">
@@ -89,7 +83,7 @@ export const CaseStudyCard = ({
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={index < 3} // Prioritize loading first 3 images
           />
-          <div className={cn(componentStyles.imageOverlay, "gap-4")}>
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center gap-4">
             {iconNames.map((iconName, idx) => {
               const Icon = lucideIcons[
                 iconName as keyof typeof lucideIcons
@@ -97,7 +91,7 @@ export const CaseStudyCard = ({
               return Icon ? (
                 <Icon
                   key={idx}
-                  className={componentStyles.icon.large}
+                  className="w-8 h-8 text-white"
                   strokeWidth={1.5}
                 />
               ) : null;
@@ -106,21 +100,10 @@ export const CaseStudyCard = ({
         </div>
 
         <div className="p-4">
-          <h2
-            className={cn(
-              textStyles.h3,
-              "mb-2 group-hover:text-sky dark:group-hover:text-azure transition-colors duration-300",
-            )}
-          >
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-sky dark:group-hover:text-azure transition-colors duration-300">
             {title}
           </h2>
-          <p
-            className={cn(
-              textStyles.body,
-              "line-clamp-2",
-              "text-slate-600 dark:text-slate-300",
-            )}
-          >
+          <p className="text-base leading-relaxed line-clamp-2 text-slate-600 dark:text-slate-300">
             {description}
           </p>
         </div>

@@ -1,7 +1,6 @@
 import LinkPrimitive from "next/link";
 import type { AnchorHTMLAttributes } from "react";
 import type { VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "../button";
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

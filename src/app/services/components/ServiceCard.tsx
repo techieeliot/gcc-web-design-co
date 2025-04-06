@@ -1,8 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { textStyles } from "@/lib/styles";
-import { componentStyles } from "@/lib/styles";
 import {
   serviceCardVariants,
   iconContainer,
@@ -28,7 +26,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
       className={cn(
-        componentStyles.card,
+        "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl",
         "p-6 sm:p-8",
         "shadow-sm hover:shadow-md transition-shadow",
       )}
@@ -58,14 +56,17 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         ))}
       </motion.div>
 
-      <motion.h2 variants={fadeIn} className={cn(textStyles.h2, "mb-3")}>
+      <motion.h2
+        variants={fadeIn}
+        className={cn("text-3xl md:text-4xl font-bold tracking-tight", "mb-3")}
+      >
         {service.title}
       </motion.h2>
 
       <motion.p
         variants={fadeIn}
         className={cn(
-          textStyles.body,
+          "text-base leading-relaxed",
           "mb-6 text-slate-600 dark:text-slate-300",
         )}
       >

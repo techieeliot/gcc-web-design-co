@@ -1,10 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { textStyles } from "@/lib/styles";
 import { Link } from "@/components/ui/link";
 import { containerVariants, itemVariants, motion } from "@/lib/animations";
-import { Bell, Cookie, Eye, FileText, Phone, Shield, Users } from "@/lib/icons";
+import { Phone } from "@/lib/icons";
 import { policyItems } from "@/data";
 
 export default function PrivacyContent() {
@@ -22,8 +21,10 @@ export default function PrivacyContent() {
           variants={itemVariants}
           className="p-8 border-b border-slate-200 dark:border-slate-800"
         >
-          <h2 className={cn(textStyles.h3, "mb-4")}>Introduction</h2>
-          <p className={cn(textStyles.body, "mb-3")}>
+          <h2 className={cn("text-2xl md:text-3xl font-bold", "mb-4")}>
+            Introduction
+          </h2>
+          <p className={cn("text-base leading-relaxed", "mb-3")}>
             This Privacy Policy applies to all data collected via our website{" "}
             <Link href="/" variant="inlineLink">
               devsouth.us
@@ -31,7 +32,7 @@ export default function PrivacyContent() {
             , along with any services or events associated with SanforDEV
             Consulting.
           </p>
-          <p className={cn(textStyles.body)}>
+          <p className={cn("text-base leading-relaxed")}>
             By using our website, you agree to the collection and processing of
             your information as described here. Our goal is to protect your
             privacy with the same care we nurture our long-standing client
@@ -54,7 +55,7 @@ export default function PrivacyContent() {
               <div className="p-2 rounded-md bg-sky/10 dark:bg-azure/10">
                 <item.icon className="w-5 h-5 text-sky dark:text-azure" />
               </div>
-              <h2 className={cn(textStyles.h3)} id={item.id}>
+              <h2 className={cn("text-2xl md:text-3xl font-bold")} id={item.id}>
                 {item.title}
               </h2>
             </div>
@@ -62,7 +63,10 @@ export default function PrivacyContent() {
               {item.content.split("\n\n").map((paragraph, idx) => (
                 <p
                   key={idx}
-                  className={cn(textStyles.body, "mb-3 whitespace-pre-line")}
+                  className={cn(
+                    "text-base leading-relaxed",
+                    "mb-3 whitespace-pre-line",
+                  )}
                 >
                   {paragraph}
                 </p>
@@ -84,8 +88,10 @@ export default function PrivacyContent() {
             <Phone className="w-5 h-5 text-sky dark:text-azure" />
           </div>
         </div>
-        <h2 className={cn(textStyles.h3, "mb-4")}>Contact Us</h2>
-        <p className={cn(textStyles.body, "mb-6")}>
+        <h2 className={cn("text-2xl md:text-3xl font-bold", "mb-4")}>
+          Contact Us
+        </h2>
+        <p className={cn("text-base leading-relaxed", "mb-6")}>
           If you have any questions about this Privacy Policy or our practices,
           please contact us at:
         </p>

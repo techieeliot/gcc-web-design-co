@@ -5,7 +5,7 @@ The Button component is a versatile interactive element that supports multiple v
 ## Import
 
 ```tsx
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 ```
 
 ## Usage
@@ -49,6 +49,6 @@ Alternative primary styling
 
 ## Accessibility
 
-- Buttons use native <button> elements for proper keyboard navigation
+- Buttons use native `button` elements for proper keyboard navigation
 - Disabled state is properly conveyed to screen readers
 - Focus states are clearly visible for keyboard users

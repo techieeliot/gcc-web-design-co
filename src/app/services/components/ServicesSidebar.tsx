@@ -1,8 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { textStyles } from "@/lib/styles";
-import { componentStyles } from "@/lib/styles";
 import {
   motion,
   staggeredContainerTransition,
@@ -28,7 +26,7 @@ export const ServicesSidebar = () => {
           transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
           whileHover={{ y: -5 }}
           className={cn(
-            componentStyles.card,
+            "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl",
             "p-6 sm:p-8",
             "shadow-sm hover:shadow-md transition-all",
           )}
@@ -46,7 +44,7 @@ export const ServicesSidebar = () => {
             >
               <section.icon className="w-10 h-10 text-midnight dark:text-sky" />
             </motion.div>
-            <h3 className={textStyles.h3}>{section.title}</h3>
+            <h3 className="text-2xl md:text-3xl font-bold">{section.title}</h3>
           </motion.div>
 
           <motion.ul

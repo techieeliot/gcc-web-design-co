@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 @tailwind base;
@@ -212,8 +212,8 @@ nav {
 /* Performance optimizations for animations */
 .transform-gpu,
 .motion-safe\:transform-gpu,
-[class*='animate-'],
-[class*='transition-'] {
+[class*="animate-"],
+[class*="transition-"] {
   transform: translateZ(0);
   will-change: transform, opacity;
   backface-visibility: hidden;
@@ -262,7 +262,7 @@ footer [whileHover],
 }
 
 .shimmer-optimized::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -303,6 +303,297 @@ footer [whileHover],
   /* Ensure Poppins is applied everywhere */
   * {
     font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  :root {
+    /* Brand Colors */
+    --powder: 214 80% 94%;
+    --sky: 204 73% 52%;
+    --azure: 217 82% 41%;
+    --blueberry: 222 82% 29%;
+    --midnight: 223 79% 28%;
+    --slate: 226 33% 22%;
+
+    /* Semantic Colors */
+    --background: 210 40% 98%;
+    --foreground: 226 33% 22%;
+
+    --muted: 210 40% 94%;
+    --muted-foreground: 226 33% 44%;
+
+    --card: 210 40% 98%;
+    --card-foreground: 226 33% 22%;
+
+    --popover: 210 40% 98%;
+    --popover-foreground: 226 33% 22%;
+
+    --border: 214 32% 90%;
+
+    --primary: 217 82% 41%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 204 73% 52%;
+    --secondary-foreground: 226 33% 22%;
+
+    --accent: 214 80% 94%;
+    --accent-foreground: 222 82% 29%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 217 82% 41%;
+
+    /* Fix max width issues */
+    --container-max-width: 100%;
+  }
+
+  .dark {
+    --background: 226 33% 8%;
+    --foreground: 214 80% 94%;
+
+    --muted: 226 33% 16%;
+    --muted-foreground: 214 80% 80%;
+
+    --card: 226 33% 10%;
+    --card-foreground: 214 80% 94%;
+
+    --popover: 226 33% 10%;
+    --popover-foreground: 214 80% 94%;
+
+    --border: 226 33% 20%;
+
+    --primary: 217 82% 41%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 204 73% 52%;
+    --secondary-foreground: 226 33% 22%;
+
+    --accent: 223 79% 20%;
+    --accent-foreground: 214 80% 94%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 217 82% 41%;
+  }
+
+  /* Font Size Scale */
+  :root {
+    --font-small: 0.875rem;
+    --font-body: 1rem;
+    --font-large: 1.125rem;
+    --font-subtitle: 1.25rem;
+    --font-title: 1.875rem;
+    --font-display: 3rem;
+  }
+
+  /* Base Styles */
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Fix width issues */
+  main,
+  section,
+  article,
+  div,
+  header,
+  footer {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Global Transitions */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.3s;
+  }
+
+  /* Remove default focus styles for mouse users ONLY if :focus-visible is supported */
+  .js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+  }
+
+  /* Standardized heading styles */
+  h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+}
+
+@layer utilities {
+  /* Performance Optimizations */
+  .transform-gpu,
+  [class*="animate-"],
+  [class*="transition-"] {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground));
+  }
+
+  /* Typography utilities */
+  .leading-relaxed {
+    line-height: 1.6;
+  }
+
+  /* Text colors */
+  .text-muted {
+    @apply text-slate-600 dark:text-slate-300;
+  }
+
+  .text-muted-light {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+}
+
+@layer components {
+  /* Text styles */
+  .text-small {
+    font-size: var(--font-small);
+    line-height: 1.5;
+  }
+
+  .text-body {
+    font-size: var(--font-body);
+    line-height: 1.6;
+  }
+
+  .text-large {
+    font-size: var(--font-large);
+    line-height: 1.6;
+  }
+
+  .text-subtitle {
+    font-size: var(--font-subtitle);
+    line-height: 1.4;
+  }
+
+  .text-title {
+    font-size: var(--font-title);
+    line-height: 1.3;
+  }
+
+  .text-display {
+    font-size: var(--font-display);
+    line-height: 1.2;
+  }
+
+  /* Font weights */
+  .font-title {
+    font-weight: 700;
+  }
+
+  .font-subtitle {
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-weight: 700;
+  }
+
+  /* Card and container styles */
+  .card {
+    @apply bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl;
+  }
+
+  .card-hover {
+    @apply shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .card-padding {
+    @apply p-6 sm:p-8;
+  }
+
+  /* Icon styles */
+  .icon-primary {
+    @apply w-5 h-5 text-sky dark:text-azure;
+  }
+
+  .icon-large {
+    @apply w-8 h-8 text-white;
+  }
+
+  /* Form elements */
+  .input-primary {
+    @apply w-full px-4 py-2 rounded-lg transition-colors 
+    bg-white dark:bg-slate-800 
+    border border-slate-300 dark:border-slate-700 
+    text-slate-900 dark:text-powder 
+    placeholder:text-slate-500 dark:placeholder:text-slate-400 
+    focus:ring-2 focus:ring-sky/50 focus:border-sky/50 
+    dark:focus:ring-azure/50 dark:focus:border-azure/50;
+  }
+
+  /* Section spacing */
+  .section-spacing {
+    @apply space-y-6 sm:space-y-8 lg:space-y-10;
+  }
+
+  /* Responsive grid layouts */
+  .grid-2col {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .grid-3col {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
   }
 }
 

@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { textStyles } from "@/lib/styles";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -134,9 +133,11 @@ export default function ContactForm() {
         animate="visible"
         transition={{ delay: 0.2 }}
       >
-        <h2 className={cn(textStyles.h2, "mb-6")}>Let's Ignite Your Vision</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+          Let's Ignite Your Vision
+        </h2>
 
-        <p className={cn(textStyles.body, "mb-6 max-w-2xl mx-auto")}>
+        <p className="text-base leading-relaxed mb-6 max-w-2xl mx-auto">
           Whether you're looking for innovative technical consulting, expertly
           crafted web development, or quick, attentive support, our team is here
           to help bring your vision to life. We genuinely care about your
@@ -153,8 +154,10 @@ export default function ContactForm() {
             >
               <CheckCircle className="w-16 h-16 text-green-500 dark:text-green-400" />
             </motion.div>
-            <h3 className={cn(textStyles.h3, "mb-2")}>Message Delivered!</h3>
-            <p className={cn(textStyles.body, "mb-6")}>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">
+              Message Delivered!
+            </h3>
+            <p className="text-base leading-relaxed mb-6">
               We received your message. Expect to hear thoughtful feedback and
               next steps soon.
             </p>

@@ -1,4 +1,3 @@
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { ContactSidebar } from "./components/sidebar";
 import ContactForm from "./components/form";
@@ -24,7 +23,9 @@ export default function ContactPage() {
               <Mail className="w-8 h-8 text-powder" />
             </div>
 
-            <h1 className={cn(textStyles.h1, "mb-4")}>Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+              Contact Us
+            </h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
               Ready to transform your digital presence? We genuinely care about

@@ -1,20 +1,43 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import { ThemeToggle } from "./ui/theme-toggle";
+import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Link } from "./ui/link";
-import { MobileNav } from "./MobileNav";
-import { desktopLinkVariants, motion } from "@/lib/animations";
-import { NavLink } from "./ui/nav-link";
+import { Link } from "../ui/link";
+import { desktopLinkVariants, motion, AnimatePresence } from "@/lib/animations";
+import { NavLink } from "../ui/nav-link";
 import { Menu, X } from "@/lib/icons";
+import { Shimmer } from "../ui/shimmer";
+import { usePathname } from "next/navigation";
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+interface MobileNavProps {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}
 
-  useEffect(() => {
+const links = [
+  { href: "/", label: "Welcome" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Our Work" },
+  // { href: '/blog', label: 'Blog' },
+  { href: "/contact", label: "Contact" },
+];
+
+export function ClientHeader() {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <>
+      <MainNav isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
+  );
+}
+
+export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
     const handleScroll = () => {
       // Remove any logic that changes the background on scroll
       setIsScrolled(window.scrollY > 10);
@@ -24,7 +47,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -35,24 +58,15 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  const navLinks = [
-    { href: "/", label: "Welcome" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/portfolio", label: "Our Work" },
-    // { href: '/blog', label: 'Blog' },
-    { href: "/contact", label: "Contact" },
-  ];
-
   return (
     <>
       <motion.div
         className={cn(
           "fixed top-0 left-0 right-0",
           "z-[100]",
-          "transition-all duration-300 ease-in-out",
-          "shadow-lg border-b border-slate-200 dark:border-slate-800",
-          // Hide the header when mobile nav is open
+          "bg-background dark:bg-background", // Changed to solid background
+          "border-b border-border",
+          "shadow-sm",
           isOpen && "opacity-0 pointer-events-none",
         )}
       >
@@ -65,7 +79,7 @@ export default function Header() {
                 isScrolled && "text-slate-900 dark:text-white drop-shadow-sm",
               )}
             >
-              {/* Logo Section - Enhanced with animation */}
+              {/* Logo Section with Shimmer fallback */}
               <motion.div
                 whileTap={{ scale: 0.95 }}
                 className="relative"
@@ -153,18 +167,28 @@ export default function Header() {
                         }}
                       />
 
-                      {/* Logo image */}
-                      <Image
-                        src="/blueberry-atom.svg"
-                        alt="SanforDEV Logo"
-                        width={36}
-                        height={36}
-                        className={cn(
-                          "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9",
-                          "object-contain",
-                          "transform-gpu",
-                        )}
-                      />
+                      {/* Add Shimmer while image loads */}
+                      <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
+                        <Shimmer className="absolute inset-0 rounded-full" />
+                        <Image
+                          src="/blueberry-atom.svg"
+                          alt="SanforDEV Logo"
+                          width={36}
+                          height={36}
+                          className={cn(
+                            "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9",
+                            "object-contain",
+                            "transform-gpu",
+                            "relative z-10",
+                          )}
+                          onLoadingComplete={(img) => {
+                            img.classList.add("opacity-100");
+                            img.previousElementSibling?.classList.add(
+                              "opacity-0",
+                            );
+                          }}
+                        />
+                      </div>
 
                       {/* Hover effect */}
                       <motion.div
@@ -215,7 +239,7 @@ export default function Header() {
                 className="hidden md:flex h-full items-center space-x-4"
               >
                 <ul className="flex items-center gap-1 md:gap-1 lg:gap-2 xl:gap-4">
-                  {navLinks.map(({ href, label }, i) => (
+                  {links.map(({ href, label }, i) => (
                     <motion.li
                       key={href}
                       custom={i}
@@ -239,7 +263,7 @@ export default function Header() {
                   }}
                   className="ml-2 lg:ml-4"
                 >
-                  <ThemeToggle />
+                  {/* <ThemeToggle /> */}
                 </motion.div>
               </motion.nav>
 
@@ -250,7 +274,7 @@ export default function Header() {
                 transition={{ delay: 0.5 }}
                 className="md:hidden flex items-center gap-2"
               >
-                <ThemeToggle />
+                {/* <ThemeToggle /> */}
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setIsOpen(!isOpen)}
@@ -283,7 +307,104 @@ export default function Header() {
       </motion.div>
 
       {/* Mobile Navigation */}
-      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} links={navLinks} />
+      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
+  );
+}
+
+export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
+  const pathname = usePathname();
+
+  // Close on Escape key
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen, setIsOpen]);
+
+  // Close on route change
+  React.useEffect(() => {
+    setIsOpen(false);
+  }, [pathname, setIsOpen]);
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-slate-50 dark:bg-slate-900 z-40"
+            onClick={() => setIsOpen(false)}
+          />
+
+          {/* Menu panel */}
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            className={cn(
+              "fixed top-0 right-0 h-full w-[280px] z-50",
+              "bg-slate-50 dark:bg-slate-900", // Solid backgrounds here as well
+              "border-l border-slate-200 dark:border-slate-800",
+              "shadow-xl",
+            )}
+          >
+            <div className="flex flex-col h-full">
+              {/* Nav links */}
+              <nav className="flex-1 overflow-y-auto p-4">
+                <motion.ul
+                  className="space-y-2"
+                  initial="closed"
+                  animate="open"
+                  variants={{
+                    open: {
+                      transition: { staggerChildren: 0.1 },
+                    },
+                    closed: {},
+                  }}
+                >
+                  {links.map((link, i) => (
+                    <motion.li
+                      key={link.href}
+                      variants={{
+                        open: {
+                          opacity: 1,
+                          x: 0,
+                          transition: {
+                            type: "spring",
+                            damping: 20,
+                          },
+                        },
+                        closed: { opacity: 0, x: 20 },
+                      }}
+                    >
+                      <NavLink
+                        {...link}
+                        onClick={() => setIsOpen(false)}
+                        custom={i}
+                      />
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </nav>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 }

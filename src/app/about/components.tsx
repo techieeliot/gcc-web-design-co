@@ -1,9 +1,5 @@
 "use client";
 
-import { componentStyles } from "@/lib/styles";
-import { textStyles } from "@/lib/styles";
-import { cn } from "@/lib/utils";
-
 import Image from "next/image";
 import { Link } from "@/components/ui/link";
 import {
@@ -13,6 +9,7 @@ import {
   listItemTransition,
   motion,
 } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 import {
   Brain,
   Code2,
@@ -37,7 +34,7 @@ export const AboutSection = () => {
       animate="visible"
       variants={fadeInAnimation}
       className={cn(
-        componentStyles.card,
+        "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl",
         "prose lg:prose-lg max-w-none",
         "p-6 sm:p-8 lg:p-10",
       )}
@@ -88,7 +85,7 @@ export const AboutSection = () => {
 
       <motion.h2
         variants={fadeInAnimation}
-        className={cn(textStyles.h2, "mb-6 lg:mb-8")}
+        className="text-3xl md:text-4xl font-bold tracking-tight mb-6 lg:mb-8"
       >
         About SanforDEV
       </motion.h2>
@@ -97,13 +94,13 @@ export const AboutSection = () => {
       <motion.div variants={fadeInAnimation} className="mb-10 lg:mb-14">
         <motion.h3
           variants={fadeInAnimation}
-          className={cn(textStyles.h3, "mb-4")}
+          className="text-2xl md:text-3xl font-bold mb-4"
         >
           Our Story
         </motion.h3>
         <motion.p
           variants={fadeInAnimation}
-          className={cn(textStyles.body, "text-slate-700 dark:text-slate-300")}
+          className="text-base leading-relaxed text-slate-700 dark:text-slate-300"
         >
           Since 2018, SanforDEV has been on a journey of transforming big ideas
           into breakthrough digital solutions. We started out partnering with
@@ -115,7 +112,7 @@ export const AboutSection = () => {
       <motion.div variants={fadeInAnimation} className="mb-12 lg:mb-16">
         <motion.h3
           variants={fadeInAnimation}
-          className={cn(textStyles.h3, "mb-4")}
+          className="text-2xl md:text-3xl font-bold mb-4"
         >
           Our Mission
         </motion.h3>
@@ -266,17 +263,14 @@ export const AboutSection = () => {
         <motion.div variants={fadeInAnimation}>
           <motion.h3
             variants={fadeInAnimation}
-            className={cn(textStyles.h3, "mb-4")}
+            className="text-2xl md:text-3xl font-bold mb-4"
           >
             Community Involvement
           </motion.h3>
 
           <motion.p
             variants={fadeInAnimation}
-            className={cn(
-              textStyles.body,
-              "text-slate-700 dark:text-slate-300 mb-4",
-            )}
+            className="text-base leading-relaxed text-slate-700 dark:text-slate-300 mb-4"
           >
             Beyond client work, we invest in tech education and empower
             communities to rise together:
@@ -284,7 +278,7 @@ export const AboutSection = () => {
 
           <motion.ul
             variants={staggeredVisibilityTransition}
-            className={cn("space-y-2 mb-4", textStyles.body)}
+            className="space-y-2 mb-4 text-base leading-relaxed"
           >
             {[
               "Founding freeCodeCamp Jackson, MS",
@@ -311,7 +305,7 @@ export const AboutSection = () => {
         <motion.div variants={fadeInAnimation}>
           <motion.h3
             variants={fadeInAnimation}
-            className={cn(textStyles.h3, "mb-4")}
+            className="text-2xl md:text-3xl font-bold mb-4"
           >
             Leadership
           </motion.h3>
@@ -335,15 +329,13 @@ export const AboutSection = () => {
               <div>
                 <motion.h4
                   variants={fadeInAnimation}
-                  className={cn(textStyles.h4, "mb-1 text-center sm:text-left")}
+                  className="text-xl md:text-2xl font-semibold mb-1 text-center sm:text-left"
                 >
                   Eliot Sanford
                 </motion.h4>
                 <motion.p
                   variants={fadeInAnimation}
-                  className={cn(
-                    "text-sky dark:text-azure font-medium mb-2 text-center sm:text-left",
-                  )}
+                  className="text-sky dark:text-azure font-medium mb-2 text-center sm:text-left"
                 >
                   Founder & Lead Engineer
                 </motion.p>
@@ -431,11 +423,11 @@ export const CompanyFacts = () => {
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
-      className={cn(componentStyles.container, "p-6 sm:p-8", "rounded-xl")}
+      className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 rounded-xl"
     >
       <motion.h3
         variants={fadeInAnimation}
-        className={cn(textStyles.h3, "mb-6")}
+        className="text-2xl md:text-3xl font-bold mb-6"
       >
         Company Facts
       </motion.h3>
@@ -449,12 +441,7 @@ export const CompanyFacts = () => {
             className="flex items-start gap-3"
           >
             <Icon className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0" />
-            <div
-              className={cn(
-                textStyles.body,
-                "text-slate-700 dark:text-slate-300",
-              )}
-            >
+            <div className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
               <strong className="text-slate-900 dark:text-white">
                 {label}:
               </strong>
@@ -487,11 +474,11 @@ export const ConnectWithUs = () => {
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
-      className={cn(componentStyles.container, "p-6 sm:p-8", "rounded-xl")}
+      className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 rounded-xl"
     >
       <motion.h3
         variants={fadeInAnimation}
-        className={cn(textStyles.h3, "mb-6")}
+        className="text-2xl md:text-3xl font-bold mb-6"
       >
         Connect With Us
       </motion.h3>
@@ -544,15 +531,17 @@ export function BlueberryStory() {
 
         {/* Text side */}
         <div className="order-2 lg:order-2">
-          <h3 className={cn(textStyles.h3, "mb-4")}>The Blueberry Story</h3>
-          <p className={cn(textStyles.body, "mb-4")}>
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            The Blueberry Story
+          </h3>
+          <p className="text-base leading-relaxed mb-4">
             Our logo tells a story close to my heart—a blueberry encircling a
             React atom, with its center (the calyx) representing our core
             values. The blueberry isn't just a visual mark—it's a tribute to
             Mississippi (the official state fruit here!), evoking memories of my
             grandfather's farm and childhood adventures.
           </p>
-          <p className={cn(textStyles.body, "italic")}>
+          <p className="text-base leading-relaxed italic">
             And fun fact: my car is named "Blueberry" too!
           </p>
         </div>

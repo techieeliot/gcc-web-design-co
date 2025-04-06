@@ -2,11 +2,21 @@
 
 import { motion } from "@/lib/animations";
 import { ArrowLeft } from "@/lib/icons";
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function NotFound() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // Prevents hydration mismatch
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <motion.div
@@ -17,8 +27,10 @@ export default function NotFound() {
       >
         <div className="mb-8 flex justify-center text-9xl">🫐</div>
 
-        <h1 className={cn(textStyles.h1, "mb-6")}>404 - Page Not Found</h1>
-        <p className={cn(textStyles.body, "mb-8")}>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          404 - Page Not Found
+        </h1>
+        <p className="text-base leading-relaxed mb-8">
           Whoops! It seems you've wandered off the beaten path and landed in our
           blueberry patch. Don't fret—sometimes the best adventures are
           unplanned. Let's get you back home and back on track.

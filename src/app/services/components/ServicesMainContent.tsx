@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { textStyles } from "@/lib/styles";
 import { ServiceCard } from "./ServiceCard";
 import {
   fadeIn,
@@ -59,15 +58,18 @@ export function ServicesMainContent() {
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className={cn(textStyles.h1, "text-white mb-4 drop-shadow-lg")}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className={cn(
+              "text-4xl md:text-5xl font-bold tracking-tight",
+              "text-white mb-4 drop-shadow-lg",
+            )}
           >
             Cultivating Digital Excellence
           </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
             className="text-white text-lg md:text-xl max-w-2xl mx-auto drop-shadow-lg"
           >
             Like a Mississippi blueberry farm, we nurture your projects with
@@ -87,13 +89,16 @@ export function ServicesMainContent() {
           className="space-y-8"
         >
           <div className="space-y-2">
-            <motion.h2 variants={fadeIn} className={cn(textStyles.h2)}>
+            <motion.h2
+              variants={fadeIn}
+              className={cn("text-3xl md:text-4xl font-bold tracking-tight")}
+            >
               {category.category}
             </motion.h2>
             <motion.p
               variants={fadeIn}
               className={cn(
-                textStyles.body,
+                "text-base leading-relaxed",
                 "text-slate-600 dark:text-slate-300",
               )}
             >
@@ -121,7 +126,13 @@ export function ServicesMainContent() {
         variants={fadeIn}
         className="bg-white dark:bg-slate-800/50 p-8 sm:p-10 rounded-lg shadow-lg"
       >
-        <motion.h2 variants={fadeIn} className={cn(textStyles.h2, "mb-4")}>
+        <motion.h2
+          variants={fadeIn}
+          className={cn(
+            "text-3xl md:text-4xl font-bold tracking-tight",
+            "mb-4",
+          )}
+        >
           Our Down-to-Earth Approach
         </motion.h2>
 
@@ -129,7 +140,7 @@ export function ServicesMainContent() {
           <motion.p
             variants={fadeIn}
             className={cn(
-              textStyles.body,
+              "text-base leading-relaxed",
               "text-slate-700 dark:text-slate-300",
             )}
           >
@@ -145,7 +156,7 @@ export function ServicesMainContent() {
           <motion.p
             variants={fadeIn}
             className={cn(
-              textStyles.body,
+              "text-base leading-relaxed",
               "text-slate-700 dark:text-slate-300",
             )}
           >
@@ -167,7 +178,9 @@ export function ServicesMainContent() {
                 className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky/10 
                 dark:hover:bg-azure/10 transition-colors"
               >
-                <h3 className={cn(textStyles.h3, "mb-3")}>{feature.title}</h3>
+                <h3 className={cn("text-2xl md:text-3xl font-bold", "mb-3")}>
+                  {feature.title}
+                </h3>
                 <p className="text-slate-600 dark:text-slate-400">
                   {feature.description}
                 </p>

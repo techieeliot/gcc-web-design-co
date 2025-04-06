@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { AlertCircle } from "@/lib/icons";
 
@@ -24,7 +23,10 @@ export function FormField({
 
   return (
     <div className={cn("col-span-1 flex flex-col gap-2", className)}>
-      <label htmlFor={id} className={textStyles.label}>
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-slate-700 dark:text-slate-300"
+      >
         {label}
       </label>
 

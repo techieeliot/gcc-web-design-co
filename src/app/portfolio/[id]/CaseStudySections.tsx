@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "@/lib/animations";
-import { componentStyles } from "@/lib/styles";
 import { lucideIcons } from "@/lib/icons";
-import { textStyles } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 import React from "react";
@@ -36,20 +34,16 @@ export const FeatureGrid = ({ features }: { features: FeatureItem[] }) => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className={cn(
-            componentStyles.featureCard,
-            "p-4 sm:p-6",
-            "hover:scale-102 transition-transform",
-          )}
+          className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 sm:p-6 hover:scale-102 transition-transform"
         >
           <div className="flex items-center gap-3 mb-3">
             {IconComponent &&
               React.createElement(IconComponent, {
-                className: componentStyles.icon.primary,
+                className: "w-5 h-5 text-sky dark:text-azure",
               })}
-            <h4 className={textStyles.h4}>{title}</h4>
+            <h4 className="text-xl md:text-2xl font-semibold">{title}</h4>
           </div>
-          <p className={textStyles.body}>{description}</p>
+          <p className="text-base leading-relaxed">{description}</p>
         </motion.div>
       );
     })}
@@ -77,18 +71,14 @@ export const StatsGrid = ({ stats }: { stats: StatItem[] }) => (
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className={cn(
-            componentStyles.statCard,
-            "p-4 sm:p-6",
-            "hover:scale-102 transition-transform",
-          )}
+          className="bg-sky/5 dark:bg-azure/5 rounded-lg shadow-sm p-4 sm:p-6 hover:scale-102 transition-transform"
         >
           {IconComponent &&
             React.createElement(IconComponent, {
-              className: componentStyles.icon.stats,
+              className: "w-6 h-6 text-sky dark:text-azure mb-2",
             })}
           <motion.div
-            className={cn(textStyles.h3, "mb-2")}
+            className="text-2xl md:text-3xl font-bold mb-2"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -96,7 +86,7 @@ export const StatsGrid = ({ stats }: { stats: StatItem[] }) => (
           >
             {value}
           </motion.div>
-          <div className={textStyles["body-small"]}>{label}</div>
+          <div className="text-sm leading-relaxed">{label}</div>
         </motion.div>
       );
     })}
@@ -105,7 +95,7 @@ export const StatsGrid = ({ stats }: { stats: StatItem[] }) => (
 
 export const SectionHeading = ({ children }: { children: React.ReactNode }) => (
   <motion.h3
-    className={cn(textStyles.h3, "mb-4 sm:mb-6")}
+    className="text-2xl md:text-3xl font-bold mb-4 sm:mb-6"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-50px" }}

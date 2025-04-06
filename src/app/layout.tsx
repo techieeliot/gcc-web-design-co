@@ -1,16 +1,10 @@
+import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-
-import { Suspense, type ReactNode } from "react";
-import { Metadata } from "next";
-import { domains } from "@/config/domains";
-import Analytics from "@/components/Analytics";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { PageSkeleton } from "@/components/page-skeleton";
-import { cn } from "@/lib/utils";
-import { Providers } from "@/providers";
 import { Toaster } from "sonner";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import { domains } from "@/config/domains";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,31 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn(poppins.variable, "font-sans")}
-    >
-      <body
-        className={cn(
-          "min-h-screen antialiased",
-          "bg-slate-50 dark:bg-slate-900",
-          "text-slate-900 dark:text-powder",
-          "transition-colors duration-300",
-          "font-sans",
-        )}
-      >
-        <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <div className="flex-1 pt-24 md:pt-28">
-              <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
-            </div>
-            <Footer />
-            <Toaster position="top-center" richColors />
-          </div>
-        </Providers>
-        <Analytics />
+    <html lang="en" suppressHydrationWarning>
+      <body className={poppins.variable}>
+        <div className="relative min-h-screen bg-background font-sans antialiased container mx-auto px-4">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
