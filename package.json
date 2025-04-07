@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "simple-git-hooks",
     "pre-commit": "lint-staged",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "set ANALYZE=true && next build",
@@ -56,12 +56,25 @@
     "eslint-config-next": "14.2.26",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.5",
-    "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "simple-git-hooks": "^2.12.1",
     "tailwindcss": "^4.0.17",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.4.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run pre-commit",
+    "pre-push": "npm run type-check"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
