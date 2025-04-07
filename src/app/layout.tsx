@@ -6,9 +6,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { domains } from "@/config/domains";
 import { cn } from "@/lib/utils";
-import { logger } from "@/lib/logger";
-import { useEffect } from "react";
 import { ErrorHandler } from "@/components/error-handler";
+import { ReactNode } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,11 +16,7 @@ const poppins = Poppins({
   display: "swap", // Add this for better font loading performance
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
