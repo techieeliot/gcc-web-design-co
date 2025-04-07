@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "prepare": "husky",
+    "prepare": "husky install",
     "pre-commit": "lint-staged",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "set ANALYZE=true && next build",
