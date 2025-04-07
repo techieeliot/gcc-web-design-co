@@ -88,7 +88,9 @@ function ContactItem({
     <motion.div
       whileHover={{ x: 5 }}
       transition={{ type: "spring", stiffness: 300 }}
-      transformTemplate={(props, transform) => `translateZ(0) ${transform}`}
+      transformTemplate={(_: any, transform: any) =>
+        `translateZ(0) ${transform}`
+      }
       className="flex items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
     >
       <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
@@ -186,7 +188,9 @@ export function SocialLinks() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 * (index + 3) }}
           whileHover={{ y: -3 }}
-          transformTemplate={(props, transform) => `translateZ(0) ${transform}`}
+          transformTemplate={(_: any, transform: any) =>
+            `translateZ(0) ${transform}`
+          }
         >
           <Link
             href={href}
@@ -263,7 +267,9 @@ function MadeWithLove() {
           repeat: Infinity,
           repeatType: "loop",
         }}
-        transformTemplate={(props, transform) => `translateZ(0) ${transform}`}
+        transformTemplate={(_: any, transform: any) =>
+          `translateZ(0) ${transform}`
+        }
         className="inline-block mx-1 text-red-500"
       >
         <Icon name="Heart" className="w-4 h-4 fill-current" />

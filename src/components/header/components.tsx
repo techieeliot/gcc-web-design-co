@@ -84,7 +84,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                 whileTap={{ scale: 0.95 }}
                 className="relative"
                 tabIndex={-1}
-                transformTemplate={(props, transform) =>
+                transformTemplate={(_: any, transform: any) =>
                   `translateZ(0) ${transform}`
                 }
               >

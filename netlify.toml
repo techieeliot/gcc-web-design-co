@@ -51,3 +51,21 @@
     Content-Security-Policy = "upgrade-insecure-requests"
     Cache-Control = "public, max-age=0, must-revalidate"
 
+[[redirects]]
+  from = "https://www.devsouth.us/*"
+  to = "https://devsouth.us/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://devsouth.us/*"
+  to = "https://devsouth.us/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.devsouth.us/*"
+  to = "https://devsouth.us/:splat"
+  status = 301
+  force = true
+

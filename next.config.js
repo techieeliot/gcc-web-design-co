@@ -39,6 +39,10 @@ const config = {
 
   // Domain redirects
   async rewrites() {
+    if (process.env.NODE_ENV !== "production") {
+      return [];
+    }
+
     const domainRewrites = domains.alternateHostnames.map((hostname) => ({
       source: "/:path*",
       has: [{ type: "host", key: "host", value: hostname }],
@@ -46,20 +50,57 @@ const config = {
     }));
 
     return {
-      beforeFiles: domainRewrites,
+      beforeFiles: [
+        ...domainRewrites,
+        {
+          source: "/:path*",
+          has: [
+            {
+              type: "host",
+              value: "devsouth.us",
+            },
+          ],
+          destination: "https://devsouth.us/:path*",
+        },
+      ],
     };
   },
 
   // This ensures Next.js processes MDX files in the content directory
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 
   output: "standalone",
-  experimental: {
-    serverActions: true,
-  },
 
-  // Add specific Netlify configuration
-  target: "serverless",
+  // Add this section
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = bundleAnalyzer(config);

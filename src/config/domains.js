@@ -1,17 +1,13 @@
-// Store both the full URLs and the hostnames
 const domainUrls = [
+  "https://devsouth.us", // Make this your primary domain since that's what you're using
   "https://sanfor.dev",
-  "https://devsouth.us",
   "https://www.sanfordev.com",
   "https://www.sanfordev.io",
   "https://www.sanfordev.net",
 ];
 
 // Extract just the hostnames for Next.js images config
-const domainHostnames = domainUrls.map((url) => {
-  // Remove https:// or http:// and get just the hostname
-  return new URL(url).hostname;
-});
+const domainHostnames = domainUrls.map((url) => new URL(url).hostname);
 
 const domains = {
   // Primary domain (for canonical URLs)

@@ -7,7 +7,7 @@ image: "/blog/deploying-nextjs-netlify.webp"
 
 # Deploying Your Next.js App to Netlify: A Step-by-Step Guide
 
-Deploying your Next.js app should feel as natural as sharing the fruits of your labor from a well-tended blueberry patch. Netlify offers a smooth deployment process that aligns perfectly with a modern, agile workflow. Let's walk through a process that keeps things simple, effective, and true to our down‐to‐earth ethos.
+Deploying your Next.js app should feel as easy and natural as sharing some of your fresh fruit with a close friend. Netlify offers a smooth deployment process that aligns perfectly with a modern, agile workflow. Let's walk through a process that keeps things simple, effective, and true to our down‐to‐earth ethos.
 
 ## Why Netlify?
 
@@ -96,6 +96,6 @@ Next.js's advanced features like Image Optimization and ISR (Incremental Static 
 
 ## Final Thoughts
 
-Deploying your Next.js app on Netlify isn't just about making it live—it's about setting the stage for your ideas to flourish. With automatic builds, global scaling, and a suite of integrated tools, you can nurture your project the same way you'd cultivate a thriving blueberry crop.
+Deploying your Next.js app on Netlify isn't just about making it live—it's about setting the stage for your ideas to flourish. With automatic builds, global scaling, and a suite of integrated tools, you can nurture your project the same way you'd cultivate your home garden.
 
 Happy deploying, and here's to growing something amazing!

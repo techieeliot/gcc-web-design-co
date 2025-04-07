@@ -1,7 +1,13 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, SlotProps } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import {
+  ElementType,
+  ForwardRefExoticComponent,
+  Ref,
+  RefAttributes,
+} from "react";
 
 const buttonVariants = cva(
   cn(
@@ -151,7 +157,7 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
-  const Component = asChild ? Slot : "button";
+  const Component: ElementType = asChild ? Slot : "button";
 
   return (
     <Component
