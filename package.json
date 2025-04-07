@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && npm run postbuild",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "format": "prettier --write",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "set ANALYZE=true && next build",
