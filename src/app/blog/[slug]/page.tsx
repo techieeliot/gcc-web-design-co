@@ -1,221 +1,37 @@
-import { notFound } from 'next/navigation'
-import fs from 'fs'
-import path from 'path'
-import Image from 'next/image'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { Calendar, ArrowLeft, Clock, Share2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { textStyles } from '@/lib/text-styles'
-
-// Components for MDX
-import { Callout } from '@/components/mdx/callout'
-import { CodeBlock } from '@/components/mdx/code-block'
-import { Link } from '@/components/ui/link'
-
-import type { ResolvingMetadata, Metadata } from 'next'
-import BlogImage from '@/components/BlogImage'
-import { ImageErrorBoundary } from '@/components/ImageErrorBoundary'
-
-// MDX components mapping
-// Interface for the components object used by MDXRemote
-interface MDXComponents {
-  [key: string]: React.ComponentType<any>
-}
-
-// Component-specific prop interfaces
-interface MDXHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  children?: React.ReactNode
-}
-
-interface MDXParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  children?: React.ReactNode
-}
-
-interface MDXLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  children?: React.ReactNode
-}
-
-interface MDXListProps
-  extends React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {
-  children?: React.ReactNode
-}
-
-interface MDXListItemProps extends React.HTMLAttributes<HTMLLIElement> {
-  children?: React.ReactNode
-}
-
-interface MDXBlockquoteProps extends React.HTMLAttributes<HTMLQuoteElement> {
-  children?: React.ReactNode
-}
-
-const components: MDXComponents = {
-  Callout,
-  pre: CodeBlock,
-  h1: (props: MDXHeadingProps) => (
-    <h1 className={cn(textStyles.h1, 'mb-6 mt-12')} {...props} />
-  ),
-  h2: (props: MDXHeadingProps) => (
-    <h2 className={cn(textStyles.h2, 'mb-4 mt-10')} {...props} />
-  ),
-  h3: (props: MDXHeadingProps) => (
-    <h3 className={cn(textStyles.h3, 'mb-3 mt-8')} {...props} />
-  ),
-  h4: (props: MDXHeadingProps) => (
-    <h4 className={cn(textStyles.h4, 'mb-2 mt-6')} {...props} />
-  ),
-  p: (props: MDXParagraphProps) => (
-    <p className={cn(textStyles.body, 'mb-4')} {...props} />
-  ),
-  a: (props: MDXLinkProps) => (
-    <a
-      className="text-sky hover:text-sky/80 dark:text-azure dark:hover:text-azure/80 underline underline-offset-2"
-      {...props}
-    />
-  ),
-  ul: (props: MDXListProps) => (
-    <ul className="mb-4 ml-6 list-disc space-y-2" {...props} />
-  ),
-  ol: (props: MDXListProps) => (
-    <ol className="mb-4 ml-6 list-decimal space-y-2" {...props} />
-  ),
-  li: (props: MDXListItemProps) => (
-    <li className={textStyles.body} {...props} />
-  ),
-  blockquote: (props: MDXBlockquoteProps) => (
-    <blockquote
-      className="border-l-4 border-sky dark:border-azure pl-4 italic my-6"
-      {...props}
-    />
-  ),
-}
-
-// TODO: metadata should come from CMS
-const blogPosts = {
-  'getting-started-with-nextjs': {
-    title: 'Getting Started with Next.js: A Practical Guide',
-    description:
-      'Learn how to set up and structure a Next.js project from scratch, with best practices for file organization, routing, and performance.',
-    date: 'March 28, 2025',
-    author: 'Eliot Sanford',
-    authorImage: '/authors/eliot.webp',
-    category: 'Development',
-    readTime: '8 min read',
-    image: '/blog/nextjs-guide.webp',
-    tags: ['Next.js', 'React', 'Web Development'],
-  },
-  'tailwind-best-practices': {
-    title: 'Tailwind CSS Best Practices for Enterprise Projects',
-    description:
-      'Discover how to effectively scale Tailwind CSS in large projects while maintaining code quality, performance, and team collaboration.',
-    date: 'March 15, 2025',
-    author: 'Eliot Sanford',
-    authorImage: '/authors/eliot.webp',
-    category: 'Design',
-    readTime: '6 min read',
-    image: '/blog/tailwind-best-practices.webp',
-    tags: ['Tailwind CSS', 'CSS', 'Design Systems'],
-  },
-  'framer-motion-animations': {
-    title: 'Creating Fluid Animations with Framer Motion',
-    description:
-      'Explore the power of Framer Motion for creating smooth, physics-based animations in React applications with minimal code.',
-    date: 'February 22, 2025',
-    author: 'Eliot Sanford',
-    authorImage: '/authors/eliot.webp',
-    category: 'Design',
-    readTime: '5 min read',
-    image: '/blog/framer-motion.webp',
-    tags: ['Framer Motion', 'Animation', 'React'],
-  },
-  'deploying-nextjs-netlify': {
-    title: 'Deploying Your Next.js App to Netlify: A Step-by-Step Guide',
-    description:
-      'Learn how to efficiently deploy your Next.js applications on Netlify with proper environment configuration and performance optimization.',
-    date: 'February 10, 2025',
-    author: 'Eliot Sanford',
-    authorImage: '/authors/eliot.webp',
-    category: 'DevOps',
-    readTime: '7 min read',
-    image: '/blog/netlify-ship.webp',
-    tags: ['Next.js', 'Netlify', 'Deployment'],
-  },
-}
+import { notFound } from "next/navigation";
+import { getAllPosts, getPostBySlug } from "./utils";
+import { Metadata } from "next";
+import Image from "next/image";
+import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
+import { Link } from "@/components/ui/link";
+import { Icon } from "@/components/ui/icon";
+import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
-  // Returns an array of objects with slug property
-  return Object.keys(blogPosts).map((slug) => ({
-    slug,
-  }))
+  const posts = getAllPosts();
+  return posts.map((post: any) => ({
+    slug: post.slug,
+  }));
 }
 
-async function getPostBySlug(slug: string) {
-  // TODO: fetch this from CMS or database
-  const postData = blogPosts[slug as keyof typeof blogPosts]
-
-  if (!postData) {
-    return null
-  }
-
-  // Read the MDX file
-  const mdxDir = path.join(process.cwd(), 'src/content/blog')
-  let fileContent = ''
-  try {
-    fileContent = fs.readFileSync(path.join(mdxDir, `${slug}.mdx`), 'utf8')
-  } catch (error) {
-    console.error(`Error reading MDX file for ${slug}:`, error)
-    return null
-  }
-
-  return {
-    ...postData,
-    content: fileContent,
-  }
-}
-
-// Update generateMetadata
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // Await params before using
-  const resolvedParams = await params
-  const slug = resolvedParams.slug
-
-  const post = blogPosts[slug as keyof typeof blogPosts]
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return {
-      title: 'Post Not Found',
-      description: 'The requested blog post could not be found.',
-    }
+      title: "Post Not Found",
+      description: "The blog post you're looking for doesn't exist",
+    };
   }
 
   return {
-    title: post.title,
-    description: post.description,
-    alternates: {
-      canonical: `/blog/${slug}`,
-    },
-    authors: [
-      {
-        name: post.author,
-        url: 'https://www.techieeliot.com',
-      },
-    ],
-    category: post.category,
-    keywords: [
-      ...post.tags,
-      'software development',
-      'react',
-      'web development',
-    ],
+    title: `${post.title} | SanforDEV Blog`,
+    description: post.summary,
     openGraph: {
       title: post.title,
-      description: post.description,
-      url: `https://devsouth.us/blog/${slug}`,
-      type: 'article',
-      publishedTime: new Date(post.date).toISOString(),
-      authors: [post.author],
+      description: post.summary,
+      type: "article",
+      publishedTime: post.publishedAt,
       images: [
         {
           url: post.image,
@@ -224,131 +40,56 @@ export async function generateMetadata(
           alt: post.title,
         },
       ],
-      tags: post.tags,
     },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
-      images: [post.image],
-    },
-  }
+  };
 }
 
-// Update page component
-export default async function BlogPostRoute({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  // Await params before using
-  const resolvedParams = await params
-  const slug = resolvedParams.slug
-
-  const post = await getPostBySlug(slug)
+export default async function BlogPost({ params }: any) {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  // Rest of your component stays the same
   return (
-    <div className="min-h-screen pt-20 lg:pt-28 pb-16">
-      <div className="container mx-auto px-4">
-        <div className="ml-16 mb-8">
-          <Link
-            href="/blog"
-            variant="outline"
-            className="inline-flex items-center gap-1"
+    <article className="max-w-4xl mx-auto px-4 py-12 flex flex-col gap-8 align-center">
+      <div className="flex items-center justify-between">
+        <Link href="/blog" variant="standaloneLink">
+          <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
+          Back to Blog
+        </Link>
+      </div>
+      {/* Hero Section */}
+      <div>
+        <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
+        <div className="flex flex-col gap-4 text-slate-600 dark:text-slate-400">
+          <time
+            dateTime={post.publishedAt}
+            className="text-sm text-slate-500 dark:text-slate-400"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
-          </Link>
-        </div>
-
-        {/* Article Header */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure rounded-full">
-              {post.category}
-            </span>
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <h1 className={cn(textStyles.h1, 'mb-6')}>{post.title}</h1>
-
-          <p
-            className={cn(
-              textStyles.body,
-              'text-xl mb-8 text-slate-600 dark:text-powder/80'
-            )}
-          >
-            {post.description}
-          </p>
-
-          <div className="flex items-center gap-4 mb-8 pb-8 border-b border-slate-200 dark:border-slate-800">
-            <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
-              <BlogImage
-                src={post.authorImage}
-                alt={post.author}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <p className="font-medium text-slate-900 dark:text-white">
-                {post.author}
-              </p>
-              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {post.date}
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  {post.readTime}
-                </span>
-              </div>
-            </div>
-            <div className="ml-auto">
-              <button className="inline-flex items-center gap-1 px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <Share2 className="w-4 h-4" />
-                Share
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Featured Image */}
-        <div className="max-w-5xl mx-auto mb-12 rounded-xl overflow-hidden shadow-lg">
-          <div className="aspect-w-16 aspect-h-9 w-full relative">
-            <ImageErrorBoundary>
-              <BlogImage
-                src={post.image}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </ImageErrorBoundary>
-          </div>
-        </div>
-
-        {/* Article Content */}
-        <div className="max-w-3xl mx-auto">
-          <article className="prose prose-slate dark:prose-invert max-w-none">
-            <MDXRemote source={post.content} components={components} />
-          </article>
+            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </time>
+          <p>{post.summary}</p>
         </div>
       </div>
-    </div>
-  )
+
+      {/* Content */}
+      <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-slate-200 [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-slate-200 [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
+        {post.content}
+      </Markdown>
+    </article>
+  );
 }

@@ -1,22 +1,30 @@
-'use client'
+"use client";
 
-import { componentStyles } from '@/lib/component-styles'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { motion, useAnimation, useInView } from 'framer-motion'
-import * as LucideIcons from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { Icon, IconName } from "@/components/ui/icon";
+import { motion, useAnimation, useInView } from "@/lib/animations";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 interface CaseStudyCardProps {
-  id: string
-  title: string
-  description: string
-  image: string
-  imageAlt: string
-  iconNames: string[]
-  index?: number
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  icons: IconName[];
+  features: Array<{
+    icon: IconName; // Update this type
+    title: string;
+    description: string;
+  }>;
+  stats: Array<{
+    icon: IconName; // Update this type
+    value: string;
+    label: string;
+  }>;
+  index?: number;
 }
 
 export const CaseStudyCard = ({
@@ -25,66 +33,19 @@ export const CaseStudyCard = ({
   description,
   image,
   imageAlt,
-  iconNames,
+  icons,
+  stats,
   index = 0,
 }: CaseStudyCardProps) => {
-  const ref = useRef(null)
-  const controls = useAnimation()
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 0.2,
-    margin: '0px 0px -100px 0px',
-  })
+  const ref = useRef(null);
+  const controls = useAnimation();
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   useEffect(() => {
-    // Initial pause to let page load
-    const initialDelay = 0.3 + index * 0.15
-
-    // Animate when in view, with a smooth delay
     if (isInView) {
-      const timer = setTimeout(() => {
-        controls.start('visible')
-      }, initialDelay * 1000)
-
-      return () => clearTimeout(timer)
+      controls.start("visible");
     }
-
-    // Fallback animation
-    const fallbackTimer = setTimeout(
-      () => {
-        controls.start('visible')
-      },
-      1200 + index * 150
-    )
-
-    return () => clearTimeout(fallbackTimer)
-  }, [isInView, controls, index])
-
-  // Animation variants
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 15,
-      scale: 0.97,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.7,
-        ease: [0.15, 0.45, 0.25, 0.95],
-      },
-    },
-    hover: {
-      y: -4,
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-        ease: 'easeOut',
-      },
-    },
-  }
+  }, [isInView, controls]);
 
   return (
     <motion.article
@@ -92,59 +53,121 @@ export const CaseStudyCard = ({
       initial="hidden"
       animate={controls}
       whileHover="hover"
-      variants={cardVariants}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: index * 0.1,
+          },
+        },
+        hover: {
+          y: -5,
+          transition: {
+            duration: 0.2,
+            ease: "easeOut",
+          },
+        },
+      }}
       className={cn(
-        componentStyles.card,
-        'group relative overflow-hidden',
-        'rounded-xl will-change-transform'
+        "group relative flex flex-col",
+        "overflow-hidden rounded-xl",
+        "bg-white dark:bg-slate-800",
+        "border border-slate-200 dark:border-slate-700",
+        "shadow-sm hover:shadow-md",
+        "transition-shadow duration-300",
       )}
     >
-      <Link href={`/portfolio/${id}`} className="block h-full">
-        <div className="relative h-48 mb-4 overflow-hidden rounded-t-lg">
+      <Link href={`/portfolio/${id}`} className="flex flex-col flex-1">
+        {/* Image Section */}
+        <div className="relative h-48 sm:h-52 overflow-hidden">
           <Image
             src={image}
             alt={imageAlt}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority={index < 3} // Prioritize loading first 3 images
+            priority={index < 3}
           />
-          <div className={cn(componentStyles.imageOverlay, 'gap-4')}>
-            {iconNames.map((iconName, idx) => {
-              const Icon = LucideIcons[
-                iconName as keyof typeof LucideIcons
-              ] as React.ComponentType<LucideIcons.LucideProps>
-              return Icon ? (
-                <Icon
-                  key={idx}
-                  className={componentStyles.icon.large}
-                  strokeWidth={1.5}
-                />
-              ) : null
-            })}
+          {/* Icon Overlay */}
+          <div
+            className={cn(
+              "absolute inset-0",
+              "bg-gradient-to-t from-black/60 via-black/30 to-transparent",
+              "flex items-center justify-center gap-4",
+              "transition-opacity duration-300",
+              "group-hover:opacity-90",
+            )}
+          >
+            {icons.map((icon, idx) => (
+              <Icon
+                key={idx}
+                name={icon}
+                className="text-white/90"
+                strokeWidth={1.5}
+                size={32}
+              />
+            ))}
           </div>
         </div>
 
-        <div className="p-4">
+        {/* Content Section */}
+        <div className="flex flex-col flex-1 p-5">
           <h2
             className={cn(
-              textStyles.h3,
-              'mb-2 group-hover:text-sky dark:group-hover:text-azure transition-colors duration-300'
+              "text-xl font-bold mb-2",
+              "text-slate-900 dark:text-white",
+              "group-hover:text-sky dark:group-hover:text-azure",
+              "transition-colors duration-300",
             )}
           >
             {title}
           </h2>
           <p
             className={cn(
-              textStyles.body,
-              'line-clamp-2',
-              'text-slate-600 dark:text-slate-300'
+              "text-base leading-relaxed",
+              "text-slate-600 dark:text-slate-300",
+              "line-clamp-2 mb-4",
             )}
           >
             {description}
           </p>
+
+          {/* Quick Features Preview */}
+          <div className="mt-auto space-y-4">
+            {/* Stats Grid */}
+            <div
+              className={cn(
+                "grid grid-cols-3 gap-2",
+                "pt-4 border-t border-slate-200 dark:border-slate-700",
+              )}
+            >
+              {stats.slice(0, 3).map(({ icon, value, label }, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <Icon
+                      name={icon}
+                      className="w-4 h-4 mb-1 text-sky dark:text-azure"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {value}
+                    </span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </Link>
     </motion.article>
-  )
-}
+  );
+};

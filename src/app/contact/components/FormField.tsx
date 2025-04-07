@@ -1,15 +1,14 @@
-import { ReactNode } from 'react'
-import { textStyles } from '@/lib/text-styles'
-import { cn } from '@/lib/utils'
-import { AlertCircle } from 'lucide-react'
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { Icon } from "@/components/ui/icon";
 
 interface FormFieldProps {
-  label: string
-  id: string
-  error?: string
-  description?: ReactNode
-  children: ReactNode
-  className?: string
+  label: string;
+  id: string;
+  error?: string;
+  description?: ReactNode;
+  children: ReactNode;
+  className?: string;
 }
 
 export function FormField({
@@ -20,11 +19,14 @@ export function FormField({
   children,
   className,
 }: FormFieldProps) {
-  const errorClasses = 'text-red-500 dark:text-red-400 text-sm font-medium'
+  const errorClasses = "text-red-500 dark:text-red-400 text-sm font-medium";
 
   return (
-    <div className={cn('col-span-1 flex flex-col gap-2', className)}>
-      <label htmlFor={id} className={textStyles.label}>
+    <div className={cn("col-span-1 flex flex-col gap-2", className)}>
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-slate-700 dark:text-slate-300"
+      >
         {label}
       </label>
 
@@ -40,11 +42,14 @@ export function FormField({
       <div className="min-h-[20px] flex items-center gap-1.5">
         {error && (
           <>
-            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400" />
+            <Icon
+              name="AlertCircle"
+              className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400"
+            />
             <p className={errorClasses}>{error}</p>
           </>
         )}
       </div>
     </div>
-  )
+  );
 }

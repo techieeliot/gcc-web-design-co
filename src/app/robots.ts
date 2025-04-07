@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://devsouth.us/sitemap.xml',
+    sitemap: 'https://sanfor.dev/sitemap.xml',
   }
 }

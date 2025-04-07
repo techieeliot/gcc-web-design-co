@@ -1,38 +1,115 @@
-import { Poppins } from 'next/font/google'
-import './globals.css'
-import Header from 'components/Header.client'
-import Footer from 'components/Footer'
-import { Suspense, type ReactNode } from 'react'
-import { cn } from 'lib/utils'
-import { ThemeProvider } from 'providers/theme-provider'
-import { PageWrapper } from '@/components/PageWrapper'
-import { Metadata } from 'next'
-import { domains } from '@/config/domains'
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import "./globals.css";
+import { Toaster } from "sonner";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import { domains } from "@/config/domains";
+import { cn } from "@/lib/utils";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
-})
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap", // Add this for better font loading performance
+});
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          poppins.variable,
+          "min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 font-sans antialiased",
+        )}
+      >
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1 container mx-auto px-4 py-20">
+            {children}
+          </main>
+          <Footer />
+        </div>
+        <Toaster position="top-center" richColors />
+      </body>
+    </html>
+  );
+}
 
 export const metadata: Metadata = {
   title: {
-    default: 'SanforDev Consulting | React Ecosystem Specialists',
-    template: '%s | SanforDev Consulting',
+    default: "SanforDEV Consulting | Modern Web Development Services",
+    template: "%s | SanforDEV Consulting",
   },
   description:
-    'Expert React ecosystem development services for startups and enterprises. Performance-focused web applications built with Next.js, TypeScript, and modern tools.',
+    "Expert React ecosystem development services for startups and enterprises. Performance-focused web applications built with Next.js, TypeScript, and modern tools.",
   keywords: [
-    'React development',
-    'Next.js',
-    'TypeScript',
-    'Web Development',
-    'Frontend Engineering',
-    'Mississippi',
+    "SanforDEV Consulting",
+    "React Ecosystem Specialists",
+    "Eliot Sanford",
+    "SanfordDEV",
+    "Sanford",
+    "Eliot",
+    "React",
+    "JavaScript",
+    "Frontend Development",
+    "Frontend Development Services",
+    "React development",
+    "Next.js",
+    "TypeScript",
+    "Web Development",
+    "Frontend Engineering",
+    "Mississippi",
+    "Jackson",
+    "USA",
+    "Web Applications",
+    "Performance Optimization",
+    "Responsive Design",
+    "User Experience",
+    "UI/UX Design",
+    "Software Development",
+    "Web Design",
+    "Consulting",
+    "Digital Transformation",
+    "Startups",
+    "Enterprises",
+    "E-commerce",
+    "Content Management Systems",
+    "Progressive Web Apps",
+    "API Integration",
+    "Cloud Services",
+    "DevOps",
+    "Agile Development",
+    "Version Control",
+    "Git",
+    "Continuous Integration",
+    "Continuous Deployment",
+    "Testing and Quality Assurance",
+    "Cross-Browser Compatibility",
+    "Performance Monitoring",
+    "Web Accessibility",
+    "Search Engine Optimization",
+    "SEO",
+    "Web Security",
+    "Data Visualization",
+    "Web Performance",
+    "Web Standards",
+    "Web Technologies",
+    "Web Frameworks",
+    "Web Libraries",
+    "Web Components",
+    "Web APIs",
+    "Web Services",
+    "Web Architecture",
+    "Web Protocols",
   ],
-  authors: [{ name: 'Eliot Sanford', url: 'https://www.techieeliot.com' }],
-  creator: 'Eliot Sanford',
-  publisher: 'SanforDev Consulting LLC',
+  authors: [{ name: "Eliot Sanford", url: "https://www.techieeliot.com" }],
+  creator: "Eliot Sanford",
+  publisher: "SanforDEV Consulting LLC",
   formatDetection: {
     email: true,
     address: true,
@@ -40,35 +117,35 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(domains.primary),
   alternates: {
-    canonical: '/',
+    canonical: "/",
     languages: {
-      'en-US': domains.all.map((domain) => ({ url: domain })),
+      "en-US": domains.all.map((domain) => ({ url: domain })),
     },
   },
   openGraph: {
-    title: 'SanforDev Consulting | React Ecosystem Specialists',
+    title: "SanforDEV Consulting | Modern Web Development Services",
     description:
-      'Expert React ecosystem development services for startups and enterprises. Performance-focused web applications built with Next.js, TypeScript, and modern tools.',
+      "Expert React ecosystem development services for startups and enterprises. Performance-focused web applications built with Next.js, TypeScript, and modern tools.",
     url: domains.primary,
-    siteName: 'SanforDev Consulting',
+    siteName: "SanforDEV Consulting",
     images: [
       {
-        url: `${domains.primary}/images/social-card.jpg`,
+        url: `${domains.primary}/images/social-card.webp`,
         width: 1200,
         height: 630,
-        alt: 'SanforDev Consulting - React Ecosystem Specialists',
+        alt: "SanforDEV Consulting - React Ecosystem Specialists",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'SanforDev Consulting | React Ecosystem Specialists',
+    card: "summary_large_image",
+    title: "SanforDEV Consulting | Modern Web Development Services",
     description:
-      'Expert React ecosystem development services for startups and enterprises.',
-    creator: '@techieEliot',
-    images: ['/images/social-card.webp'], // Use same image as OG
+      "Expert React ecosystem development services for startups and enterprises.",
+    creator: "@techieEliot",
+    images: ["/images/social-card.webp"], // Use same image as OG
   },
   robots: {
     index: true,
@@ -76,49 +153,12 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Add your verification code
+    google: "your-google-verification-code", // Add your verification code
   },
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          poppins.variable,
-          'antialiased text-foreground font-poppins min-h-screen',
-          'bg-gradient-primary dark:bg-gradient-primary-dark' // Move gradient here
-        )}
-        suppressHydrationWarning
-      >
-        <ThemeProvider defaultTheme="light">
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <div className="flex-1 mt-16 md:mt-20">
-              <main className="container mx-auto px-4 py-8">
-                <Suspense
-                  fallback={
-                    <div className="w-full h-96 bg-gray-200 dark:bg-slate-800 animate-pulse rounded-lg"></div>
-                  }
-                >
-                  {children}
-                </Suspense>
-              </main>
-            </div>
-            <Footer />
-          </div>
-        </ThemeProvider>
-      </body>
-    </html>
-  )
-}
+};

@@ -1,121 +1,110 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  darkMode: ['class', '[data-theme="dark"]'],
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        // Base theme colors
+        // Simple brand colors
+        powder: "#E8F1FF",
+        sky: "#3B82F6",
+        azure: "#2563EB",
+        blueberry: "#1E40AF",
+        midnight: "#1E3A8A",
+        border: {
+          DEFAULT: "hsl(var(--border",
+        },
+        input: {
+          DEFAULT: "hsl(var(--input)",
+        },
+        ring: {
+          DEFAULT: "hsl(var(--ring",
+        },
         background: {
-          DEFAULT: 'var(--background)',
-          foreground: 'var(--foreground)',
+          DEFAULT: "hsl(var(--background)",
+        },
+        foreground: {
+          DEFAULT: "hsl(var(--foreground)",
         },
         primary: {
-          DEFAULT: 'var(--primary))',
-          foreground: 'var(--primary-foreground))',
+          DEFAULT: "hsl(var(--primary)",
+          foreground: "hsl(var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: 'var(--secondary))',
-          foreground: 'var(--secondary-foreground))',
+          DEFAULT: "hsl(var(--secondary)",
+          foreground: "hsl(var(--secondary-foreground)",
         },
-        tertiary: {
-          DEFAULT: 'var(--tertiary))',
-          foreground: 'var(--tertiary-foreground))',
+        destructive: {
+          DEFAULT: "hsl(var(--destructive)",
+          foreground: "hsl(var(--destructive-foreground)",
         },
-
-        // Custom colors with HSL
-        powder: {
-          DEFAULT: 'var(--powder)',
-          muted: 'rgba(227, 237, 250, 0.8)',
+        muted: {
+          DEFAULT: "hsl(var(--muted)",
+          foreground: "hsl(var(--muted-foreground)",
         },
-        sky: {
-          DEFAULT: 'var(--sky)',
-          muted: 'rgba(44, 151, 221, 0.8)',
-        },
-        azure: {
-          DEFAULT: 'var(--azure)',
-          muted: 'rgba(20, 83, 187, 0.8)',
-        },
-        blueberry: {
-          DEFAULT: 'var(--blueberry))',
-        },
-        midnight: {
-          DEFAULT: 'var(--midnight))',
-        },
-        slate: {
-          DEFAULT: 'var(--slate)',
-          100: 'var(--slate-100)',
-          200: 'var(--slate-200)',
-          300: 'var(--slate-300)',
-          400: 'var(--slate-400)',
-          500: 'var(--slate-500)',
-          600: 'var(--slate-600)',
-          700: 'var(--slate-700)',
-          800: 'var(--slate-800)',
-          900: 'var(--slate-900)',
-        },
-        mist: {
-          DEFAULT: 'var(--mist))',
-        },
-        graphite: {
-          DEFAULT: 'var(--graphite))',
-        },
-        'deep-navy': {
-          DEFAULT: 'var(--deep-navy)',
-        },
-
-        // Text colors
-        'text-primary': {
-          DEFAULT: 'var(--text-primary)',
-          dark: 'var(--text-primary-dark)',
-        },
-        'text-secondary': {
-          DEFAULT: 'var(--text-secondary)',
-          dark: 'var(--text-secondary-dark)',
-        },
-
-        // Card and container backgrounds
-        card: {
-          DEFAULT: 'var(--card)',
-          foreground: 'var(--card-foreground)',
+        accent: {
+          DEFAULT: "hsl(var(--accent)",
+          foreground: "hsl(var(--accent-foreground)",
         },
         popover: {
-          DEFAULT: 'var(--popover)',
-          foreground: 'var(--popover-foreground)',
+          DEFAULT: "hsl(var(--popover)",
+          foreground: "hsl(var(--popover-foreground)",
         },
-      },
-      // Add custom gradients
-      backgroundImage: {
-        'gradient-primary':
-          'linear-gradient(to bottom, var(--white), var(--slate-50))',
-        'gradient-primary-dark':
-          'linear-gradient(to bottom, var(--slate-900), var(--slate-800))',
+        card: {
+          DEFAULT: "hsl(var(--card)",
+          foreground: "hsl(var(--card-foreground)",
+        },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
-      maxWidth: {
-        '7xl': '80rem',
-      },
-      container: {
-        center: true,
-        padding: '1rem',
-        screens: {
-          sm: '640px',
-          md: '768px',
-          lg: '1024px',
-          xl: '1280px',
-        },
+        lg: "0.5rem",
+        md: "calc(0.5rem - 2px)",
+        sm: "calc(0.5rem - 4px)",
       },
       fontFamily: {
-        poppins: ['var(--font-poppins)', 'sans-serif'],
+        sans: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+        display: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+        title: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+      },
+      boxShadow: {
+        sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        DEFAULT:
+          "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+        md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+        none: "none",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "pulse-slow": {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-slow": "pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
-}
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+};
 
-export default config
+export default config;
