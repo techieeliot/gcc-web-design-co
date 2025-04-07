@@ -4,17 +4,13 @@ import { Metadata } from "next";
 import { CaseStudyNav } from "./CaseStudyNav";
 import { CaseStudyLayout } from "./CaseStudyLayout";
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<any[]> {
   return caseStudies.map((study) => ({
     id: study.id,
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const caseStudy = caseStudies.find((study) => study.id === params.id);
 
   if (!caseStudy) {
@@ -53,11 +49,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function CaseStudyPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function CaseStudyPage({ params }: any) {
   const caseStudy = caseStudies.find((study) => study.id === params.id);
 
   if (!caseStudy) {

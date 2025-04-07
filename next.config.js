@@ -1,12 +1,11 @@
-import type { NextConfig } from "next";
-import withBundleAnalyzer from "@next/bundle-analyzer";
-import { domainHostnames, domains } from "./src/config/domains";
+const withBundleAnalyzer = require("@next/bundle-analyzer");
+const { domainHostnames, domains } = require("./src/config/domains");
 
 const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const config: NextConfig = {
+const config = {
   eslint: {
     // Only run ESLint on these directories during builds
     dirs: ["src"],
@@ -67,4 +66,4 @@ const config: NextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
 };
 
-export default bundleAnalyzer(config);
+module.exports = bundleAnalyzer(config);

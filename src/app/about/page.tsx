@@ -1,4 +1,8 @@
-import { AboutSection, CompanyFacts, ConnectWithUs } from "./components";
+import {
+  ClientAboutSection as AboutSection,
+  ClientCompanyFacts as CompanyFacts,
+  ClientConnectWithUs as ConnectWithUs,
+} from "./client-components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

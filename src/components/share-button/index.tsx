@@ -3,8 +3,8 @@
 import { useState, useRef } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { Share2, Mail, X, Link2, LucideIconComponent } from "@/lib/icons";
 import { useOnClickOutside } from "./hooks";
+import { Icon, IconName } from "../ui/icon";
 
 interface ShareButtonProps {
   title: string;
@@ -14,7 +14,7 @@ interface ShareButtonProps {
 
 export interface ShareOption {
   name: string;
-  icon: LucideIconComponent;
+  icon: IconName;
   onClick: () => Promise<void>;
   label: string;
 }
@@ -30,7 +30,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
   const shareOptions: ShareOption[] = [
     {
       name: "Copy Link",
-      icon: Link2,
+      icon: "Link2",
       onClick: async () => {
         try {
           await navigator.clipboard.writeText(url);
@@ -48,7 +48,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
     },
     {
       name: "Email",
-      icon: Mail,
+      icon: "Mail",
       onClick: async () => {
         const mailtoUrl = `mailto:?subject=${encodeURIComponent(
           title,
@@ -59,7 +59,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
     },
     {
       name: "Twitter",
-      icon: X,
+      icon: "X",
       onClick: async () => {
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
           title,
@@ -85,7 +85,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
         }}
         aria-label="Share this article"
       >
-        <Share2 className="w-4 h-4" />
+        <Icon name="Share2" className="w-4 h-4" />
         Share
       </button>
 
@@ -116,7 +116,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
                 }}
                 role="menuitem"
               >
-                <option.icon className="w-4 h-4" />
+                <Icon name={option.icon} className="w-4 h-4" />
                 {option.label}
               </button>
             ))}
