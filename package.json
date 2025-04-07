@@ -9,7 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "prepare": "simple-git-hooks",
-    "pre-commit": "lint-staged",
+    "pre-commit": "node -r ts-node/register scripts/debug-hooks.ts pre-commit && lint-staged",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "set ANALYZE=true && next build",
     "netlify-build": "npm run build",
@@ -65,7 +65,7 @@
     "typescript": "^5.4.3"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run pre-commit",
+    "pre-commit": "npx lint-staged",
     "pre-push": "npm run type-check"
   },
   "lint-staged": {
