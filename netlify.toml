@@ -12,6 +12,7 @@
   NEXT_TELEMETRY_DISABLED = "1"
   NEXT_SHARP_PATH = "/tmp/sharp"
   NEXT_PUBLIC_URL = "https://devsouth.us"
+  NODE_OPTIONS = "--enable-source-maps"
 
 [functions]
   node_bundler = "esbuild"
@@ -20,6 +21,7 @@
 
   [functions.api]
     included_files = [".next/server/**", ".next/standalone/**"]
+    environment = { NODE_ENV = "production", NEXT_RUNTIME = "edge" }
 
   [functions."*"]
     memory = 8192 # 8GB memory

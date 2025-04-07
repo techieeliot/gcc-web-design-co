@@ -71,7 +71,7 @@ const config = {
 
   output: "standalone",
 
-  // Add this section
+  // Security headers
   async headers() {
     return [
       {

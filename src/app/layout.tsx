@@ -6,6 +6,9 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { domains } from "@/config/domains";
 import { cn } from "@/lib/utils";
+import { logger } from "@/lib/logger";
+import { useEffect } from "react";
+import { ErrorHandler } from "@/components/error-handler";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,6 +38,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster position="top-center" richColors />
+        <ErrorHandler />
       </body>
     </html>
   );
