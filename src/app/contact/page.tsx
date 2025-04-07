@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils";
 import { ContactSidebar } from "./components/sidebar";
 import ContactForm from "./components/form";
-import { Mail } from "@/lib/icons";
+import { Icon } from "@/components/ui/icon";
 
 export const revalidate = 3600; // Revalidate every hour
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen pt-8 lg:pt-16 pb-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4 py-6 lg:py-10">
         {/* Hero Section - server rendered */}
         <div className="text-center mb-12 lg:mb-20 relative">
           {/* Decorative gradient circles */}
@@ -19,15 +19,19 @@ export default function ContactPage() {
 
           {/* Hero content with icon */}
           <div className="flex flex-col items-center gap-6">
-            <div className="rounded-full bg-slate-200 p-4 shadow-lg">
-              <Mail className="w-8 h-8 text-powder" />
+            <div className="rounded-full bg-slate-200 p-4 border border-azure dark:border-powder shadow-lg">
+              <Icon
+                name="Mail"
+                className="text-azure dark:text-powder"
+                size={24}
+              />
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
               Contact Us
             </h1>
 
-            <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
+            <p className="text-xl text-slate dark:text-offwhite max-w-2xl mx-auto">
               Ready to transform your digital presence? We genuinely care about
               your vision and are here to listen, advise, and partner with you
               on your next project. Whether you're bursting with a creative idea

@@ -3,8 +3,8 @@
 import { cn } from "@/lib/utils";
 import { Link } from "@/components/ui/link";
 import { containerVariants, itemVariants, motion } from "@/lib/animations";
-import { Phone } from "@/lib/icons";
 import { policyItems } from "@/data";
+import { Icon } from "@/components/ui/icon";
 
 export default function PrivacyContent() {
   return (
@@ -53,7 +53,10 @@ export default function PrivacyContent() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-md bg-sky/10 dark:bg-azure/10">
-                <item.icon className="w-5 h-5 text-sky dark:text-azure" />
+                <Icon
+                  name={item.icon}
+                  className="w-5 h-5 text-sky dark:text-azure"
+                />
               </div>
               <h2 className={cn("text-2xl md:text-3xl font-bold")} id={item.id}>
                 {item.title}
@@ -85,7 +88,7 @@ export default function PrivacyContent() {
       >
         <div className="mb-4 inline-flex items-center justify-center">
           <div className="p-2 rounded-md bg-sky/10 dark:bg-azure/10">
-            <Phone className="w-5 h-5 text-sky dark:text-azure" />
+            <Icon name="Phone" className="w-5 h-5 text-sky dark:text-azure" />
           </div>
         </div>
         <h2 className={cn("text-2xl md:text-3xl font-bold", "mb-4")}>

@@ -6,8 +6,8 @@ import {
   staggeredContainerTransition,
   listItemTransition,
 } from "@/lib/animations";
-import { ArrowUpRight } from "@/lib/icons";
 import { implementations } from "@/data";
+import { Icon } from "@/components/ui/icon";
 
 export const ServicesSidebar = () => {
   return (
@@ -15,7 +15,7 @@ export const ServicesSidebar = () => {
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className="lg:col-span-4 space-y-6 lg:sticky lg:top-8 self-start"
+      className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 self-start"
     >
       {implementations.map((section, index) => (
         <motion.div
@@ -31,20 +31,14 @@ export const ServicesSidebar = () => {
             "shadow-sm hover:shadow-md transition-all",
           )}
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-            className="flex items-center gap-3 mb-4"
-          >
-            <motion.div
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              tabIndex={-1}
-            >
-              <section.icon className="w-10 h-10 text-midnight dark:text-sky" />
+          <motion.div className="flex items-center gap-3 mb-4">
+            <motion.div>
+              <Icon
+                name={section.icon}
+                className="w-10 h-10 text-midnight dark:text-sky"
+              />
             </motion.div>
-            <h3 className="text-2xl md:text-3xl font-bold">{section.title}</h3>
+            <h3 className="text-2xl font-bold">{section.title}</h3>
           </motion.div>
 
           <motion.ul
@@ -59,10 +53,15 @@ export const ServicesSidebar = () => {
                 key={itemIndex}
                 variants={listItemTransition}
                 whileHover={{ x: 3 }}
-                className="flex items-center gap-2 text-slate-600 dark:text-slate-300"
+                className="flex items-center gap-2 text-small text-slate-600 dark:text-slate-300"
               >
-                <ArrowUpRight className="w-4 h-4 text-sky dark:text-azure" />
-                {item}
+                <Icon
+                  name="ArrowUpRight"
+                  className="w-4 h-4 text-sky dark:text-azure"
+                />
+                <span className="text-sm text-slate-600 dark:text-slate-300">
+                  {item}
+                </span>
               </motion.li>
             ))}
           </motion.ul>

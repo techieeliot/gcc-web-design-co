@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { AlertCircle } from "@/lib/icons";
+import { Icon } from "@/components/ui/icon";
 
 interface FormFieldProps {
   label: string;
@@ -42,7 +42,10 @@ export function FormField({
       <div className="min-h-[20px] flex items-center gap-1.5">
         {error && (
           <>
-            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400" />
+            <Icon
+              name="AlertCircle"
+              className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400"
+            />
             <p className={errorClasses}>{error}</p>
           </>
         )}

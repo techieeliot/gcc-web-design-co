@@ -1,26 +1,26 @@
-import { LucideIconComponent, LucideIcon } from "@/lib/icons";
+import { IconName } from "@/components/ui/icon";
 
 export interface PolicyItem {
   id: string;
   title: string;
-  icon: LucideIconComponent;
+  icon: IconName;
   content: string;
 }
 
 export interface Feature {
   title: string;
   description: string;
-  icon: LucideIconComponent;
+  icon: IconName;
 }
 
 export interface CaseStudyFeature {
-  iconName: string;
+  icon: string;
   title: string;
   description: string;
 }
 
 export interface StatItem {
-  iconName: string;
+  icon: string;
   value: string;
   label: string;
 }
@@ -30,22 +30,35 @@ export interface CaseStudy {
   title: string;
   description: string;
   image: string;
-  iconNames: LucideIcon[];
   imageAlt: string;
+  icons: IconName[];
+  features: Array<{
+    icon: IconName;
+    title: string;
+    description: string;
+  }>;
+  stats: Array<{
+    icon: IconName;
+    value: string;
+    label: string;
+  }>;
 }
 
-export interface SocialLink
+export interface AnchorLink
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
-  icon: LucideIconComponent;
   label: string;
+  icon: IconName;
+}
+export interface QuickLink extends AnchorLink {
+  description: string;
+}
+
+export interface SocialLink extends AnchorLink {
   hoverColor: string;
 }
 
-export interface CompanyLink {
-  href: string;
-  icon: LucideIconComponent;
-  label: string;
+export interface CompanyLink extends AnchorLink {
   color: string;
 }
 
@@ -53,12 +66,12 @@ export interface Service {
   title: string;
   description: string;
   features: string[];
-  icons: LucideIconComponent[];
+  icons: IconName[];
 }
 
 export interface Implementation {
   title: string;
-  icon: LucideIconComponent;
+  icon: IconName;
   items: string[];
 }
 
@@ -67,3 +80,10 @@ export interface ServiceCategory {
   description: string;
   services: Service[];
 }
+
+export interface Fact {
+  label: string;
+  value: string;
+  icon: IconName;
+}
+[];

@@ -1,5 +1,10 @@
 import { Metadata } from "next";
-import { ServicesShowcase, HeroSection } from "./components";
+import {
+  HeroSection,
+  FeaturesSection,
+  ShowcaseSection,
+  CallToActionSection,
+} from "./components";
 
 export const metadata: Metadata = {
   title: "React Ecosystem Specialists | SanforDEV Consulting",
@@ -36,9 +41,11 @@ export const revalidate = 3600; // Revalidate every hour
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <HeroSection />
-      <ServicesShowcase />
+      <FeaturesSection />
+      <ShowcaseSection />
+      <CallToActionSection />
     </div>
   );
 }

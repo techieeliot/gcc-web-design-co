@@ -1,9 +1,9 @@
 "use client";
 
+import { Icon } from "@/components/ui/icon";
 import { Link } from "@/components/ui/link";
 import { caseStudies } from "@/data";
 import { motion } from "@/lib/animations";
-import { ArrowLeft, ArrowRight } from "@/lib/icons";
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {
   const currentIndex = caseStudies.findIndex((study) => study.id === currentId);
@@ -15,7 +15,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
 
   return (
     <motion.div
-      className="flex flex-col sm:flex-row justify-between items-center mb-8"
+      className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -23,26 +23,24 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
       <Link
         href="/portfolio"
         variant="outline"
-        size="sm"
+        size="lg"
         className="mb-4 sm:mb-0"
       >
-        <ArrowLeft className="w-4 h-4" />
+        <Icon name="ArrowLeft" className="w-4 h-4" />
         <span>Back to All Case Studies</span>
       </Link>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap">
         {prevCase && (
           <Link
             href={`/portfolio/${prevCase.id}`}
             variant="secondary"
-            size="sm"
+            size="lg"
             title={`Previous: ${prevCase.title}`}
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="hidden md:inline">
-              {prevCase.title.length > 15
-                ? `${prevCase.title.substring(0, 15)}...`
-                : prevCase.title}
+            <Icon name="ArrowLeft" className="w-4 h-4" />
+            <span className="hidden md:inline text-sm">
+              {`${prevCase.title.split(":")[1].substring(0, 24)}...`}
             </span>
           </Link>
         )}
@@ -51,15 +49,14 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
           <Link
             href={`/portfolio/${nextCase.id}`}
             variant="secondary"
-            size="sm"
+            size="lg"
+            className="text-sm"
             title={`Next: ${nextCase.title}`}
           >
-            <span className="hidden md:inline">
-              {nextCase.title.length > 15
-                ? `${nextCase.title.substring(0, 15)}...`
-                : nextCase.title}
+            <span className="hidden md:inline text-sm">
+              {`${nextCase.title.split(":")[1].substring(0, 24)}...`}
             </span>
-            <ArrowRight className="w-4 h-4" />
+            <Icon name="ArrowRight" className="w-4 h-4" />
           </Link>
         )}
       </div>

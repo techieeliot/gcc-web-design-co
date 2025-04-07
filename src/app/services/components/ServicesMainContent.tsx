@@ -30,7 +30,7 @@ export function ServicesMainContent() {
   ];
 
   return (
-    <motion.main
+    <motion.section
       initial="hidden"
       animate="visible"
       variants={fadeIn}
@@ -59,10 +59,7 @@ export function ServicesMainContent() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className={cn(
-              "text-4xl md:text-5xl font-bold tracking-tight",
-              "text-white mb-4 drop-shadow-lg",
-            )}
+            className="text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-lg"
           >
             Cultivating Digital Excellence
           </motion.h1>
@@ -70,7 +67,7 @@ export function ServicesMainContent() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="text-white text-lg md:text-xl max-w-2xl mx-auto drop-shadow-lg"
+            className="text-lg text-white max-w-2xl mx-auto drop-shadow-lg"
           >
             Like a Mississippi blueberry farm, we nurture your projects with
             care, expertise, and down-to-earth values
@@ -89,18 +86,12 @@ export function ServicesMainContent() {
           className="space-y-8"
         >
           <div className="space-y-2">
-            <motion.h2
-              variants={fadeIn}
-              className={cn("text-3xl md:text-4xl font-bold tracking-tight")}
-            >
+            <motion.h2 variants={fadeIn} className="text-section">
               {category.category}
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className={cn(
-                "text-base leading-relaxed",
-                "text-slate-600 dark:text-slate-300",
-              )}
+              className="text-body text-slate-600 dark:text-slate-300"
             >
               {category.description}
             </motion.p>
@@ -126,13 +117,7 @@ export function ServicesMainContent() {
         variants={fadeIn}
         className="bg-white dark:bg-slate-800/50 p-8 sm:p-10 rounded-lg shadow-lg"
       >
-        <motion.h2
-          variants={fadeIn}
-          className={cn(
-            "text-3xl md:text-4xl font-bold tracking-tight",
-            "mb-4",
-          )}
-        >
+        <motion.h2 variants={fadeIn} className="text-section mb-4">
           Our Down-to-Earth Approach
         </motion.h2>
 
@@ -178,10 +163,8 @@ export function ServicesMainContent() {
                 className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky/10 
                 dark:hover:bg-azure/10 transition-colors"
               >
-                <h3 className={cn("text-2xl md:text-3xl font-bold", "mb-3")}>
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <h3 className="text-title mb-3">{feature.title}</h3>
+                <p className="text-body text-slate-600 dark:text-slate-400">
                   {feature.description}
                 </p>
               </motion.div>
@@ -201,6 +184,6 @@ export function ServicesMainContent() {
           </motion.div>
         </motion.div>
       </motion.section>
-    </motion.main>
+    </motion.section>
   );
 }

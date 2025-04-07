@@ -1,7 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/icon";
 import { motion } from "@/lib/animations";
-import { ArrowLeft } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -46,7 +46,7 @@ export default function NotFound() {
             "transition-colors",
           )}
         >
-          <ArrowLeft className="w-4 h-4" />
+          <Icon name="ArrowLeft" className="w-4 h-4" />
           Back to Home
         </Link>
       </motion.div>

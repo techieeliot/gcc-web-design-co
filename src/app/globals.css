@@ -2,8 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
 @theme inline {
@@ -396,7 +395,6 @@ footer [whileHover],
 
   body {
     background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -447,11 +445,11 @@ footer [whileHover],
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-bold;
+    @apply text-xl md:text-2xl font-bold;
   }
 }
 

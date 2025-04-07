@@ -17,6 +17,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: cn(
+          "bg-blueberry text-white dark:bg-azure dark:text-white",
+          "shadow-sm",
+          "hover:bg-blueberry/90 dark:hover:bg-azure/90",
+          "active:bg-blueberry/80 active:scale-[0.98] dark:active:bg-azure/80",
+          "transition-all",
+        ),
+        cta: cn(
           "bg-sky text-white dark:bg-azure dark:text-white",
           "shadow-sm",
           "hover:bg-sky/90 dark:hover:bg-azure/90",
@@ -25,10 +32,10 @@ const buttonVariants = cva(
         ),
         outline: cn(
           "bg-transparent border-2",
-          "border-sky text-sky",
+          "border-blueberry text-blueberry",
           "shadow-sm",
-          "hover:bg-sky/10 dark:hover:bg-azure/10",
-          "active:bg-sky/20 active:scale-[0.98] dark:active:bg-azure/20",
+          "hover:bg-blueberry/10 dark:hover:bg-azure/10",
+          "active:bg-blueberry/20 active:scale-[0.98] dark:active:bg-azure/20",
           "transition-all",
         ),
         secondary: cn(
@@ -39,19 +46,19 @@ const buttonVariants = cva(
           "transition-all",
         ),
         standaloneLink: cn(
-          "text-sky font-medium",
-          "hover:text-blueberry hover:underline",
+          "text-sky font-medium underline",
+          "hover:text-blueberry hover:no-underline",
           "active:text-azure active:scale-[0.98]",
-          "dark:hover:text-powder dark:hover:underline",
+          "dark:hover:text-powder dark:hover:no-underline",
           "dark:active:text-powder/80",
           "transition-all",
         ),
         inlineLink: cn(
-          "[&]:inline [&]:p-0 [&]:m-0",
+          "[&]:inline [&]:p-0 [&]:m-0 underline",
           "font-inherit text-inherit",
           "text-sky hover:text-blueberry",
-          "dark:text-sky dark:hover:text-powder",
-          "hover:underline active:text-azure active:scale-[0.98]",
+          "dark:text-sky dark:hover:text-powder dark:hover:no-underline",
+          "hover:no-underline active:text-azure active:scale-[0.98]",
           "transition-all",
         ),
         nav: cn(
@@ -68,10 +75,10 @@ const buttonVariants = cva(
           "dark:data-[active=true]:text-white",
         ),
         light: cn(
-          "bg-white text-sky font-medium",
+          "bg-white text-azure font-medium",
           "border border-transparent",
           "shadow-sm",
-          "hover:bg-slate-50 hover:text-azure hover:border-sky/10",
+          "hover:bg-azure/10 hover:text-offwhite/10 hover:border-azure/10",
           "hover:shadow-md",
           "active:bg-slate-100 active:scale-[0.98] active:shadow-inner",
           "focus-visible:ring-2 focus-visible:ring-sky/30",
@@ -144,10 +151,10 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button";
+  const Component = asChild ? Slot : "button";
 
   return (
-    <Comp
+    <Component
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}

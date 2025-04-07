@@ -5,16 +5,16 @@ import { cn } from "@/lib/utils";
 import { Link } from "../ui/link";
 import { desktopLinkVariants, motion, AnimatePresence } from "@/lib/animations";
 import { NavLink } from "../ui/nav-link";
-import { Menu, X } from "@/lib/icons";
 import { Shimmer } from "../ui/shimmer";
 import { usePathname } from "next/navigation";
+import { Icon } from "../ui/icon";
 
 interface MobileNavProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }
 
-const links = [
+const links: { href: string; label: string }[] = [
   { href: "/", label: "Welcome" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
@@ -76,7 +76,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
               className={cn(
                 "flex justify-between items-center h-14 sm:h-16 md:h-20",
                 // Improve text contrast when scrolled
-                isScrolled && "text-slate-900 dark:text-white drop-shadow-sm",
+                isScrolled && "text-slate-900 dark:text-white",
               )}
             >
               {/* Logo Section with Shimmer fallback */}
@@ -176,6 +176,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                           width={36}
                           height={36}
                           className={cn(
+                            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2", // Add this line for centering
                             "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9",
                             "object-contain",
                             "transform-gpu",
@@ -294,9 +295,9 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     transition={{ duration: 0.2 }}
                   >
                     {isOpen ? (
-                      <X className="w-6 h-6" />
+                      <Icon name="X" className="w-6 h-6" />
                     ) : (
-                      <Menu className="w-6 h-6" />
+                      <Icon name="Menu" className="w-6 h-6" />
                     )}
                   </motion.div>
                 </motion.button>

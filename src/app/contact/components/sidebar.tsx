@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Mail, MapPin, Phone } from "@/lib/icons";
 import Link from "next/link";
+import { Icon } from "@/components/ui/icon";
 
 interface ContactInfoProps {
   icon: React.ReactNode;
@@ -25,35 +25,42 @@ const ContactInfo = ({ icon, title, content }: ContactInfoProps) => (
 
 export function ContactSidebar() {
   return (
-    <motion.div
+    <motion.aside
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       className={cn(
         "lg:col-span-4 h-fit",
+        "space-y-6 lg:sticky lg:top-24 self-start",
         "bg-white dark:bg-slate-800",
-        "p-6 lg:p-8 rounded-xl shadow-sm ",
+        "p-6 lg:p-8 rounded-xl shadow-sm",
       )}
     >
       <div className="space-y-6">
         <ContactInfo
-          icon={<Mail className="w-6 h-6 text-sky dark:text-azure" />}
+          icon={
+            <Icon name="Mail" className="w-6 h-6 text-sky dark:text-azure" />
+          }
           title="Email"
           content={
             <Link href="mailto:devsouth@gmail.com">devsouth@gmail.com</Link>
           }
         />
         <ContactInfo
-          icon={<Phone className="w-6 h-6 text-sky dark:text-azure" />}
+          icon={
+            <Icon name="Phone" className="w-6 h-6 text-sky dark:text-azure" />
+          }
           title="Phone"
           content={<Link href="tel:+16012979575">(601) 297-9575</Link>}
         />
         <ContactInfo
-          icon={<MapPin className="w-6 h-6 text-sky dark:text-azure" />}
+          icon={
+            <Icon name="MapPin" className="w-6 h-6 text-sky dark:text-azure" />
+          }
           title="Location"
-          content="Jackson, Mississippi, USA"
+          content="Clinton, Mississippi, USA"
         />
       </div>
-    </motion.div>
+    </motion.aside>
   );
 }

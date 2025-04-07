@@ -10,8 +10,8 @@ import {
   listItemTransition,
   motion,
 } from "@/lib/animations";
-import { ArrowUpRight } from "@/lib/icons";
 import { Service } from "@/data/types";
+import { Icon } from "@/components/ui/icon";
 
 interface ServiceCardProps {
   service: Service;
@@ -31,6 +31,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         "shadow-sm hover:shadow-md transition-shadow",
       )}
     >
+      {/* Icons section */}
       <motion.div
         variants={iconContainer}
         initial="hidden"
@@ -38,7 +39,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         viewport={{ once: true }}
         className="flex gap-4 mb-6"
       >
-        {service.icons.map((Icon, iconIndex) => (
+        {service.icons.map((icon, iconIndex) => (
           <motion.div
             key={iconIndex}
             variants={serviceCardIconAnimation}
@@ -49,6 +50,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             aria-label={`${service.title} icon ${iconIndex + 1}`}
           >
             <Icon
+              name={icon}
               className="w-12 h-12 text-midnight dark:text-sky transition-colors group-hover:text-azure dark:group-hover:text-azure"
               strokeWidth={1.5}
             />
@@ -56,23 +58,18 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         ))}
       </motion.div>
 
-      <motion.h2
-        variants={fadeIn}
-        className={cn("text-3xl md:text-4xl font-bold tracking-tight", "mb-3")}
-      >
+      <motion.h2 variants={fadeIn} className="text-2xl font-bold mb-3">
         {service.title}
       </motion.h2>
 
       <motion.p
         variants={fadeIn}
-        className={cn(
-          "text-base leading-relaxed",
-          "mb-6 text-slate-600 dark:text-slate-300",
-        )}
+        className="text-base text-slate-600 dark:text-slate-300 mb-6"
       >
         {service.description}
       </motion.p>
 
+      {/* Features list */}
       <motion.ul
         variants={staggeredContainerTransition}
         initial="hidden"
@@ -86,8 +83,11 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             variants={listItemTransition}
             className="flex items-start gap-3 group"
           >
-            <ArrowUpRight className="w-5 h-5 text-sky dark:text-azure flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-1" />
-            <span className="text-slate-600 dark:text-slate-300">
+            <Icon
+              name="ArrowUpRight"
+              className="w-5 h-5 text-sky dark:text-azure flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-1"
+            />
+            <span className="text-small text-slate-600 dark:text-slate-300">
               {feature}
             </span>
           </motion.li>

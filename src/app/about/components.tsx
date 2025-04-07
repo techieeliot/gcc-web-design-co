@@ -10,22 +10,8 @@ import {
   motion,
 } from "@/lib/animations";
 import { cn } from "@/lib/utils";
-import {
-  Brain,
-  Code2,
-  ExternalLinkIcon,
-  Github,
-  Globe,
-  Goal,
-  Hammer,
-  Heart,
-  Laptop,
-  LinkedinIcon,
-  Mail,
-  Quote,
-  Rocket,
-  Users,
-} from "@/lib/icons";
+import { Icon } from "@/components/ui/icon";
+import { facts, socialLinks } from "@/data";
 
 export const AboutSection = () => {
   return (
@@ -34,7 +20,8 @@ export const AboutSection = () => {
       animate="visible"
       variants={fadeInAnimation}
       className={cn(
-        "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl",
+        "lg:col-span-8 space-y-12",
+        "bg-white dark:bg-slate-800 rounded-xl",
         "prose lg:prose-lg max-w-none",
         "p-6 sm:p-8 lg:p-10",
       )}
@@ -57,7 +44,8 @@ export const AboutSection = () => {
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring" }}
           >
-            <Code2
+            <Icon
+              name="Code2"
               className="w-12 h-12 text-white drop-shadow-lg"
               strokeWidth={1.5}
             />
@@ -66,7 +54,8 @@ export const AboutSection = () => {
             whileHover={{ scale: 1.1, rotate: -5 }}
             transition={{ type: "spring" }}
           >
-            <Brain
+            <Icon
+              name="Brain"
               className="w-12 h-12 text-white drop-shadow-lg"
               strokeWidth={1.5}
             />
@@ -75,20 +64,14 @@ export const AboutSection = () => {
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring" }}
           >
-            <Rocket
+            <Icon
+              name="Rocket"
               className="w-12 h-12 text-white drop-shadow-lg"
               strokeWidth={1.5}
             />
           </motion.div>
         </div>
       </motion.div>
-
-      <motion.h2
-        variants={fadeInAnimation}
-        className="text-3xl md:text-4xl font-bold tracking-tight mb-6 lg:mb-8"
-      >
-        About SanforDEV
-      </motion.h2>
 
       {/* Our Story - More concise */}
       <motion.div variants={fadeInAnimation} className="mb-10 lg:mb-14">
@@ -124,13 +107,15 @@ export const AboutSection = () => {
         >
           {/* Decorative Quote Marks */}
           <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 opacity-10">
-            <Quote
+            <Icon
+              name="Quote"
               className="w-32 h-32 text-sky dark:text-azure"
               strokeWidth={1}
             />
           </div>
           <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 opacity-10">
-            <Quote
+            <Icon
+              name="Quote"
               className="w-32 h-32 text-sky dark:text-azure rotate-180"
               strokeWidth={1}
             />
@@ -138,13 +123,15 @@ export const AboutSection = () => {
 
           {/* Subtle Decorative Icons */}
           <div className="absolute top-1/2 left-2 -translate-y-1/2 opacity-10">
-            <Rocket
+            <Icon
+              name="Rocket"
               className="w-16 h-16 text-azure dark:text-sky"
               strokeWidth={1}
             />
           </div>
           <div className="absolute top-1/2 right-2 -translate-y-1/2 opacity-10">
-            <Code2
+            <Icon
+              name="Code2"
               className="w-16 h-16 text-azure dark:text-sky"
               strokeWidth={1}
             />
@@ -153,7 +140,8 @@ export const AboutSection = () => {
           {/* Main Quote Content */}
           <div className="relative z-10 text-center">
             <motion.div className="flex justify-center items-start relative mb-6">
-              <Quote
+              <Icon
+                name="Quote"
                 className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
                 strokeWidth={2}
               />
@@ -165,7 +153,8 @@ export const AboutSection = () => {
               >
                 Building remarkable applications that empower people through
                 functional, delightful, and accessible experiences.
-                <Quote
+                <Icon
+                  name="Quote"
                   className="w-6 h-6 text-sky dark:text-azure inline-block ml-6 transform translate-y-1 opacity-90"
                   strokeWidth={2}
                 />
@@ -184,7 +173,8 @@ export const AboutSection = () => {
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
-              <Hammer
+              <Icon
+                name="Hammer"
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
@@ -203,7 +193,8 @@ export const AboutSection = () => {
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
-              <Users
+              <Icon
+                name="Users"
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
@@ -222,7 +213,8 @@ export const AboutSection = () => {
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
-              <Goal
+              <Icon
+                name="Goal"
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
@@ -241,7 +233,8 @@ export const AboutSection = () => {
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
-              <Heart
+              <Icon
+                name="Heart"
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
@@ -312,7 +305,7 @@ export const AboutSection = () => {
 
           <motion.div
             variants={fadeInAnimation}
-            className="bg-white/50 dark:bg-slate-800/30 rounded-xl p-6 shadow-sm"
+            className="bg-white/50 dark:bg-slate-800/30 rounded-xl p-6 "
           >
             <div className="flex flex-col sm:flex-row gap-6 mb-4">
               <motion.div
@@ -337,7 +330,7 @@ export const AboutSection = () => {
                   variants={fadeInAnimation}
                   className="text-sky dark:text-azure font-medium mb-2 text-center sm:text-left"
                 >
-                  Founder & Lead Engineer
+                  Lead Engineer
                 </motion.p>
                 <motion.p
                   variants={fadeInAnimation}
@@ -360,7 +353,7 @@ export const AboutSection = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
-                    <Globe className="w-4 h-4" />
+                    <Icon name="Globe" className="w-4 h-4" />
                     <span>Website</span>
                   </Link>
                   <Link
@@ -369,7 +362,7 @@ export const AboutSection = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
-                    <LinkedinIcon className="w-4 h-4" />
+                    <Icon name="Linkedin" className="w-4 h-4" />
                     <span>LinkedIn</span>
                   </Link>
                   <Link
@@ -378,14 +371,14 @@ export const AboutSection = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
-                    <Github className="w-4 h-4" />
+                    <Icon name="Github" className="w-4 h-4" />
                     <span>GitHub</span>
                   </Link>
                   <Link
                     href="mailto:techieEliot@gmail.com"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
-                    <Mail className="w-4 h-4" />
+                    <Icon name="Mail" className="w-4 h-4" />
                     <span>Email</span>
                   </Link>
                 </div>
@@ -407,23 +400,16 @@ export const AboutSection = () => {
 };
 
 export const CompanyFacts = () => {
-  const facts = [
-    { label: "Founded", value: "December 2018", icon: Rocket },
-    {
-      label: "Location",
-      value: "Clinton, Mississippi (Remote-first)",
-      icon: Laptop,
-    },
-    { label: "Focus", value: "React Ecosystem Development", icon: Code2 },
-    { label: "Clients Served", value: "Startups to Enterprise", icon: Users },
-  ];
-
   return (
     <motion.section
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
-      className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 rounded-xl"
+      className={cn(
+        "bg-white dark:bg-slate-800",
+        "border border-slate-200 dark:border-slate-700",
+        "p-6 sm:p-8 rounded-xl",
+      )}
     >
       <motion.h3
         variants={fadeInAnimation}
@@ -433,14 +419,17 @@ export const CompanyFacts = () => {
       </motion.h3>
 
       <motion.ul variants={staggeredVisibilityTransition} className="space-y-5">
-        {facts.map(({ label, value, icon: Icon }) => (
+        {facts.map(({ label, value, icon }) => (
           <motion.li
             key={label}
             variants={listItemTransition}
             whileHover={{ x: 5 }}
             className="flex items-start gap-3"
           >
-            <Icon className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0" />
+            <Icon
+              name={icon || "Info"} // Fallback to "Info" icon if none specified
+              className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0"
+            />
             <div className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
               <strong className="text-slate-900 dark:text-white">
                 {label}:
@@ -456,19 +445,6 @@ export const CompanyFacts = () => {
 };
 
 export const ConnectWithUs = () => {
-  const socialLinks = [
-    {
-      href: "https://www.linkedin.com/company/devsouth-consulting-llc/",
-      label: "LinkedIn",
-      icon: LinkedinIcon,
-    },
-    {
-      href: "https://github.com/techieeliot/gcc-web-design-co",
-      label: "GitHub",
-      icon: Github,
-    },
-  ];
-
   return (
     <motion.section
       initial="hidden"
@@ -487,7 +463,7 @@ export const ConnectWithUs = () => {
         variants={staggeredVisibilityTransition}
         className="space-y-5"
       >
-        {socialLinks.map(({ href, label, icon: Icon }) => (
+        {socialLinks.map(({ href, label, icon }) => (
           <motion.div
             key={href}
             variants={listItemTransition}
@@ -497,15 +473,24 @@ export const ConnectWithUs = () => {
           >
             <Link
               href={href}
-              className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="flex justify-start gap-8 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
-              <Icon className="w-5 h-5 flex-shrink-0 text-sky dark:text-azure" />
-              <span className="flex-grow text-left">{label}</span>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                className="flex items-center gap-3"
+              >
+                <Icon
+                  name={icon}
+                  className="w-5 h-5  text-sky dark:text-azure"
+                />
+                <span className="text-left">{label}</span>
+              </motion.div>
               <motion.div
                 whileHover={{ x: 3 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <ExternalLinkIcon className="w-4 h-4 flex-shrink-0" />
+                <Icon name="ExternalLinkIcon" className="w-4 h-4" />
               </motion.div>
             </Link>
           </motion.div>
@@ -521,7 +506,7 @@ export function BlueberryStory() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-slate-50/50 dark:bg-slate-800/30 rounded-xl p-6 shadow-sm"
+      className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10  rounded-xl p-6 "
     >
       <div className="flex flex-col lg:flex-row items-center gap-8">
         {/* Large blueberry emoji */}

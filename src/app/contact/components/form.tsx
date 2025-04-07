@@ -10,13 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
 import { FormField } from "./FormField";
 import { fadeInAnimation, motion } from "@/lib/animations";
-import {
-  CheckCircle,
-  AlertCircle,
-  ArrowRight,
-  Send,
-  Rocket,
-} from "@/lib/icons";
+import { Icon } from "@/components/ui/icon";
 
 const formSchema = z.object({
   name: z
@@ -133,7 +127,7 @@ export default function ContactForm() {
         animate="visible"
         transition={{ delay: 0.2 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+        <h2 className="font-bold tracking-tight mb-6">
           Let's Ignite Your Vision
         </h2>
 
@@ -152,7 +146,10 @@ export default function ContactForm() {
               transition={{ duration: 0.5 }}
               className="flex justify-center mb-4"
             >
-              <CheckCircle className="w-16 h-16 text-green-500 dark:text-green-400" />
+              <Icon
+                name="CheckCircle"
+                className="w-16 h-16 text-green-500 dark:text-green-400"
+              />
             </motion.div>
             <h3 className="text-2xl md:text-3xl font-bold mb-2">
               Message Delivered!
@@ -178,7 +175,7 @@ export default function ContactForm() {
             {submitError && (
               <div className="p-4 mb-4 bg-red-100 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-300">
                 <div className="flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5" />
+                  <Icon name="AlertCircle" className="w-5 h-5" />
                   <p className="font-medium">{submitError}</p>
                 </div>
               </div>
@@ -320,7 +317,10 @@ export default function ContactForm() {
                 <div className="min-h-[20px] flex items-center gap-1.5">
                   {errors.privacy && (
                     <>
-                      <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400" />
+                      <Icon
+                        name="AlertCircle"
+                        className="w-3.5 h-3.5 flex-shrink-0 text-red-500 dark:text-red-400"
+                      />
                       <p className={errorClasses}>{errors.privacy.message}</p>
                     </>
                   )}
@@ -344,9 +344,12 @@ export default function ContactForm() {
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <span className="ml-2">
                       {isSubmitting ? (
-                        <ArrowRight className="w-4 h-4 animate-pulse" />
+                        <Icon
+                          name="ArrowRight"
+                          className="w-4 h-4 animate-pulse"
+                        />
                       ) : (
-                        <Send className="w-4 h-4" />
+                        <Icon name="Send" className="w-4 h-4" />
                       )}
                     </span>
                   </span>
@@ -361,7 +364,7 @@ export default function ContactForm() {
 
               {isSubmitting && (
                 <p className="mt-2 text-sky dark:text-azure flex items-center">
-                  <Rocket className="inline mr-2 animate-pulse" />
+                  <Icon name="Rocket" className="inline mr-2 animate-pulse" />
                   Igniting your message...
                 </p>
               )}

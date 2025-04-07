@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { domains } from "@/config/domains";
+import { cn } from "@/lib/utils";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,10 +21,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={poppins.variable}>
-        <div className="relative min-h-screen bg-background font-sans antialiased container mx-auto px-4">
+      <body
+        className={cn(
+          poppins.variable,
+          "min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 font-sans antialiased",
+        )}
+      >
+        <div className="relative flex min-h-screen flex-col">
           <Header />
-          <main>{children}</main>
+          <main className="flex-1 container mx-auto px-4 py-20">
+            {children}
+          </main>
           <Footer />
         </div>
         <Toaster position="top-center" richColors />

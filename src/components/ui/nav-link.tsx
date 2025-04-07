@@ -1,17 +1,17 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
-import { Link } from './link'
-import { useState, useEffect } from 'react'
-import { cn } from '@/lib/utils'
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { Link } from "./link";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 interface NavLinkProps {
-  href: string
-  label: string
-  onClick?: () => void
-  custom?: number
-  className?: string
+  href: string;
+  label: string;
+  onClick?: () => void;
+  custom?: number;
+  className?: string;
 }
 
 const linkVariants = {
@@ -21,7 +21,7 @@ const linkVariants = {
     x: 0,
     transition: {
       delay: i * 0.1,
-      type: 'spring',
+      type: "spring",
       stiffness: 300,
       damping: 30,
     },
@@ -32,12 +32,12 @@ const linkVariants = {
     x: 0,
     transition: {
       delay: i * 0.1,
-      type: 'spring',
+      type: "spring",
       stiffness: 300,
       damping: 30,
     },
   }),
-}
+};
 
 export function NavLink({
   href,
@@ -46,8 +46,8 @@ export function NavLink({
   custom,
   className,
 }: NavLinkProps) {
-  const pathname = usePathname()
-  const isScrolled = useScrollPosition(10)
+  const pathname = usePathname();
+  const isScrolled = useScrollPosition(10);
 
   return (
     <Link
@@ -58,11 +58,11 @@ export function NavLink({
       onClick={onClick}
       className={cn(
         className,
-        'relative transition-colors duration-200',
+        "relative transition-colors duration-200",
         isScrolled
-          ? 'text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure font-medium'
-          : 'text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure',
-        pathname === href && 'text-sky dark:text-azure font-medium'
+          ? "text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure font-medium"
+          : "text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure",
+        pathname === href && "text-azure dark:text-sky font-medium",
         // Removed any drop-shadow or opacity changes on scroll
       )}
     >
@@ -77,38 +77,38 @@ export function NavLink({
         {label}
       </motion.span>
     </Link>
-  )
+  );
 }
 
 // Add this custom hook in the same file
 function useScrollPosition(threshold = 0) {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       // Use requestAnimationFrame for smoother updates
       requestAnimationFrame(() => {
-        setIsScrolled(window.scrollY > threshold)
-      })
-    }
+        setIsScrolled(window.scrollY > threshold);
+      });
+    };
 
     // Debounce scroll events
-    let timeoutId: number
+    let timeoutId: number;
     const debouncedHandleScroll = () => {
       if (timeoutId) {
-        window.cancelAnimationFrame(timeoutId)
+        window.cancelAnimationFrame(timeoutId);
       }
-      timeoutId = window.requestAnimationFrame(handleScroll)
-    }
+      timeoutId = window.requestAnimationFrame(handleScroll);
+    };
 
-    window.addEventListener('scroll', debouncedHandleScroll, { passive: true })
+    window.addEventListener("scroll", debouncedHandleScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', debouncedHandleScroll)
+      window.removeEventListener("scroll", debouncedHandleScroll);
       if (timeoutId) {
-        window.cancelAnimationFrame(timeoutId)
+        window.cancelAnimationFrame(timeoutId);
       }
-    }
-  }, [threshold])
+    };
+  }, [threshold]);
 
-  return isScrolled
+  return isScrolled;
 }

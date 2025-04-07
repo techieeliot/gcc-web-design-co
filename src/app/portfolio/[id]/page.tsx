@@ -1,22 +1,8 @@
 import { notFound } from "next/navigation";
 import { caseStudies } from "@/data";
-import {
-  CaseStudyDareToShare,
-  CaseStudyFourthParty,
-  CaseStudyGorillaFund,
-  CaseStudyRoomInTheInn,
-  CaseStudyWeedWarriors,
-} from "./components";
 import { Metadata } from "next";
 import { CaseStudyNav } from "./CaseStudyNav";
-
-const CaseStudyComponents = {
-  ["fourth-party"]: CaseStudyFourthParty,
-  ["weed-warriors"]: CaseStudyWeedWarriors,
-  ["gorilla-fund"]: CaseStudyGorillaFund,
-  ["dare-to-share"]: CaseStudyDareToShare,
-  ["room-in-the-inn-memphis"]: CaseStudyRoomInTheInn,
-};
+import { CaseStudyLayout } from "./CaseStudyLayout";
 
 export async function generateStaticParams() {
   return caseStudies.map((study) => ({
@@ -24,17 +10,12 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate dynamic metadata based on the case study ID
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const id = resolvedParams.id;
-
-  // Find the case study by ID
-  const caseStudy = caseStudies.find((study) => study.id === id);
+  const caseStudy = caseStudies.find((study) => study.id === params.id);
 
   if (!caseStudy) {
     return {
@@ -43,40 +24,16 @@ export async function generateMetadata({
     };
   }
 
-  // Craft a down-to-earth, rooted description that embodies our approach—like a Mississippi blueberry.
-  let defaultDescription = `At SanforDEV Consulting, we cultivate strong relationships and bring together exceptional talent to craft solutions as refreshing and grounded as a Mississippi blueberry. We help clients grow—from startups to established brands—by nurturing every detail from design to back-end development. `;
-
-  // Append a quirky fun fact depending on the case study
-  switch (id) {
-    case "fourth-party":
-      defaultDescription += `Fun fact: our mentor once said their partnership was as perfectly paired as a husband and wife startup—with a side of startup incubator magic in Atlanta!`;
-      break;
-    case "weed-warriors":
-      defaultDescription += `Fun fact: our friend quipped that after launching his website, he finally had something as legit as his green thumb!`;
-      break;
-    case "gorilla-fund":
-      defaultDescription += `Fun fact: during our sprint, we turned blog glitches into giggles while polishing the CMS for a smoother read.`;
-      break;
-    case "dare-to-share":
-      defaultDescription += `Fun fact: while enhancing dynamic animations, we joked that our code moved faster than a youth evangelism flash mob!`;
-      break;
-    case "room-in-the-inn-memphis":
-      defaultDescription += `Fun fact: collaborating on this project was as smooth as a Memphis jazz night and twice as spirited!`;
-      break;
-    default:
-      break;
-  }
-
   return {
     title: `${caseStudy.title} | Case Study`,
-    description: caseStudy.description || defaultDescription,
+    description: caseStudy.description,
     alternates: {
-      canonical: `/portfolio/${id}`,
+      canonical: `/portfolio/${params.id}`,
     },
     openGraph: {
       title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
-      description: caseStudy.description || defaultDescription,
-      url: `https://devsouth.us/portfolio/${id}`,
+      description: caseStudy.description,
+      url: `https://devsouth.us/portfolio/${params.id}`,
       images: [
         {
           url: caseStudy.image || "/images/portfolio-social.webp",
@@ -90,35 +47,69 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
-      description: caseStudy.description || defaultDescription,
+      description: caseStudy.description,
       images: [caseStudy.image || "/images/portfolio-social.webp"],
     },
   };
 }
 
-export const revalidate = 3600; // Revalidate every hour
-
-export default async function CaseStudyRoute({
+export default async function CaseStudyPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const resolvedParams = await params;
-  const id = resolvedParams.id;
+  const caseStudy = caseStudies.find((study) => study.id === params.id);
 
-  const CaseStudyComponent =
-    CaseStudyComponents[id as keyof typeof CaseStudyComponents];
-
-  if (!CaseStudyComponent) {
+  if (!caseStudy) {
     notFound();
   }
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 lg:py-12">
-        <CaseStudyNav currentId={id} />
-        <CaseStudyComponent />
-        <CaseStudyNav currentId={id} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-8">
+        <CaseStudyNav currentId={params.id} />
+        <CaseStudyLayout
+          title={caseStudy.title}
+          image={caseStudy.image}
+          imageAlt={caseStudy.imageAlt}
+          icons={caseStudy.icons}
+        >
+          <div className="space-y-8">
+            {/* Introduction */}
+            <p className="text-lg">{caseStudy.description}</p>
+
+            {/* Features Section */}
+            <section>
+              <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {caseStudy.features.map((feature, idx) => (
+                  <div key={idx} className="space-y-2">
+                    <h3 className="text-xl font-semibold">{feature.title}</h3>
+                    <p>{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Stats Section */}
+            <section>
+              <h2 className="text-2xl font-bold mb-6">Impact</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {caseStudy.stats.map((stat, idx) => (
+                  <div key={idx} className="text-center">
+                    <p className="text-3xl font-bold text-sky dark:text-azure">
+                      {stat.value}
+                    </p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </CaseStudyLayout>
+        <CaseStudyNav currentId={params.id} />
       </div>
     </div>
   );

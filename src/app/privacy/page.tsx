@@ -1,6 +1,6 @@
+import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
-import { Shield } from "@/lib/icons";
 
 export const revalidate = 3600;
 
@@ -8,8 +8,8 @@ const PrivacyContent = dynamic(() => import("./components/PrivacyContent"));
 
 export default function PrivacyPolicyRoute() {
   return (
-    <div className="min-h-screen pt-20 lg:pt-28 pb-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4 py-6 lg:py-10">
         {/* Hero Section - server rendered */}
         <div className="text-center mb-12 lg:mb-20 relative">
           {/* Decorative gradient circles */}
@@ -20,8 +20,12 @@ export default function PrivacyPolicyRoute() {
 
           {/* Hero content with icon */}
           <div className="flex flex-col items-center gap-6">
-            <div className="rounded-full bg-slate p-4 shadow-lg">
-              <Shield className="w-8 h-8 text-powder" />
+            <div className="rounded-full border border-azure dark:bg-azure dark:border-powder p-4 shadow-lg">
+              <Icon
+                name="Shield"
+                className="text-azure dark:text-powder"
+                size={24}
+              />
             </div>
 
             <h1
@@ -41,7 +45,7 @@ export default function PrivacyPolicyRoute() {
             </p>
 
             <div className="text-sm text-slate-500 dark:text-slate-400 mt-2">
-              Last Updated: April 6, 2025
+              Last Updated: April 7, 2025
             </div>
           </div>
         </div>
