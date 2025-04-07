@@ -7,16 +7,17 @@
     "build": "next build && npm run postbuild",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write .",
-    "prepare": "simple-git-hooks",
-    "pre-commit": "node -r ts-node/register scripts/debug-hooks.ts pre-commit && lint-staged",
+    "format": "prettier --write",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "set ANALYZE=true && next build",
     "netlify-build": "npm run build",
     "typescript": "tsc --noEmit",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "postinstall": "test -n \"$NETLIFY\" && npm i sharp@latest || echo 'Skipping sharp installation'",
-    "postbuild": "cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/"
+    "postbuild": "cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
+    "prepare": "node .github/scripts/prepare-hooks.js",
+    "test": "jest",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",
@@ -59,14 +60,9 @@
     "lint-staged": "^15.5.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
-    "simple-git-hooks": "^2.12.1",
     "tailwindcss": "^4.0.17",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.4.3"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
-    "pre-push": "npm run type-check"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
