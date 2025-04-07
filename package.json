@@ -12,9 +12,10 @@
     "pre-commit": "lint-staged",
     "analyze": "ANALYZE=true next build",
     "analyze:windows": "set ANALYZE=true && next build",
-    "netlify-build": "next build",
+    "netlify-build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
     "typescript": "tsc --noEmit",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "postinstall": "test -n \"$NETLIFY\" && npm i sharp@latest || echo 'Skipping sharp installation'"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.0",

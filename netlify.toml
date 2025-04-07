@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ./"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -8,16 +9,16 @@
 [build.environment]
   NODE_VERSION = "20.11.1"
   NPM_VERSION = "10.2.4"
-  # Enable build caching for faster builds
   NEXT_TELEMETRY_DISABLED = "1"
+  NEXT_SHARP_PATH = "/tmp/sharp"
+  NEXT_PUBLIC_URL = "https://devsouth.us"
 
-# Function settings with enhanced performance
 [functions]
   node_bundler = "esbuild"
   included_files = ["public/**"]
-  
+  external_node_modules = ["sharp"]
+
   [functions.api]
-    external_node_modules = ["next"]
     included_files = [".next/server/**", ".next/standalone/**"]
 
   [functions."*"]
@@ -31,9 +32,14 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/_next/image*"
+  for = "/_next/image/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*"
@@ -43,4 +49,5 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "upgrade-insecure-requests"
+    Cache-Control = "public, max-age=0, must-revalidate"
 

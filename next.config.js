@@ -25,6 +25,7 @@ const config = {
         hostname: "**",
       },
     ],
+    unoptimized: process.env.NODE_ENV === "production",
   },
 
   // Security & performance headers
@@ -51,6 +52,14 @@ const config = {
 
   // This ensures Next.js processes MDX files in the content directory
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+
+  output: "standalone",
+  experimental: {
+    serverActions: true,
+  },
+
+  // Add specific Netlify configuration
+  target: "serverless",
 };
 
 module.exports = bundleAnalyzer(config);
