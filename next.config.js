@@ -27,19 +27,6 @@ const config = {
     ],
   },
 
-  // Enhanced performance settings
-  experimental: {
-    turbo: {
-      resolveAlias: {
-        "@": "./src",
-      },
-    },
-    optimizeCss: true,
-  },
-
-  // External packages config (moved from experimental)
-  serverExternalPackages: ["react", "react-dom"],
-
   // Security & performance headers
   poweredByHeader: false,
   compress: true,

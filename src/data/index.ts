@@ -455,12 +455,12 @@ export const quickLinks: QuickLink[] = [
     icon: "Folder",
     description: "See our past work",
   },
-  // {
-  //   href: '/blog',
-  //   label: 'Blog',
-  //   icon: 'FileCode',
-  //   description: 'Latest tech insights',
-  // },
+  {
+    href: "/blog",
+    label: "Blog",
+    icon: "FileCode",
+    description: "Latest tech insights",
+  },
   {
     href: "/contact",
     label: "Contact",

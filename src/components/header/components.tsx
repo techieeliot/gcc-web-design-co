@@ -19,7 +19,7 @@ const links: { href: string; label: string }[] = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Our Work" },
-  // { href: '/blog', label: 'Blog' },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
