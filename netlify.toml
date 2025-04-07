@@ -43,31 +43,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "upgrade-insecure-requests"
-
-[[redirects]]
-  from = "https://devsouth.us/*"
-  to = "https://sanfor.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.sanfordev.com/*"
-  to = "https://sanfor.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.sanfordev.io/*"
-  to = "https://sanfor.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.sanfordev.net/*"
-  to = "https://sanfor.dev/:splat"
-  status = 301
-  force = true
-
+    
 # Fallback for SPA
 [[redirects]]
   from = "/*"
