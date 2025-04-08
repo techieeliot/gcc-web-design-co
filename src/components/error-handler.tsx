@@ -7,9 +7,8 @@ export function ErrorHandler() {
   useEffect(() => {
     const handleError = (event: ErrorEvent) => {
       clientLogger.error('Unhandled error:', {
-        error: event.error?.message || event.message,
-        stack: event.error?.stack,
-      });
+        message: event.message,
+      } as Error);
     };
 
     window.addEventListener('error', handleError);

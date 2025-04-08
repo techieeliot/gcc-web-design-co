@@ -3,48 +3,21 @@
 import { cn } from '@/lib/utils';
 import { Link } from '@/components/ui/link';
 import { companySocialLinks, quickLinks } from '@/data';
-import {
-  footerFadeIn,
-  quickLinkContainerVariants,
-  quickLinkItemVariants,
-} from '@/lib/animations';
+
 import { Icon, IconName } from '../ui/icon';
-import {
-  MotionDiv,
-  MotionSpan,
-  MotionH3,
-  MotionLi,
-  MotionSection,
-  MotionUl,
-} from '../ui/motion-components';
 
 export function QuickLinks({ showHeading = false }) {
   return (
     <div className={cn('w-full', showHeading ? 'mb-6' : 'mb-0')}>
       {showHeading && (
-        <MotionH3
-          initial={{ opacity: 0, transform: 'translateY(-5px)' }}
-          animate={{ opacity: 1, transform: 'translateY(0px)' }}
-          transition={{ duration: 0.5 }}
-          className="text-slate-800 dark:text-powder text-xl font-semibold mb-6 text-center md:text-left"
-        >
+        <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-6 text-center md:text-left">
           Quick Links
-        </MotionH3>
+        </h3>
       )}
 
-      <MotionUl
-        initial="hidden"
-        animate="visible"
-        variants={quickLinkContainerVariants}
-        className="grid grid-cols-1 md:grid-cols-2 gap-2"
-      >
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {quickLinks.map(({ href, label, icon }) => (
-          <MotionLi
-            key={href}
-            variants={quickLinkItemVariants}
-            whileHover={{ x: '3px' }}
-            className="w-full"
-          >
+          <li key={href} className="w-full">
             <Link
               href={href}
               variant="standaloneLink"
@@ -69,9 +42,9 @@ export function QuickLinks({ showHeading = false }) {
                 className="w-3.5 h-3.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover:text-sky dark:group-hover:text-azure opacity-0 group-hover:opacity-100 transition-all ml-auto"
               />
             </Link>
-          </MotionLi>
+          </li>
         ))}
-      </MotionUl>
+      </ul>
     </div>
   );
 }
@@ -92,14 +65,7 @@ function ContactItem({
   showExternalIcon = true,
 }: ContactItemProps) {
   return (
-    <MotionDiv
-      whileHover={{ x: '5px' }}
-      transition={{ type: 'spring', stiffness: 300 }}
-      transformTemplate={(_: any, transform: any) =>
-        `translateZ(0) ${transform}`
-      }
-      className="flex items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0"
-    >
+    <div className="flex items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0">
       <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
         <Icon name={icon} className="w-5 h-5 text-sky dark:text-azure" />
       </div>
@@ -114,17 +80,12 @@ function ContactItem({
       >
         {children}
         {showExternalIcon && (
-          <MotionSpan
-            initial={{ opacity: 0, x: '-5px' }}
-            whileHover={{ opacity: 1, x: '0px' }}
-            transition={{ duration: 0.2 }}
-            className="inline-flex"
-          >
+          <span className="inline-flex">
             <Icon name="ExternalLink" className="w-3 h-3" />
-          </MotionSpan>
+          </span>
         )}
       </Link>
-    </MotionDiv>
+    </div>
   );
 }
 
@@ -132,11 +93,7 @@ function ContactItem({
 
 export function Contact() {
   return (
-    <MotionSection
-      custom={2}
-      variants={footerFadeIn}
-      className="widget contact text-center md:text-left"
-    >
+    <section className="widget contact text-center md:text-left">
       <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-6">
         Contact Us
       </h3>
@@ -159,7 +116,7 @@ export function Contact() {
           </address>
         </ContactItem>
       </div>
-    </MotionSection>
+    </section>
   );
 }
 
@@ -167,11 +124,7 @@ export function Contact() {
 
 export function CompanyInfo() {
   return (
-    <MotionDiv
-      custom={0}
-      variants={footerFadeIn}
-      className="text-center md:text-left"
-    >
+    <div className="text-center md:text-left">
       <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-6">
         About SanforDEV
       </h3>
@@ -181,24 +134,15 @@ export function CompanyInfo() {
         accessible, performant, and delightful.
       </p>
       <SocialLinks />
-    </MotionDiv>
+    </div>
   );
 }
 
 export function SocialLinks() {
   return (
     <div className="flex items-center justify-center sm:justify-start gap-3 mt-5">
-      {companySocialLinks.map(({ href, icon, label, color }, index) => (
-        <MotionDiv
-          key={href}
-          initial={{ opacity: 0, transform: 'translateY(10px)' }}
-          animate={{ opacity: 1, transform: 'translateY(0px)' }}
-          transition={{ delay: 0.1 * (index + 3) }}
-          whileHover={{ transform: 'translateY(-5px)' }}
-          transformTemplate={(_: any, transform: any) =>
-            `translateZ(0) ${transform}`
-          }
-        >
+      {companySocialLinks.map(({ href, icon, label, color }) => (
+        <div key={href}>
           <Link
             href={href}
             target="_blank"
@@ -214,34 +158,15 @@ export function SocialLinks() {
           >
             <Icon name={icon} className="w-5 h-5" />
           </Link>
-        </MotionDiv>
+        </div>
       ))}
     </div>
   );
 }
 
-export function FooterBackground() {
-  return (
-    <MotionDiv
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.2 }}
-      viewport={{ once: true }}
-      className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
-    >
-      <div className="absolute -top-32 -right-32 w-96 h-96 bg-sky/5 dark:bg-azure/5 rounded-full blur-3xl" />
-      <div className="absolute -bottom-48 -left-32 w-96 h-96 bg-sky/5 dark:bg-azure/5 rounded-full blur-3xl" />
-    </MotionDiv>
-  );
-}
-
 export function Copyright({ currentYear }: { currentYear: number }) {
   return (
-    <MotionDiv
-      initial={{ opacity: 0, transform: 'translateY(20px)' }} // Added units
-      whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.5 }}
+    <div
       className={cn(
         'border-t border-slate-200 dark:border-slate-800',
         'mt-12 pt-8 pb-8'
@@ -253,35 +178,18 @@ export function Copyright({ currentYear }: { currentYear: number }) {
         </p>
         <MadeWithLove />
       </div>
-    </MotionDiv>
+    </div>
   );
 }
 
 function MadeWithLove() {
   return (
-    <MotionDiv
-      initial={{ opacity: 0, y: '20px' }} // Added units
-      whileInView={{ opacity: 1, y: '0px' }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.7 }}
-      className="text-sm text-slate-500 dark:text-powder/70 flex items-center gap-1"
-    >
+    <div className="text-sm text-slate-500 dark:text-powder/70 flex items-center gap-1">
       Made with
-      <MotionSpan
-        className="inline-flex items-center mx-1"
-        animate={{
-          scale: [1, 1.2, 1],
-          y: ['0px', '-2px', '0px'], // Added subtle float animation with units
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          repeatType: 'loop',
-        }}
-      >
+      <span className="inline-flex items-center mx-1">
         <Icon name="Heart" className="w-4 h-4 text-red-500 fill-current" />
-      </MotionSpan>
+      </span>
       in Mississippi
-    </MotionDiv>
+    </div>
   );
 }

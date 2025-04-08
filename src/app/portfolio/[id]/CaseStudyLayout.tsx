@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { Icon, IconName } from '@/components/ui/icon';
-import { MotionH1, MotionSection } from '@/components/ui/motion-components';
+import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 
 interface CaseStudyLayoutProps {
   title: string;
@@ -31,7 +31,11 @@ export function CaseStudyLayout({
             alt={imageAlt}
             fill
             className="object-cover"
+            sizes={defaultImageSizes}
             priority
+            quality={90}
+            placeholder="blur"
+            blurDataURL={generateBlurPlaceholder(1200, 800)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
@@ -49,20 +53,13 @@ export function CaseStudyLayout({
           </div>
         </div>
 
-        <MotionH1
-          initial={{ opacity: 0, transform: 'translateY(20px)' }}
-          animate={{ opacity: 1, transform: 'translateY(0px)' }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6"
-        >
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6">
           {title}
-        </MotionH1>
+        </h1>
       </header>
 
       {/* Content Section */}
-      <MotionSection
-        initial={{ opacity: 0, transform: 'translateY(20px)' }}
-        animate={{ opacity: 1, transform: 'translateY(0px)' }}
-        transition={{ delay: 0.2 }}
+      <section
         className={cn(
           'prose prose-slate dark:prose-invert max-w-none',
           'prose-headings:text-slate-900 dark:prose-headings:text-white',
@@ -72,7 +69,7 @@ export function CaseStudyLayout({
         )}
       >
         {children}
-      </MotionSection>
+      </section>
     </article>
   );
 }

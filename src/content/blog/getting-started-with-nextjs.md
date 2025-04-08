@@ -4,9 +4,8 @@ publishedAt: '2024-04-02'
 summary: 'A beginner-friendly guide to setting up a Next.js project with TypeScript, App Router, and modern best practices.'
 image: '/blog/getting-started-with-nextjs.webp'
 author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+tags: ['next.js', 'beginner', 'typescript', 'best practices']
 ---
-
-# Getting Started with Next.js
 
 There's something refreshing about starting a new Next.js project—like stepping into a vibrant garden full of potential.
 This guide walks you through setting up your project while emphasizing best practices that help your ideas grow naturally.

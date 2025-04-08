@@ -18,6 +18,11 @@ export interface Post {
   content: string;
   blurDataUrl?: string;
   author: Author;
+  featured?: boolean;
+  tags?: string[];
+  readingTime?: string;
+  canonical?: string;
+  ogImage?: string;
 }
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog');
@@ -55,17 +60,13 @@ export function getPostBySlug(slug: string): Post | null {
 
     return {
       slug,
-      title: data.title,
-      publishedAt: data.publishedAt,
-      summary: data.summary,
-      image: data.image,
       content,
-      author: data.author,
+      ...(data as Omit<Post, 'slug' | 'content'>),
     };
   } catch (error) {
     clientLogger.error(
-      `Error reading post ${slug}: ${error}`,
-      'blog:getPostBySlug'
+      `Error reading post ${slug}: ${(error as Error).toString()}`,
+      error as Error
     );
     return null;
   }

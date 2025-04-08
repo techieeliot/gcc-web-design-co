@@ -1,12 +1,10 @@
 'use client';
 
 import { Icon, IconName } from '@/components/ui/icon';
-import { MotionArticle } from '@/components/ui/motion-components';
-import { useAnimation, useInView } from '@/lib/animations';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 interface CaseStudyCardProps {
   id: string;
@@ -39,39 +37,10 @@ export const CaseStudyCard = ({
   index = 0,
 }: CaseStudyCardProps) => {
   const ref = useRef(null);
-  const controls = useAnimation();
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start('visible');
-    }
-  }, [isInView, controls]);
 
   return (
-    <MotionArticle
+    <article
       ref={ref}
-      initial="hidden"
-      animate={controls}
-      whileHover="hover"
-      variants={{
-        hidden: { opacity: 0, transform: 'translateY(20px)' },
-        visible: {
-          opacity: 1,
-          transform: 'translateY(0px)',
-          transition: {
-            duration: 0.5,
-            delay: index * 0.1,
-          },
-        },
-        hover: {
-          transform: 'translateY(-5px)',
-          transition: {
-            duration: 0.2,
-            ease: 'easeOut',
-          },
-        },
-      }}
       className={cn(
         'group relative flex flex-col',
         'overflow-hidden rounded-xl',
@@ -169,6 +138,6 @@ export const CaseStudyCard = ({
           </div>
         </div>
       </Link>
-    </MotionArticle>
+    </article>
   );
 };

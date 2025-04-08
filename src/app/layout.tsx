@@ -7,8 +7,7 @@ import Footer from '@/components/footer';
 import { domains } from '@/config/domains';
 import { cn } from '@/lib/utils';
 import { ErrorHandler } from '@/components/error-handler';
-import { ReactNode, Suspense } from 'react';
-import Providers from '@/providers';
+import { ReactNode } from 'react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -33,22 +32,6 @@ const poppins = Poppins({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-          crossOrigin=""
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body
         className={cn(
           poppins.variable,
@@ -58,15 +41,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         suppressHydrationWarning
         data-remove-attribute="cz-shortcut-listen"
       >
-        <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster position="top-center" richColors />
-          <ErrorHandler />
-        </Providers>
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+        <Toaster position="top-center" richColors />
+        <ErrorHandler />
       </body>
     </html>
   );

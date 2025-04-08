@@ -2,8 +2,12 @@ import { Metadata } from 'next';
 import { caseStudies } from '@/data';
 import { cn } from '@/lib/utils';
 import { CaseStudyCard } from './[id]/CaseStudyCard';
-import BlueberryIcon from '@/components/BlueberryIcon';
 import { ValueProposition } from '../components';
+import PageWrapper from '@/components/PageWrapper';
+import Image from 'next/image';
+import { generateBlurPlaceholder } from '@/lib/image';
+import { Suspense } from 'react';
+import { Shimmer } from '@/components/ui/shimmer';
 
 // Metadata configuration
 export const metadata: Metadata = {
@@ -42,49 +46,60 @@ export const metadata: Metadata = {
 
 export default function PortfolioRoute() {
   return (
-    <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto flex flex-col px-4 py-6 lg:py-10 gap-16">
-        {/* Page Header */}
-        <header className="mb-12 lg:mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-center lg:text-left">
-            Our Work
-          </h1>
+    <PageWrapper>
+      {/* Page Header */}
+      <header>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-center lg:text-left">
+          Our Work
+        </h1>
 
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10">
-            {/* Description paragraph */}
-            <p
-              className={cn(
-                'text-lg lg:text-xl',
-                'max-w-3xl order-2 lg:order-1',
-                'text-center lg:text-left',
-                'text-slate-600 dark:text-slate-300'
-              )}
-            >
-              At SanforDEV Consulting, we blend a city boy's sensibility with
-              deep agrarian roots. We cultivate genuine relationships and gather
-              top talent and trusted partners to nurture every project from idea
-              to reality. Explore our case studies to see how we help businesses
-              grow—rooted in authenticity, care, and a forward-thinking
-              approach.
-            </p>
-
-            <BlueberryIcon className="order-1 lg:order-2 flex-shrink-0" />
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10">
+          {/* Description paragraph */}
+          <p
+            className={cn(
+              'text-lg lg:text-xl',
+              'max-w-3xl order-2 lg:order-1',
+              'text-center lg:text-left',
+              'text-slate-600 dark:text-slate-300'
+            )}
+          >
+            At SanforDEV Consulting, we blend a city boy's sensibility with deep
+            agrarian roots. We cultivate genuine relationships and gather top
+            talent and trusted partners to nurture every project from idea to
+            reality. Explore our case studies to see how we help businesses
+            grow—rooted in authenticity, care, and a forward-thinking approach.
+          </p>
+          <div className="flex flex-col gap-4 order-1 lg:order-2">
+            <Suspense fallback={<Shimmer width={400} height={300} />}>
+              <Image
+                src="/images/pic14.webp"
+                alt="SanforDEV Portfolio"
+                width={400}
+                height={300}
+                className="rounded-lg shadow-lg"
+                priority
+                quality={90}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 400px"
+                placeholder="blur"
+                blurDataURL={generateBlurPlaceholder(400, 300)}
+              />
+            </Suspense>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Case Studies Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {caseStudies.map((study, index) => (
-            <CaseStudyCard key={study.id} index={index} {...study} />
-          ))}
-        </section>
-        <section
-          // reduce the width of the section to 100% to make it full width
-          className="w-full rounded-xl p-6 md:p-8 lg:p-32 shadow-lg"
-        >
-          <ValueProposition />
-        </section>
-      </div>
-    </div>
+      {/* Case Studies Grid */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {caseStudies.map((study, index) => (
+          <CaseStudyCard key={study.id} index={index} {...study} />
+        ))}
+      </section>
+      <section
+        // reduce the width of the section to 100% to make it full width
+        className="w-full rounded-xl p-6 md:p-8 lg:p-32 shadow-lg"
+      >
+        <ValueProposition />
+      </section>
+    </PageWrapper>
   );
 }

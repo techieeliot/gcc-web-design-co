@@ -4,9 +4,8 @@ publishedAt: '2024-04-03'
 summary: 'A comprehensive guide to organizing and scaling Tailwind CSS in large enterprise applications with component patterns and performance optimization.'
 image: '/blog/tailwind-best-practices.webp'
 author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+tags: ['tailwind', 'css', 'ui/ux', 'patterns', 'performance']
 ---
-
-# Tailwind CSS Best Practices for Enterprise Projects
 
 Tailwind CSS transforms how we style digital experiences—like cultivating a well-tended garden where every utility class has its purpose.
 In large-scale projects, organization is key. Here's how to nurture consistency and efficiency in enterprise-level Tailwind projects.
@@ -160,7 +159,7 @@ Each plugin is like a specialized tool for caring for a specific part of your or
 
 ### PurgeCSS & JIT Mode
 
-Properly configuring PurgeCSS ensures your CSS remains lean, just like we prune our blueberry plants.
+Properly configuring PurgeCSS ensures your CSS remains lean, just like we prune plants.
 
 ```js
 // tailwind.config.js

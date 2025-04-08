@@ -51,7 +51,7 @@ npm run lint
 echo "⌛ Processing files..."
 # Process files in smaller batches using find
 git diff --cached --name-only --diff-filter=ACM |
-  grep -E '\.(js|jsx|ts|tsx)$' |
+  grep -E '\.(js|jsx|ts|tsx|md|mdx)$' |
   while IFS= read -r file; do
     if [ -f "$file" ]; then
       printf "Formatting %s..." "$file"

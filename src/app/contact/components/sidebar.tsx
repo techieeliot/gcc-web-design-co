@@ -3,7 +3,6 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
-import { MotionAside } from '@/components/ui/motion-components';
 
 interface ContactInfoProps {
   icon: React.ReactNode;
@@ -25,10 +24,7 @@ const ContactInfo = ({ icon, title, content }: ContactInfoProps) => (
 
 export function ContactSidebar() {
   return (
-    <MotionAside
-      initial={{ opacity: 0, transform: 'translateY(20px)' }}
-      animate={{ opacity: 1, transform: 'translateY(0px)' }}
-      transition={{ duration: 0.6 }}
+    <aside
       className={cn(
         'lg:col-span-4 h-fit',
         'space-y-6 lg:sticky lg:top-24 self-start',
@@ -61,6 +57,6 @@ export function ContactSidebar() {
           content="Clinton, Mississippi, USA"
         />
       </div>
-    </MotionAside>
+    </aside>
   );
 }

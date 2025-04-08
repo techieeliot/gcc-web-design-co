@@ -43,10 +43,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
           toast.error('Failed to copy link', {
             duration: 3000,
           });
-          clientLogger.error('Failed to copy link:', {
-            error: (err as Error).message,
-            stack: (err as Error).stack,
-          });
+          clientLogger.error('Failed to copy link:', err as Error);
         }
       },
       label: 'Copy link',

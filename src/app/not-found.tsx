@@ -2,7 +2,6 @@
 
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
-import { MotionDiv } from '@/components/ui/motion-components';
 import { useEffect, useState } from 'react';
 
 export default function NotFound() {
@@ -18,12 +17,7 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <MotionDiv
-        initial={{ opacity: 0, transform: 'translateY(20px)' }}
-        animate={{ opacity: 1, transform: 'translateY(0px)' }}
-        transition={{ duration: 0.5 }}
-        className="text-center max-w-xl"
-      >
+      <div className="text-center max-w-xl">
         <div className="mb-8 flex justify-center text-9xl">🌻</div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
           404 - Page Not Found
@@ -38,7 +32,7 @@ export default function NotFound() {
           <Icon name="ArrowLeft" className="w-4 h-4" />
           Back to Home
         </Link>
-      </MotionDiv>
+      </div>
     </div>
   );
 }

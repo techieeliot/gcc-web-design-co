@@ -9,9 +9,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/components/ui/link';
 import { FormField } from './FormField';
-import { fadeInAnimation } from '@/lib/animations';
 import { Icon } from '@/components/ui/icon';
-import { MotionArticle, MotionDiv } from '@/components/ui/motion-components';
 
 const formSchema = z.object({
   name: z
@@ -111,23 +109,14 @@ export default function ContactForm() {
   const errorClasses = 'text-red-500 dark:text-red-400 text-sm font-medium';
 
   return (
-    <MotionArticle
-      initial="hidden"
-      animate="visible"
-      variants={fadeInAnimation}
+    <article
       className={cn(
         'backdrop-blur-md rounded-xl p-8 shadow-lg',
         'bg-white dark:bg-slate-900',
         'border border-slate-200 dark:border-slate-800'
       )}
     >
-      <MotionDiv
-        className="text-center"
-        variants={fadeInAnimation}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.2 }}
-      >
+      <div className="text-center">
         <h2 className="font-bold tracking-tight mb-6">
           Let's Ignite Your Vision
         </h2>
@@ -141,17 +130,12 @@ export default function ContactForm() {
 
         {submitSuccess ? (
           <div className="py-8 text-center">
-            <MotionDiv
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex justify-center mb-4"
-            >
+            <div className="flex justify-center mb-4">
               <Icon
                 name="CheckCircle"
                 className="w-16 h-16 text-green-500 dark:text-green-400"
               />
-            </MotionDiv>
+            </div>
             <h3 className="text-2xl md:text-3xl font-bold mb-2">
               Message Delivered!
             </h3>
@@ -330,11 +314,7 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <MotionDiv
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                tabIndex={-1}
-              >
+              <div tabIndex={-1}>
                 <Button
                   type="submit"
                   size="xl"
@@ -354,14 +334,9 @@ export default function ContactForm() {
                       )}
                     </span>
                   </span>
-                  <MotionDiv
-                    className="absolute inset-0 bg-gradient-to-r from-sky via-azure to-sky dark:from-azure dark:via-sky dark:to-azure"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 1 }}
-                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-sky via-azure to-sky dark:from-azure dark:via-sky dark:to-azure" />
                 </Button>
-              </MotionDiv>
+              </div>
 
               {isSubmitting && (
                 <p className="mt-2 text-sky dark:text-azure flex items-center">
@@ -372,7 +347,7 @@ export default function ContactForm() {
             </div>
           </form>
         )}
-      </MotionDiv>
-    </MotionArticle>
+      </div>
+    </article>
   );
 }

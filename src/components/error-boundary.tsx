@@ -11,11 +11,7 @@ export default function ErrorBoundary({
   reset: () => void;
 }) {
   useEffect(() => {
-    clientLogger.error('Client-side error caught by boundary:', {
-      error: error.message,
-      stack: error.stack,
-      digest: error.digest,
-    });
+    clientLogger.error('Client-side error caught by boundary:', error);
   }, [error]);
 
   return (

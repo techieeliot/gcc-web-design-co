@@ -180,18 +180,8 @@ let config = {
 
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
-    // Enable modern JavaScript features
+    optimizePackageImports: ['lucide-react'],
     swcMinify: true,
-    serverComponentsExternalPackages: [
-      'sharp',
-      '@next/swc-darwin-arm64',
-      '@next/swc-darwin-x64',
-      '@next/swc-linux-x64-gnu',
-      '@next/swc-linux-x64-musl',
-    ],
-    platformAgnostic: true,
-    forceSwcTransforms: true,
   },
 
   // Increase timeout for font loading

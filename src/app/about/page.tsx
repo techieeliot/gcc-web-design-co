@@ -1,3 +1,4 @@
+import PageWrapper from '@/components/PageWrapper';
 import {
   ClientAboutSection as AboutSection,
   ClientCompanyFacts as CompanyFacts,
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function AboutRoute() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <PageWrapper>
       <header className="mb-5 lg:mb-8">
         <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-center lg:text-left">
           About SanforDEV
@@ -41,13 +42,13 @@ export default function AboutRoute() {
           accessibility, and impact.
         </p>
       </header>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+      <article className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         <AboutSection />
         <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 self-start">
           <CompanyFacts />
           <ConnectWithUs />
         </aside>
-      </div>
-    </div>
+      </article>
+    </PageWrapper>
   );
 }

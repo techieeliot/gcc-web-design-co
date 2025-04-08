@@ -8,6 +8,7 @@ import {
   BlogHighlightSection,
 } from './components';
 import Loading from './loading';
+import PageWrapper from '@/components/PageWrapper';
 
 export const metadata: Metadata = {
   title: 'React Ecosystem Specialists | SanforDEV Consulting',
@@ -44,7 +45,7 @@ export const revalidate = 3600; // Revalidate every hour
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <PageWrapper>
       <Suspense fallback={<Loading />}>
         <HeroSection />
         <FeaturesSection />
@@ -52,6 +53,6 @@ export default function HomePage() {
         <ShowcaseSection />
         <CallToActionSection />
       </Suspense>
-    </div>
+    </PageWrapper>
   );
 }

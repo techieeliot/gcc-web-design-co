@@ -3,8 +3,10 @@ import { caseStudies } from '@/data';
 import { Metadata } from 'next';
 import { CaseStudyNav } from './CaseStudyNav';
 import { CaseStudyLayout } from './CaseStudyLayout';
+import { Suspense } from 'react';
+import { Shimmer } from '@/components/ui/shimmer';
 
-export async function generateStaticParams(): Promise<any[]> {
+export async function generateStaticParams(): Promise<{ id: string }[]> {
   return caseStudies.map((study) => ({
     id: study.id,
   }));
@@ -58,51 +60,53 @@ export default async function CaseStudyPage({ params }: any) {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-8">
-        <CaseStudyNav currentId={params.id} />
-        <CaseStudyLayout
-          title={caseStudy.title}
-          image={caseStudy.image}
-          imageAlt={caseStudy.imageAlt}
-          icons={caseStudy.icons}
-        >
-          <div className="space-y-8">
-            {/* Introduction */}
-            <p className="text-lg">{caseStudy.description}</p>
+      <Suspense fallback={<Shimmer />}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-8">
+          <CaseStudyNav currentId={params.id} />
+          <CaseStudyLayout
+            title={caseStudy.title}
+            image={caseStudy.image}
+            imageAlt={caseStudy.imageAlt}
+            icons={caseStudy.icons}
+          >
+            <div className="space-y-8">
+              {/* Introduction */}
+              <p className="text-lg">{caseStudy.description}</p>
 
-            {/* Features Section */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6">Key Features</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {caseStudy.features.map((feature, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <h3 className="text-xl font-semibold">{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+              {/* Features Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {caseStudy.features.map((feature, idx) => (
+                    <div key={idx} className="space-y-2">
+                      <h3 className="text-xl font-semibold">{feature.title}</h3>
+                      <p>{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
 
-            {/* Stats Section */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6">Impact</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {caseStudy.stats.map((stat, idx) => (
-                  <div key={idx} className="text-center">
-                    <p className="text-3xl font-bold text-sky dark:text-azure">
-                      {stat.value}
-                    </p>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        </CaseStudyLayout>
-        <CaseStudyNav currentId={params.id} />
-      </div>
+              {/* Stats Section */}
+              <section>
+                <h2 className="text-2xl font-bold mb-6">Impact</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {caseStudy.stats.map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <p className="text-3xl font-bold text-sky dark:text-azure">
+                        {stat.value}
+                      </p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+          </CaseStudyLayout>
+          <CaseStudyNav currentId={params.id} />
+        </div>
+      </Suspense>
     </div>
   );
 }

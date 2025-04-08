@@ -3,20 +3,11 @@ import React, { Suspense, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Link } from '../ui/link';
-import { desktopLinkVariants, AnimatePresence } from '@/lib/animations';
 import { NavLink } from '../ui/nav-link';
 import { Shimmer } from '../ui/shimmer';
 import { usePathname } from 'next/navigation';
 import { Icon } from '../ui/icon';
-import { LoadingFallback } from '../ui/loading-fallback';
-import {
-  MotionButton,
-  MotionDiv,
-  MotionLi,
-  MotionNav,
-  MotionSpan,
-  MotionUl,
-} from '../ui/motion-components';
+import { Button } from '../ui/button';
 
 function LogoSkeleton() {
   return (
@@ -112,7 +103,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
 
   return (
     <>
-      <MotionDiv
+      <div
         className={cn(
           'fixed top-0 left-0 right-0',
           'z-[100]',
@@ -132,14 +123,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
               )}
             >
               {/* Logo Section with Shimmer fallback */}
-              <MotionDiv
-                whileTap={{ scale: 0.95 }}
-                className="relative"
-                tabIndex={-1}
-                transformTemplate={(_: any, transform: any) =>
-                  `translateZ(0) ${transform}`
-                }
-              >
+              <div>
                 <Link
                   href="/"
                   noButtonWrapper={true} // Use this to bypass the Button wrapper
@@ -153,76 +137,30 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   {/* Logo container with proper spacing and visibility */}
                   <div className="relative flex items-center justify-center overflow-visible">
                     {/* Outer animated ring */}
-                    <MotionDiv
+                    <div
                       className={cn(
                         'absolute rounded-full border-2 border-sky/20 dark:border-azure/20',
                         '-left-1 -top-1'
                       )}
-                      animate={{
-                        opacity: [0.4, 0.8, 0.4],
-                        rotate: [0, 360],
-                      }}
-                      transition={{
-                        opacity: {
-                          duration: 3,
-                          repeat: Infinity,
-                          repeatType: 'mirror',
-                        },
-                        rotate: {
-                          duration: 20,
-                          repeat: Infinity,
-                          ease: 'linear',
-                        },
-                      }}
                     />
 
                     {/* Logo circle */}
-                    <MotionDiv
-                      whileHover={{
-                        scale: [1, 1.05, 1],
-                        transition: {
-                          duration: 0.8,
-                          repeat: 0,
-                          ease: 'easeInOut',
-                        },
-                      }}
+                    <div
                       className={cn(
                         'rounded-full bg-slate flex items-center justify-center',
                         'relative z-10',
                         'w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14'
                       )}
                     >
-                      <MotionDiv
-                        className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-azure/20"
-                        whileHover={{
-                          borderColor: [
-                            'rgba(56, 189, 248, 0.2)',
-                            'rgba(129, 140, 248, 0.3)',
-                            'rgba(56, 189, 248, 0.2)',
-                          ],
-                        }}
-                        transition={{ duration: 2, repeat: 0 }}
-                      />
+                      <div className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-azure/20" />
 
                       {/* Pulsing background */}
-                      <MotionDiv
-                        className="absolute inset-0 rounded-full bg-sky/10 dark:bg-azure/10"
-                        animate={{
-                          scale: [1, 1.1, 1],
-                          opacity: [0.5, 0.8, 0.5],
-                        }}
-                        transition={{
-                          duration: 3,
-                          ease: 'easeInOut',
-                          repeat: Infinity,
-                          repeatType: 'mirror',
-                        }}
-                      />
+                      <div className="absolute inset-0 rounded-full bg-sky/10 dark:bg-azure/10" />
 
                       {/* Add Shimmer while image loads */}
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
                         <Shimmer className="absolute inset-0 rounded-full" />
-                        <Suspense fallback={<LoadingFallback height="full" />}>
+                        <Suspense fallback={<Shimmer height="full" />}>
                           <Image
                             src="/blueberry-atom.svg"
                             alt="SanforDEV Logo"
@@ -252,13 +190,8 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       </div>
 
                       {/* Hover effect */}
-                      <MotionDiv
-                        className="absolute inset-0 bg-azure/20 rounded-full"
-                        initial={{ scale: 0, opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.4 }}
-                      />
-                    </MotionDiv>
+                      <div className="absolute inset-0 bg-azure/20 rounded-full" />
+                    </div>
                   </div>
 
                   {/* Brand text */}
@@ -271,73 +204,31 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     )}
                   >
                     Sanfor
-                    <MotionSpan
-                      className="text-sky relative inline-block"
-                      animate={{
-                        color: ['#38bdf8', '#818cf8', '#38bdf8'],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                      }}
-                    >
-                      DEV
-                    </MotionSpan>
+                    <span className="text-sky relative inline-block">DEV</span>
                     <span className="hidden sm:inline md:hidden xl:inline">
                       {' '}
                       Consulting
                     </span>
                   </span>
                 </Link>
-              </MotionDiv>
+              </div>
 
               {/* Desktop Nav - Enhanced with animations */}
-              <MotionNav
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="hidden md:flex h-full items-center space-x-4"
-              >
+              <nav className="hidden md:flex h-full items-center space-x-4">
                 <ul className="flex items-center gap-1 md:gap-1 lg:gap-2 xl:gap-4">
-                  {links.map(({ href, label }, i) => (
-                    <MotionLi
-                      key={href}
-                      custom={i}
-                      variants={desktopLinkVariants}
-                      initial="initial"
-                      animate="animate"
-                      whileHover="hover"
-                    >
-                      <NavLink href={href} label={label} custom={i} />
-                    </MotionLi>
+                  {links.map(({ href, label }) => (
+                    <li key={href}>
+                      <NavLink href={href} label={label} />
+                    </li>
                   ))}
                 </ul>
-                <MotionDiv
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 15,
-                    delay: 0.8,
-                  }}
-                  className="ml-2 lg:ml-4"
-                >
-                  {/* <ThemeToggle /> */}
-                </MotionDiv>
-              </MotionNav>
+                <div className="ml-2 lg:ml-4">{/* <ThemeToggle /> */}</div>
+              </nav>
 
               {/* Mobile Menu Button - Enhanced interaction */}
-              <MotionDiv
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="md:hidden flex items-center gap-2"
-              >
+              <div className="md:hidden flex items-center gap-2">
                 {/* <ThemeToggle /> */}
-                <MotionButton
-                  whileTap={{ scale: 0.9 }}
+                <Button
                   onClick={() => setIsOpen(!isOpen)}
                   className={cn(
                     'p-2 rounded-full',
@@ -349,23 +240,19 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   aria-label={isOpen ? 'Close menu' : 'Open menu'}
                   aria-expanded={isOpen}
                 >
-                  <MotionDiv
-                    initial={false}
-                    animate={{ rotate: isOpen ? 90 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  <div>
                     {isOpen ? (
                       <Icon name="X" className="w-6 h-6" />
                     ) : (
                       <Icon name="Menu" className="w-6 h-6" />
                     )}
-                  </MotionDiv>
-                </MotionButton>
-              </MotionDiv>
+                  </div>
+                </Button>
+              </div>
             </div>
           </div>
         </header>
-      </MotionDiv>
+      </div>
 
       {/* Mobile Navigation */}
       <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -399,24 +286,17 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
   }, [pathname, setIsOpen]);
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
         <>
           {/* Backdrop */}
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-slate-50 dark:bg-slate-900 z-40"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Menu panel */}
-          <MotionDiv
-            initial={{ x: '100%' }}
-            animate={{ x: '0px' }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+          <div
             className={cn(
               'fixed top-0 right-0 h-full w-[280px] z-50',
               'bg-slate-50 dark:bg-slate-900', // Solid backgrounds here as well
@@ -427,45 +307,18 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
             <div className="flex flex-col h-full">
               {/* Nav links */}
               <nav className="flex-1 overflow-y-auto p-4">
-                <MotionUl
-                  className="space-y-2"
-                  initial="closed"
-                  animate="open"
-                  variants={{
-                    open: {
-                      transition: { staggerChildren: 0.1 },
-                    },
-                    closed: {},
-                  }}
-                >
-                  {links.map((link, i) => (
-                    <MotionLi
-                      key={link.href}
-                      variants={{
-                        open: {
-                          opacity: 1,
-                          x: '0px',
-                          transition: {
-                            type: 'spring',
-                            damping: 20,
-                          },
-                        },
-                        closed: { opacity: 0, x: '20px' },
-                      }}
-                    >
-                      <NavLink
-                        {...link}
-                        onClick={() => setIsOpen(false)}
-                        custom={i}
-                      />
-                    </MotionLi>
+                <ul className="space-y-2">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <NavLink {...link} onClick={() => setIsOpen(false)} />
+                    </li>
                   ))}
-                </MotionUl>
+                </ul>
               </nav>
             </div>
-          </MotionDiv>
+          </div>
         </>
       )}
-    </AnimatePresence>
+    </>
   );
 }

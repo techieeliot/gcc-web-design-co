@@ -1,8 +1,10 @@
 import { Link } from '@/components/ui/link';
 import Image from 'next/image';
-import { Post } from './[slug]/utils';
+import { getAllPosts, Post } from './[slug]/utils';
 import { ValueProposition } from '../components';
 import { generateBlurPlaceholder } from '@/lib/image';
+import Markdown from 'markdown-to-jsx';
+import DateDisplay from '@/components/DateDisplay';
 
 export const RecentPosts = ({ posts }: { posts: Post[] }) => {
   return (
@@ -13,10 +15,13 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
 
       <div className="space-y-8">
         {posts.map((post) => (
-          <article key={post.slug} className="flex flex-col gap-6 group">
+          <article
+            key={post.slug}
+            className="flex flex-col gap-6 lg:gap-3 group lg:items-center lg:justify-between xl:flex-col"
+          >
             <Link
               href={`/blog/${post.slug}`}
-              className="relative aspect-[16/9] w-full md:w-3/5 rounded-xl overflow-hidden h-fit"
+              className="relative aspect-[16/9] rounded-xl overflow-hidden h-fit w-full lg:h-full lg:w-fit"
             >
               <Image
                 src={post.image}
@@ -25,21 +30,17 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
                 height={450}
                 quality={75}
                 placeholder="blur"
-                blurDataURL={post.blurDataUrl}
+                blurDataURL={
+                  post.blurDataUrl || generateBlurPlaceholder(800, 450)
+                }
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition"
+                className="object-cover transition-all duration-300 group-hover:scale-105"
                 loading="lazy"
               />
             </Link>
             <div>
               <header className="mb-2">
-                <time className="text-sm text-slate-500 dark:text-slate-400">
-                  {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
-                </time>
+                <DateDisplay date={post.publishedAt} />
                 <h3 className="text-xl font-semibold mt-1">
                   <Link
                     variant="inlineLink"
@@ -61,7 +62,8 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
   );
 };
 
-export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
+export const FeaturedPost = () => {
+  const featuredPost = getAllPosts().find((post) => post.featured);
   return (
     <section className="bg-white dark:bg-slate-800 rounded-xl p-6">
       <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -88,13 +90,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
             />
           </Link>
           <header className="mb-4">
-            <time className="text-sm text-slate-500 dark:text-slate-400">
-              {new Date(featuredPost.publishedAt).toLocaleDateString('en-US', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-              })}
-            </time>
+            <DateDisplay date={featuredPost.publishedAt} />
             <Link href={`/blog/${featuredPost.slug}`} variant="inlineLink">
               <h3 className="text-xl font-semibold whitespace-break-spaces">
                 {featuredPost.title}
@@ -104,6 +100,42 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
               {featuredPost.summary}
             </p>
           </header>
+          <Markdown
+            // place gaps between block elements
+            options={{
+              overrides: {
+                h2: {
+                  component: ({ children }) => (
+                    <h2 className="text-xl font-semibold mb-4">{children}</h2>
+                  ),
+                },
+                h3: {
+                  component: ({ children }) => (
+                    <h3 className="text-lg font-semibold mb-4">{children}</h3>
+                  ),
+                },
+                p: {
+                  component: ({ children }) => (
+                    <p className="text-slate-600 dark:text-slate-300 mb-4">
+                      {children}
+                    </p>
+                  ),
+                },
+              },
+            }}
+            className="line-clamp-5 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg"
+          >
+            {
+              // skip the title that's already displayed in the header
+              featuredPost.content
+                .split('\n')
+                .slice(1)
+                .join('\n')
+                .replace(/^\s*#\s+/, '')
+                .replace(featuredPost.title, '')
+            }
+          </Markdown>
+
           <Link href={`/blog/${featuredPost.slug}`} variant="outline">
             Continue Reading
             <span className="sr-only">{featuredPost.title}</span>
@@ -116,19 +148,19 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
 
 export const BlogEngagementSection = () => {
   return (
-    <section className="bg-white dark:bg-slate-800 rounded-xl p-6">
+    <section className="bg-white dark:bg-slate-800 rounded-xl p-6 flex flex-col gap-6">
       <h2 className="text-2xl font-bold">Enjoying Our Insights?</h2>
-      <p className="mt-2 text-lg">
+      <p className="text-lg">
         Our blog delves into the latest in web development, cutting-edge design
         strategies, and all things tech. We strive to offer you deep insights,
         practical tips, and real-life stories from the digital world. If you
         find value in our content, imagine what we could achieve by
         collaborating on your next project.
       </p>
-      <Link
-        href="/services"
-        className="mt-4 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-primary/50 font-medium underline hover:text-blueberry active:text-azure active:scale-[0.98] dark:hover:text-powder dark:hover:no-underline dark:active:text-powder/80 transition-all h-12 px-6 py-3 text-base text-sky dark:text-azure hover:underline"
-      >
+      <Link href="/blog/all" variant="outline">
+        Explore More Articles
+      </Link>
+      <Link href="/services" variant="outline">
         Discover Our Services
       </Link>
       <div className="mt-8">
@@ -145,7 +177,7 @@ export const BlogHero = ({}) => {
     <header>
       <div className="relative h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden shadow-lg">
         <Image
-          src="/images/pic09.webp"
+          src="/images/pic11.webp"
           alt="Modern development workspace"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"

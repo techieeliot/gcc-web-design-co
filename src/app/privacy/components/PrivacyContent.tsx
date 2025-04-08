@@ -2,26 +2,16 @@
 
 import { cn } from '@/lib/utils';
 import { Link } from '@/components/ui/link';
-import { containerVariants, itemVariants } from '@/lib/animations';
 import { policyItems } from '@/data';
 import { Icon } from '@/components/ui/icon';
-import { MotionDiv } from '@/components/ui/motion-components';
 
 export default function PrivacyContent() {
   return (
     <>
       {/* Policy Content */}
-      <MotionDiv
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-xl shadow-lg overflow-hidden mb-16"
-      >
+      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-xl shadow-lg overflow-hidden mb-16">
         {/* Introduction Section */}
-        <MotionDiv
-          variants={itemVariants}
-          className="p-8 border-b border-slate-200 dark:border-slate-800"
-        >
+        <div className="p-8 border-b border-slate-200 dark:border-slate-800">
           <h2 className={cn('text-2xl md:text-3xl font-bold', 'mb-4')}>
             Introduction
           </h2>
@@ -39,13 +29,12 @@ export default function PrivacyContent() {
             privacy with the same care we nurture our long-standing client
             relationships.
           </p>
-        </MotionDiv>
+        </div>
 
         {/* Policy Items */}
         {policyItems.map((item, index) => (
-          <MotionDiv
+          <div
             key={item.id}
-            variants={itemVariants}
             className={cn(
               'p-8 border-b border-slate-200 dark:border-slate-800',
               'transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50',
@@ -76,17 +65,12 @@ export default function PrivacyContent() {
                 </p>
               ))}
             </div>
-          </MotionDiv>
+          </div>
         ))}
-      </MotionDiv>
+      </div>
 
       {/* Contact Section */}
-      <MotionDiv
-        initial={{ opacity: 0, transform: 'translateY(30px)' }}
-        animate={{ opacity: 1, transform: 'translateY(0px)' }}
-        transition={{ delay: 0.8, duration: 0.7 }}
-        className="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-slate-900 rounded-xl shadow-lg"
-      >
+      <div className="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-slate-900 rounded-xl shadow-lg">
         <div className="mb-4 inline-flex items-center justify-center">
           <div className="p-2 rounded-md bg-sky/10 dark:bg-azure/10">
             <Icon name="Phone" className="w-5 h-5 text-sky dark:text-azure" />
@@ -117,7 +101,7 @@ export default function PrivacyContent() {
             </Link>
           </p>
         </div>
-      </MotionDiv>
+      </div>
     </>
   );
 }

@@ -2,7 +2,6 @@
 
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
-import { MotionDiv } from '@/components/ui/motion-components';
 import { caseStudies } from '@/data';
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {
@@ -14,12 +13,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
       : null;
 
   return (
-    <MotionDiv
-      className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4"
-      initial={{ opacity: 0, transform: 'translateY(-20px)' }}
-      animate={{ opacity: 1, transform: 'translateY(0px)' }}
-      transition={{ duration: 0.3 }}
-    >
+    <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4">
       <Link
         href="/portfolio"
         variant="outline"
@@ -60,6 +54,6 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
           </Link>
         )}
       </div>
-    </MotionDiv>
+    </div>
   );
 }

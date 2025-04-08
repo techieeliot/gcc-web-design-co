@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { caseStudies } from '@/data';
 import { domains } from '@/config/domains';
+import path from 'path';
+import fs from 'fs';
 
 // Consider adding email configuration to your domains.ts
 export const contact = {
@@ -13,15 +15,15 @@ export const contact = {
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = domains.primary;
 
-  // Get blog posts data
-  const blogSlugs = [
-    'getting-started-with-nextjs',
-    'tailwind-best-practices',
-    'framer-motion-animations',
-    'deploying-nextjs-netlify',
-  ];
+  const postsDirectory = path.join(process.cwd(), 'src/content/blog');
+  const fileNames = fs.readdirSync(postsDirectory);
+  const posts = fileNames
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => {
+      return fileName.replace(/\.md$/, '');
+    });
 
-  const blogPosts = blogSlugs.map((slug) => ({
+  const blogPosts = posts.map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,

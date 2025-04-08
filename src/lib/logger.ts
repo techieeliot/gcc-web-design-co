@@ -82,40 +82,114 @@ const formatStatus = (status?: number) => {
 let lastLogTimestamp = 0;
 const LOG_DEBOUNCE_MS = 1000;
 
+// Add log level filtering
+const LOG_LEVEL_PRIORITY = {
+  error: 0,
+  warn: 1,
+  info: 2,
+  debug: 3,
+} as const;
+
+const CURRENT_LOG_LEVEL = (process.env.NEXT_PUBLIC_LOG_LEVEL ||
+  'info') as LogLevel;
+
+function shouldLog(level: LogLevel): boolean {
+  return LOG_LEVEL_PRIORITY[level] <= LOG_LEVEL_PRIORITY[CURRENT_LOG_LEVEL];
+}
+
+// Update the log function
+function log(level: LogLevel, message: string, context = {}) {
+  try {
+    // Skip logging if below current log level
+    if (!shouldLog(level)) return;
+
+    // For errors, include stack trace if available
+    if (level === 'error' && context instanceof Error) {
+      context = {
+        ...context,
+        stack: context.stack,
+        cause: context.cause,
+      };
+    }
+
+    const entry: LogEntry = {
+      timestamp: new Date().toISOString(),
+      level,
+      message,
+      context: {
+        ...context,
+        runtime: getRuntimeInfo().runtime,
+      },
+    };
+
+    // Only show runtime info for debug level
+    if (level !== 'debug') {
+      delete entry.context.runtime;
+    }
+
+    // For non-error levels, simplify context output
+    if (level !== 'error') {
+      Object.keys(entry.context).forEach((key) => {
+        if (typeof entry.context[key] === 'object') {
+          delete entry.context[key];
+        }
+      });
+    }
+
+    console.log(formatLogEntry(entry));
+  } catch (error) {
+    console.error('Logger error:', error);
+  }
+}
+
 // Update the formatLogEntry function
 function formatLogEntry(entry: LogEntry): string {
   const levelColor = levelColors[entry.level];
   const timestamp = formatTimestamp(entry.timestamp);
   const level = `${levelColor}${entry.level.toUpperCase()}${colors.reset}`;
 
+  // For errors, make the output more prominent
+  if (entry.level === 'error') {
+    return `\n${colors.bgRed}${colors.bright} ERROR ${colors.reset}\n${timestamp} ${entry.message}\n${
+      entry.context.stack
+        ? `\n${colors.dim}${entry.context.stack}${colors.reset}`
+        : ''
+    }`;
+  }
+
+  // Simplified output for other levels
   let logMessage = `${timestamp} ${level} ${entry.message}`;
 
-  if (entry.context.status) {
-    logMessage += ` ${formatStatus(entry.context.status)}`;
+  // Only show status and duration for info level
+  if (entry.level === 'info') {
+    if (entry.context.status) {
+      logMessage += ` ${formatStatus(entry.context.status)}`;
+    }
+    if (entry.context.duration) {
+      logMessage += ` ${formatDuration(entry.context.duration)}`;
+    }
   }
 
-  if (entry.context.duration) {
-    logMessage += ` ${formatDuration(entry.context.duration)}`;
-  }
+  // Only show additional context for warn and error levels
+  if (
+    (entry.level as LogLevel) === 'warn' ||
+    (entry.level as LogLevel) === 'error'
+  ) {
+    const contextKeys = Object.keys(entry.context).filter(
+      (key) => !['status', 'duration', 'runtime'].includes(key)
+    );
 
-  // Add runtime info in dim color
-  if (entry.context.runtime) {
-    logMessage += ` ${colors.dim}[${entry.context.runtime}]${colors.reset}`;
-  }
+    if (contextKeys.length > 0) {
+      const contextObj = contextKeys.reduce(
+        (acc, key) => {
+          acc[key] = entry.context[key];
+          return acc;
+        },
+        {} as Record<string, any>
+      );
 
-  // Add any additional context with pretty formatting
-  const contextKeys = Object.keys(entry.context).filter(
-    (key) => !['status', 'duration', 'runtime'].includes(key)
-  );
-
-  if (contextKeys.length > 0) {
-    const contextObj: { [key: string]: any } = {};
-    contextKeys.forEach((key) => {
-      const value = entry.context[key];
-      contextObj[key] = typeof value === 'object' ? value : String(value);
-    });
-
-    logMessage += `\n${prettyJson(contextObj)}`;
+      logMessage += `\n${prettyJson(contextObj)}`;
+    }
   }
 
   return logMessage;
@@ -171,23 +245,6 @@ export const runtimeLogger = {
   },
 };
 
-function log(level: LogLevel, message: string, context = {}) {
-  try {
-    const entry: LogEntry = {
-      timestamp: new Date().toISOString(),
-      level,
-      message,
-      context: {
-        ...context,
-        runtime: getRuntimeInfo().runtime,
-      },
-    };
-
-    console.log(formatLogEntry(entry));
-  } catch (error) {
-    console.error('Logger error:', error);
-  }
-}
 function getRuntimeInfo() {
   try {
     if (typeof EdgeRuntime === 'string') {
@@ -206,17 +263,17 @@ function getRuntimeInfo() {
   }
 }
 
+// Update clientLogger to be more concise
 export const clientLogger = {
-  info: (message: string, context = {}) => {
-    console.info(`[INFO] ${message}`, context);
+  error: (message: string, error?: Error) => {
+    console.error(`❌ ${message}`, error?.message || '');
+    if (error?.stack) console.error(error.stack);
   },
-  error: (message: string, context = {}) => {
-    console.error(`[ERROR] ${message}`, context);
-  },
-  warn: (message: string, context = {}) => {
-    console.warn(`[WARN] ${message}`, context);
-  },
-  debug: (message: string, context = {}) => {
-    console.debug(`[DEBUG] ${message}`, context);
+  warn: (message: string) => console.warn(`⚠️ ${message}`),
+  info: (message: string) => console.info(`ℹ️ ${message}`),
+  debug: (message: string) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.debug(`🔍 ${message}`);
+    }
   },
 };

@@ -4,11 +4,10 @@ publishedAt: '2024-04-04'
 summary: 'Learn how to deploy your Next.js application to Netlify with continuous deployment, environment variables, and custom domains.'
 image: '/blog/deploying-nextjs-netlify.webp'
 author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+tags: ['next.js', 'netlify', 'ci/cd', 'serverless', 'how to']
 ---
 
-# Deploying Your Next.js App to Netlify: A Step-by-Step Guide
-
-Deploying your Next.js app should feel as easy and natural as sharing some of your fresh fruit with a close friend. Netlify offers a smooth deployment process that aligns perfectly with a modern, agile workflow. Let's walk through a process that keeps things simple, effective, and true to our down‐to‐earth ethos.
+Deploying your Next.js app should feel easy and natural. Netlify offers a smooth deployment process that aligns perfectly with a modern, agile workflow. Let's walk through a process that keeps things simple, effective, and true to our down‐to‐earth ethos.
 
 ## Why Netlify?
 
@@ -17,7 +16,7 @@ Netlify brings together continuous deployment, a global CDN, and serverless func
 - **Continuous deployment:** Your Git commits automatically bloom into live deployments.
 - **Global CDN:** Your site is served from servers around the globe, ensuring speedy delivery.
 - **Serverless functions:** Built-in support for API routes lets you extend your app effortlessly.
-- **Deploy previews:** Every pull request gets a preview—like sampling a new blueberry variety before harvesting.
+- **Deploy previews:** Every pull request gets a preview—like sampling blueberry cobbler fresh out of the oven.
 - **Integrated forms & split testing:** Built-in tools for modern analytics and user engagement.
 
 ## Prerequisites

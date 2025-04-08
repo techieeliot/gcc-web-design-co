@@ -4,48 +4,15 @@ import { usePathname } from 'next/navigation';
 import { Link } from './link';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { MotionSpan } from './motion-components';
 
 interface NavLinkProps {
   href: string;
   label: string;
   onClick?: () => void;
-  custom?: number;
   className?: string;
 }
 
-const linkVariants = {
-  hidden: { opacity: 0, x: '-20px' },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.1,
-      type: 'spring',
-      stiffness: 300,
-      damping: 30,
-    },
-  }),
-  closed: { opacity: 0, x: '20px' },
-  open: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.1,
-      type: 'spring',
-      stiffness: 300,
-      damping: 30,
-    },
-  }),
-};
-
-export function NavLink({
-  href,
-  label,
-  onClick,
-  custom,
-  className,
-}: NavLinkProps) {
+export function NavLink({ href, label, onClick, className }: NavLinkProps) {
   const pathname = usePathname();
   const isScrolled = useScrollPosition(10);
 
@@ -66,16 +33,9 @@ export function NavLink({
         // Removed any drop-shadow or opacity changes on scroll
       )}
     >
-      <MotionSpan
-        variants={linkVariants}
-        custom={custom}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="inline-block relative z-10"
-        tabIndex={-1}
-      >
+      <span className="inline-block relative z-10" tabIndex={-1}>
         {label}
-      </MotionSpan>
+      </span>
     </Link>
   );
 }

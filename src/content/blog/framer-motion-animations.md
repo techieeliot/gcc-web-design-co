@@ -4,9 +4,9 @@ publishedAt: '2024-04-01'
 summary: 'Learn how to create smooth, engaging animations in React applications using Framer Motion with practical examples and best practices.'
 image: '/blog/framer-motion-animations.webp'
 author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+tags: ['animations', 'react.js', 'framer-motion']
+featured: true
 ---
-
-# Creating Fluid Animations with Framer Motion
 
 Animations can turn a static screen into a vibrant experience—much like the gentle sway of a flourishing garden.
 Framer Motion is your go-to tool for crafting dynamic, engaging animations in React that feel natural and refined.
@@ -178,6 +178,6 @@ function ScrollAnimatedSection() {
 
 ## Conclusion
 
-Framer Motion gives you the tools to animate your React applications with the subtlety of nature—adding movement that feels organic and engaging. Whether you're drawing users' attention or injecting life into a static screen, let your animations be as thoughtful and fluid as the growth of a blueberry orchard.
+Framer Motion gives you the tools to animate your React applications with the subtlety of nature—adding movement that feels organic and engaging. Whether you're drawing users' attention or injecting life into a static screen, let your animations give your reader's a more engaging experience.
 
 Happy animating!
