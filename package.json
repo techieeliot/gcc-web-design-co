@@ -31,7 +31,6 @@
     "framer-motion": "^12.6.2",
     "glob": "^10.4.5",
     "gray-matter": "^4.0.3",
-    "lightningcss-darwin-arm64": "^1.29.3",
     "lucide-react": "^0.485.0",
     "markdown-to-jsx": "^7.7.4",
     "next": "14.2.26",
@@ -42,14 +41,12 @@
     "sonner": "^2.0.3",
     "sugar-high": "^0.9.3",
     "tailwind-merge": "^3.0.2",
-    "tw-animate-css": "^1.2.5",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^14.2.26",
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.17.30",
     "@types/react": "18.2.0",
