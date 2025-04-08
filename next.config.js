@@ -1,18 +1,18 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-  openAnalyzer: false, // Don't open automatically
-});
-
 const { domainHostnames, domains } = require('./src/config/domains');
 
 /** @type {import('next').NextConfig} */
-const config = {
+let config = {
   eslint: {
     // Only run ESLint on these directories during builds
     dirs: ['src'],
     // Don't fail build on lint errors
     ignoreDuringBuilds: true,
   },
+
+  // Enable React's strict mode for better error handling
+  reactStrictMode: true,
+  // Enable SWC minification for faster builds
+  swcMinify: true,
 
   // Optimize image loading
   images: {
@@ -26,7 +26,7 @@ const config = {
         hostname: '**',
       },
     ],
-    unoptimized: process.env.NODE_ENV === 'production',
+    unoptimized: false,
   },
 
   // Security & performance headers
@@ -104,6 +104,19 @@ const config = {
   },
 };
 
-// Only apply bundle analyzer in non-production builds
-module.exports =
-  process.env.NODE_ENV === 'production' ? config : withBundleAnalyzer(config);
+if (process.env.ANALYZE === 'true') {
+  try {
+    const withBundleAnalyzer = require('@next/bundle-analyzer')({
+      enabled: true,
+      openAnalyzer: false,
+    });
+    config = withBundleAnalyzer(config);
+    console.log('Bundle analyzer enabled');
+  } catch (error) {
+    console.warn(
+      'Warning: @next/bundle-analyzer not found. Skipping bundle analysis.'
+    );
+  }
+}
+
+module.exports = config;

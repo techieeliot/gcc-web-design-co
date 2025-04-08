@@ -1,204 +1,8 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-powder: var(--powder);
-  --color-sky: var(--sky);
-  --color-azure: var(--azure);
-  --color-blueberry: var(--blueberry);
-  --color-midnight: var(--midnight);
-  --color-slate: var(--slate);
-  --color-white: var(--white);
-  --color-mist: var(--mist);
-  --color-graphite: var(--graphite);
-  --color-destructive: var(--destructive);
-  --color-navbar: var(--navbar);
-  --color-navbar-foreground: var(--navbar-foreground);
-  --color-footer: var(--footer);
-  --color-footer-foreground: var(--footer-foreground);
-  --color-tertiary: var(--tertiary);
-  --color-tertiary-foreground: var(--tertiary-foreground);
-
-  --font-sans: var(--poppins);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--background);
-  transition: background-color 0.3s ease;
-}
-
-/* Base Colors and Variables */
-:root {
-  --offwhite: #f9fafb;
-  --powder: #e3edfa;
-  --sky: #2c97dd;
-  --azure: #1453bb;
-  --blueberry: #0d3086;
-  --midnight: #0e2d7f;
-  --slate: #242b4b;
-  --white: #ffffff;
-  --mist: #b8bbca;
-  --graphite: #424242;
-  --destructive: #ff0000;
-  --deep-navy: #0a1c40;
-
-  /* Define explicit values for slate colors */
-  --slate-100: #f1f5f9;
-  --slate-200: #e2e8f0;
-  --slate-300: #cbd5e1;
-  --slate-400: #94a3b8;
-  --slate-500: #64748b;
-  --slate-600: #475569;
-  --slate-700: #334155;
-  --slate-800: #1e293b;
-  --slate-900: #0f172a; /* Explicitly define slate-900 */
-
-  /* Base Radius */
-  --radius: 0.625rem;
-
-  /* Light Theme by Default */
-  --background: var(--offwhite);
-  --foreground: var(--slate);
-  --card: var(--blueberry);
-  --card-foreground: var(--white);
-  --popover: var(--blueberry);
-  --popover-foreground: var(--white);
-  --primary: var(--blueberry);
-  --primary-foreground: var(--white);
-  --secondary: var(--sky);
-  --secondary-foreground: var(--white);
-  --tertiary: var(--blueberry);
-  --tertiary-foreground: var(--white);
-  --destructive: var(--destructive);
-  --destructive-foreground: var(--white);
-  /* --muted: var(--azure) / 0.25; */
-  --muted-foreground: var(--sky);
-  /* --accent: var(--azure) / 0.25); */
-  --accent-foreground: var(--white);
-  /* --border: var(--white) / 0.12); */
-  /* --input: var(--white) / 0.12); */
-  --ring: var(--sky);
-  --navbar: var(--blueberry);
-  --navbar-foreground: var(--white);
-  --footer: var(--blueberry);
-  --footer-foreground: var(--white);
-
-  /* Sidebar Colors */
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-
-  /* Fonts */
-  --font-sans: var(--font-poppins);
-
-  /* Text Colors */
-  --text-primary: var(--slate-800);
-  --text-secondary: var(--slate-600);
-  --text-primary-dark: var(--powder);
-  --text-secondary-dark: rgba(227, 237, 250, 0.8); /* powder at 80% opacity */
-}
-
-.dark {
-  --background: var(--slate-900);
-  --foreground: var(--white);
-  --card: var(--slate-800);
-  --card-foreground: var(--white);
-  --popover: var(--slate-800);
-  --popover-foreground: var(--white);
-  --primary: var(--sky);
-  --primary-foreground: var(--white);
-  --secondary: var(--azure);
-  --secondary-foreground: var(--white);
-  --tertiary: var(--slate-800);
-  --tertiary-foreground: var(--white);
-  --muted-foreground: var(--powder);
-  --accent-foreground: var(--powder);
-  --navbar: var(--slate-800);
-  --navbar-foreground: var(--white);
-  --footer: var(--slate-800);
-  --footer-foreground: var(--white);
-
-  /* Text Colors */
-  --text-primary: var(--powder);
-  --text-secondary: rgba(227, 237, 250, 0.8);
-}
-
-/* Add this after your existing CSS */
-
-/* Modify to exclude header and nav */
-div,
-main,
-section,
-article,
-aside,
-footer {
-  background-color: transparent;
-}
-
-/* And add specific solid backgrounds for header and navigation */
-header,
-nav {
-  background-color: var(--background);
-}
-
-/* Add a debug outline to see container boundaries in development */
-/* Remove this in production */
-/* .debug * {
-  outline: 1px solid rgba(255, 0, 0, 0.2);
-} */
-
-/* Add these optimized animations */
+/* Animation Keyframes */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -208,39 +12,6 @@ nav {
   }
 }
 
-/* Performance optimizations for animations */
-.transform-gpu,
-.motion-safe\:transform-gpu,
-[class*="animate-"],
-[class*="transition-"] {
-  transform: translateZ(0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-}
-
-/* Target specific animations in the header and footer */
-header [animate],
-header [whileHover],
-footer [animate],
-footer [whileHover],
-.heart-animation,
-.logo-animation {
-  transform: translateZ(0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-}
-
-/* Target specific animations in the footer */
-.footer-logo-animation,
-.footer-heart-animation,
-.footer-contact-item,
-.footer-social-link {
-  transform: translateZ(0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-}
-
-/* Optional - fix for any shimmering animations */
 @keyframes optimized-shimmer {
   0% {
     transform: translateX(-100%) translateZ(0);
@@ -248,48 +19,6 @@ footer [whileHover],
   100% {
     transform: translateX(100%) translateZ(0);
   }
-}
-
-.shimmer-optimized {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-  transform: translateZ(0); /* Force GPU acceleration */
-  will-change: background-position; /* Hint for browser optimization */
-  position: relative;
-  overflow: hidden;
-}
-
-.shimmer-optimized::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  animation: optimized-shimmer 2s infinite;
-  transform: translateZ(0);
-}
-
-/* For dark mode */
-.dark .shimmer-optimized {
-  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
-  background-size: 200% 100%;
-}
-
-.dark .shimmer-optimized::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 0, 0, 0.2),
-    transparent
-  );
 }
 
 @layer base {
@@ -313,9 +42,19 @@ footer [whileHover],
     --midnight: 223 79% 28%;
     --slate: 226 33% 22%;
 
+    /* Theme Mapping */
+    --color-powder: var(--powder);
+    --color-sky: var(--sky);
+    --color-azure: var(--azure);
+    --color-blueberry: var(--blueberry);
+    --color-midnight: var(--midnight);
+    --color-slate: var(--slate);
+
     /* Semantic Colors */
     --background: 210 40% 98%;
     --foreground: 226 33% 22%;
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
 
     --muted: 210 40% 94%;
     --muted-foreground: 226 33% 44%;
@@ -344,6 +83,34 @@ footer [whileHover],
 
     /* Fix max width issues */
     --container-max-width: 100%;
+
+    /* Component Colors */
+    --navbar: var(--background);
+    --navbar-foreground: var(--foreground);
+    --footer: var(--background);
+    --footer-foreground: var(--foreground);
+    --sidebar: var(--background);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+
+    /* Chart Colors */
+    --chart-1: var(--powder);
+    --chart-2: var(--sky);
+    --chart-3: var(--azure);
+    --chart-4: var(--blueberry);
+    --chart-5: var(--midnight);
+
+    /* Radius Scale */
+    --radius: 0.625rem;
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
   }
 
   .dark {
@@ -451,6 +218,314 @@ footer [whileHover],
   h3 {
     @apply text-xl md:text-2xl font-bold;
   }
+
+  .shimmer-optimized {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: background-position; /* Hint for browser optimization */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-optimized::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: optimized-shimmer 2s infinite;
+    transform: translateZ(0);
+  }
+
+  /* For dark mode */
+  .dark .shimmer-optimized {
+    background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+  }
+
+  .dark .shimmer-optimized::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.2),
+      transparent
+    );
+  }
+
+  html.dark {
+    transition: background-color 0.3s ease;
+    background-color: var(--slate-900);
+  }
+
+  /* Smooth transitions for all color changes */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.3s;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: var(--background);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Base Colors and Variables */
+  :root {
+    --offwhite: #f9fafb;
+    --powder: #e3edfa;
+    --sky: #2c97dd;
+    --azure: #1453bb;
+    --blueberry: #0d3086;
+    --midnight: #0e2d7f;
+    --slate: #242b4b;
+    --white: #ffffff;
+    --mist: #b8bbca;
+    --graphite: #424242;
+    --destructive: #ff0000;
+    --deep-navy: #0a1c40;
+
+    /* Define explicit values for slate colors */
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a; /* Explicitly define slate-900 */
+
+    /* Base Radius */
+    --radius: 0.625rem;
+
+    /* Light Theme by Default */
+    --background: var(--offwhite);
+    --foreground: var(--slate);
+    --card: var(--blueberry);
+    --card-foreground: var(--white);
+    --popover: var(--blueberry);
+    --popover-foreground: var(--white);
+    --primary: var(--blueberry);
+    --primary-foreground: var(--white);
+    --secondary: var(--sky);
+    --secondary-foreground: var(--white);
+    --tertiary: var(--blueberry);
+    --tertiary-foreground: var(--white);
+    --destructive: var(--destructive);
+    --destructive-foreground: var(--white);
+    /* --muted: var(--azure) / 0.25; */
+    --muted-foreground: var(--sky);
+    /* --accent: var(--azure) / 0.25); */
+    --accent-foreground: var(--white);
+    /* --border: var(--white) / 0.12); */
+    /* --input: var(--white) / 0.12); */
+    --ring: var(--sky);
+    --navbar: var(--blueberry);
+    --navbar-foreground: var(--white);
+    --footer: var(--blueberry);
+    --footer-foreground: var(--white);
+
+    /* Sidebar Colors */
+    --sidebar: oklch(0.984 0.003 247.858);
+    --sidebar-foreground: oklch(0.129 0.042 264.695);
+    --sidebar-primary: oklch(0.208 0.042 265.755);
+    --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+    --sidebar-accent: oklch(0.968 0.007 247.896);
+    --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+    --sidebar-border: oklch(0.929 0.013 255.508);
+    --sidebar-ring: oklch(0.704 0.04 256.788);
+
+    /* Fonts */
+    --font-sans: var(--font-poppins);
+
+    /* Text Colors */
+    --text-primary: var(--slate-800);
+    --text-secondary: var(--slate-600);
+    --text-primary-dark: var(--powder);
+    --text-secondary-dark: rgba(227, 237, 250, 0.8); /* powder at 80% opacity */
+  }
+
+  .dark {
+    --background: var(--slate-900);
+    --foreground: var(--white);
+    --card: var(--slate-800);
+    --card-foreground: var(--white);
+    --popover: var(--slate-800);
+    --popover-foreground: var(--white);
+    --primary: var(--sky);
+    --primary-foreground: var(--white);
+    --secondary: var(--azure);
+    --secondary-foreground: var(--white);
+    --tertiary: var(--slate-800);
+    --tertiary-foreground: var(--white);
+    --muted-foreground: var(--powder);
+    --accent-foreground: var(--powder);
+    --navbar: var(--slate-800);
+    --navbar-foreground: var(--white);
+    --footer: var(--slate-800);
+    --footer-foreground: var(--white);
+
+    /* Text Colors */
+    --text-primary: var(--powder);
+    --text-secondary: rgba(227, 237, 250, 0.8);
+  }
+
+  /* Add this after your existing CSS */
+
+  /* Modify to exclude header and nav */
+  div,
+  main,
+  section,
+  article,
+  aside,
+  footer {
+    background-color: transparent;
+  }
+
+  /* And add specific solid backgrounds for header and navigation */
+  header,
+  nav {
+    background-color: var(--background);
+  }
+
+  /* Add these optimized animations */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Performance optimizations for animations */
+  .transform-gpu,
+  .motion-safe\:transform-gpu,
+  [class*="animate-"],
+  [class*="transition-"] {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Target specific animations in the header and footer */
+  header [animate],
+  header [whileHover],
+  footer [animate],
+  footer [whileHover],
+  .heart-animation,
+  .logo-animation {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Target specific animations in the footer */
+  .footer-logo-animation,
+  .footer-heart-animation,
+  .footer-contact-item,
+  .footer-social-link {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Optional - fix for any shimmering animations */
+  @keyframes optimized-shimmer {
+    0% {
+      transform: translateX(-100%) translateZ(0);
+    }
+    100% {
+      transform: translateX(100%) translateZ(0);
+    }
+  }
+}
+
+@layer components {
+  /* Text styles */
+  .text-small {
+    font-size: var(--font-small);
+    line-height: 1.5;
+  }
+
+  .text-body {
+    font-size: var(--font-body);
+    line-height: 1.6;
+  }
+
+  .text-large {
+    font-size: var(--font-large);
+    line-height: 1.6;
+  }
+
+  .text-subtitle {
+    font-size: var(--font-subtitle);
+    line-height: 1.4;
+  }
+
+  .text-title {
+    font-size: var(--font-title);
+    line-height: 1.3;
+  }
+
+  .text-display {
+    font-size: var(--font-display);
+    line-height: 1.2;
+  }
+
+  /* Font weights */
+  .font-title {
+    font-weight: 700;
+  }
+
+  .font-subtitle {
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-weight: 700;
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    @apply relative overflow-hidden;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    transform: translateZ(0);
+    will-change: background-position;
+  }
+
+  .shimmer::after {
+    content: "";
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: optimized-shimmer 2s infinite;
+    transform: translateZ(0);
+  }
 }
 
 @layer utilities {
@@ -500,111 +575,91 @@ footer [whileHover],
   .text-muted-light {
     @apply text-slate-500 dark:text-slate-400;
   }
+
+  /* Performance Optimizations */
+  .transform-gpu,
+  .motion-safe\:transform-gpu,
+  [class*="animate-"],
+  [class*="transition-"],
+  header [animate],
+  header [whileHover],
+  footer [animate],
+  footer [whileHover],
+  .heart-animation,
+  .logo-animation,
+  .footer-logo-animation,
+  .footer-heart-animation,
+  .footer-contact-item,
+  .footer-social-link {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Debug Utility - Commented out by default */
+  /* .debug * {
+    outline: 1px solid rgba(255, 0, 0, 0.2);
+  } */
 }
 
-@layer components {
-  /* Text styles */
-  .text-small {
-    font-size: var(--font-small);
-    line-height: 1.5;
-  }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-powder: var(--powder);
+  --color-sky: var(--sky);
+  --color-azure: var(--azure);
+  --color-blueberry: var(--blueberry);
+  --color-midnight: var(--midnight);
+  --color-slate: var(--slate);
+  --color-white: var(--white);
+  --color-mist: var(--mist);
+  --color-graphite: var(--graphite);
+  --color-destructive: var(--destructive);
+  --color-navbar: var(--navbar);
+  --color-navbar-foreground: var(--navbar-foreground);
+  --color-footer: var(--footer);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
 
-  .text-body {
-    font-size: var(--font-body);
-    line-height: 1.6;
-  }
-
-  .text-large {
-    font-size: var(--font-large);
-    line-height: 1.6;
-  }
-
-  .text-subtitle {
-    font-size: var(--font-subtitle);
-    line-height: 1.4;
-  }
-
-  .text-title {
-    font-size: var(--font-title);
-    line-height: 1.3;
-  }
-
-  .text-display {
-    font-size: var(--font-display);
-    line-height: 1.2;
-  }
-
-  /* Font weights */
-  .font-title {
-    font-weight: 700;
-  }
-
-  .font-subtitle {
-    font-weight: 600;
-  }
-
-  .font-display {
-    font-weight: 700;
-  }
-
-  /* Card and container styles */
-  .card {
-    @apply bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl;
-  }
-
-  .card-hover {
-    @apply shadow-sm hover:shadow-md transition-shadow;
-  }
-
-  .card-padding {
-    @apply p-6 sm:p-8;
-  }
-
-  /* Icon styles */
-  .icon-primary {
-    @apply w-5 h-5 text-sky dark:text-azure;
-  }
-
-  .icon-large {
-    @apply w-8 h-8 text-white;
-  }
-
-  /* Form elements */
-  .input-primary {
-    @apply w-full px-4 py-2 rounded-lg transition-colors 
-    bg-white dark:bg-slate-800 
-    border border-slate-300 dark:border-slate-700 
-    text-slate-900 dark:text-powder 
-    placeholder:text-slate-500 dark:placeholder:text-slate-400 
-    focus:ring-2 focus:ring-sky/50 focus:border-sky/50 
-    dark:focus:ring-azure/50 dark:focus:border-azure/50;
-  }
-
-  /* Section spacing */
-  .section-spacing {
-    @apply space-y-6 sm:space-y-8 lg:space-y-10;
-  }
-
-  /* Responsive grid layouts */
-  .grid-2col {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
-  }
-
-  .grid-3col {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
-  }
+  --font-sans: var(--poppins);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-html.dark {
-  transition: background-color 0.3s ease;
-  background-color: var(--slate-900);
-}
-
-/* Smooth transitions for all color changes */
-*,
-*::before,
-*::after {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.3s;
-}
+/* Add a debug outline to see container boundaries in development */
+/* Remove this in production */
+/* .debug * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
