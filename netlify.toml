@@ -14,6 +14,8 @@
   NEXT_PUBLIC_URL = "http://localhost:8888"
   NODE_OPTIONS = "--max-old-space-size=8192"
   NEXT_USE_NETLIFY_EDGE = "true"
+  NEXT_PLATFORM_AGNOSTIC = "1"
+  NEXT_IGNORE_CPU_ARCH = "1"
 
 [functions]
   node_bundler = "esbuild"

@@ -10,8 +10,8 @@
     "format": "prettier --write",
     "format:check": "prettier --check",
     "analyze": "ANALYZE=true NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "netlify-build": "npm run build",
-    "postinstall": "node -e \"process.env.NETLIFY ? require('child_process').execSync('npm i sharp@latest') : console.log('Skipping sharp installation')\"",
+    "netlify-build": "cross-env NEXT_PLATFORM_AGNOSTIC=1 npm run build",
+    "postinstall": "node scripts/postinstall.js",
     "postbuild": "cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
     "prepare": "node .github/scripts/prepare-hooks.js",
     "dev:netlify": "netlify dev --target-port 3000",
@@ -77,13 +77,10 @@
       "prettier --write"
     ]
   },
-  "os": [
-    "darwin"
-  ],
-  "cpu": [
-    "arm64"
-  ],
   "optionalDependencies": {
-    "@next/swc-darwin-arm64": "14.2.26"
+    "@next/swc-darwin-arm64": "14.2.26",
+    "@next/swc-darwin-x64": "14.2.26",
+    "@next/swc-linux-x64-gnu": "14.2.26",
+    "@next/swc-linux-x64-musl": "14.2.26"
   }
 }
