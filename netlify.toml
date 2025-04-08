@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run netlify-build"
   publish = ".next"
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ./"
 
@@ -16,6 +16,7 @@
   NEXT_USE_NETLIFY_EDGE = "true"
   NEXT_PLATFORM_AGNOSTIC = "1"
   NEXT_IGNORE_CPU_ARCH = "1"
+  NEXT_FORCE_SWC_TRANSFORMS = "true"
 
 [functions]
   node_bundler = "esbuild"

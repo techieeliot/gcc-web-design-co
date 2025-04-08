@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { getPlatformConfig } = require('./platform-detect');
 
 // Function to modify package.json for cross-platform compatibility
 function makePackageJsonCrossplatform() {
@@ -27,12 +28,15 @@ async function main() {
   // Make package.json cross-platform compatible
   makePackageJsonCrossplatform();
 
-  // Install sharp if on Netlify
+  // Install platform-specific dependencies
   if (process.env.NETLIFY) {
-    console.log('Installing sharp for Netlify environment...');
-    require('child_process').execSync('npm i sharp@latest', {
-      stdio: 'inherit',
-    });
+    console.log('Installing Netlify-specific dependencies...');
+    const swcPackage = getPlatformConfig();
+
+    require('child_process').execSync(
+      `npm install ${swcPackage}@14.2.27 sharp@latest --no-save`,
+      { stdio: 'inherit' }
+    );
   }
 }
 

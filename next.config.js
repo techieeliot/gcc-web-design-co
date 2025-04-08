@@ -171,6 +171,7 @@ let config = {
         fs: false,
         module: false,
         path: false,
+        sharp: false,
       };
     }
 
@@ -182,7 +183,15 @@ let config = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
     // Enable modern JavaScript features
     swcMinify: true,
-    serverComponentsExternalPackages: ['sharp'], // Add sharp to external packages
+    serverComponentsExternalPackages: [
+      'sharp',
+      '@next/swc-darwin-arm64',
+      '@next/swc-darwin-x64',
+      '@next/swc-linux-x64-gnu',
+      '@next/swc-linux-x64-musl',
+    ],
+    platformAgnostic: true,
+    forceSwcTransforms: true,
   },
 
   // Increase timeout for font loading

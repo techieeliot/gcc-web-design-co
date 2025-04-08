@@ -2,6 +2,10 @@
   "name": "develop",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.11.1",
+    "npm": ">=10.2.4"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "NEXT_TELEMETRY_DISABLED=1 next build",
@@ -10,7 +14,7 @@
     "format": "prettier --write",
     "format:check": "prettier --check",
     "analyze": "ANALYZE=true NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "netlify-build": "cross-env NEXT_PLATFORM_AGNOSTIC=1 npm run build",
+    "netlify-build": "cross-env NEXT_PLATFORM_AGNOSTIC=1 next build",
     "postinstall": "node scripts/postinstall.js",
     "postbuild": "cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
     "prepare": "node .github/scripts/prepare-hooks.js",
@@ -78,9 +82,10 @@
     ]
   },
   "optionalDependencies": {
-    "@next/swc-darwin-arm64": "14.2.26",
-    "@next/swc-darwin-x64": "14.2.26",
-    "@next/swc-linux-x64-gnu": "14.2.26",
-    "@next/swc-linux-x64-musl": "14.2.26"
+    "@next/swc-darwin-arm64": "14.2.27",
+    "@next/swc-darwin-x64": "14.2.27",
+    "@next/swc-linux-x64-gnu": "14.2.27",
+    "@next/swc-linux-x64-musl": "14.2.27",
+    "@next/swc-win32-x64-msvc": "14.2.27"
   }
 }
