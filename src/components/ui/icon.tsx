@@ -13,31 +13,40 @@ interface IconProps {
   strokeWidth?: number;
 }
 
-const DynamicIcon = memo(({ name, ...props }: IconProps) => {
-  const IconComponent = dynamic<LucideProps>(
-    async () => {
-      const mod = await import('lucide-react');
-      return mod[name as keyof typeof mod] as ComponentType<LucideProps>;
-    },
-    {
-      loading: () => (
-        <LoadingFallback
-          height={`h-[${props.size || 24}px]`}
-          className={cn('flex-shrink-0', props.className)}
-        />
-      ),
-      ssr: false,
-    }
-  );
+const DynamicIcon = memo(
+  ({
+    name,
+    size = 24,
+    strokeWidth = 2,
+    className = '',
+    ...props
+  }: IconProps) => {
+    const IconComponent = dynamic<LucideProps>(
+      async () => {
+        const mod = await import('lucide-react');
+        return mod[name as keyof typeof mod] as ComponentType<LucideProps>;
+      },
+      {
+        loading: () => (
+          <LoadingFallback
+            height={size}
+            className={cn('flex-shrink-0', className)}
+          />
+        ),
+        ssr: false,
+      }
+    );
 
-  return (
-    <IconComponent
-      size={props.size || 24}
-      strokeWidth={props.strokeWidth || 2}
-      className={cn('flex-shrink-0', props.className)}
-    />
-  );
-});
+    return (
+      <IconComponent
+        size={size}
+        strokeWidth={strokeWidth}
+        className={cn('flex-shrink-0', className)}
+        {...props}
+      />
+    );
+  }
+);
 
 DynamicIcon.displayName = 'DynamicIcon';
 
@@ -45,10 +54,7 @@ export function Icon(props: IconProps) {
   return (
     <Suspense
       fallback={
-        <LoadingFallback
-          height={`h-[${props.size || 24}px]`}
-          className={cn('flex-shrink-0', props.className)}
-        />
+        <LoadingFallback height={props.size} className={props.className} />
       }
     >
       <DynamicIcon {...props} />

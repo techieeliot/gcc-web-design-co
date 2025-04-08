@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { AboutSection } from "./components";
-import { CompanyFacts } from "./components";
-import { ConnectWithUs } from "./components";
+import { AboutSection } from './components';
+import { CompanyFacts } from './components';
+import { ConnectWithUs } from './components';
 
 export function ClientAboutSection() {
   return <AboutSection />;

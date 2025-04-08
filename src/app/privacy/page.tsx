@@ -1,10 +1,10 @@
-import { Icon } from "@/components/ui/icon";
-import { cn } from "@/lib/utils";
-import dynamic from "next/dynamic";
+import { Icon } from '@/components/ui/icon';
+import { cn } from '@/lib/utils';
+import dynamic from 'next/dynamic';
 
 export const revalidate = 3600;
 
-const PrivacyContent = dynamic(() => import("./components/PrivacyContent"));
+const PrivacyContent = dynamic(() => import('./components/PrivacyContent'));
 
 export default function PrivacyPolicyRoute() {
   return (
@@ -30,18 +30,18 @@ export default function PrivacyPolicyRoute() {
 
             <h1
               className={cn(
-                "text-4xl md:text-5xl font-bold tracking-tight",
-                "mb-4",
+                'text-4xl md:text-5xl font-bold tracking-tight',
+                'mb-4'
               )}
             >
               Privacy Policy
             </h1>
 
             <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
-              At SanforDEV Consulting, we take your privacy seriously. Like a
-              well-cultivated Mississippi blueberry, our approach is rooted in
-              care and nurturing relationships. This policy explains how we
-              collect, use, and guard your information.
+              At SanforDEV Consulting, we take your privacy seriously. Our
+              approach is rooted in genuine care and thoughtful
+              cultivation—ensuring every aspect of your data is protected with
+              the same attention you'd give to a cherished garden.
             </p>
 
             <div className="text-sm text-slate-500 dark:text-slate-400 mt-2">

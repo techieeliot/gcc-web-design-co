@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { Icon } from "@/components/ui/icon";
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/icon';
+import { MotionAside } from '@/components/ui/motion-components';
 
 interface ContactInfoProps {
   icon: React.ReactNode;
@@ -25,15 +25,15 @@ const ContactInfo = ({ icon, title, content }: ContactInfoProps) => (
 
 export function ContactSidebar() {
   return (
-    <motion.aside
+    <MotionAside
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       className={cn(
-        "lg:col-span-4 h-fit",
-        "space-y-6 lg:sticky lg:top-24 self-start",
-        "bg-white dark:bg-slate-800",
-        "p-6 lg:p-8 rounded-xl shadow-sm",
+        'lg:col-span-4 h-fit',
+        'space-y-6 lg:sticky lg:top-24 self-start',
+        'bg-white dark:bg-slate-800',
+        'p-6 lg:p-8 rounded-xl shadow-sm'
       )}
     >
       <div className="space-y-6">
@@ -61,6 +61,6 @@ export function ContactSidebar() {
           content="Clinton, Mississippi, USA"
         />
       </div>
-    </motion.aside>
+    </MotionAside>
   );
 }

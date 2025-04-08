@@ -121,10 +121,27 @@ function formatLogEntry(entry: LogEntry): string {
   return logMessage;
 }
 
-export const logger = {
-  info: (message: string, context = {}) => log('info', message, context),
+export const runtimeLogger = {
+  // Base logging interface
+  info: (message: string, context = {}) => {
+    if (typeof window !== 'undefined') {
+      // Browser-friendly logging
+      console.info(`[INFO] ${message}`, context);
+      return;
+    }
+    // Server-side logging with all the fancy formatting
+    log('info', message, context);
+  },
+  error: (message: string, context = {}) => {
+    if (typeof window !== 'undefined') {
+      // Browser-friendly logging
+      console.error(`[ERROR] ${message}`, context);
+      return;
+    }
+    // Server-side logging with all the fancy formatting
+    log('error', message, context);
+  },
   warn: (message: string, context = {}) => log('warn', message, context),
-  error: (message: string, context = {}) => log('error', message, context),
   debug: (message: string, context = {}) => log('debug', message, context),
   request: (req: Request, context: LogContext = {}) => {
     try {
@@ -188,3 +205,18 @@ function getRuntimeInfo() {
     return { runtime: 'unknown' };
   }
 }
+
+export const clientLogger = {
+  info: (message: string, context = {}) => {
+    console.info(`[INFO] ${message}`, context);
+  },
+  error: (message: string, context = {}) => {
+    console.error(`[ERROR] ${message}`, context);
+  },
+  warn: (message: string, context = {}) => {
+    console.warn(`[WARN] ${message}`, context);
+  },
+  debug: (message: string, context = {}) => {
+    console.debug(`[DEBUG] ${message}`, context);
+  },
+};

@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
-import { Icon } from "@/components/ui/icon";
+import { ReactNode } from 'react';
+import { cn } from '@/lib/utils';
+import { Icon } from '@/components/ui/icon';
 
 interface FormFieldProps {
   label: string;
@@ -19,10 +19,10 @@ export function FormField({
   children,
   className,
 }: FormFieldProps) {
-  const errorClasses = "text-red-500 dark:text-red-400 text-sm font-medium";
+  const errorClasses = 'text-red-500 dark:text-red-400 text-sm font-medium';
 
   return (
-    <div className={cn("col-span-1 flex flex-col gap-2", className)}>
+    <div className={cn('col-span-1 flex flex-col gap-2', className)}>
       <label
         htmlFor={id}
         className="text-sm font-medium text-slate-700 dark:text-slate-300"

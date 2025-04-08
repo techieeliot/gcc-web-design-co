@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Icon } from "@/components/ui/icon";
-import { Link } from "@/components/ui/link";
-import { caseStudies } from "@/data";
-import { motion } from "@/lib/animations";
+import { Icon } from '@/components/ui/icon';
+import { Link } from '@/components/ui/link';
+import { MotionDiv } from '@/components/ui/motion-components';
+import { caseStudies } from '@/data';
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {
   const currentIndex = caseStudies.findIndex((study) => study.id === currentId);
@@ -14,7 +14,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
       : null;
 
   return (
-    <motion.div
+    <MotionDiv
       className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
           >
             <Icon name="ArrowLeft" className="w-4 h-4" />
             <span className="hidden md:inline text-sm">
-              {`${prevCase.title.split(":")[1].substring(0, 24)}...`}
+              {`${prevCase.title.split(':')[1].substring(0, 24)}...`}
             </span>
           </Link>
         )}
@@ -54,12 +54,12 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
             title={`Next: ${nextCase.title}`}
           >
             <span className="hidden md:inline text-sm">
-              {`${nextCase.title.split(":")[1].substring(0, 24)}...`}
+              {`${nextCase.title.split(':')[1].substring(0, 24)}...`}
             </span>
             <Icon name="ArrowRight" className="w-4 h-4" />
           </Link>
         )}
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

@@ -1,4 +1,4 @@
-import { domains } from '@/config/domains'
+import { domains } from '@/config/domains';
 
 export default function OrganizationSchema() {
   return (
@@ -44,5 +44,5 @@ export default function OrganizationSchema() {
         }),
       }}
     />
-  )
+  );
 }

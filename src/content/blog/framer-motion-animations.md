@@ -1,13 +1,14 @@
 ---
-title: "Creating Fluid Animations with Framer Motion"
-publishedAt: "2024-04-01"
-summary: "Learn how to create smooth, engaging animations in React applications using Framer Motion with practical examples and best practices."
-image: "/blog/framer-motion-animations.webp"
+title: 'Creating Fluid Animations with Framer Motion'
+publishedAt: '2024-04-01'
+summary: 'Learn how to create smooth, engaging animations in React applications using Framer Motion with practical examples and best practices.'
+image: '/blog/framer-motion-animations.webp'
 ---
 
 # Creating Fluid Animations with Framer Motion
 
-Animations can turn a static screen into a vibrant experience—much like the gentle sway of a blueberry field in the breeze. Framer Motion is your go-to tool for crafting these animations in React, adding personality and movement with minimal effort.
+Animations can turn a static screen into a vibrant experience—much like the gentle sway of a flourishing garden.
+Framer Motion is your go-to tool for crafting dynamic, engaging animations in React that feel natural and refined.
 
 ## Getting Started
 
@@ -24,7 +25,7 @@ pnpm add framer-motion
 The magic begins with the `motion` component, which brings an element to life:
 
 ```jsx
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export default function AnimatedBox() {
   return (
@@ -48,8 +49,8 @@ The `animate` prop tells your component its final state. For example:
 <motion.div
   animate={{
     x: 100,
-    backgroundColor: "#ff0000",
-    boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)",
+    backgroundColor: '#ff0000',
+    boxShadow: '10px 10px 0 rgba(0, 0, 0, 0.2)',
     rotate: 180,
     scale: 1.2,
   }}
@@ -64,7 +65,7 @@ Customize your animations with the `transition` prop. Framer Motion supports sev
 <motion.div
   animate={{ x: 100 }}
   transition={{
-    type: "spring",
+    type: 'spring',
     stiffness: 260,
     damping: 20,
     delay: 0.2,
@@ -136,7 +137,7 @@ function Card() {
 }
 ```
 
-> 🫐 Coordinated animations bring harmony, like different sections of your orchard working in unison.
+> 🫐 (Optional playful nod) While some liken animation to the rhythm of nature, here we celebrate the art of cultivating movement.
 
 ### Gestures, Drag, and Scroll-Based Animations
 
@@ -155,7 +156,7 @@ Framer Motion easily adds gestures and drag functionality. For example:
 Use `useScroll` to connect animations to scroll position:
 
 ```jsx
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll } from 'framer-motion';
 
 function ScrollAnimatedSection() {
   const { scrollYProgress } = useScroll();

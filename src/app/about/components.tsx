@@ -7,16 +7,25 @@ import {
   imageVariant,
   staggeredVisibilityTransition,
   listItemTransition,
-  motion,
 } from '@/lib/animations';
 import { cn } from '@/lib/utils';
 import { Icon } from '@/components/ui/icon';
 import { facts, socialLinks } from '@/data';
 import heroImage from 'public/images/pic03.webp';
+import {
+  MotionArticle,
+  MotionDiv,
+  MotionH3,
+  MotionH4,
+  MotionLi,
+  MotionP,
+  MotionSection,
+  MotionUl,
+} from '@/components/ui/motion-components';
 
 export const AboutSection = () => {
   return (
-    <motion.article
+    <MotionArticle
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
@@ -28,7 +37,7 @@ export const AboutSection = () => {
       )}
     >
       {/* Hero section with image and icons */}
-      <motion.div
+      <MotionDiv
         variants={imageVariant}
         className="relative h-64 sm:h-72 md:h-80 lg:h-96 mb-8 lg:mb-12 rounded-lg overflow-hidden"
       >
@@ -41,7 +50,7 @@ export const AboutSection = () => {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
-          <motion.div
+          <MotionDiv
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: 'spring' }}
           >
@@ -50,8 +59,8 @@ export const AboutSection = () => {
               className="w-12 h-12 text-white drop-shadow-lg"
               strokeWidth={1.5}
             />
-          </motion.div>
-          <motion.div
+          </MotionDiv>
+          <MotionDiv
             whileHover={{ scale: 1.1, rotate: -5 }}
             transition={{ type: 'spring' }}
           >
@@ -60,8 +69,8 @@ export const AboutSection = () => {
               className="w-12 h-12 text-white drop-shadow-lg"
               strokeWidth={1.5}
             />
-          </motion.div>
-          <motion.div
+          </MotionDiv>
+          <MotionDiv
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: 'spring' }}
           >
@@ -70,19 +79,19 @@ export const AboutSection = () => {
               className="w-12 h-12 text-white drop-shadow-lg"
               strokeWidth={1.5}
             />
-          </motion.div>
+          </MotionDiv>
         </div>
-      </motion.div>
+      </MotionDiv>
 
       {/* Our Story - More concise */}
-      <motion.div variants={fadeInAnimation} className="mb-10 lg:mb-14">
-        <motion.h3
+      <MotionDiv variants={fadeInAnimation} className="mb-10 lg:mb-14">
+        <MotionH3
           variants={fadeInAnimation}
           className="text-2xl md:text-3xl font-bold mb-4"
         >
           Our Story
-        </motion.h3>
-        <motion.p
+        </MotionH3>
+        <MotionP
           variants={fadeInAnimation}
           className="text-base leading-relaxed text-slate-700 dark:text-slate-300"
         >
@@ -90,19 +99,19 @@ export const AboutSection = () => {
           into breakthrough digital solutions. We started out partnering with
           passionate startups and today we collaborate with enterprise
           leaders—all while keeping our innovative spirit alive.
-        </motion.p>
-      </motion.div>
+        </MotionP>
+      </MotionDiv>
 
-      <motion.div variants={fadeInAnimation} className="mb-12 lg:mb-16">
-        <motion.h3
+      <MotionDiv variants={fadeInAnimation} className="mb-12 lg:mb-16">
+        <MotionH3
           variants={fadeInAnimation}
           className="text-2xl md:text-3xl font-bold mb-4"
         >
           Our Mission
-        </motion.h3>
+        </MotionH3>
 
         {/* Quote Card with Artistic Iconography */}
-        <motion.div
+        <MotionDiv
           variants={imageVariant}
           className="relative bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-lg p-8 mb-8 overflow-hidden"
         >
@@ -140,13 +149,13 @@ export const AboutSection = () => {
 
           {/* Main Quote Content */}
           <div className="relative z-10 text-center">
-            <motion.div className="flex justify-center items-start relative mb-6">
+            <MotionDiv className="flex justify-center items-start relative mb-6">
               <Icon
                 name="Quote"
                 className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
                 strokeWidth={2}
               />
-              <motion.p
+              <MotionP
                 className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white leading-tight px-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -159,17 +168,17 @@ export const AboutSection = () => {
                   className="w-6 h-6 text-sky dark:text-azure inline-block ml-6 transform translate-y-1 opacity-90"
                   strokeWidth={2}
                 />
-              </motion.p>
-            </motion.div>
+              </MotionP>
+            </MotionDiv>
 
             <cite className="block text-sm text-slate-600 dark:text-slate-300 mt-2">
               — Eliot Sanford, Founder & Lead Engineer
             </cite>
           </div>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <motion.div
+          <MotionDiv
             variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
@@ -187,9 +196,9 @@ export const AboutSection = () => {
               We build high-performance, accessible applications that don't just
               work—they inspire and connect.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
@@ -207,9 +216,9 @@ export const AboutSection = () => {
               We simplify technology to empower you—making every interaction
               intuitive and impactful.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
@@ -227,9 +236,9 @@ export const AboutSection = () => {
               We lead with creativity and adaptability—constantly exploring new
               horizons in tech innovation.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             variants={fadeInAnimation}
             className="bg-white dark:bg-slate-800/50 p-5 rounded-lg shadow-sm"
           >
@@ -247,30 +256,30 @@ export const AboutSection = () => {
               We stand together—nurturing a community that values diversity,
               collaboration, and heart.
             </p>
-          </motion.div>
+          </MotionDiv>
         </div>
-      </motion.div>
+      </MotionDiv>
 
       {/* Combined Community and Leadership Sections */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {/* Community Section */}
-        <motion.div variants={fadeInAnimation}>
-          <motion.h3
+        <MotionDiv variants={fadeInAnimation}>
+          <MotionH3
             variants={fadeInAnimation}
             className="text-2xl md:text-3xl font-bold mb-4"
           >
             Community Involvement
-          </motion.h3>
+          </MotionH3>
 
-          <motion.p
+          <MotionP
             variants={fadeInAnimation}
             className="text-base leading-relaxed text-slate-700 dark:text-slate-300 mb-4"
           >
             Beyond client work, we invest in tech education and empower
             communities to rise together:
-          </motion.p>
+          </MotionP>
 
-          <motion.ul
+          <MotionUl
             variants={staggeredVisibilityTransition}
             className="space-y-2 mb-4 text-base leading-relaxed"
           >
@@ -281,7 +290,7 @@ export const AboutSection = () => {
               'Contributing to open source education',
               'Supporting nonprofits through GiveCamp',
             ].map((item, index) => (
-              <motion.li
+              <MotionLi
                 key={index}
                 variants={listItemTransition}
                 className="flex items-start gap-3"
@@ -290,26 +299,26 @@ export const AboutSection = () => {
                 <span className="text-slate-700 dark:text-slate-300">
                   {item}
                 </span>
-              </motion.li>
+              </MotionLi>
             ))}
-          </motion.ul>
-        </motion.div>
+          </MotionUl>
+        </MotionDiv>
 
         {/* Leadership Section */}
-        <motion.div variants={fadeInAnimation}>
-          <motion.h3
+        <MotionDiv variants={fadeInAnimation}>
+          <MotionH3
             variants={fadeInAnimation}
             className="text-2xl md:text-3xl font-bold mb-4"
           >
             Leadership
-          </motion.h3>
+          </MotionH3>
 
-          <motion.div
+          <MotionDiv
             variants={fadeInAnimation}
             className="bg-white/50 dark:bg-slate-800/30 rounded-xl p-6 "
           >
             <div className="flex flex-col sm:flex-row gap-6 mb-4">
-              <motion.div
+              <MotionDiv
                 variants={fadeInAnimation}
                 className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 mx-auto sm:mx-0"
               >
@@ -322,21 +331,21 @@ export const AboutSection = () => {
                   33vw"
                   className="object-cover"
                 />
-              </motion.div>
+              </MotionDiv>
               <div>
-                <motion.h4
+                <MotionH4
                   variants={fadeInAnimation}
                   className="text-xl md:text-2xl font-semibold mb-1 text-center sm:text-left"
                 >
                   Eliot Sanford
-                </motion.h4>
-                <motion.p
+                </MotionH4>
+                <MotionP
                   variants={fadeInAnimation}
                   className="text-sky dark:text-azure font-medium mb-2 text-center sm:text-left"
                 >
                   Lead Engineer
-                </motion.p>
-                <motion.p
+                </MotionP>
+                <MotionP
                   variants={fadeInAnimation}
                   className="text-sm text-slate-700 dark:text-slate-300 mb-4"
                 >
@@ -348,7 +357,7 @@ export const AboutSection = () => {
                     @techieEliot
                   </Link>
                   .
-                </motion.p>
+                </MotionP>
                 {/* Social Links */}
                 <div className="flex flex-wrap gap-3 justify-center sm:justify-start mb-4">
                   <Link
@@ -388,24 +397,24 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
 
         {/* Blueberry Story Section */}
-        <motion.div
+        <MotionDiv
           variants={fadeInAnimation}
           className="col-span-1 md:col-span-2 mt-8"
         >
           <BlueberryStory />
-        </motion.div>
+        </MotionDiv>
       </div>
-    </motion.article>
+    </MotionArticle>
   );
 };
 
 export const CompanyFacts = () => {
   return (
-    <motion.section
+    <MotionSection
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
@@ -415,16 +424,16 @@ export const CompanyFacts = () => {
         'p-6 sm:p-8 rounded-xl'
       )}
     >
-      <motion.h3
+      <MotionH3
         variants={fadeInAnimation}
         className="text-2xl md:text-3xl font-bold mb-6"
       >
         Company Facts
-      </motion.h3>
+      </MotionH3>
 
-      <motion.ul variants={staggeredVisibilityTransition} className="space-y-5">
+      <MotionUl variants={staggeredVisibilityTransition} className="space-y-5">
         {facts.map(({ label, value, icon }) => (
-          <motion.li
+          <MotionLi
             key={label}
             variants={listItemTransition}
             whileHover={{ x: 5 }}
@@ -441,34 +450,31 @@ export const CompanyFacts = () => {
               <br />
               {value}
             </div>
-          </motion.li>
+          </MotionLi>
         ))}
-      </motion.ul>
-    </motion.section>
+      </MotionUl>
+    </MotionSection>
   );
 };
 
 export const ConnectWithUs = () => {
   return (
-    <motion.section
+    <MotionSection
       initial="hidden"
       animate="visible"
       variants={fadeInAnimation}
       className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 rounded-xl"
     >
-      <motion.h3
+      <MotionH3
         variants={fadeInAnimation}
         className="text-2xl md:text-3xl font-bold mb-6"
       >
         Connect With Us
-      </motion.h3>
+      </MotionH3>
 
-      <motion.div
-        variants={staggeredVisibilityTransition}
-        className="space-y-5"
-      >
+      <MotionDiv variants={staggeredVisibilityTransition} className="space-y-5">
         {socialLinks.map(({ href, label, icon }) => (
-          <motion.div
+          <MotionDiv
             key={href}
             variants={listItemTransition}
             whileHover={{ scale: 1.03 }}
@@ -479,7 +485,7 @@ export const ConnectWithUs = () => {
               href={href}
               className="flex justify-start gap-8 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
-              <motion.div
+              <MotionDiv
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: 'spring', stiffness: 400 }}
                 className="flex items-center gap-3"
@@ -489,52 +495,53 @@ export const ConnectWithUs = () => {
                   className="w-5 h-5  text-sky dark:text-azure"
                 />
                 <span className="text-left">{label}</span>
-              </motion.div>
-              <motion.div
+              </MotionDiv>
+              <MotionDiv
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
                 <Icon name="ExternalLinkIcon" className="w-4 h-4" />
-              </motion.div>
+              </MotionDiv>
             </Link>
-          </motion.div>
+          </MotionDiv>
         ))}
-      </motion.div>
-    </motion.section>
+      </MotionDiv>
+    </MotionSection>
   );
 };
 
 export function BlueberryStory() {
   return (
-    <motion.section
+    <MotionSection
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10  rounded-xl p-6 "
+      className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-xl p-6"
     >
       <div className="flex flex-col lg:flex-row items-center gap-8">
-        {/* Large blueberry emoji */}
-        <div className="text-9xl order-1 lg:order-1 flex items-center justify-center">
-          🫐
-        </div>
-
-        {/* Text side */}
-        <div className="order-2 lg:order-2">
+        {/* Replace the large emoji if desired */}
+        <div className="text-9xl flex items-center justify-center">🌱</div>
+        <div>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            The Blueberry Story
+            Our Story & Ethos
           </h3>
           <p className="text-base leading-relaxed mb-4">
-            Our logo tells a story close to my heart—a blueberry encircling a
-            React atom, with its center (the calyx) representing our core
-            values. The blueberry isn't just a visual mark—it's a tribute to
-            Mississippi (the official state fruit here!), evoking memories of my
-            grandfather's farm and childhood adventures.
+            Our logo tells a story close to our heart—a subtle nod to our roots
+            in hardworking, community-focused growth. The logo resembles a
+            blueberry encircling a React atom, with its center (the calyx)
+            representing our core belief in React.js web development. The
+            blueberry isn't just a visual mark—it's a tribute to Mississippi
+            (the official state fruit here!), evoking the hard-working
+            mentaliity of a farmer and memories of being on grandfather's farm.
+            It, also, symbolizes a commitment to nurturing both technology and
+            relationships. While we're city folks at heart, out family's
+            agrarian roots inspire our grounded approach.
           </p>
           <p className="text-base leading-relaxed italic">
             And fun fact: my car is named "Blueberry" too!
           </p>
         </div>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }

@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { Icon } from "@/components/ui/icon";
-import { motion } from "@/lib/animations";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Icon } from '@/components/ui/icon';
+import { Link } from '@/components/ui/link';
+import { MotionDiv } from '@/components/ui/motion-components';
+import { useEffect, useState } from 'react';
 
 export default function NotFound() {
   const [mounted, setMounted] = useState(false);
@@ -19,37 +18,27 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center max-w-xl"
       >
-        <div className="mb-8 flex justify-center text-9xl">🫐</div>
-
+        <div className="mb-8 flex justify-center text-9xl">🌻</div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
           404 - Page Not Found
         </h1>
         <p className="text-base leading-relaxed mb-8">
-          Whoops! It seems you've wandered off the beaten path and landed in our
-          blueberry patch. Don't fret—sometimes the best adventures are
-          unplanned. Let's get you back home and back on track.
+          Whoops! It seems you've wandered off the beaten path. Not all who
+          wander are lost—sometimes you make a happy little accident and stumble
+          upon unexpected beauty. Let's get you back home.
         </p>
 
-        <Link
-          href="/"
-          className={cn(
-            "inline-flex items-center gap-2",
-            "px-6 py-3 rounded-lg",
-            "bg-sky hover:bg-sky/90 dark:bg-azure dark:hover:bg-azure/90",
-            "text-white font-medium",
-            "transition-colors",
-          )}
-        >
+        <Link href="/" variant="default">
           <Icon name="ArrowLeft" className="w-4 h-4" />
           Back to Home
         </Link>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import { useState, useRef } from "react";
-import { toast } from "sonner";
-import { cn } from "@/lib/utils";
-import { useOnClickOutside } from "./hooks";
-import { Icon, IconName } from "../ui/icon";
+import { useState, useRef } from 'react';
+import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
+import { useOnClickOutside } from './hooks';
+import { Icon, IconName } from '../ui/icon';
+import { clientLogger } from '@/lib/logger';
 
 interface ShareButtonProps {
   title: string;
@@ -24,49 +25,53 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(dropdownRef as React.RefObject<HTMLElement>, () =>
-    setIsOpen(false),
+    setIsOpen(false)
   );
 
   const shareOptions: ShareOption[] = [
     {
-      name: "Copy Link",
-      icon: "Link2",
+      name: 'Copy Link',
+      icon: 'Link2',
       onClick: async () => {
         try {
           await navigator.clipboard.writeText(url);
-          toast.success("Link copied to clipboard", {
+          toast.success('Link copied to clipboard', {
             duration: 3000,
-            className: cn("bg-white dark:bg-slate-900", "shadow-lg"),
+            className: cn('bg-white dark:bg-slate-900', 'shadow-lg'),
           });
         } catch (err) {
-          toast.error("Failed to copy link", {
+          toast.error('Failed to copy link', {
             duration: 3000,
+          });
+          clientLogger.error('Failed to copy link:', {
+            error: (err as Error).message,
+            stack: (err as Error).stack,
           });
         }
       },
-      label: "Copy link",
+      label: 'Copy link',
     },
     {
-      name: "Email",
-      icon: "Mail",
+      name: 'Email',
+      icon: 'Mail',
       onClick: async () => {
         const mailtoUrl = `mailto:?subject=${encodeURIComponent(
-          title,
+          title
         )}&body=${encodeURIComponent(`${description}\n\nRead more: ${url}`)}`;
         window.location.href = mailtoUrl;
       },
-      label: "Share via email",
+      label: 'Share via email',
     },
     {
-      name: "Twitter",
-      icon: "X",
+      name: 'Twitter',
+      icon: 'X',
       onClick: async () => {
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          title,
+          title
         )}&url=${encodeURIComponent(url)}`;
-        window.open(twitterUrl, "_blank", "noopener,noreferrer");
+        window.open(twitterUrl, '_blank', 'noopener,noreferrer');
       },
-      label: "Share on Twitter",
+      label: 'Share on Twitter',
     },
   ];
 
@@ -74,10 +79,10 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
     <div className="relative ml-auto" ref={dropdownRef}>
       <button
         className={cn(
-          "inline-flex items-center gap-1 px-3 py-2 rounded-md",
-          "text-slate-700 dark:text-slate-200",
-          "hover:bg-slate-100 dark:hover:bg-slate-800",
-          "transition-colors",
+          'inline-flex items-center gap-1 px-3 py-2 rounded-md',
+          'text-slate-700 dark:text-slate-200',
+          'hover:bg-slate-100 dark:hover:bg-slate-800',
+          'transition-colors'
         )}
         onClick={(e) => {
           e.preventDefault(); // Prevent native share sheet
@@ -92,10 +97,10 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
       {isOpen && (
         <div
           className={cn(
-            "absolute right-0 mt-2 w-48 rounded-md shadow-lg",
-            "bg-white dark:bg-slate-900", // Changed from bg-slate-50 to bg-white
-            "ring-1 ring-black/5 dark:ring-white/10",
-            "z-[60]",
+            'absolute right-0 mt-2 w-48 rounded-md shadow-lg',
+            'bg-white dark:bg-slate-900', // Changed from bg-slate-50 to bg-white
+            'ring-1 ring-black/5 dark:ring-white/10',
+            'z-[60]'
           )}
         >
           <div className="py-1" role="menu">
@@ -103,11 +108,11 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
               <button
                 key={option.name}
                 className={cn(
-                  "w-full text-left px-4 py-2 text-sm",
-                  "hover:bg-slate-50 dark:hover:bg-slate-800",
-                  "text-slate-900 dark:text-slate-100",
-                  "flex items-center gap-2",
-                  "transition-colors duration-150",
+                  'w-full text-left px-4 py-2 text-sm',
+                  'hover:bg-slate-50 dark:hover:bg-slate-800',
+                  'text-slate-900 dark:text-slate-100',
+                  'flex items-center gap-2',
+                  'transition-colors duration-150'
                 )}
                 onClick={async (e) => {
                   e.preventDefault();

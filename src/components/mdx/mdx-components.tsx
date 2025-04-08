@@ -1,13 +1,13 @@
-import React, { ComponentPropsWithoutRef } from "react";
-import Link from "next/link";
-import { CodeBlock } from "./code-block";
+import React, { ComponentPropsWithoutRef } from 'react';
+import Link from 'next/link';
+import { CodeBlock } from './code-block';
 
-type HeadingProps = ComponentPropsWithoutRef<"h1">;
-type ParagraphProps = ComponentPropsWithoutRef<"p">;
-type ListProps = ComponentPropsWithoutRef<"ul">;
-type ListItemProps = ComponentPropsWithoutRef<"li">;
-type AnchorProps = ComponentPropsWithoutRef<"a">;
-type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
+type HeadingProps = ComponentPropsWithoutRef<'h1'>;
+type ParagraphProps = ComponentPropsWithoutRef<'p'>;
+type ListProps = ComponentPropsWithoutRef<'ul'>;
+type ListItemProps = ComponentPropsWithoutRef<'li'>;
+type AnchorProps = ComponentPropsWithoutRef<'a'>;
+type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
 const components = {
   h1: (props: HeadingProps) => (
@@ -42,23 +42,23 @@ const components = {
     />
   ),
   li: (props: ListItemProps) => <li className="pl-1" {...props} />,
-  em: (props: ComponentPropsWithoutRef<"em">) => (
+  em: (props: ComponentPropsWithoutRef<'em'>) => (
     <em className="font-medium" {...props} />
   ),
-  strong: (props: ComponentPropsWithoutRef<"strong">) => (
+  strong: (props: ComponentPropsWithoutRef<'strong'>) => (
     <strong className="font-medium" {...props} />
   ),
   a: ({ href, children, ...props }: AnchorProps) => {
     const className =
-      "text-blue-500 hover:text-blue-700 dark:text-gray-400 hover:dark:text-gray-300 dark:underline dark:underline-offset-2 dark:decoration-gray-800";
-    if (href?.startsWith("/")) {
+      'text-blue-500 hover:text-blue-700 dark:text-gray-400 hover:dark:text-gray-300 dark:underline dark:underline-offset-2 dark:decoration-gray-800';
+    if (href?.startsWith('/')) {
       return (
         <Link href={href} className={className} {...props}>
           {children}
         </Link>
       );
     }
-    if (href?.startsWith("#")) {
+    if (href?.startsWith('#')) {
       return (
         <a href={href} className={className} {...props}>
           {children}
@@ -77,7 +77,7 @@ const components = {
       </a>
     );
   },
-  code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
+  code: ({ children, ...props }: ComponentPropsWithoutRef<'code'>) => {
     return <CodeBlock {...props}>{children}</CodeBlock>;
   },
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (

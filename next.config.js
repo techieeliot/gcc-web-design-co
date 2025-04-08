@@ -131,18 +131,7 @@ let config = {
   },
 
   webpack: (config, { dev, isServer }) => {
-    // Remove the problematic devtool override
-    if (dev) {
-      // Use default Next.js devtool in development
-      delete config.devtool;
-    }
-    config.optimization.splitChunks.maxSize = 244000;
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'lucide-react': require.resolve('lucide-react'),
-    };
-
-    // Add bundle optimization
+    // Production optimizations
     if (!dev) {
       config.optimization = {
         ...config.optimization,
@@ -190,11 +179,14 @@ let config = {
 
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
     // Enable modern JavaScript features
     swcMinify: true,
     serverComponentsExternalPackages: ['sharp'], // Add sharp to external packages
   },
+
+  // Increase timeout for font loading
+  staticPageGenerationTimeout: 120,
 
   compiler: {
     removeConsole:

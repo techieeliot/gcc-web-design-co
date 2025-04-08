@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { motion } from "@/lib/animations";
+import { cn } from '@/lib/utils';
 import {
   CompanyInfo,
   Contact,
   QuickLinks,
   FooterBackground,
   Copyright,
-} from "./components";
+} from './components';
+import { MotionDiv } from '../ui/motion-components';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <motion.div
+    <MotionDiv
       className={cn(
-        "w-full relative overflow-hidden",
-        "bg-card dark:bg-card",
-        "text-slate-700 dark:text-powder",
-        "border-t border-border",
+        'w-full relative overflow-hidden',
+        'bg-card dark:bg-card',
+        'text-slate-700 dark:text-powder',
+        'border-t border-border'
       )}
     >
       <FooterBackground />
@@ -39,6 +39,6 @@ export default function Footer() {
 
         <Copyright currentYear={currentYear} />
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

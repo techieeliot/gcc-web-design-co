@@ -1,14 +1,14 @@
-import { cn } from '@/lib/utils'
-import React from 'react'
+import { cn } from '@/lib/utils';
+import React from 'react';
 
 export function CodeBlock({
   children,
   className,
   ...props
 }: {
-  children: React.ReactNode
-  className?: string
-  [key: string]: any
+  children: React.ReactNode;
+  className?: string;
+  [key: string]: any;
 }) {
   return (
     <pre
@@ -20,5 +20,5 @@ export function CodeBlock({
     >
       {children}
     </pre>
-  )
+  );
 }

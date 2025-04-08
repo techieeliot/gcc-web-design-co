@@ -1,12 +1,18 @@
+import Script from 'next/script';
+
 export default function Analytics() {
   return (
     <>
       {/* TODO: implement this in production */}
-      <script
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`}
+        src={'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'}
       />
-      <script
+      <Script
+        id="google-analytics-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -19,5 +25,5 @@ export default function Analytics() {
         }}
       />
     </>
-  )
+  );
 }

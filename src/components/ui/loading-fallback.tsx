@@ -1,20 +1,27 @@
 import { cn } from '@/lib/utils';
-import { HTMLAttributes } from 'react';
+
+type ElementSize = number | 'auto' | 'full';
 
 interface LoadingFallbackProps {
-  height?: string;
+  height?: ElementSize;
+  width?: ElementSize;
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
   className?: string;
 }
 
 export function LoadingFallback({
-  height = 'h-6',
+  height = 4,
+  width = 4,
+  rounded = 'lg',
   className,
 }: LoadingFallbackProps) {
   return (
     <span
       className={cn(
-        height,
-        'inline-block bg-slate-200 dark:bg-slate-700 animate-pulse rounded',
+        height ? `h-${height}` : '',
+        width ? `w-${width}` : '',
+        rounded === 'none' ? '' : `rounded-${rounded}`,
+        'inline-block bg-slate-200 dark:bg-slate-700 animate-pulse',
         className
       )}
     />

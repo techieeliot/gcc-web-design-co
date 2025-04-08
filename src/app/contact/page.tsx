@@ -1,7 +1,6 @@
-import { cn } from "@/lib/utils";
-import { ContactSidebar } from "./components/sidebar";
-import ContactForm from "./components/form";
-import { Icon } from "@/components/ui/icon";
+import { ContactSidebar } from './components/sidebar';
+import ContactForm from './components/form';
+import { Icon } from '@/components/ui/icon';
 
 export const revalidate = 3600; // Revalidate every hour
 

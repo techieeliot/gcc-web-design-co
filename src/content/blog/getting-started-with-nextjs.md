@@ -1,13 +1,14 @@
 ---
-title: "Getting Started with Next.js"
-publishedAt: "2024-04-02"
-summary: "A beginner-friendly guide to setting up a Next.js project with TypeScript, App Router, and modern best practices."
-image: "/blog/getting-started-with-nextjs.webp"
+title: 'Getting Started with Next.js'
+publishedAt: '2024-04-02'
+summary: 'A beginner-friendly guide to setting up a Next.js project with TypeScript, App Router, and modern best practices.'
+image: '/blog/getting-started-with-nextjs.webp'
 ---
 
 # Getting Started with Next.js
 
-There's something refreshing about starting a new project in Next.js—like stepping into a field of ripe blueberries ready for the picking. This guide walks you through setting up a Next.js project from scratch while embracing best practices for file organization, routing, and performance.
+There's something refreshing about starting a new Next.js project—like stepping into a vibrant garden full of potential.
+This guide walks you through setting up your project while emphasizing best practices that help your ideas grow naturally.
 
 ## Prerequisites
 
@@ -72,16 +73,16 @@ export default function Home() {
 
 ## Adding Layouts
 
-Layouts keep your design consistent—just like having a standard row spacing in your blueberry patch. Create a `layout.tsx` in any folder, and it will define shared UI for that section.
+Layouts keep your design consistent—think of them like the blueprint of your dream home. They ensure that every part of your application shares a common structure, just as every room in a well-designed house has its place.
 
 ```tsx
 // app/layout.tsx
-import "./globals.css";
-import type { Metadata } from "next";
+import './globals.css';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "Created with Next.js",
+  title: 'My Next.js App',
+  description: 'Created with Next.js',
 };
 
 export default function RootLayout({
@@ -112,8 +113,8 @@ Next.js makes data fetching as straightforward as watering your plants. In serve
 ```tsx
 // app/posts/page.tsx
 async function getPosts() {
-  const res = await fetch("https://api.example.com/posts");
-  if (!res.ok) throw new Error("Unable to fetch posts");
+  const res = await fetch('https://api.example.com/posts');
+  if (!res.ok) throw new Error('Unable to fetch posts');
   return res.json();
 }
 
@@ -138,9 +139,9 @@ export default async function Posts() {
 For interactivity—like turning a blueberry into a jam—you'll need client components:
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function Counter() {
   const [count, setCount] = useState(0);

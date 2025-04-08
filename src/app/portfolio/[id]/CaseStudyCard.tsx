@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
-import { Icon, IconName } from "@/components/ui/icon";
-import { motion, useAnimation, useInView } from "@/lib/animations";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { Icon, IconName } from '@/components/ui/icon';
+import { MotionArticle } from '@/components/ui/motion-components';
+import { useAnimation, useInView } from '@/lib/animations';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
 interface CaseStudyCardProps {
   id: string;
@@ -43,12 +44,12 @@ export const CaseStudyCard = ({
 
   useEffect(() => {
     if (isInView) {
-      controls.start("visible");
+      controls.start('visible');
     }
   }, [isInView, controls]);
 
   return (
-    <motion.article
+    <MotionArticle
       ref={ref}
       initial="hidden"
       animate={controls}
@@ -67,17 +68,17 @@ export const CaseStudyCard = ({
           y: -5,
           transition: {
             duration: 0.2,
-            ease: "easeOut",
+            ease: 'easeOut',
           },
         },
       }}
       className={cn(
-        "group relative flex flex-col",
-        "overflow-hidden rounded-xl",
-        "bg-white dark:bg-slate-800",
-        "border border-slate-200 dark:border-slate-700",
-        "shadow-sm hover:shadow-md",
-        "transition-shadow duration-300",
+        'group relative flex flex-col',
+        'overflow-hidden rounded-xl',
+        'bg-white dark:bg-slate-800',
+        'border border-slate-200 dark:border-slate-700',
+        'shadow-sm hover:shadow-md',
+        'transition-shadow duration-300'
       )}
     >
       <Link href={`/portfolio/${id}`} className="flex flex-col flex-1">
@@ -94,11 +95,11 @@ export const CaseStudyCard = ({
           {/* Icon Overlay */}
           <div
             className={cn(
-              "absolute inset-0",
-              "bg-gradient-to-t from-black/60 via-black/30 to-transparent",
-              "flex items-center justify-center gap-4",
-              "transition-opacity duration-300",
-              "group-hover:opacity-90",
+              'absolute inset-0',
+              'bg-gradient-to-t from-black/60 via-black/30 to-transparent',
+              'flex items-center justify-center gap-4',
+              'transition-opacity duration-300',
+              'group-hover:opacity-90'
             )}
           >
             {icons.map((icon, idx) => (
@@ -117,19 +118,19 @@ export const CaseStudyCard = ({
         <div className="flex flex-col flex-1 p-5">
           <h2
             className={cn(
-              "text-xl font-bold mb-2",
-              "text-slate-900 dark:text-white",
-              "group-hover:text-sky dark:group-hover:text-azure",
-              "transition-colors duration-300",
+              'text-xl font-bold mb-2',
+              'text-slate-900 dark:text-white',
+              'group-hover:text-sky dark:group-hover:text-azure',
+              'transition-colors duration-300'
             )}
           >
             {title}
           </h2>
           <p
             className={cn(
-              "text-base leading-relaxed",
-              "text-slate-600 dark:text-slate-300",
-              "line-clamp-2 mb-4",
+              'text-base leading-relaxed',
+              'text-slate-600 dark:text-slate-300',
+              'line-clamp-2 mb-4'
             )}
           >
             {description}
@@ -140,8 +141,8 @@ export const CaseStudyCard = ({
             {/* Stats Grid */}
             <div
               className={cn(
-                "grid grid-cols-3 gap-2",
-                "pt-4 border-t border-slate-200 dark:border-slate-700",
+                'grid grid-cols-3 gap-2',
+                'pt-4 border-t border-slate-200 dark:border-slate-700'
               )}
             >
               {stats.slice(0, 3).map(({ icon, value, label }, idx) => {
@@ -168,6 +169,6 @@ export const CaseStudyCard = ({
           </div>
         </div>
       </Link>
-    </motion.article>
+    </MotionArticle>
   );
 };

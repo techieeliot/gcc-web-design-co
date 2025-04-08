@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { Link } from "./link";
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { usePathname } from 'next/navigation';
+import { Link } from './link';
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { MotionSpan } from './motion-components';
 
 interface NavLinkProps {
   href: string;
@@ -21,7 +21,7 @@ const linkVariants = {
     x: 0,
     transition: {
       delay: i * 0.1,
-      type: "spring",
+      type: 'spring',
       stiffness: 300,
       damping: 30,
     },
@@ -32,7 +32,7 @@ const linkVariants = {
     x: 0,
     transition: {
       delay: i * 0.1,
-      type: "spring",
+      type: 'spring',
       stiffness: 300,
       damping: 30,
     },
@@ -58,15 +58,15 @@ export function NavLink({
       onClick={onClick}
       className={cn(
         className,
-        "relative transition-colors duration-200",
+        'relative transition-colors duration-200',
         isScrolled
-          ? "text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure font-medium"
-          : "text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure",
-        pathname === href && "text-azure dark:text-sky font-medium",
+          ? 'text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure font-medium'
+          : 'text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure',
+        pathname === href && 'text-azure dark:text-sky font-medium'
         // Removed any drop-shadow or opacity changes on scroll
       )}
     >
-      <motion.span
+      <MotionSpan
         variants={linkVariants}
         custom={custom}
         whileHover={{ scale: 1.05 }}
@@ -75,7 +75,7 @@ export function NavLink({
         tabIndex={-1}
       >
         {label}
-      </motion.span>
+      </MotionSpan>
     </Link>
   );
 }
@@ -101,9 +101,9 @@ function useScrollPosition(threshold = 0) {
       timeoutId = window.requestAnimationFrame(handleScroll);
     };
 
-    window.addEventListener("scroll", debouncedHandleScroll, { passive: true });
+    window.addEventListener('scroll', debouncedHandleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll);
+      window.removeEventListener('scroll', debouncedHandleScroll);
       if (timeoutId) {
         window.cancelAnimationFrame(timeoutId);
       }

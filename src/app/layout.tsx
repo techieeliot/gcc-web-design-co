@@ -8,12 +8,26 @@ import { domains } from '@/config/domains';
 import { cn } from '@/lib/utils';
 import { ErrorHandler } from '@/components/error-handler';
 import { ReactNode } from 'react';
+import Providers from '@/providers';
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
   variable: '--font-poppins',
-  display: 'swap', // Add this for better font loading performance
+  fallback: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    'sans-serif',
+  ],
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -25,15 +39,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           'min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 font-sans antialiased'
         )}
       >
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1 container mx-auto px-4 py-20">
-            {children}
-          </main>
-          <Footer />
-        </div>
-        <Toaster position="top-center" richColors />
-        <ErrorHandler />
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1 container mx-auto px-4 py-20">
+              {children}
+            </main>
+            <Footer />
+          </div>
+          <Toaster position="top-center" richColors />
+          <ErrorHandler />
+        </Providers>
       </body>
     </html>
   );

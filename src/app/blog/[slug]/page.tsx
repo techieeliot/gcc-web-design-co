@@ -1,11 +1,10 @@
-import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "./utils";
-import { Metadata } from "next";
-import Image from "next/image";
-import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
-import { Link } from "@/components/ui/link";
-import { Icon } from "@/components/ui/icon";
-import { cn } from "@/lib/utils";
+import { notFound } from 'next/navigation';
+import { getAllPosts, getPostBySlug } from './utils';
+import { Metadata } from 'next';
+import Image from 'next/image';
+import Markdown from 'markdown-to-jsx';
+import { Link } from '@/components/ui/link';
+import { Icon } from '@/components/ui/icon';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -19,7 +18,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   if (!post) {
     return {
-      title: "Post Not Found",
+      title: 'Post Not Found',
       description: "The blog post you're looking for doesn't exist",
     };
   }
@@ -30,7 +29,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       title: post.title,
       description: post.summary,
-      type: "article",
+      type: 'article',
       publishedTime: post.publishedAt,
       images: [
         {
@@ -76,10 +75,10 @@ export default async function BlogPost({ params }: any) {
             dateTime={post.publishedAt}
             className="text-sm text-slate-500 dark:text-slate-400"
           >
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
+            {new Date(post.publishedAt).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
             })}
           </time>
           <p>{post.summary}</p>

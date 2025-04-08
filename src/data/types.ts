@@ -1,4 +1,4 @@
-import { IconName } from "@/components/ui/icon";
+import { IconName } from '@/components/ui/icon';
 
 export interface PolicyItem {
   id: string;

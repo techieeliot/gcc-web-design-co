@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from '@/lib/animations';
+import { MotionDiv } from './ui/motion-components';
 
 interface BlueberryIconProps {
   className?: string;
@@ -20,7 +20,7 @@ const BlueberryIcon: React.FC<BlueberryIconProps> = ({
   };
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{ scale: 0.95, rotate: -2 }}
       transition={{
         repeat: Infinity,
@@ -32,7 +32,7 @@ const BlueberryIcon: React.FC<BlueberryIconProps> = ({
       <span className="filter drop-shadow-lg" role="img" aria-label="blueberry">
         🫐
       </span>
-    </motion.div>
+    </MotionDiv>
   );
 };
 

@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
-import { caseStudies } from "@/data";
-import { Metadata } from "next";
-import { CaseStudyNav } from "./CaseStudyNav";
-import { CaseStudyLayout } from "./CaseStudyLayout";
+import { notFound } from 'next/navigation';
+import { caseStudies } from '@/data';
+import { Metadata } from 'next';
+import { CaseStudyNav } from './CaseStudyNav';
+import { CaseStudyLayout } from './CaseStudyLayout';
 
 export async function generateStaticParams(): Promise<any[]> {
   return caseStudies.map((study) => ({
@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   if (!caseStudy) {
     return {
-      title: "Case Study Not Found",
-      description: "The requested case study could not be found.",
+      title: 'Case Study Not Found',
+      description: 'The requested case study could not be found.',
     };
   }
 
@@ -32,19 +32,19 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       url: `https://devsouth.us/portfolio/${params.id}`,
       images: [
         {
-          url: caseStudy.image || "/images/portfolio-social.webp",
+          url: caseStudy.image || '/images/portfolio-social.webp',
           width: 1200,
           height: 630,
           alt: `${caseStudy.title} Case Study`,
         },
       ],
-      type: "article",
+      type: 'article',
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
       description: caseStudy.description,
-      images: [caseStudy.image || "/images/portfolio-social.webp"],
+      images: [caseStudy.image || '/images/portfolio-social.webp'],
     },
   };
 }

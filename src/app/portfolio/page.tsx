@@ -60,11 +60,12 @@ export default function PortfolioRoute() {
                 'text-slate-600 dark:text-slate-300'
               )}
             >
-              At SanforDEV Consulting, we're as down-to-earth as a Mississippi
-              blueberry. We cultivate genuine relationships, gathering top
-              talent and trusted partners to nurture every project from idea to
-              reality. Explore our case studies to see how we help businesses
-              grow—rooted in authenticity, care, and a touch of innovation.
+              At SanforDEV Consulting, we blend a city boy's sensibility with
+              deep agrarian roots. We cultivate genuine relationships and gather
+              top talent and trusted partners to nurture every project from idea
+              to reality. Explore our case studies to see how we help businesses
+              grow—rooted in authenticity, care, and a forward-thinking
+              approach.
             </p>
 
             <BlueberryIcon className="order-1 lg:order-2 flex-shrink-0" />

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { motion } from "@/lib/animations";
-import Image from "next/image";
-import { ReactNode } from "react";
-import { Icon, IconName } from "@/components/ui/icon";
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { ReactNode } from 'react';
+import { Icon, IconName } from '@/components/ui/icon';
+import { MotionH1, MotionSection } from '@/components/ui/motion-components';
 
 interface CaseStudyLayoutProps {
   title: string;
@@ -38,9 +38,9 @@ export function CaseStudyLayout({
           {/* Icons Overlay */}
           <div
             className={cn(
-              "absolute inset-0 flex items-center justify-center gap-4 flex-wrap",
-              "transition-opacity duration-300",
-              "group-hover:opacity-90",
+              'absolute inset-0 flex items-center justify-center gap-4 flex-wrap',
+              'transition-opacity duration-300',
+              'group-hover:opacity-90'
             )}
           >
             {icons.map((icon, idx) => (
@@ -49,30 +49,30 @@ export function CaseStudyLayout({
           </div>
         </div>
 
-        <motion.h1
+        <MotionH1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6"
         >
           {title}
-        </motion.h1>
+        </MotionH1>
       </header>
 
       {/* Content Section */}
-      <motion.section
+      <MotionSection
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
         className={cn(
-          "prose prose-slate dark:prose-invert max-w-none",
-          "prose-headings:text-slate-900 dark:prose-headings:text-white",
-          "prose-p:text-slate-600 dark:prose-p:text-slate-300",
-          "prose-a:text-sky dark:prose-a:text-azure",
-          "prose-strong:text-slate-900 dark:prose-strong:text-white",
+          'prose prose-slate dark:prose-invert max-w-none',
+          'prose-headings:text-slate-900 dark:prose-headings:text-white',
+          'prose-p:text-slate-600 dark:prose-p:text-slate-300',
+          'prose-a:text-sky dark:prose-a:text-azure',
+          'prose-strong:text-slate-900 dark:prose-strong:text-white'
         )}
       >
         {children}
-      </motion.section>
+      </MotionSection>
     </article>
   );
 }

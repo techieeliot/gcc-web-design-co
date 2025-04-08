@@ -2,27 +2,27 @@ import {
   ClientAboutSection as AboutSection,
   ClientCompanyFacts as CompanyFacts,
   ClientConnectWithUs as ConnectWithUs,
-} from "./client-components";
-import { Metadata } from "next";
+} from './client-components';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About Us | Unmatched Innovation & Mission",
+  title: 'About Us | Unmatched Innovation & Mission',
   description:
     "At SanforDEV Consulting, we're transforming tech into powerful experiences. Since 2018, we've built applications that spark creativity, drive success, and empower communities.",
   alternates: {
-    canonical: "/about",
+    canonical: '/about',
   },
   openGraph: {
-    title: "About SanforDEV Consulting | Trailblazing Innovation",
+    title: 'About SanforDEV Consulting | Trailblazing Innovation',
     description:
-      "Discover how SanforDEV Consulting turns everyday challenges into extraordinary opportunities with tech designed for performance, accessibility, and impact.",
-    url: "https://devsouth.us/about",
+      'Discover how SanforDEV Consulting turns everyday challenges into extraordinary opportunities with tech designed for performance, accessibility, and impact.',
+    url: 'https://devsouth.us/about',
     images: [
       {
-        url: "/images/about-social.webp",
+        url: '/images/about-social.webp',
         width: 1200,
         height: 630,
-        alt: "About SanforDEV Consulting",
+        alt: 'About SanforDEV Consulting',
       },
     ],
   },

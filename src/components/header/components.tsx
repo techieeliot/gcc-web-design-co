@@ -3,12 +3,20 @@ import React, { Suspense } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Link } from '../ui/link';
-import { desktopLinkVariants, motion, AnimatePresence } from '@/lib/animations';
+import { desktopLinkVariants, AnimatePresence } from '@/lib/animations';
 import { NavLink } from '../ui/nav-link';
 import { Shimmer } from '../ui/shimmer';
 import { usePathname } from 'next/navigation';
 import { Icon } from '../ui/icon';
 import { LoadingFallback } from '../ui/loading-fallback';
+import {
+  MotionButton,
+  MotionDiv,
+  MotionLi,
+  MotionNav,
+  MotionSpan,
+  MotionUl,
+} from '../ui/motion-components';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -61,7 +69,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
 
   return (
     <>
-      <motion.div
+      <MotionDiv
         className={cn(
           'fixed top-0 left-0 right-0',
           'z-[100]',
@@ -81,7 +89,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
               )}
             >
               {/* Logo Section with Shimmer fallback */}
-              <motion.div
+              <MotionDiv
                 whileTap={{ scale: 0.95 }}
                 className="relative"
                 tabIndex={-1}
@@ -102,7 +110,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   {/* Logo container with proper spacing and visibility */}
                   <div className="relative flex items-center justify-center overflow-visible">
                     {/* Outer animated ring */}
-                    <motion.div
+                    <MotionDiv
                       className={cn(
                         'absolute rounded-full border-2 border-sky/20 dark:border-azure/20',
                         '-left-1 -top-1'
@@ -126,7 +134,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     />
 
                     {/* Logo circle */}
-                    <motion.div
+                    <MotionDiv
                       whileHover={{
                         scale: [1, 1.05, 1],
                         transition: {
@@ -141,7 +149,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                         'w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14'
                       )}
                     >
-                      <motion.div
+                      <MotionDiv
                         className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-azure/20"
                         whileHover={{
                           borderColor: [
@@ -154,7 +162,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       />
 
                       {/* Pulsing background */}
-                      <motion.div
+                      <MotionDiv
                         className="absolute inset-0 rounded-full bg-sky/10 dark:bg-azure/10"
                         animate={{
                           scale: [1, 1.1, 1],
@@ -171,9 +179,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       {/* Add Shimmer while image loads */}
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
                         <Shimmer className="absolute inset-0 rounded-full" />
-                        <Suspense
-                          fallback={<LoadingFallback height="h-full" />}
-                        >
+                        <Suspense fallback={<LoadingFallback height="full" />}>
                           <Image
                             src="/blueberry-atom.svg"
                             alt="SanforDEV Logo"
@@ -203,13 +209,13 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       </div>
 
                       {/* Hover effect */}
-                      <motion.div
+                      <MotionDiv
                         className="absolute inset-0 bg-azure/20 rounded-full"
                         initial={{ scale: 0, opacity: 0 }}
                         whileHover={{ opacity: 1 }}
                         transition={{ duration: 0.4 }}
                       />
-                    </motion.div>
+                    </MotionDiv>
                   </div>
 
                   {/* Brand text */}
@@ -222,7 +228,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     )}
                   >
                     Sanfor
-                    <motion.span
+                    <MotionSpan
                       className="text-sky relative inline-block"
                       animate={{
                         color: ['#38bdf8', '#818cf8', '#38bdf8'],
@@ -234,17 +240,17 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       }}
                     >
                       DEV
-                    </motion.span>
+                    </MotionSpan>
                     <span className="hidden sm:inline md:hidden xl:inline">
                       {' '}
                       Consulting
                     </span>
                   </span>
                 </Link>
-              </motion.div>
+              </MotionDiv>
 
               {/* Desktop Nav - Enhanced with animations */}
-              <motion.nav
+              <MotionNav
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -252,7 +258,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
               >
                 <ul className="flex items-center gap-1 md:gap-1 lg:gap-2 xl:gap-4">
                   {links.map(({ href, label }, i) => (
-                    <motion.li
+                    <MotionLi
                       key={href}
                       custom={i}
                       variants={desktopLinkVariants}
@@ -261,10 +267,10 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       whileHover="hover"
                     >
                       <NavLink href={href} label={label} custom={i} />
-                    </motion.li>
+                    </MotionLi>
                   ))}
                 </ul>
-                <motion.div
+                <MotionDiv
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
@@ -276,18 +282,18 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   className="ml-2 lg:ml-4"
                 >
                   {/* <ThemeToggle /> */}
-                </motion.div>
-              </motion.nav>
+                </MotionDiv>
+              </MotionNav>
 
               {/* Mobile Menu Button - Enhanced interaction */}
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 className="md:hidden flex items-center gap-2"
               >
                 {/* <ThemeToggle /> */}
-                <motion.button
+                <MotionButton
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setIsOpen(!isOpen)}
                   className={cn(
@@ -300,7 +306,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   aria-label={isOpen ? 'Close menu' : 'Open menu'}
                   aria-expanded={isOpen}
                 >
-                  <motion.div
+                  <MotionDiv
                     initial={false}
                     animate={{ rotate: isOpen ? 90 : 0 }}
                     transition={{ duration: 0.2 }}
@@ -310,13 +316,13 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     ) : (
                       <Icon name="Menu" className="w-6 h-6" />
                     )}
-                  </motion.div>
-                </motion.button>
-              </motion.div>
+                  </MotionDiv>
+                </MotionButton>
+              </MotionDiv>
             </div>
           </div>
         </header>
-      </motion.div>
+      </MotionDiv>
 
       {/* Mobile Navigation */}
       <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -354,7 +360,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
       {isOpen && (
         <>
           {/* Backdrop */}
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -363,7 +369,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
           />
 
           {/* Menu panel */}
-          <motion.div
+          <MotionDiv
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -378,7 +384,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
             <div className="flex flex-col h-full">
               {/* Nav links */}
               <nav className="flex-1 overflow-y-auto p-4">
-                <motion.ul
+                <MotionUl
                   className="space-y-2"
                   initial="closed"
                   animate="open"
@@ -390,7 +396,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                   }}
                 >
                   {links.map((link, i) => (
-                    <motion.li
+                    <MotionLi
                       key={link.href}
                       variants={{
                         open: {
@@ -409,12 +415,12 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                         onClick={() => setIsOpen(false)}
                         custom={i}
                       />
-                    </motion.li>
+                    </MotionLi>
                   ))}
-                </motion.ul>
+                </MotionUl>
               </nav>
             </div>
-          </motion.div>
+          </MotionDiv>
         </>
       )}
     </AnimatePresence>

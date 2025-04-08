@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from '@/lib/animations';
 import { useInView } from 'react-intersection-observer';
 import { Suspense } from 'react';
 import atom from 'public/blueberry-atom.svg';
@@ -10,6 +9,16 @@ import { Link } from '@/components/ui/link';
 import { benefits, features } from '@/data';
 import { Icon } from '@/components/ui/icon';
 import { LoadingFallback } from '@/components/ui/loading-fallback';
+import {
+  MotionSection,
+  MotionDiv,
+  MotionSpan,
+  MotionH1,
+  MotionP,
+  MotionH2,
+  MotionUl,
+  MotionLi,
+} from '@/components/ui/motion-components';
 
 export function HeroSection() {
   const { ref, inView } = useInView({
@@ -18,7 +27,7 @@ export function HeroSection() {
   });
 
   return (
-    <motion.section
+    <MotionSection
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -26,13 +35,13 @@ export function HeroSection() {
       className="hero-section"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="order-2 lg:order-1"
         >
-          <motion.span
+          <MotionSpan
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -40,30 +49,30 @@ export function HeroSection() {
           >
             <Icon name="Code" className="w-4 h-4" />
             <span className="text-small">React & Next.js Specialists</span>
-          </motion.span>
+          </MotionSpan>
 
-          <motion.h1
+          <MotionH1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-display font-display text-foreground max-w-lg mb-6"
           >
             Digital Solutions You Can Grow With
-          </motion.h1>
+          </MotionH1>
 
-          <motion.p
+          <MotionP
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-large  max-w-lg mb-8"
+            className="text-large max-w-lg mb-8"
           >
-            At SanforDEV, we view tech solutions like we're carefully and
-            methodically nurturing and cultivating a blueberry patch 🫐.
-            Blending modern React expertise with a down-to-earth,
-            relationship-focused approach.
-          </motion.p>
+            At SanforDEV, we view tech solutions as if we're carefully and
+            methodically nurturing a well-tended garden. We combine modern React
+            expertise with a grounded, relationship-focused approach—helping
+            your digital ideas grow.
+          </MotionP>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -76,13 +85,13 @@ export function HeroSection() {
             <Link href="/portfolio" variant="outline" size="lg">
               View Our Work
             </Link>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
 
-        <motion.div className="order-1 lg:order-2">
+        <MotionDiv className="order-1 lg:order-2">
           <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/20" />
-            <Suspense fallback={<LoadingFallback height="h-full" />}>
+            <Suspense fallback={<LoadingFallback height="full" />}>
               <Image
                 src={atom}
                 alt="Web development illustration"
@@ -99,9 +108,9 @@ export function HeroSection() {
               />
             </Suspense>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
@@ -112,7 +121,7 @@ export function FeaturesSection() {
   });
 
   return (
-    <motion.section
+    <MotionSection
       ref={ref}
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
@@ -120,20 +129,20 @@ export function FeaturesSection() {
       className="features-section"
     >
       <div className="w-full">
-        <motion.div className="text-center mb-12">
+        <MotionDiv className="text-center mb-12">
           <h2 className="text-title font-title text-foreground mb-4">
             Cultivated Digital Solutions
           </h2>
           <p className="text-large  max-w-3xl mx-auto">
-            We nurture each project with the dedicated care of a blueberry
+            We nurture each project with the dedicated care of a well-tended
             orchard—melding React expertise with creativity and a genuine
             commitment to our partners.
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
           {features.map((feature, index) => (
-            <motion.div
+            <MotionDiv
               key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -151,11 +160,11 @@ export function FeaturesSection() {
                 {feature.title}
               </h3>
               <p className="text-slate">{feature.description}</p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
@@ -166,7 +175,7 @@ export function ShowcaseSection() {
   });
 
   return (
-    <motion.section
+    <MotionSection
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -174,16 +183,16 @@ export function ShowcaseSection() {
       className="showcase-section"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
-        <motion.div className="lg:col-span-7 w-full">
+        <MotionDiv className="lg:col-span-7 w-full">
           <ValueProposition />
-        </motion.div>
-        <motion.div className="lg:col-span-5 w-full">
+        </MotionDiv>
+        <MotionDiv className="lg:col-span-5 w-full">
           <div className="rounded-xl bg-card text-card-foreground border border-border sticky top-24 w-full">
             <ProjectShowcase />
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
@@ -194,7 +203,7 @@ export function CallToActionSection() {
   });
 
   return (
-    <motion.section
+    <MotionSection
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -219,13 +228,13 @@ export function CallToActionSection() {
           </Link>
         </div>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
 export function ProjectShowcase() {
   return (
-    <motion.div className="rounded-xl p-8 shadow-lg backdrop-blur-md bg-card text-card-foreground">
+    <MotionDiv className="rounded-xl p-8 shadow-lg backdrop-blur-md bg-card text-card-foreground">
       <div className="mb-4">
         <h3 className="text-subtitle font-subtitle text-foreground mb-2">
           Our Crafted Stories
@@ -253,7 +262,7 @@ export function ProjectShowcase() {
           link="/portfolio/room-in-the-inn-memphis"
         />
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
 
@@ -271,7 +280,7 @@ const ProjectCard = ({
   link: string;
 }) => {
   return (
-    <motion.div className="rounded-lg overflow-hidden border border-border bg-card">
+    <MotionDiv className="rounded-lg overflow-hidden border border-border bg-card">
       <div className="relative h-36">
         <Image
           src={image}
@@ -310,44 +319,42 @@ const ProjectCard = ({
           <Icon name="ChevronRight" size={16} />
         </Link>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 };
 
 export function ValueProposition() {
   return (
     <div className="space-y-8">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <motion.h2 className="text-title font-title text-foreground mb-4">
+        <MotionH2 className="text-title font-title text-foreground mb-4">
           Why SanforDEV Consulting?
-        </motion.h2>
+        </MotionH2>
 
-        <motion.p className="text-large mb-8">
-          Imagine the care and commitment of a blueberry farm—each berry
-          nurtured with patience, passion, and precision. At SanforDEV, we
-          channel that spirit into our digital work. We blend modern React
-          innovation with an unwavering commitment to genuine collaboration.
-          Every solution is a carefully cultivated partnership between our
-          talented team, strong leadership, and trusted design and back-end
-          experts. Let's harvest some digital greatness together 🫐.
-        </motion.p>
-      </motion.div>
+        <MotionP className="text-large mb-8">
+          Imagine the care and commitment of a meticulously nurtured
+          garden—every component grown with patience, passion, and precision. At
+          SanforDEV, we bring that ethos to digital work, crafting solutions in
+          a carefully cultivated partnership between innovation and genuine
+          collaboration. Let's grow digital greatness together.
+        </MotionP>
+      </MotionDiv>
 
-      <motion.ul className="space-y-4">
-        {benefits.map((benefit, index) => (
-          <motion.li key={benefit} className="flex items-center gap-3">
+      <MotionUl className="space-y-4">
+        {benefits.map((benefit) => (
+          <MotionLi key={benefit} className="flex items-center gap-3">
             <Icon name="CheckCircle" className="w-5 h-5  flex-shrink-0" />
             <span className="text-body text-foreground">{benefit}</span>
-          </motion.li>
+          </MotionLi>
         ))}
-      </motion.ul>
+      </MotionUl>
 
-      <motion.div className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 p-6 rounded-lg ">
+      <MotionDiv className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 p-6 rounded-lg ">
         <h3 className="text-subtitle font-subtitle text-foreground mb-3">
           Our Approach
         </h3>
@@ -371,9 +378,9 @@ export function ValueProposition() {
             className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
           />
         </Link>
-      </motion.div>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -390,7 +397,123 @@ export function ValueProposition() {
           <span className="text-slate-400">|</span>
           <span className="text-sm">Co-Owner, Fourth Party</span>
         </div>
-      </motion.div>
+      </MotionDiv>
     </div>
+  );
+}
+
+export function BlogHighlightSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <MotionSection
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+      className="blog-highlight-section"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
+        <MotionDiv className="lg:col-span-5 w-full">
+          <div className="sticky top-24">
+            <MotionDiv className="rounded-xl p-8 bg-card text-card-foreground border border-border">
+              <h2 className="text-title font-title text-foreground mb-4">
+                Fresh Insights & Stories
+              </h2>
+              <p className="text-large mb-6">
+                Dive into our carefully cultivated collection of articles—where
+                we share practical wisdom, emerging trends, and real experiences
+                from our journey in modern web development. Like tending to a
+                garden, we nurture each article with careful attention and
+                genuine care.
+              </p>
+              <Link
+                href="/blog"
+                variant="cta"
+                size="lg"
+                className="inline-flex items-center"
+              >
+                Explore Our Blog
+                <Icon name="ArrowRight" className="w-4 h-4 ml-2" />
+              </Link>
+            </MotionDiv>
+          </div>
+        </MotionDiv>
+
+        <MotionDiv className="lg:col-span-7 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <ProjectCard
+                title="Framer Motion Animations"
+                description="Learn how we create smooth, performant animations that enhance user experience without compromising load times."
+                image="/blog/framer-motion-animations.webp"
+                tags={['Performance', 'Animation', 'React']}
+                link="/blog/framer-motion-animations"
+              />
+            </MotionDiv>
+
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <ProjectCard
+                title="Tailwind Best Practices"
+                description="Discover our approach to building maintainable, scalable CSS with Tailwind in modern React applications."
+                image="/blog/tailwind-best-practices.webp"
+                tags={['CSS', 'Design', 'Tailwind']}
+                link="/blog/tailwind-best-practices"
+              />
+            </MotionDiv>
+          </div>
+
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-8 p-6 bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-lg"
+          >
+            <h3 className="text-subtitle font-subtitle text-foreground mb-3">
+              Why Read Our Blog?
+            </h3>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2">
+                <Icon
+                  name="CheckCircle"
+                  className="w-5 h-5 text-sky dark:text-azure"
+                />
+                <span>Practical insights from real-world React projects</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Icon
+                  name="CheckCircle"
+                  className="w-5 h-5 text-sky dark:text-azure"
+                />
+                <span>
+                  Performance optimization techniques & best practices
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Icon
+                  name="CheckCircle"
+                  className="w-5 h-5 text-sky dark:text-azure"
+                />
+                <span>Modern development approaches & emerging trends</span>
+              </li>
+            </ul>
+          </MotionDiv>
+        </MotionDiv>
+      </div>
+    </MotionSection>
   );
 }

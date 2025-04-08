@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { generateBlurPlaceholder } from '@/lib/image';
+import { clientLogger } from '@/lib/logger';
 
 export interface Post {
   slug: string;
@@ -55,6 +56,10 @@ export function getPostBySlug(slug: string): Post | null {
       content,
     };
   } catch (error) {
+    clientLogger.error(
+      `Error reading post ${slug}: ${error}`,
+      'blog:getPostBySlug'
+    );
     return null;
   }
 }

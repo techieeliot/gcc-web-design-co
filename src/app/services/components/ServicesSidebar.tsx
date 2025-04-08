@@ -1,24 +1,29 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 import {
-  motion,
   staggeredContainerTransition,
   listItemTransition,
-} from "@/lib/animations";
-import { implementations } from "@/data";
-import { Icon } from "@/components/ui/icon";
+} from '@/lib/animations';
+import { implementations } from '@/data';
+import { Icon } from '@/components/ui/icon';
+import {
+  MotionAside,
+  MotionDiv,
+  MotionUl,
+  MotionLi,
+} from '@/components/ui/motion-components';
 
 export const ServicesSidebar = () => {
   return (
-    <motion.aside
+    <MotionAside
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}
       className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 self-start"
     >
       {implementations.map((section, index) => (
-        <motion.div
+        <MotionDiv
           key={index}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,22 +31,22 @@ export const ServicesSidebar = () => {
           transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
           whileHover={{ y: -5 }}
           className={cn(
-            "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl",
-            "p-6 sm:p-8",
-            "shadow-sm hover:shadow-md transition-all",
+            'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl',
+            'p-6 sm:p-8',
+            'shadow-sm hover:shadow-md transition-all'
           )}
         >
-          <motion.div className="flex items-center gap-3 mb-4">
-            <motion.div>
+          <MotionDiv className="flex items-center gap-3 mb-4">
+            <MotionDiv>
               <Icon
                 name={section.icon}
                 className="w-10 h-10 text-midnight dark:text-sky"
               />
-            </motion.div>
+            </MotionDiv>
             <h3 className="text-2xl font-bold">{section.title}</h3>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.ul
+          <MotionUl
             variants={staggeredContainerTransition}
             initial="hidden"
             whileInView="visible"
@@ -49,7 +54,7 @@ export const ServicesSidebar = () => {
             className="space-y-3"
           >
             {section.items.map((item, itemIndex) => (
-              <motion.li
+              <MotionLi
                 key={itemIndex}
                 variants={listItemTransition}
                 whileHover={{ x: 3 }}
@@ -62,11 +67,11 @@ export const ServicesSidebar = () => {
                 <span className="text-sm text-slate-600 dark:text-slate-300">
                   {item}
                 </span>
-              </motion.li>
+              </MotionLi>
             ))}
-          </motion.ul>
-        </motion.div>
+          </MotionUl>
+        </MotionDiv>
       ))}
-    </motion.aside>
+    </MotionAside>
   );
 };

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { logger } from "@/lib/logger";
-import { useEffect } from "react";
+import { clientLogger } from '@/lib/logger';
+import { useEffect } from 'react';
 
 export default function ErrorBoundary({
   error,
@@ -11,7 +11,7 @@ export default function ErrorBoundary({
   reset: () => void;
 }) {
   useEffect(() => {
-    logger.error("Client-side error caught by boundary:", {
+    clientLogger.error('Client-side error caught by boundary:', {
       error: error.message,
       stack: error.stack,
       digest: error.digest,
