@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { Link } from "@/components/ui/link";
-import { companySocialLinks, quickLinks } from "@/data";
+import { cn } from '@/lib/utils';
+import { Link } from '@/components/ui/link';
+import { companySocialLinks, quickLinks } from '@/data';
 import {
   footerFadeIn,
   motion,
   quickLinkContainerVariants,
   quickLinkItemVariants,
-} from "@/lib/animations";
-import { Icon, IconName } from "../ui/icon";
+} from '@/lib/animations';
+import { Icon, IconName } from '../ui/icon';
 
 export function QuickLinks({ showHeading = false }) {
   return (
-    <div className={cn("w-full", showHeading ? "mb-6" : "mb-0")}>
+    <div className={cn('w-full', showHeading ? 'mb-6' : 'mb-0')}>
       {showHeading && (
         <motion.h3
           initial={{ opacity: 0, y: -5 }}
@@ -42,14 +42,14 @@ export function QuickLinks({ showHeading = false }) {
               href={href}
               variant="standaloneLink"
               className={cn(
-                "group flex items-center gap-3",
-                "py-2 px-3 rounded-md",
-                "hover:bg-sky/5 dark:hover:bg-azure/5",
-                "transition-colors duration-200",
-                "text-slate-600 dark:text-slate-300",
-                "hover:text-sky dark:hover:text-azure",
-                "text-base",
-                "w-full",
+                'group flex items-center gap-3',
+                'py-2 px-3 rounded-md',
+                'hover:bg-sky/5 dark:hover:bg-azure/5',
+                'transition-colors duration-200',
+                'text-slate-600 dark:text-slate-300',
+                'hover:text-sky dark:hover:text-azure',
+                'text-base',
+                'w-full'
               )}
             >
               <Icon
@@ -73,7 +73,7 @@ interface ContactItemProps {
   icon: IconName;
   href: string;
   children: React.ReactNode;
-  variant?: "nav" | "default";
+  variant?: 'nav' | 'default';
   showExternalIcon?: boolean;
 }
 
@@ -81,13 +81,13 @@ function ContactItem({
   icon,
   href,
   children,
-  variant = "nav",
+  variant = 'nav',
   showExternalIcon = true,
 }: ContactItemProps) {
   return (
     <motion.div
       whileHover={{ x: 5 }}
-      transition={{ type: "spring", stiffness: 300 }}
+      transition={{ type: 'spring', stiffness: 300 }}
       transformTemplate={(_: any, transform: any) =>
         `translateZ(0) ${transform}`
       }
@@ -100,9 +100,9 @@ function ContactItem({
         href={href}
         variant={variant}
         className={cn(
-          "text-slate-600 dark:text-powder/80",
-          "hover:text-sky dark:hover:text-azure",
-          "group flex items-center gap-1",
+          'text-slate-600 dark:text-powder/80',
+          'hover:text-sky dark:hover:text-azure',
+          'group flex items-center gap-1'
         )}
       >
         {children}
@@ -197,11 +197,11 @@ export function SocialLinks() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "flex items-center justify-center",
-              "w-10 h-10 rounded-full",
-              "transition-all duration-300",
+              'flex items-center justify-center',
+              'w-10 h-10 rounded-full',
+              'transition-all duration-300',
               color,
-              "dark:text-powder/90",
+              'dark:text-powder/90'
             )}
             aria-label={label}
           >
@@ -236,8 +236,8 @@ export function Copyright({ currentYear }: { currentYear: number }) {
       viewport={{ once: true }}
       transition={{ delay: 0.5 }}
       className={cn(
-        "border-t border-slate-200 dark:border-slate-800",
-        "mt-12 pt-8 pb-8",
+        'border-t border-slate-200 dark:border-slate-800',
+        'mt-12 pt-8 pb-8'
       )}
     >
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -257,7 +257,7 @@ function MadeWithLove() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: 0.7 }}
-      className="text-sm text-slate-500 dark:text-powder/70 flex items-center"
+      className="text-sm text-slate-500 dark:text-powder/70 flex items-center gap-1"
     >
       Made with
       <motion.span
@@ -265,14 +265,11 @@ function MadeWithLove() {
         transition={{
           duration: 1.5,
           repeat: Infinity,
-          repeatType: "loop",
+          repeatType: 'loop',
         }}
-        transformTemplate={(_: any, transform: any) =>
-          `translateZ(0) ${transform}`
-        }
-        className="inline-block mx-1 text-red-500"
+        className="inline-flex text-red-500"
       >
-        <Icon name="Heart" className="w-4 h-4 fill-current" />
+        <Icon name="Heart" className="w-4 h-4 fill-current mx-1" />
       </motion.span>
       in Mississippi
     </motion.p>

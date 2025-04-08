@@ -1,13 +1,22 @@
+import { cn } from '@/lib/utils';
+import { HTMLAttributes } from 'react';
+
 interface LoadingFallbackProps {
-  height?: string
+  height?: string;
+  className?: string;
 }
 
 export function LoadingFallback({
-  height = 'h-[400px]',
+  height = 'h-6',
+  className,
 }: LoadingFallbackProps) {
   return (
-    <div
-      className={`${height} bg-slate-100 dark:bg-slate-800 animate-pulse rounded-lg`}
+    <span
+      className={cn(
+        height,
+        'inline-block bg-slate-200 dark:bg-slate-700 animate-pulse rounded',
+        className
+      )}
     />
-  )
+  );
 }

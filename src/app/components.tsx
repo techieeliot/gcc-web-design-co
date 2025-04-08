@@ -1,15 +1,30 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/animations";
+import { motion } from '@/lib/animations';
+import { useInView } from 'react-intersection-observer';
+import { Suspense } from 'react';
+import atom from 'public/blueberry-atom.svg';
 
-import Image from "next/image";
-import { Link } from "@/components/ui/link";
-import { benefits, features } from "@/data";
-import { Icon } from "@/components/ui/icon";
+import Image from 'next/image';
+import { Link } from '@/components/ui/link';
+import { benefits, features } from '@/data';
+import { Icon } from '@/components/ui/icon';
+import { LoadingFallback } from '@/components/ui/loading-fallback';
 
 export function HeroSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-background pt-6 lg:pt-10">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+      className="hero-section"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,36 +79,45 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="order-1 lg:order-2"
-        >
+        <motion.div className="order-1 lg:order-2">
           <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/20" />
-            <Image
-              src="/blueberry-atom.svg"
-              alt="Web development illustration"
-              fill
-              className="object-contain object-center transition-transform duration-500 hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 400px"
-              priority
-            />
+            <Suspense fallback={<LoadingFallback height="h-full" />}>
+              <Image
+                src={atom}
+                alt="Web development illustration"
+                fill
+                className="object-contain object-center transition-transform duration-500 hover:scale-105 opacity-0"
+                sizes="(max-width: 768px) 100vw, 400px"
+                onLoad={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  img.classList.remove('opacity-0');
+                  img.classList.add('opacity-100');
+                }}
+                loading="eager"
+                priority
+              />
+            </Suspense>
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 export function FeaturesSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <motion.section
-      className="w-full py-16 lg:py-24 flex flex-col items-center"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.6 }}
+      className="features-section"
     >
       <div className="w-full">
         <motion.div className="text-center mb-12">
@@ -136,8 +160,19 @@ export function FeaturesSection() {
 }
 
 export function ShowcaseSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <motion.section>
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+      className="showcase-section"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full">
         <motion.div className="lg:col-span-7 w-full">
           <ValueProposition />
@@ -153,8 +188,19 @@ export function ShowcaseSection() {
 }
 
 export function CallToActionSection() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <motion.section>
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+      className="call-to-action-section"
+    >
       <div className="rounded-xl p-12 text-foreground relative flex flex-col justify-center items-center gap-4">
         <h2 className="text-title font-title mb-4">
           Ready to transform your digital presence?
@@ -195,7 +241,7 @@ export function ProjectShowcase() {
           title="Fourth Party"
           description="An innovative platform designed to simplify mediation with clarity and purpose."
           image="/images/pic03.webp"
-          tags={["React", "Modern UI", "CRM"]}
+          tags={['React', 'Modern UI', 'CRM']}
           link="/portfolio/fourth-party"
         />
 
@@ -203,7 +249,7 @@ export function ProjectShowcase() {
           title="Room in the Inn Memphis"
           description="A complete redesign crafted to uplift community impact through empathy and user-first design."
           image="/images/pic02.webp"
-          tags={["CMS", "JavaScript"]}
+          tags={['CMS', 'JavaScript']}
           link="/portfolio/room-in-the-inn-memphis"
         />
       </div>

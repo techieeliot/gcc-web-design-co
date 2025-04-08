@@ -1,51 +1,57 @@
-import * as LucideIcons from "lucide-react";
-import { cn } from "@/lib/utils";
-import { AlertCircle } from "lucide-react";
+import { cn } from '@/lib/utils';
+import dynamic from 'next/dynamic';
+import type { LucideProps } from 'lucide-react';
+import { LoadingFallback } from './loading-fallback';
+import { Suspense, memo, ComponentType } from 'react';
 
-export type IconName = keyof typeof LucideIcons;
+export type IconName = keyof typeof import('lucide-react');
 
 interface IconProps {
   name: IconName;
   className?: string;
   size?: number;
   strokeWidth?: number;
-  fallback?: boolean;
 }
 
-export function Icon({
-  name,
-  className,
-  size = 24,
-  strokeWidth = 1.5,
-  fallback = true,
-}: IconProps) {
-  const Component = LucideIcons[name] as LucideIcons.LucideIcon;
-
-  if (!Component) {
-    console.warn(`Icon "${name}" not found`);
-
-    if (!fallback) return null;
-
-    return (
-      <AlertCircle
-        className={cn(
-          "flex-shrink-0 text-red-500 dark:text-red-400",
-          className,
-        )}
-        width={size}
-        height={size}
-        strokeWidth={strokeWidth}
-        aria-label={`Icon "${name}" not found`}
-      />
-    );
-  }
+const DynamicIcon = memo(({ name, ...props }: IconProps) => {
+  const IconComponent = dynamic<LucideProps>(
+    async () => {
+      const mod = await import('lucide-react');
+      return mod[name as keyof typeof mod] as ComponentType<LucideProps>;
+    },
+    {
+      loading: () => (
+        <LoadingFallback
+          height={`h-[${props.size || 24}px]`}
+          className={cn('flex-shrink-0', props.className)}
+        />
+      ),
+      ssr: false,
+    }
+  );
 
   return (
-    <Component
-      className={cn("flex-shrink-0", className)}
-      width={size}
-      height={size}
-      strokeWidth={strokeWidth}
+    <IconComponent
+      size={props.size || 24}
+      strokeWidth={props.strokeWidth || 2}
+      className={cn('flex-shrink-0', props.className)}
     />
+  );
+});
+
+DynamicIcon.displayName = 'DynamicIcon';
+
+export function Icon(props: IconProps) {
+  return (
+    <Suspense
+      fallback={
+        <LoadingFallback
+          height={`h-[${props.size || 24}px]`}
+          className={cn('flex-shrink-0', props.className)}
+        />
+      }
+    >
+      <DynamicIcon {...props} />
+    </Suspense>
   );
 }

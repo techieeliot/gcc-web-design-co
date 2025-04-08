@@ -1,11 +1,15 @@
-import Image from "next/image";
-import { getAllPosts } from "./[slug]/utils";
-import { Link } from "@/components/ui/link";
-import { ShowcaseSection } from "../components";
+import Image from 'next/image';
+import { getAllPosts } from './[slug]/utils';
+import { Link } from '@/components/ui/link';
+import { ShowcaseSection } from '../components';
+import { generateBlurPlaceholder } from '@/lib/image';
 
 export default function Blog() {
   const posts = getAllPosts();
   const [featuredPost, ...recentPosts] = posts;
+
+  // Generate a default blur placeholder
+  const defaultBlurDataURL = generateBlurPlaceholder(800, 450);
 
   return (
     <div className="min-h-screen">
@@ -53,21 +57,27 @@ export default function Blog() {
                     >
                       <Image
                         src={post.image}
-                        alt=""
-                        fill
-                        className="object-cover transition group-hover:scale-105"
+                        alt={post.title}
+                        width={800}
+                        height={450}
+                        quality={75}
+                        placeholder="blur"
+                        blurDataURL={post.blurDataUrl}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition"
+                        loading="lazy"
                       />
                     </Link>
                     <div>
                       <header className="mb-2">
                         <time className="text-sm text-slate-500 dark:text-slate-400">
                           {new Date(post.publishedAt).toLocaleDateString(
-                            "en-US",
+                            'en-US',
                             {
-                              month: "long",
-                              day: "numeric",
-                              year: "numeric",
-                            },
+                              month: 'long',
+                              day: 'numeric',
+                              year: 'numeric',
+                            }
                           )}
                         </time>
                         <h3 className="text-xl font-semibold mt-1">
@@ -105,9 +115,15 @@ export default function Blog() {
                   >
                     <Image
                       src={featuredPost.image}
-                      alt=""
-                      fill
-                      className="object-cover transition group-hover:scale-105"
+                      alt={featuredPost.title}
+                      width={800}
+                      height={450}
+                      quality={75}
+                      placeholder="blur"
+                      blurDataURL={featuredPost.blurDataUrl}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition"
+                      loading="lazy"
                     />
                   </Link>
                   <header className="mb-4">

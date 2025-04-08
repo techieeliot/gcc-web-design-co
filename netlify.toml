@@ -11,8 +11,9 @@
   NPM_VERSION = "10.2.4"
   NEXT_TELEMETRY_DISABLED = "1"
   NEXT_SHARP_PATH = "/tmp/sharp"
-  NEXT_PUBLIC_URL = "https://devsouth.us"
+  NEXT_PUBLIC_URL = "http://localhost:8888"
   NODE_OPTIONS = "--max-old-space-size=8192"
+  NEXT_USE_NETLIFY_EDGE = "true"
 
 [functions]
   node_bundler = "esbuild"
@@ -22,10 +23,17 @@
   [functions.api]
     included_files = [".next/server/**", ".next/standalone/**"]
     environment = { NODE_ENV = "production", NEXT_RUNTIME = "edge" }
+    timeout = 60
 
   [functions."*"]
-    memory = 8192 # 8GB memory
-    timeout = 30  # 30 second timeout
+    memory = 8192
+    timeout = 60
+
+  [functions.next-server]
+    timeout = 60
+    memory = 8192  # Increase memory allocation
+    included_files = [".next/server/**", ".next/standalone/**"]
+    environment = { NODE_ENV = "production", NEXT_RUNTIME = "edge" }
 
 # Performance optimizations for assets
 [[headers]]
@@ -73,4 +81,22 @@
 
 [context.production.environment]
 NEXT_PUBLIC_SITE_URL = "https://devsouth.us"
+
+[dev]
+  framework = "next"
+  targetPort = 3000  # Changed from targetPort to target-port
+  port = 8888
+  command = "npm run dev"
+  publish = ".next"
+  autoLaunch = true
+  debug = false  # Change to false to reduce noise
+  watchPort = 3000
+  functionsPort = 9999  # Add explicit functions port
+  live = true  # Enable live reload
+  environment = { NODE_ENV = "development" }  # Explicitly set development environment
+
+[[edge_functions]]
+  path = "/*"
+  function = "next-server"
+
 

@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { Link } from "@/components/ui/link";
+import Image from 'next/image';
+import { Link } from '@/components/ui/link';
 import {
   fadeInAnimation,
   imageVariant,
   staggeredVisibilityTransition,
   listItemTransition,
   motion,
-} from "@/lib/animations";
-import { cn } from "@/lib/utils";
-import { Icon } from "@/components/ui/icon";
-import { facts, socialLinks } from "@/data";
+} from '@/lib/animations';
+import { cn } from '@/lib/utils';
+import { Icon } from '@/components/ui/icon';
+import { facts, socialLinks } from '@/data';
+import heroImage from 'public/images/pic03.webp';
 
 export const AboutSection = () => {
   return (
@@ -20,10 +21,10 @@ export const AboutSection = () => {
       animate="visible"
       variants={fadeInAnimation}
       className={cn(
-        "lg:col-span-8 space-y-12",
-        "bg-white dark:bg-slate-800 rounded-xl",
-        "prose lg:prose-lg max-w-none",
-        "p-6 sm:p-8 lg:p-10",
+        'lg:col-span-8 space-y-12',
+        'bg-white dark:bg-slate-800 rounded-xl',
+        'prose lg:prose-lg max-w-none',
+        'p-6 sm:p-8 lg:p-10'
       )}
     >
       {/* Hero section with image and icons */}
@@ -32,7 +33,7 @@ export const AboutSection = () => {
         className="relative h-64 sm:h-72 md:h-80 lg:h-96 mb-8 lg:mb-12 rounded-lg overflow-hidden"
       >
         <Image
-          src="/images/pic03.webp"
+          src={heroImage}
           alt="Modern development workspace"
           fill
           className="object-cover"
@@ -42,7 +43,7 @@ export const AboutSection = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring" }}
+            transition={{ type: 'spring' }}
           >
             <Icon
               name="Code2"
@@ -52,7 +53,7 @@ export const AboutSection = () => {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.1, rotate: -5 }}
-            transition={{ type: "spring" }}
+            transition={{ type: 'spring' }}
           >
             <Icon
               name="Brain"
@@ -62,7 +63,7 @@ export const AboutSection = () => {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring" }}
+            transition={{ type: 'spring' }}
           >
             <Icon
               name="Rocket"
@@ -274,11 +275,11 @@ export const AboutSection = () => {
             className="space-y-2 mb-4 text-base leading-relaxed"
           >
             {[
-              "Founding freeCodeCamp Jackson, MS",
-              "Mentoring at Base Camp Coding Academy",
-              "Teaching web development to underrepresented youth",
-              "Contributing to open source education",
-              "Supporting nonprofits through GiveCamp",
+              'Founding freeCodeCamp Jackson, MS',
+              'Mentoring at Base Camp Coding Academy',
+              'Teaching web development to underrepresented youth',
+              'Contributing to open source education',
+              'Supporting nonprofits through GiveCamp',
             ].map((item, index) => (
               <motion.li
                 key={index}
@@ -316,6 +317,9 @@ export const AboutSection = () => {
                   src="/authors/eliot.webp"
                   alt="Eliot Sanford"
                   fill
+                  sizes="(max-width: 768px) 100vw, 
+                  (max-width: 1200px) 50vw,
+                  33vw"
                   className="object-cover"
                 />
               </motion.div>
@@ -339,7 +343,7 @@ export const AboutSection = () => {
                   With over 6 years steering the React ecosystem, I've helped
                   guide both startups and enterprise teams focusing on
                   performance, accessibility, and scalable solutions. Follow me
-                  on Twitter at{" "}
+                  on Twitter at{' '}
                   <Link href="https://twitter.com/techieEliot">
                     @techieEliot
                   </Link>
@@ -406,9 +410,9 @@ export const CompanyFacts = () => {
       animate="visible"
       variants={fadeInAnimation}
       className={cn(
-        "bg-white dark:bg-slate-800",
-        "border border-slate-200 dark:border-slate-700",
-        "p-6 sm:p-8 rounded-xl",
+        'bg-white dark:bg-slate-800',
+        'border border-slate-200 dark:border-slate-700',
+        'p-6 sm:p-8 rounded-xl'
       )}
     >
       <motion.h3
@@ -427,7 +431,7 @@ export const CompanyFacts = () => {
             className="flex items-start gap-3"
           >
             <Icon
-              name={icon || "Info"} // Fallback to "Info" icon if none specified
+              name={icon || 'Info'} // Fallback to "Info" icon if none specified
               className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0"
             />
             <div className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
@@ -477,7 +481,7 @@ export const ConnectWithUs = () => {
             >
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                transition={{ type: 'spring', stiffness: 400 }}
                 className="flex items-center gap-3"
               >
                 <Icon
@@ -488,7 +492,7 @@ export const ConnectWithUs = () => {
               </motion.div>
               <motion.div
                 whileHover={{ x: 3 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                transition={{ type: 'spring', stiffness: 400 }}
               >
                 <Icon name="ExternalLinkIcon" className="w-4 h-4" />
               </motion.div>

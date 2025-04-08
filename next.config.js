@@ -16,16 +16,34 @@ let config = {
 
   // Optimize image loading
   images: {
-    domains: [...domainHostnames, 'localhost'],
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    // Remove deprecated domains
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
+        port: '',
+        pathname: '**',
+      },
+      ...domainHostnames.map((hostname) => ({
+        protocol: 'https',
+        hostname,
+        port: '',
+        pathname: '**',
+      })),
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '',
+        pathname: '**',
       },
     ],
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
   },
 
@@ -100,7 +118,102 @@ let config = {
           },
         ],
       },
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
+  },
+
+  webpack: (config, { dev, isServer }) => {
+    // Remove the problematic devtool override
+    if (dev) {
+      // Use default Next.js devtool in development
+      delete config.devtool;
+    }
+    config.optimization.splitChunks.maxSize = 244000;
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'lucide-react': require.resolve('lucide-react'),
+    };
+
+    // Add bundle optimization
+    if (!dev) {
+      config.optimization = {
+        ...config.optimization,
+        minimize: true,
+        splitChunks: {
+          chunks: 'all',
+          maxInitialRequests: 25,
+          minSize: 20000,
+          maxSize: 244000,
+          cacheGroups: {
+            default: false,
+            vendors: {
+              name: 'vendors',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 10,
+              reuseExistingChunk: true,
+              enforce: true,
+            },
+            commons: {
+              name: 'commons',
+              chunks: 'all',
+              minChunks: 2,
+              priority: 0,
+              reuseExistingChunk: true,
+            },
+          },
+        },
+        moduleIds: 'deterministic',
+      };
+    }
+
+    // Add environment check for client-side only code
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        module: false,
+        path: false,
+      };
+    }
+
+    return config;
+  },
+
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react'],
+    // Enable modern JavaScript features
+    swcMinify: true,
+    serverComponentsExternalPackages: ['sharp'], // Add sharp to external packages
+  },
+
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === 'production'
+        ? {
+            exclude: ['error', 'warn'],
+          }
+        : false,
+  },
+
+  // Improve build performance
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 2,
+  },
+
+  // Add server configuration
+  serverRuntimeConfig: {
+    port: parseInt(process.env.PORT, 10) || 3000,
   },
 };
 

@@ -1,13 +1,14 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { Link } from "../ui/link";
-import { desktopLinkVariants, motion, AnimatePresence } from "@/lib/animations";
-import { NavLink } from "../ui/nav-link";
-import { Shimmer } from "../ui/shimmer";
-import { usePathname } from "next/navigation";
-import { Icon } from "../ui/icon";
+'use client';
+import React, { Suspense } from 'react';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { Link } from '../ui/link';
+import { desktopLinkVariants, motion, AnimatePresence } from '@/lib/animations';
+import { NavLink } from '../ui/nav-link';
+import { Shimmer } from '../ui/shimmer';
+import { usePathname } from 'next/navigation';
+import { Icon } from '../ui/icon';
+import { LoadingFallback } from '../ui/loading-fallback';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -15,12 +16,12 @@ interface MobileNavProps {
 }
 
 const links: { href: string; label: string }[] = [
-  { href: "/", label: "Welcome" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Our Work" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: '/', label: 'Welcome' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Our Work' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function ClientHeader() {
@@ -43,18 +44,18 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   React.useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
@@ -62,21 +63,21 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
     <>
       <motion.div
         className={cn(
-          "fixed top-0 left-0 right-0",
-          "z-[100]",
-          "bg-background dark:bg-background", // Changed to solid background
-          "border-b border-border",
-          "shadow-sm",
-          isOpen && "opacity-0 pointer-events-none",
+          'fixed top-0 left-0 right-0',
+          'z-[100]',
+          'bg-background dark:bg-background', // Changed to solid background
+          'border-b border-border',
+          'shadow-sm',
+          isOpen && 'opacity-0 pointer-events-none'
         )}
       >
         <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50 dark:bg-slate-900 shadow-sm">
           <div className="container max-w-7xl mx-auto px-4">
             <div
               className={cn(
-                "flex justify-between items-center h-14 sm:h-16 md:h-20",
+                'flex justify-between items-center h-14 sm:h-16 md:h-20',
                 // Improve text contrast when scrolled
-                isScrolled && "text-slate-900 dark:text-white",
+                isScrolled && 'text-slate-900 dark:text-white'
               )}
             >
               {/* Logo Section with Shimmer fallback */}
@@ -92,10 +93,10 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   href="/"
                   noButtonWrapper={true} // Use this to bypass the Button wrapper
                   className={cn(
-                    "no-underline flex items-center gap-2 sm:gap-3",
-                    "rounded-md px-3 py-3",
-                    "hover:bg-azure/10 transition-all duration-300",
-                    "relative overflow-visible",
+                    'no-underline flex items-center gap-2 sm:gap-3',
+                    'rounded-md px-3 py-3',
+                    'hover:bg-azure/10 transition-all duration-300',
+                    'relative overflow-visible'
                   )}
                 >
                   {/* Logo container with proper spacing and visibility */}
@@ -103,8 +104,8 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     {/* Outer animated ring */}
                     <motion.div
                       className={cn(
-                        "absolute rounded-full border-2 border-sky/20 dark:border-azure/20",
-                        "-left-1 -top-1",
+                        'absolute rounded-full border-2 border-sky/20 dark:border-azure/20',
+                        '-left-1 -top-1'
                       )}
                       animate={{
                         opacity: [0.4, 0.8, 0.4],
@@ -114,12 +115,12 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                         opacity: {
                           duration: 3,
                           repeat: Infinity,
-                          repeatType: "mirror",
+                          repeatType: 'mirror',
                         },
                         rotate: {
                           duration: 20,
                           repeat: Infinity,
-                          ease: "linear",
+                          ease: 'linear',
                         },
                       }}
                     />
@@ -131,22 +132,22 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                         transition: {
                           duration: 0.8,
                           repeat: 0,
-                          ease: "easeInOut",
+                          ease: 'easeInOut',
                         },
                       }}
                       className={cn(
-                        "rounded-full bg-slate flex items-center justify-center",
-                        "relative z-10",
-                        "w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14",
+                        'rounded-full bg-slate flex items-center justify-center',
+                        'relative z-10',
+                        'w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14'
                       )}
                     >
                       <motion.div
                         className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-azure/20"
                         whileHover={{
                           borderColor: [
-                            "rgba(56, 189, 248, 0.2)",
-                            "rgba(129, 140, 248, 0.3)",
-                            "rgba(56, 189, 248, 0.2)",
+                            'rgba(56, 189, 248, 0.2)',
+                            'rgba(129, 140, 248, 0.3)',
+                            'rgba(56, 189, 248, 0.2)',
                           ],
                         }}
                         transition={{ duration: 2, repeat: 0 }}
@@ -161,34 +162,44 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                         }}
                         transition={{
                           duration: 3,
-                          ease: "easeInOut",
+                          ease: 'easeInOut',
                           repeat: Infinity,
-                          repeatType: "mirror",
+                          repeatType: 'mirror',
                         }}
                       />
 
                       {/* Add Shimmer while image loads */}
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
                         <Shimmer className="absolute inset-0 rounded-full" />
-                        <Image
-                          src="/blueberry-atom.svg"
-                          alt="SanforDEV Logo"
-                          width={36}
-                          height={36}
-                          className={cn(
-                            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2", // Add this line for centering
-                            "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9",
-                            "object-contain",
-                            "transform-gpu",
-                            "relative z-10",
-                          )}
-                          onLoadingComplete={(img) => {
-                            img.classList.add("opacity-100");
-                            img.previousElementSibling?.classList.add(
-                              "opacity-0",
-                            );
-                          }}
-                        />
+                        <Suspense
+                          fallback={<LoadingFallback height="h-full" />}
+                        >
+                          <Image
+                            src="/blueberry-atom.svg"
+                            alt="SanforDEV Logo"
+                            width={36}
+                            height={36}
+                            className={cn(
+                              'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', // Add this line for centering
+                              'w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9',
+                              'object-contain',
+                              'transform-gpu opacity-0 transition-opacity duration-200',
+                              'relative z-10'
+                            )}
+                            onLoad={(e) => {
+                              const img = e.target as HTMLImageElement;
+                              img.classList.remove('opacity-0');
+                              img.classList.add('opacity-100');
+                              const shimmer =
+                                img.previousElementSibling as HTMLElement;
+                              if (shimmer) {
+                                shimmer.classList.add('opacity-0');
+                              }
+                            }}
+                            loading="eager"
+                            priority
+                          />
+                        </Suspense>
                       </div>
 
                       {/* Hover effect */}
@@ -204,28 +215,28 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   {/* Brand text */}
                   <span
                     className={cn(
-                      "font-bold text-base sm:text-lg md:text-lg lg:text-xl leading-none whitespace-nowrap relative z-10",
+                      'font-bold text-base sm:text-lg md:text-lg lg:text-xl leading-none whitespace-nowrap relative z-10',
                       isScrolled
-                        ? "text-slate-900 dark:text-white"
-                        : "text-slate-700 dark:text-powder",
+                        ? 'text-slate-900 dark:text-white'
+                        : 'text-slate-700 dark:text-powder'
                     )}
                   >
                     Sanfor
                     <motion.span
                       className="text-sky relative inline-block"
                       animate={{
-                        color: ["#38bdf8", "#818cf8", "#38bdf8"],
+                        color: ['#38bdf8', '#818cf8', '#38bdf8'],
                       }}
                       transition={{
                         duration: 4,
                         repeat: Infinity,
-                        ease: "easeInOut",
+                        ease: 'easeInOut',
                       }}
                     >
                       DEV
                     </motion.span>
                     <span className="hidden sm:inline md:hidden xl:inline">
-                      {" "}
+                      {' '}
                       Consulting
                     </span>
                   </span>
@@ -257,7 +268,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    type: "spring",
+                    type: 'spring',
                     stiffness: 300,
                     damping: 15,
                     delay: 0.8,
@@ -280,13 +291,13 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setIsOpen(!isOpen)}
                   className={cn(
-                    "p-2 rounded-full",
+                    'p-2 rounded-full',
                     isScrolled
-                      ? "text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure"
-                      : "text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure",
-                    "transition-colors hover:bg-slate-100 dark:hover:bg-slate-800",
+                      ? 'text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure'
+                      : 'text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure',
+                    'transition-colors hover:bg-slate-100 dark:hover:bg-slate-800'
                   )}
-                  aria-label={isOpen ? "Close menu" : "Open menu"}
+                  aria-label={isOpen ? 'Close menu' : 'Open menu'}
                   aria-expanded={isOpen}
                 >
                   <motion.div
@@ -319,17 +330,17 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
   // Close on Escape key
   React.useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         setIsOpen(false);
       }
     };
 
     if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
+      document.addEventListener('keydown', handleEscape);
     }
 
     return () => {
-      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, [isOpen, setIsOpen]);
 
@@ -353,15 +364,15 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
 
           {/* Menu panel */}
           <motion.div
-            initial={{ x: "100%" }}
+            initial={{ x: '100%' }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             className={cn(
-              "fixed top-0 right-0 h-full w-[280px] z-50",
-              "bg-slate-50 dark:bg-slate-900", // Solid backgrounds here as well
-              "border-l border-slate-200 dark:border-slate-800",
-              "shadow-xl",
+              'fixed top-0 right-0 h-full w-[280px] z-50',
+              'bg-slate-50 dark:bg-slate-900', // Solid backgrounds here as well
+              'border-l border-slate-200 dark:border-slate-800',
+              'shadow-xl'
             )}
           >
             <div className="flex flex-col h-full">
@@ -386,7 +397,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                           opacity: 1,
                           x: 0,
                           transition: {
-                            type: "spring",
+                            type: 'spring',
                             damping: 20,
                           },
                         },
