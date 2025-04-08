@@ -71,6 +71,7 @@ export async function middleware(request: NextRequest) {
       'Cache-Control',
       'public, max-age=31536000, immutable'
     );
+    response.headers.set('X-Content-Type-Options', 'nosniff');
 
     runtimeLogger.info('Middleware completed', {
       duration: performance.now() - startTime,
@@ -104,5 +105,6 @@ export const config = {
      * 4. all root files inside /public (e.g. /favicon.ico)
      */
     '/((?!api|_next|static|[\\w-]+\\.\\w+).*)',
+    '/images/:path*',
   ],
 };

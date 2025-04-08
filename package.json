@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "PORT=3000 next dev",
+    "dev": "next dev",
     "build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "next start",
     "lint": "next lint --fix",
@@ -60,12 +60,13 @@
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.5",
     "lint-staged": "^15.5.0",
+    "next-pwa": "^5.6.0",
     "postcss": "^8.4.35",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.4.3",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

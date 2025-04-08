@@ -19,6 +19,7 @@ import {
   MotionUl,
   MotionLi,
 } from '@/components/ui/motion-components';
+import { generateBlurPlaceholder } from '@/lib/image';
 
 export function HeroSection() {
   const { ref, inView } = useInView({
@@ -29,21 +30,21 @@ export function HeroSection() {
   return (
     <MotionSection
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={inView ? { opacity: 1, transform: 'translateY(0px)' } : {}}
       transition={{ duration: 0.6 }}
       className="hero-section"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: 'translateY(20px)' }}
+          animate={{ opacity: 1, transform: 'translateY(0px)' }}
           transition={{ duration: 0.8 }}
           className="order-2 lg:order-1"
         >
           <MotionSpan
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, transform: 'translateX(-20px)' }}
+            animate={{ opacity: 1, transform: 'translateX(0px)' }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10  font-medium rounded-full mb-4"
           >
@@ -52,8 +53,8 @@ export function HeroSection() {
           </MotionSpan>
 
           <MotionH1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-display font-display text-foreground max-w-lg mb-6"
           >
@@ -61,8 +62,8 @@ export function HeroSection() {
           </MotionH1>
 
           <MotionP
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-large max-w-lg mb-8"
           >
@@ -73,8 +74,8 @@ export function HeroSection() {
           </MotionP>
 
           <MotionDiv
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4"
           >
@@ -88,7 +89,12 @@ export function HeroSection() {
           </MotionDiv>
         </MotionDiv>
 
-        <MotionDiv className="order-1 lg:order-2">
+        <MotionDiv
+          className="order-1 lg:order-2"
+          initial={{ opacity: 0, transform: 'scale(0.95)' }}
+          animate={{ opacity: 1, transform: 'scale(1)' }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/20" />
             <Suspense fallback={<LoadingFallback height="full" />}>
@@ -123,8 +129,8 @@ export function FeaturesSection() {
   return (
     <MotionSection
       ref={ref}
-      initial={{ opacity: 0 }}
-      animate={inView ? { opacity: 1 } : {}}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={inView ? { opacity: 1, transform: 'translateY(0px)' } : {}}
       transition={{ duration: 0.6 }}
       className="features-section"
     >
@@ -144,10 +150,14 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <MotionDiv
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, transform: 'translateY(20px)' }}
+              whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                willChange: 'transform',
+              }}
               className="rounded-xl p-6 shadow-lg backdrop-blur-md bg-card text-card-foreground w-full"
             >
               <div className="rounded-full w-12 h-12 bg-sky/10 dark:bg-azure/10 flex items-center justify-center mb-4">
@@ -177,8 +187,8 @@ export function ShowcaseSection() {
   return (
     <MotionSection
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={inView ? { opacity: 1, transform: 'translateY(0px)' } : {}}
       transition={{ duration: 0.6 }}
       className="showcase-section"
     >
@@ -205,8 +215,8 @@ export function CallToActionSection() {
   return (
     <MotionSection
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={inView ? { opacity: 1, transform: 'translateY(0px)' } : {}}
       transition={{ duration: 0.6 }}
       className="call-to-action-section"
     >
@@ -280,7 +290,13 @@ const ProjectCard = ({
   link: string;
 }) => {
   return (
-    <MotionDiv className="rounded-lg overflow-hidden border border-border bg-card">
+    <MotionDiv
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="rounded-lg overflow-hidden border border-border bg-card"
+    >
       <div className="relative h-36">
         <Image
           src={image}
@@ -288,6 +304,9 @@ const ProjectCard = ({
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 400px"
+          placeholder="blur"
+          blurDataURL={generateBlurPlaceholder(400, 225)}
+          loading="lazy"
         />
       </div>
 
@@ -327,8 +346,8 @@ export function ValueProposition() {
   return (
     <div className="space-y-8">
       <MotionDiv
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, transform: 'translateY(20px)' }}
+        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
@@ -381,8 +400,8 @@ export function ValueProposition() {
       </MotionDiv>
 
       <MotionDiv
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, transform: 'translateY(20px)' }}
+        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
         className="bg-sky/10 dark:bg-azure/10 p-6 rounded-lg border border-sky/20 dark:border-azure/20"
@@ -411,8 +430,8 @@ export function BlogHighlightSection() {
   return (
     <MotionSection
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={inView ? { opacity: 1, transform: 'translateY(0px)' } : {}}
       transition={{ duration: 0.6 }}
       className="blog-highlight-section"
     >
@@ -446,8 +465,8 @@ export function BlogHighlightSection() {
         <MotionDiv className="lg:col-span-7 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, transform: 'translateY(20px)' }}
+              whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
@@ -461,8 +480,8 @@ export function BlogHighlightSection() {
             </MotionDiv>
 
             <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, transform: 'translateY(20px)' }}
+              whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >

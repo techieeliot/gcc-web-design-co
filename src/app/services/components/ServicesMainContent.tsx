@@ -62,16 +62,16 @@ export function ServicesMainContent() {
           className="absolute inset-0 bg-gradient-to-br from-sky/40 to-azure/30 dark:from-sky/50 dark:to-azure/40 flex flex-col items-center justify-center text-center px-6"
         >
           <MotionH1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ delay: 0.6, duration: 0.5 }}
             className="text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-lg"
           >
             Cultivating Digital Excellence
           </MotionH1>
           <MotionP
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0px)' }}
             transition={{ delay: 0.8, duration: 0.5 }}
             className="text-lg text-white max-w-2xl mx-auto drop-shadow-lg"
           >

@@ -82,8 +82,8 @@ export default function PrivacyContent() {
 
       {/* Contact Section */}
       <MotionDiv
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, transform: 'translateY(30px)' }}
+        animate={{ opacity: 1, transform: 'translateY(0px)' }}
         transition={{ delay: 0.8, duration: 0.7 }}
         className="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-slate-900 rounded-xl shadow-lg"
       >

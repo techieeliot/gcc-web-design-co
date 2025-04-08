@@ -50,8 +50,8 @@ export function CaseStudyLayout({
         </div>
 
         <MotionH1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: 'translateY(20px)' }}
+          animate={{ opacity: 1, transform: 'translateY(0px)' }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6"
         >
           {title}
@@ -60,8 +60,8 @@ export function CaseStudyLayout({
 
       {/* Content Section */}
       <MotionSection
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, transform: 'translateY(20px)' }}
+        animate={{ opacity: 1, transform: 'translateY(0px)' }}
         transition={{ delay: 0.2 }}
         className={cn(
           'prose prose-slate dark:prose-invert max-w-none',

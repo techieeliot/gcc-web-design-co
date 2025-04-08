@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Markdown from 'markdown-to-jsx';
 import { Link } from '@/components/ui/link';
 import { Icon } from '@/components/ui/icon';
+import { AuthorSection, RelatedPosts } from './components';
+import { Suspense } from 'react';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -45,6 +47,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
 export default async function BlogPost({ params }: any) {
   const post = getPostBySlug(params.slug);
+  const allPosts = getAllPosts();
 
   if (!post) {
     notFound();
@@ -59,12 +62,13 @@ export default async function BlogPost({ params }: any) {
         </Link>
       </div>
       {/* Hero Section */}
-      <div>
+      <div id="top" className="flex flex-col gap-4">
         <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
           <Image
             src={post.image}
             alt={post.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
             priority
           />
@@ -89,6 +93,20 @@ export default async function BlogPost({ params }: any) {
       <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-slate-200 [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-slate-200 [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
         {post.content}
       </Markdown>
+      <AuthorSection {...post.author} />
+
+      {/* back to the top */}
+      <div className="flex justify-center">
+        <Link
+          href="#top"
+          className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
+        >
+          Back to Top
+        </Link>
+      </div>
+      <Suspense fallback={<div className="h-12" />}>
+        <RelatedPosts currentSlug={post.slug} posts={allPosts} />
+      </Suspense>
     </article>
   );
 }

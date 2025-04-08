@@ -15,7 +15,7 @@ interface NavLinkProps {
 }
 
 const linkVariants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: '-20px' },
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
@@ -26,7 +26,7 @@ const linkVariants = {
       damping: 30,
     },
   }),
-  closed: { opacity: 0, x: 20 },
+  closed: { opacity: 0, x: '20px' },
   open: (i: number) => ({
     opacity: 1,
     x: 0,

@@ -19,8 +19,8 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <MotionDiv
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, transform: 'translateY(20px)' }}
+        animate={{ opacity: 1, transform: 'translateY(0px)' }}
         transition={{ duration: 0.5 }}
         className="text-center max-w-xl"
       >

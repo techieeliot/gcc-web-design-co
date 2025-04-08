@@ -1,13 +1,12 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { MotionDiv } from './motion-components';
 
 interface ShimmerProps {
   className?: string;
   width?: string | number;
   height?: string | number;
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
   duration?: number;
 }
 
@@ -16,33 +15,26 @@ export function Shimmer({
   width,
   height,
   rounded = 'none',
-  duration = 2,
 }: ShimmerProps) {
   const roundedMap = {
     none: '',
     sm: 'rounded-sm',
     md: 'rounded-md',
     lg: 'rounded-lg',
+    xl: 'rounded-xl',
     full: 'rounded-full',
   };
 
   return (
-    <MotionDiv
-      initial={{ opacity: 0.5 }}
-      animate={{ opacity: [0.5, 0.8, 0.5] }}
-      transition={{
-        duration,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }}
+    <span
       style={{
         width,
         height,
       }}
       className={cn(
-        'animate-shimmer bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200',
+        'inline-block bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200',
         'dark:from-gray-800 dark:via-gray-700 dark:to-gray-800',
-        'bg-[length:200%_100%]',
+        'animate-shimmer bg-[length:200%_100%]',
         roundedMap[rounded],
         className
       )}

@@ -29,8 +29,11 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     <MotionDiv
       custom={index}
       variants={serviceCardVariants}
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
+      whileHover={{ transform: 'translateY(-5px)' }} // Fixed scale to translateY
+      transition={{
+        duration: 0.2,
+        willChange: 'transform',
+      }}
       className={cn(
         'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl',
         'p-6 sm:p-8',
@@ -49,8 +52,11 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           <MotionDiv
             key={iconIndex}
             variants={serviceCardIconAnimation}
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{
+              transform: 'scale(1.2) rotate(5deg)',
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{ transform: 'scale(0.95)' }}
             className="relative group cursor-pointer"
             role="img"
             aria-label={`${service.title} icon ${iconIndex + 1}`}

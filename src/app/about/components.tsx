@@ -155,20 +155,22 @@ export const AboutSection = () => {
                 className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
                 strokeWidth={2}
               />
-              <MotionP
+              <MotionDiv
                 className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white leading-tight px-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, transform: 'translateY(20px)' }}
+                animate={{ opacity: 1, transform: 'translateY(0px)' }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-                Building remarkable applications that empower people through
-                functional, delightful, and accessible experiences.
+                <span>
+                  Building remarkable applications that empower people through
+                  functional, delightful, and accessible experiences.
+                </span>
                 <Icon
                   name="Quote"
                   className="w-6 h-6 text-sky dark:text-azure inline-block ml-6 transform translate-y-1 opacity-90"
                   strokeWidth={2}
                 />
-              </MotionP>
+              </MotionDiv>
             </MotionDiv>
 
             <cite className="block text-sm text-slate-600 dark:text-slate-300 mt-2">
@@ -436,7 +438,7 @@ export const CompanyFacts = () => {
           <MotionLi
             key={label}
             variants={listItemTransition}
-            whileHover={{ x: 5 }}
+            whileHover={{ x: '5px' }}
             className="flex items-start gap-3"
           >
             <Icon
@@ -497,7 +499,7 @@ export const ConnectWithUs = () => {
                 <span className="text-left">{label}</span>
               </MotionDiv>
               <MotionDiv
-                whileHover={{ x: 3 }}
+                whileHover={{ x: '3px' }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
                 <Icon name="ExternalLinkIcon" className="w-4 h-4" />
@@ -513,8 +515,8 @@ export const ConnectWithUs = () => {
 export function BlueberryStory() {
   return (
     <MotionSection
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={{ opacity: 1, transform: 'translateY(0px)' }}
       transition={{ duration: 0.6 }}
       className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-xl p-6"
     >

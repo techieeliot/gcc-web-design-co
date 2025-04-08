@@ -14,30 +14,40 @@ const fadeTransition = {
 
 // Optimize variants with hardware acceleration
 export const fadeIn: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
   visible: {
     opacity: 1,
-    y: 0,
+    transform: 'translateY(0px)',
     transition: { duration: 0.4, ease: 'easeOut' },
   },
 };
 
 // Use transform-based animations for better performance
 export const slideUp: Variants = {
-  hidden: { opacity: 0, transform: 'translateY(20px)' },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
   visible: {
     opacity: 1,
     transform: 'translateY(0px)',
     transition: { duration: 0.5 },
+    willChange: 'transform',
   },
 };
 
 // Add willChange prop for better browser optimization
 export const imageVariant: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: {
+    opacity: 0,
+    transform: 'scale(0.95)',
+  },
   visible: {
     opacity: 1,
-    scale: 1,
+    transform: 'scale(1)',
     transition: { duration: 0.8 },
     willChange: 'transform',
   },
@@ -45,101 +55,129 @@ export const imageVariant: Variants = {
 
 // Performance optimized variants
 export const serviceCardVariants: Variants = {
-  hidden: { opacity: 0, transform: 'translateY(30px)' },
-  visible: (i: number) => ({
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
+  visible: {
     opacity: 1,
-    transform: 'translateY(0)',
+    transform: 'translateY(0px)',
     transition: {
-      ...fadeTransition,
-      delay: i * 0.2,
+      duration: 0.5,
+      willChange: 'transform',
     },
-    willChange: 'transform, opacity',
-  }),
+  },
 };
 
 export const staggeredContainerTransition: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
   visible: {
     opacity: 1,
+    transform: 'translateY(0px)',
     transition: {
       staggerChildren: 0.1,
-      when: 'beforeChildren',
     },
   },
 };
 
 export const listItemTransition: Variants = {
-  hidden: { opacity: 0, transform: 'translateX(-20px)' },
+  hidden: {
+    opacity: 0,
+    transform: 'translateX(-10px)',
+  },
   visible: {
     opacity: 1,
-    transform: 'translateX(0)',
-    transition: springTransition,
-    willChange: 'transform, opacity',
+    transform: 'translateX(0px)',
+    transition: {
+      duration: 0.3,
+    },
   },
 };
 
 export const iconContainer: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(10px)',
+  },
   visible: {
     opacity: 1,
+    transform: 'translateY(0px)',
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-      when: 'beforeChildren',
+      staggerChildren: 0.1,
+      willChange: 'transform',
     },
   },
 };
 
 export const serviceCardIconAnimation: Variants = {
-  hidden: { opacity: 0, transform: 'scale(0.8)' },
+  hidden: {
+    opacity: 0,
+    transform: 'scale(0.8)',
+  },
   visible: {
     opacity: 1,
     transform: 'scale(1)',
     transition: {
-      ...springTransition,
-      stiffness: 260,
-      damping: 20,
+      duration: 0.3,
+      willChange: 'transform',
     },
-    willChange: 'transform',
   },
 };
 
 // Optimized container animations
 export const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
   visible: {
     opacity: 1,
+    transform: 'translateY(0px)',
     transition: {
       staggerChildren: 0.15,
       delayChildren: 0.3,
       when: 'beforeChildren',
     },
+    willChange: 'transform',
   },
 };
 
 // Hardware accelerated item animations
 export const itemVariants: Variants = {
-  hidden: { opacity: 0, transform: 'translateY(20px)' },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
   visible: {
     opacity: 1,
-    transform: 'translateY(0)',
+    transform: 'translateY(0px)',
     transition: springTransition,
-    willChange: 'transform, opacity',
+    willChange: 'transform',
   },
 };
 
 export const fadeInAnimation: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
+    transform: 'translateY(0px)',
+    transition: { duration: 0.5 },
+    willChange: 'transform',
   },
 };
 
 // Transform-based icon animations
 export const iconVariants: Variants = {
-  hidden: { opacity: 0, transform: 'scale(0.8)' },
+  hidden: {
+    opacity: 0,
+    transform: 'scale(0.8)',
+  },
   visible: (i: number) => ({
     opacity: 1,
     transform: 'scale(1)',
@@ -152,10 +190,10 @@ export const iconVariants: Variants = {
 };
 
 export const footerFadeIn: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, transform: 'translateY(20px)' },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
+    transform: 'translateY(0px)',
     transition: {
       delay: 0.1 * i,
       duration: 0.5,
@@ -198,16 +236,17 @@ export const quickLinkContainerVariants: Variants = {
 
 // Hardware accelerated quick link items
 export const quickLinkItemVariants: Variants = {
-  hidden: { opacity: 0, transform: 'translateX(-5px)' },
+  hidden: { opacity: 0, x: '-5px' },
   visible: {
     opacity: 1,
-    transform: 'translateX(0)',
-    transition: springTransition,
-    willChange: 'transform',
+    x: '0px',
+    transition: {
+      duration: 0.3,
+    },
   },
 };
 
-export const staggeredVisibilityTransition = {
+export const staggeredVisibilityTransition: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -217,7 +256,7 @@ export const staggeredVisibilityTransition = {
   },
 };
 
-export const sidebarListItemAnimation = {
+export const sidebarListItemAnimation: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
@@ -258,6 +297,35 @@ export const fadeInOutVariants: Variants = {
     transition: {
       duration: 0.3,
       ease: 'easeOut',
+    },
+  },
+};
+
+export const slideInVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    transform: 'translateX(-5px)',
+  },
+  visible: {
+    opacity: 1,
+    transform: 'translateX(0px)',
+    transition: {
+      duration: 0.2,
+      ease: 'easeOut',
+    },
+  },
+};
+
+export const fadeUpAnimation: Variants = {
+  hidden: {
+    opacity: 0,
+    transform: 'translateY(20px)',
+  },
+  visible: {
+    opacity: 1,
+    transform: 'translateY(0px)',
+    transition: {
+      duration: 0.5,
     },
   },
 };

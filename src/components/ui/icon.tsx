@@ -1,26 +1,27 @@
-import { cn } from '@/lib/utils';
+'use client';
+
+import { memo, useEffect, useState, ComponentType } from 'react';
 import dynamic from 'next/dynamic';
-import type { LucideProps } from 'lucide-react';
-import { LoadingFallback } from './loading-fallback';
-import { Suspense, memo, ComponentType } from 'react';
+import { LucideProps } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { Shimmer } from './shimmer';
 
 export type IconName = keyof typeof import('lucide-react');
 
-interface IconProps {
+export interface IconProps extends LucideProps {
   name: IconName;
   className?: string;
-  size?: number;
-  strokeWidth?: number;
+  size?: number | string;
 }
 
-const DynamicIcon = memo(
-  ({
-    name,
-    size = 24,
-    strokeWidth = 2,
-    className = '',
-    ...props
-  }: IconProps) => {
+export const Icon = memo(
+  ({ name, className, size = 24, ...props }: IconProps) => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+      setIsClient(true);
+    }, []);
+
     const IconComponent = dynamic<LucideProps>(
       async () => {
         const mod = await import('lucide-react');
@@ -28,36 +29,34 @@ const DynamicIcon = memo(
       },
       {
         loading: () => (
-          <LoadingFallback
-            height={size}
-            className={cn('flex-shrink-0', className)}
-          />
+          <span className={cn('inline-flex', className)}>
+            <Shimmer
+              width={size}
+              height={size}
+              rounded="full"
+              className="flex-shrink-0"
+            />
+          </span>
         ),
         ssr: false,
       }
     );
 
-    return (
-      <IconComponent
-        size={size}
-        strokeWidth={strokeWidth}
-        className={cn('flex-shrink-0', className)}
-        {...props}
-      />
-    );
+    if (!isClient) {
+      return (
+        <span className={cn('inline-flex', className)}>
+          <Shimmer
+            width={size}
+            height={size}
+            rounded="full"
+            className="flex-shrink-0"
+          />
+        </span>
+      );
+    }
+
+    return <IconComponent className={className} size={size} {...props} />;
   }
 );
 
-DynamicIcon.displayName = 'DynamicIcon';
-
-export function Icon(props: IconProps) {
-  return (
-    <Suspense
-      fallback={
-        <LoadingFallback height={props.size} className={props.className} />
-      }
-    >
-      <DynamicIcon {...props} />
-    </Suspense>
-  );
-}
+Icon.displayName = 'Icon';

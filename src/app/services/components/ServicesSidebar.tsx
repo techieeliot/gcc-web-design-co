@@ -17,19 +17,19 @@ import {
 export const ServicesSidebar = () => {
   return (
     <MotionAside
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, transform: 'translateX(30px)' }}
+      animate={{ opacity: 1, transform: 'translateX(0px)' }}
       transition={{ duration: 0.8, delay: 0.3 }}
       className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 self-start"
     >
       {implementations.map((section, index) => (
         <MotionDiv
           key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: 'translateY(20px)' }}
+          whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-          whileHover={{ y: -5 }}
+          whileHover={{ transform: 'translateY(-5px)' }}
           className={cn(
             'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl',
             'p-6 sm:p-8',
@@ -57,7 +57,7 @@ export const ServicesSidebar = () => {
               <MotionLi
                 key={itemIndex}
                 variants={listItemTransition}
-                whileHover={{ x: 3 }}
+                whileHover={{ x: '3px' }}
                 className="flex items-center gap-2 text-small text-slate-600 dark:text-slate-300"
               >
                 <Icon

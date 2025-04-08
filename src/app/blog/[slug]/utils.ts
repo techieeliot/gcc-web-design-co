@@ -4,6 +4,11 @@ import matter from 'gray-matter';
 import { generateBlurPlaceholder } from '@/lib/image';
 import { clientLogger } from '@/lib/logger';
 
+export type Author = {
+  name: string;
+  image: string;
+};
+
 export interface Post {
   slug: string;
   title: string;
@@ -12,6 +17,7 @@ export interface Post {
   image: string;
   content: string;
   blurDataUrl?: string;
+  author: Author;
 }
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog');
@@ -54,6 +60,7 @@ export function getPostBySlug(slug: string): Post | null {
       summary: data.summary,
       image: data.image,
       content,
+      author: data.author,
     };
   } catch (error) {
     clientLogger.error(

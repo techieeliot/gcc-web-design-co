@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Link } from '../ui/link';
@@ -18,6 +18,31 @@ import {
   MotionUl,
 } from '../ui/motion-components';
 
+function LogoSkeleton() {
+  return (
+    <div className="flex items-center gap-2">
+      <Shimmer width={40} height={40} rounded="full" />
+      <Shimmer width={120} height={24} rounded="md" />
+    </div>
+  );
+}
+
+function NavSkeleton() {
+  return (
+    <div className="hidden md:flex items-center space-x-4">
+      {[...Array(5)].map((_, i) => (
+        <Shimmer
+          key={i}
+          width={80}
+          height={32}
+          rounded="md"
+          className="animate-pulse"
+        />
+      ))}
+    </div>
+  );
+}
+
 interface MobileNavProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
@@ -33,7 +58,25 @@ const links: { href: string; label: string }[] = [
 ];
 
 export function ClientHeader() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50 dark:bg-slate-900 shadow-sm">
+        <div className="container max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
+            <LogoSkeleton />
+            <NavSkeleton />
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <>
@@ -371,7 +414,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
           {/* Menu panel */}
           <MotionDiv
             initial={{ x: '100%' }}
-            animate={{ x: 0 }}
+            animate={{ x: '0px' }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             className={cn(
@@ -401,13 +444,13 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                       variants={{
                         open: {
                           opacity: 1,
-                          x: 0,
+                          x: '0px',
                           transition: {
                             type: 'spring',
                             damping: 20,
                           },
                         },
-                        closed: { opacity: 0, x: 20 },
+                        closed: { opacity: 0, x: '20px' },
                       }}
                     >
                       <NavLink

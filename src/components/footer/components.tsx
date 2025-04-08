@@ -12,7 +12,6 @@ import { Icon, IconName } from '../ui/icon';
 import {
   MotionDiv,
   MotionSpan,
-  MotionP,
   MotionH3,
   MotionLi,
   MotionSection,
@@ -24,8 +23,8 @@ export function QuickLinks({ showHeading = false }) {
     <div className={cn('w-full', showHeading ? 'mb-6' : 'mb-0')}>
       {showHeading && (
         <MotionH3
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: 'translateY(-5px)' }}
+          animate={{ opacity: 1, transform: 'translateY(0px)' }}
           transition={{ duration: 0.5 }}
           className="text-slate-800 dark:text-powder text-xl font-semibold mb-6 text-center md:text-left"
         >
@@ -43,7 +42,7 @@ export function QuickLinks({ showHeading = false }) {
           <MotionLi
             key={href}
             variants={quickLinkItemVariants}
-            whileHover={{ x: 3 }}
+            whileHover={{ x: '3px' }}
             className="w-full"
           >
             <Link
@@ -94,7 +93,7 @@ function ContactItem({
 }: ContactItemProps) {
   return (
     <MotionDiv
-      whileHover={{ x: 5 }}
+      whileHover={{ x: '5px' }}
       transition={{ type: 'spring', stiffness: 300 }}
       transformTemplate={(_: any, transform: any) =>
         `translateZ(0) ${transform}`
@@ -116,8 +115,8 @@ function ContactItem({
         {children}
         {showExternalIcon && (
           <MotionSpan
-            initial={{ opacity: 0, x: -5 }}
-            whileHover={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: '-5px' }}
+            whileHover={{ opacity: 1, x: '0px' }}
             transition={{ duration: 0.2 }}
             className="inline-flex"
           >
@@ -192,10 +191,10 @@ export function SocialLinks() {
       {companySocialLinks.map(({ href, icon, label, color }, index) => (
         <MotionDiv
           key={href}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: 'translateY(10px)' }}
+          animate={{ opacity: 1, transform: 'translateY(0px)' }}
           transition={{ delay: 0.1 * (index + 3) }}
-          whileHover={{ y: -3 }}
+          whileHover={{ transform: 'translateY(-5px)' }}
           transformTemplate={(_: any, transform: any) =>
             `translateZ(0) ${transform}`
           }
@@ -239,8 +238,8 @@ export function FooterBackground() {
 export function Copyright({ currentYear }: { currentYear: number }) {
   return (
     <MotionDiv
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }} // Added units
+      whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
       viewport={{ once: true }}
       transition={{ delay: 0.5 }}
       className={cn(
@@ -260,26 +259,29 @@ export function Copyright({ currentYear }: { currentYear: number }) {
 
 function MadeWithLove() {
   return (
-    <MotionP
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+    <MotionDiv
+      initial={{ opacity: 0, y: '20px' }} // Added units
+      whileInView={{ opacity: 1, y: '0px' }}
       viewport={{ once: true }}
       transition={{ delay: 0.7 }}
       className="text-sm text-slate-500 dark:text-powder/70 flex items-center gap-1"
     >
       Made with
       <MotionSpan
-        animate={{ scale: [1, 1.2, 1] }}
+        className="inline-flex items-center mx-1"
+        animate={{
+          scale: [1, 1.2, 1],
+          y: ['0px', '-2px', '0px'], // Added subtle float animation with units
+        }}
         transition={{
           duration: 1.5,
           repeat: Infinity,
           repeatType: 'loop',
         }}
-        className="inline-flex text-red-500"
       >
-        <Icon name="Heart" className="w-4 h-4 fill-current mx-1" />
+        <Icon name="Heart" className="w-4 h-4 text-red-500 fill-current" />
       </MotionSpan>
       in Mississippi
-    </MotionP>
+    </MotionDiv>
   );
 }

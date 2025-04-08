@@ -163,8 +163,8 @@
   body {
     background-color: hsl(var(--background));
     font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+      'rlig' 1,
+      'calt' 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
@@ -230,7 +230,7 @@
   }
 
   .shimmer-optimized::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
@@ -409,18 +409,18 @@
   /* Add these optimized animations */
   @keyframes shimmer {
     0% {
-      background-position: -200% 0;
+      transform: translateX(-200%) translateZ(0);
     }
     100% {
-      background-position: 200% 0;
+      transform: translateX(200%) translateZ(0);
     }
   }
 
   /* Performance optimizations for animations */
   .transform-gpu,
   .motion-safe\:transform-gpu,
-  [class*="animate-"],
-  [class*="transition-"] {
+  [class*='animate-'],
+  [class*='transition-'] {
     transform: translateZ(0);
     will-change: transform, opacity;
     backface-visibility: hidden;
@@ -515,7 +515,7 @@
   }
 
   .shimmer::after {
-    content: "";
+    content: '';
     @apply absolute inset-0;
     background: linear-gradient(
       90deg,
@@ -531,8 +531,8 @@
 @layer utilities {
   /* Performance Optimizations */
   .transform-gpu,
-  [class*="animate-"],
-  [class*="transition-"] {
+  [class*='animate-'],
+  [class*='transition-'] {
     transform: translateZ(0);
     will-change: transform, opacity;
     backface-visibility: hidden;
@@ -579,8 +579,8 @@
   /* Performance Optimizations */
   .transform-gpu,
   .motion-safe\:transform-gpu,
-  [class*="animate-"],
-  [class*="transition-"],
+  [class*='animate-'],
+  [class*='transition-'],
   header [animate],
   header [whileHover],
   footer [animate],
