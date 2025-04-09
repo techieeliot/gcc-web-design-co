@@ -8,21 +8,23 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "build": "next build && cp -r .next/static .next/standalone/.next/",
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write",
     "format:check": "prettier --check",
     "analyze": "ANALYZE=true NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "postbuild": "cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
+    "postbuild": "cp -r public .next/standalone/",
     "prepare": "node .github/scripts/prepare-hooks.js",
     "dev:netlify": "netlify dev --target-port 3000",
-    "clean": "rm -rf .next out node_modules/.cache",
+    "clean": "rm -rf .next .netlify/plugins/node_modules",
     "prebuild": "npm run clean",
     "pre-commit": "lint-staged",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "netlify:build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/ && cp .next/standalone/server.js .next/"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@hookform/resolvers": "^5.0.0",
     "@netlify/plugin-nextjs": "^5.10.3",
     "@radix-ui/react-slot": "^1.1.2",
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@formspree/core": "^4.0.0",
     "@next/bundle-analyzer": "^14.2.28",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",

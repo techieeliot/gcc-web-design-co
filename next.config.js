@@ -44,7 +44,8 @@ let config = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    unoptimized: false,
+    unoptimized: true, // Required for Netlify
+    domains: ['devsouth.us'],
   },
 
   // Security & performance headers
@@ -80,6 +81,10 @@ let config = {
             },
           ],
           destination: 'https://devsouth.us/:path*',
+        },
+        {
+          source: '/:path*',
+          destination: '/:path*',
         },
       ],
     };
@@ -179,7 +184,7 @@ let config = {
   },
 
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
     optimizePackageImports: ['lucide-react'],
     swcMinify: true,
   },

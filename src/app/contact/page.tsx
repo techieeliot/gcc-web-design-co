@@ -1,5 +1,5 @@
-import { ContactSidebar } from './components/sidebar';
-import ContactForm from './components/form';
+import { ContactSidebar } from './components/ContactSidebar';
+import ContactForm from './components/ContactForm';
 import { Icon } from '@/components/ui/icon';
 import PageWrapper from '@/components/PageWrapper';
 

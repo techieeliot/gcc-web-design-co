@@ -16,6 +16,7 @@ const SECURITY_HEADERS = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
 } as const;
 
 export async function middleware(request: NextRequest) {
@@ -102,15 +103,5 @@ function handleRedirects(hostname: string | null, url: URL) {
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all paths except for:
-     * 1. /api routes
-     * 2. /_next (Next.js internals)
-     * 3. /static (inside /public)
-     * 4. all root files inside /public (e.g. /favicon.ico)
-     */
-    '/((?!api|_next|static|[\\w-]+\\.\\w+).*)',
-    '/images/:path*',
-  ],
+  matcher: '/((?!api|_next/static|_next/image|favicon.ico).*)',
 };
