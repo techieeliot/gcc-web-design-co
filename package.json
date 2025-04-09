@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r .next/static .next/standalone/.next/",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write",
@@ -21,7 +21,7 @@
     "prebuild": "npm run clean",
     "pre-commit": "lint-staged",
     "type-check": "tsc --noEmit",
-    "netlify:build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/ && cp .next/standalone/server.js .next/"
+    "netlify:build": "next build"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

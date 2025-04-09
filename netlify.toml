@@ -1,5 +1,5 @@
 [build]
-  command = "npm run netlify:build"
+  command = "npm run build"
   publish = ".next"
   edge_functions = "edge-functions"
 
@@ -11,6 +11,12 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Disable the problematic plugin that's causing the 404 error
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
+  [plugins.inputs]
+    on404 = "warn"
 
 [functions]
   node_bundler = "esbuild"
