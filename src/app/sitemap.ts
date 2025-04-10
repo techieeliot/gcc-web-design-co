@@ -84,5 +84,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...routes, ...blogPosts, ...portfolioItems];
+  return [...routes, ...blogPosts, ...portfolioItems] as MetadataRoute.Sitemap;
 }

@@ -34,7 +34,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
           >
             <Icon name="ArrowLeft" className="w-4 h-4" />
             <span className="hidden md:inline text-sm">
-              {`${prevCase.title.split(':')[1].substring(0, 24)}...`}
+              {`${prevCase.title.split(':')[1]?.substring(0, 24) || prevCase.title.substring(0, 24)}...`}
             </span>
           </Link>
         )}
@@ -48,7 +48,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
             title={`Next: ${nextCase.title}`}
           >
             <span className="hidden md:inline text-sm">
-              {`${nextCase.title.split(':')[1].substring(0, 24)}...`}
+              {`${nextCase.title.split(':')[1]?.substring(0, 24) || nextCase.title.substring(0, 24)}...`}
             </span>
             <Icon name="ArrowRight" className="w-4 h-4" />
           </Link>

@@ -21,15 +21,14 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "forceConsistentCasingInFileNames": true,
-    "declaration": false,
-    "sourceMap": true,
-    "importHelpers": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
     "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "tsBuildInfoFile": ".tsbuildinfo"
+    "tsBuildInfoFile": ".tsbuildinfo",
+    // Added optimizations for production builds
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
@@ -39,7 +38,16 @@
     "next.config.js",
     "src/config/domains.js",
     "tailwind.config.js",
-    "out/types/**/*.ts"
+    "out/types/**/*.ts",
+    // Add Netlify specific files
+    "netlify.toml",
+    ".netlify/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    // Exclude Netlify cache
+    ".netlify/cache"
+  ]
 }

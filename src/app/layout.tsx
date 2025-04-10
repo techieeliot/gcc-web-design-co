@@ -128,7 +128,9 @@ export const metadata: Metadata = {
     address: true,
     telephone: true,
   },
-  metadataBase: new URL(domains.primary),
+  metadataBase: new URL(
+    domains.primary || process.env.NEXT_PUBLIC_SITE_URL || 'https://devsouth.us'
+  ),
   alternates: {
     canonical: '/',
     languages: {
