@@ -5,7 +5,6 @@ import { Link } from '@ui/link';
 import { cn } from '@/lib/utils';
 import { Icon } from '@ui/icon';
 import { facts, socialLinks } from '@/data';
-import heroImage from 'public/images/pic03.webp';
 
 export const AboutSection = () => {
   return (
@@ -20,7 +19,7 @@ export const AboutSection = () => {
       {/* Hero section with image and icons */}
       <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 mb-8 lg:mb-12 rounded-lg overflow-hidden">
         <Image
-          src={heroImage}
+          src={'/images/pic03.webp'}
           alt="Modern development workspace"
           fill
           className="object-cover"

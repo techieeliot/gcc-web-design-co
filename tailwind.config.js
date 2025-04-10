@@ -3,9 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/app/**/*.{js,ts,jsx,md,tsx,mdx}',
-    './src/components/**/*.{js,ts,md,jsx,tsx,mdx}',
-    './src/pages/**/*.{js,ts,md,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,md,jsx,tsx,mdx}', // Updated path pattern
   ],
   darkMode: 'class',
   theme: {
@@ -103,8 +101,7 @@ module.exports = {
         display: ['var(--font-poppins)', ...fontFamily.sans],
         title: ['var(--font-poppins)', ...fontFamily.sans],
       },
-      // ...rest of your existing configuration
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

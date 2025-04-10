@@ -43,7 +43,7 @@ During the setup, choose:
 
 Once created, your project will be arranged like a well-planned orchard:
 
-```
+```txt
 my-next-app/
 ├── app/         // routes, layouts, and pages
 ├── public/      // your static assets

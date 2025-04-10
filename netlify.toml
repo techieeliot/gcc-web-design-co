@@ -1,5 +1,8 @@
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = ".next"
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ./package-lock.json"
 
@@ -10,10 +13,6 @@
   NEXT_PUBLIC_SITE_URL = "https://devsouth.us"
   NEXT_USE_NETLIFY_EDGE = "true"
   NEXT_FORCE_EDGE_IMAGES = "true"
-
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
 
 # Development settings
 [dev]

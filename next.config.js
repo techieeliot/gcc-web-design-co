@@ -92,61 +92,6 @@ let config = {
     ];
   },
 
-  webpack: (config, { dev, isServer }) => {
-    // Production optimizations
-    if (!dev) {
-      config.optimization = {
-        ...config.optimization,
-        minimize: true,
-        splitChunks: {
-          chunks: 'all',
-          maxInitialRequests: 25,
-          minSize: 20000,
-          maxSize: 244000,
-          cacheGroups: {
-            default: false,
-            vendors: {
-              name: 'vendors',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/]/,
-              priority: 10,
-              reuseExistingChunk: true,
-              enforce: true,
-            },
-            commons: {
-              name: 'commons',
-              chunks: 'all',
-              minChunks: 2,
-              priority: 0,
-              reuseExistingChunk: true,
-            },
-          },
-        },
-        moduleIds: 'deterministic',
-      };
-    }
-
-    // Add environment check for client-side only code
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        module: false,
-        path: false,
-        sharp: false,
-      };
-    }
-
-    // Add custom aliases
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.join(__dirname, 'src'),
-      '@ui': path.join(__dirname, 'src/components/ui'),
-    };
-
-    return config;
-  },
-
   experimental: {
     optimizeCss: false,
     optimizePackageImports: ['lucide-react'],
