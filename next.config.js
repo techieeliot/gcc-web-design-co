@@ -1,3 +1,4 @@
+const path = require('path');
 const { domains } = require('./src/config/domains');
 
 /** @type {import('next').NextConfig} */
@@ -55,7 +56,6 @@ let config = {
       ],
     };
   },
-
   // This ensures Next.js processes MDX files in the content directory
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
@@ -136,6 +136,13 @@ let config = {
         sharp: false,
       };
     }
+
+    // Add custom aliases
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.join(__dirname, 'src'),
+      '@ui': path.join(__dirname, 'src/components/ui'),
+    };
 
     return config;
   },
