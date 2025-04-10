@@ -49,7 +49,11 @@ echo "⌛ Running ESLint..."
 npm run lint
 
 echo "⌛ Running Tests..."
-npm run test
+npm run test:unit -- --watchAll=false
+
+echo "⌛ Running Prettier..."
+npm run format:check
+
 
 echo "⌛ Processing files..."
 # Process files in smaller batches using find
