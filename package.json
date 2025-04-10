@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run verify:files",
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write",
@@ -22,7 +22,8 @@
     "prebuild": "npm run clean",
     "pre-commit": "lint-staged",
     "type-check": "tsc --noEmit",
-    "netlify:build": "next build"
+    "netlify:build": "next build",
+    "verify:files": "ls -la .next/"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
