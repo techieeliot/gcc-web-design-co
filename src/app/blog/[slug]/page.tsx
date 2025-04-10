@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
-import { getAllPosts, getPostBySlug } from './utils';
+import { getAllPosts, getPostBySlug } from '../utils';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Markdown from 'markdown-to-jsx';
-import { Link } from '@/components/ui/link';
-import { Icon } from '@/components/ui/icon';
+import { Link } from '@ui/link';
+import { Icon } from '@ui/icon';
 import { AuthorSection, RelatedPosts } from './components';
 import { Suspense } from 'react';
 import PageWrapper from '@/components/PageWrapper';

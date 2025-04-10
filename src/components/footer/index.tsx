@@ -11,7 +11,7 @@ export default function Footer() {
       className={cn(
         'w-full relative overflow-hidden',
         'bg-card dark:bg-card',
-        'text-slate-700 dark:text-powder',
+        'text-slate-700 dark:text-frost',
         'border-t border-border'
       )}
     >

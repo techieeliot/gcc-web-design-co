@@ -102,7 +102,7 @@ export function ServicesMainContent() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky/10 
+                className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky-100 
                 dark:hover:bg-azure/10 transition-colors"
               >
                 <h3 className="text-title mb-3">{feature.title}</h3>

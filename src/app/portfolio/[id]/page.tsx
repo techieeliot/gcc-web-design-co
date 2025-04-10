@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { CaseStudyNav } from './CaseStudyNav';
 import { CaseStudyLayout } from './CaseStudyLayout';
 import { Suspense } from 'react';
-import { Shimmer } from '@/components/ui/shimmer';
+import { Shimmer } from '@ui/shimmer';
 
 export async function generateStaticParams(): Promise<{ id: string }[]> {
   return caseStudies.map((study) => ({

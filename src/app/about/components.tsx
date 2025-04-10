@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { Link } from '@/components/ui/link';
+import { Link } from '@ui/link';
 import { cn } from '@/lib/utils';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import { facts, socialLinks } from '@/data';
 import heroImage from 'public/images/pic03.webp';
 
@@ -107,7 +107,7 @@ export const AboutSection = () => {
                 className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
                 strokeWidth={2}
               />
-              <div className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white leading-tight px-8">
+              <div className="text-2xl md:text-3xl font-semibold text-primary dark:text-white leading-tight px-8">
                 <span>
                   Building remarkable applications that empower people through
                   functional, delightful, and accessible experiences.
@@ -134,7 +134,7 @@ export const AboutSection = () => {
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
-              <h4 className="font-semibold text-slate-900 dark:text-white">
+              <h4 className="font-semibold text-primary dark:text-white">
                 Build
               </h4>
             </div>
@@ -151,7 +151,7 @@ export const AboutSection = () => {
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
-              <h4 className="font-semibold text-slate-900 dark:text-white">
+              <h4 className="font-semibold text-primary dark:text-white">
                 Empower
               </h4>
             </div>
@@ -168,7 +168,7 @@ export const AboutSection = () => {
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
-              <h4 className="font-semibold text-slate-900 dark:text-white">
+              <h4 className="font-semibold text-primary dark:text-white">
                 Innovate
               </h4>
             </div>
@@ -185,7 +185,7 @@ export const AboutSection = () => {
                 className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
                 strokeWidth={1.5}
               />
-              <h4 className="font-semibold text-slate-900 dark:text-white">
+              <h4 className="font-semibold text-primary dark:text-white">
                 Support
               </h4>
             </div>
@@ -266,7 +266,7 @@ export const AboutSection = () => {
                     href="https://www.techieeliot.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
                     <Icon name="Globe" className="w-4 h-4" />
                     <span>Website</span>
@@ -275,7 +275,7 @@ export const AboutSection = () => {
                     href="https://www.linkedin.com/in/techieeliot"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
                     <Icon name="Linkedin" className="w-4 h-4" />
                     <span>LinkedIn</span>
@@ -284,14 +284,14 @@ export const AboutSection = () => {
                     href="https://github.com/techieeliot"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
                     <Icon name="Github" className="w-4 h-4" />
                     <span>GitHub</span>
                   </Link>
                   <Link
                     href="mailto:techieEliot@gmail.com"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky/10 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
                   >
                     <Icon name="Mail" className="w-4 h-4" />
                     <span>Email</span>
@@ -330,9 +330,7 @@ export const CompanyFacts = () => {
               className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0"
             />
             <div className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
-              <strong className="text-slate-900 dark:text-white">
-                {label}:
-              </strong>
+              <strong className="text-primary dark:text-white">{label}:</strong>
               <br />
               {value}
             </div>

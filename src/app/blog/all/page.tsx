@@ -1,7 +1,7 @@
-import { getAllPosts } from '../[slug]/utils';
+import { getAllPosts } from '../utils';
 import PageWrapper from '@/components/PageWrapper';
 import Image from 'next/image';
-import { Link } from '@/components/ui/link';
+import { Link } from '@ui/link';
 
 export default function BlogPost() {
   const allPosts = getAllPosts();

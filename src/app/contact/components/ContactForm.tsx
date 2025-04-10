@@ -5,10 +5,10 @@ import { cn } from '@/lib/utils';
 import { FieldError, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import { Link } from '@/components/ui/link';
+import { Button } from '@ui/button';
+import { Link } from '@ui/link';
 import { FormField, ValidationError } from './FormField';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import { useSubmit } from '@formspree/react';
 
 const formSchema = z.object({
@@ -171,7 +171,7 @@ export default function ContactForm() {
                   Share the details of your project or question. The more you
                   tell us now, the more context we bring to your solution.
                   <br />
-                  <span className="text-slate-500 dark:text-powder/80">
+                  <span className="text-slate-500 dark:text-frost/80">
                     (e.g., project scope, timeline, budget, etc.)
                   </span>
                 </>
@@ -186,7 +186,7 @@ export default function ContactForm() {
               ></textarea>
             </FormField>
 
-            <div className="text-sm text-slate-600 dark:text-powder/80">
+            <div className="text-sm text-slate-600 dark:text-frost/80">
               <label htmlFor="privacy" className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <input

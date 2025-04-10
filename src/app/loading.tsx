@@ -1,5 +1,5 @@
 import PageWrapper from '@/components/PageWrapper';
-import { Shimmer } from '@/components/ui/shimmer';
+import { Shimmer } from '@ui/shimmer';
 
 export default function Loading() {
   return (

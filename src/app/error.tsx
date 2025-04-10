@@ -1,9 +1,9 @@
 'use client';
 
 import PageWrapper from '@/components/PageWrapper';
-import { Button } from '@/components/ui/button';
+import { Button } from '@ui/button';
 import { useEffect } from 'react';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import { clientLogger } from '@/lib/logger';
 import { usePathname } from 'next/navigation';
 

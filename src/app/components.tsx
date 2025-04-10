@@ -1,15 +1,13 @@
 'use client';
 
 import { Suspense } from 'react';
-import atom from 'public/blueberry-atom.svg';
-
 import Image from 'next/image';
-import { Link } from '@/components/ui/link';
 import { benefits, features } from '@/data';
-import { Icon } from '@/components/ui/icon';
-
+import { Icon } from '@ui/icon';
+import { Link } from '@ui/link';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
-import { Shimmer } from '@/components/ui/shimmer';
+import { Shimmer } from '@ui/shimmer';
+import { CldImage } from 'next-cloudinary';
 
 export function HeroSection() {
   return (
@@ -47,16 +45,17 @@ export function HeroSection() {
           <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/20" />
             <Suspense fallback={<Shimmer height="full" />}>
-              <Image
-                src={atom}
-                alt="Web development illustration"
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-                sizes={defaultImageSizes}
-                quality={90}
-                priority
+              <CldImage
+                src="https://res.cloudinary.com/dsj2nt26p/image/upload/v1744268233/emblem.png"
+                alt="Emblem"
+                className="object-cover"
                 placeholder="blur"
-                blurDataURL={generateBlurPlaceholder(800, 600)}
+                blurDataURL={generateBlurPlaceholder(400, 300)}
+                loading="eager"
+                priority
+                fill
+                gradientFade
+                sizes={defaultImageSizes}
               />
             </Suspense>
           </div>
@@ -87,7 +86,7 @@ export function FeaturesSection() {
               key={feature.title}
               className="rounded-xl p-6 shadow-lg backdrop-blur-md bg-card text-card-foreground w-full"
             >
-              <div className="rounded-full w-12 h-12 bg-sky/10 dark:bg-azure/10 flex items-center justify-center mb-4">
+              <div className="rounded-full w-12 h-12 bg-sky-100 dark:bg-azure/10 flex items-center justify-center mb-4">
                 <Icon
                   name={feature.icon}
                   className="w-6 h-6 text-sky dark:text-azure"
@@ -96,7 +95,7 @@ export function FeaturesSection() {
               <h3 className="text-subtitle font-subtitle text-blueberry dark:text-body mb-2">
                 {feature.title}
               </h3>
-              <p className="text-slate">{feature.description}</p>
+              <p>{feature.description}</p>
             </div>
           ))}
         </div>
@@ -154,7 +153,7 @@ export function ProjectShowcase() {
         <h3 className="text-subtitle font-subtitle text-foreground mb-2">
           Our Crafted Stories
         </h3>
-        <p className="text-slate dark:text-offwhite mb-4">
+        <p className="mb-4">
           Discover projects where care meets code—a fusion of React expertise
           and a down-to-earth approach.
         </p>
@@ -214,7 +213,7 @@ const ProjectCard = ({
           {title}
         </h4>
 
-        <p className="text-slate dark:text-offwhite mb-3">{description}</p>
+        <p className="mb-3">{description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag) => (
@@ -285,7 +284,7 @@ export function ValueProposition() {
         </Link>
       </div>
 
-      <div className="bg-sky/10 dark:bg-azure/10 p-6 rounded-lg border border-sky/20 dark:border-azure/20">
+      <div className="bg-sky-100 dark:bg-azure/10 p-6 rounded-lg border border-sky/20 dark:border-azure/20">
         <p className="text-slate-700 dark:text-slate-200 italic mb-4">
           "SanforDEV turned our digital challenges into a harvest of
           opportunities, merging modern tech with sincere, hands-on care."

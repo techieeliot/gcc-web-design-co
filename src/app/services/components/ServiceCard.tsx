@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 
 import { Service } from '@/data/types';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 
 interface ServiceCardProps {
   service: Service;

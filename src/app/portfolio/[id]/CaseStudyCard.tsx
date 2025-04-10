@@ -1,6 +1,6 @@
 'use client';
 
-import { Icon, IconName } from '@/components/ui/icon';
+import { Icon, IconName } from '@ui/icon';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -88,7 +88,7 @@ export const CaseStudyCard = ({
           <h2
             className={cn(
               'text-xl font-bold mb-2',
-              'text-slate-900 dark:text-white',
+              'text-primary dark:text-white',
               'group-hover:text-sky dark:group-hover:text-azure',
               'transition-colors duration-300'
             )}
@@ -125,7 +125,7 @@ export const CaseStudyCard = ({
                       className="w-4 h-4 mb-1 text-sky dark:text-azure"
                       strokeWidth={1.5}
                     />
-                    <span className="text-lg font-semibold text-slate-900 dark:text-white">
+                    <span className="text-lg font-semibold text-primary dark:text-white">
                       {value}
                     </span>
                     <span className="text-xs text-slate-500 dark:text-slate-400">

@@ -1,4 +1,4 @@
-import { IconName } from '@/components/ui/icon';
+import { IconName } from '@ui/icon';
 
 export interface PolicyItem {
   id: string;
@@ -87,3 +87,17 @@ export interface Fact {
   icon: IconName;
 }
 [];
+
+export interface SiteMapRoute {
+  path: string;
+  priority: number;
+  changeFrequency:
+    | 'always'
+    | 'hourly'
+    | 'daily'
+    | 'weekly'
+    | 'monthly'
+    | 'yearly'
+    | 'never';
+  lastModified?: string;
+}

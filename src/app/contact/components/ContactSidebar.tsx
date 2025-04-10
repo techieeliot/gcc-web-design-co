@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 
 interface ContactInfoProps {
   icon: React.ReactNode;
@@ -13,7 +13,7 @@ interface ContactInfoProps {
 const ContactInfo = ({ icon, title, content }: ContactInfoProps) => (
   <div className="flex gap-4">
     <div className="flex-shrink-0">
-      <div className="p-3 bg-sky/10 dark:bg-azure/10 rounded-lg">{icon}</div>
+      <div className="p-3 bg-sky-100 dark:bg-azure/10 rounded-lg">{icon}</div>
     </div>
     <div>
       <h3 className="font-medium mb-1">{title}</h3>

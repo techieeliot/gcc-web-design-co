@@ -1,5 +1,5 @@
-import { Link } from '@/components/ui/link';
-import { Author, Post } from './utils';
+import { Link } from '@ui/link';
+import { Author, Post } from '../types';
 import Image from 'next/image';
 
 interface RelatedPostsProps {

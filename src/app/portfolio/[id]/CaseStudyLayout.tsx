@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import { Icon, IconName } from '@/components/ui/icon';
+import { Icon, IconName } from '@ui/icon';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 
 interface CaseStudyLayoutProps {
@@ -62,10 +62,10 @@ export function CaseStudyLayout({
       <section
         className={cn(
           'prose prose-slate dark:prose-invert max-w-none',
-          'prose-headings:text-slate-900 dark:prose-headings:text-white',
+          'prose-headings:text-primary dark:prose-headings:text-white',
           'prose-p:text-slate-600 dark:prose-p:text-slate-300',
           'prose-a:text-sky dark:prose-a:text-azure',
-          'prose-strong:text-slate-900 dark:prose-strong:text-white'
+          'prose-strong:text-primary dark:prose-strong:text-white'
         )}
       >
         {children}

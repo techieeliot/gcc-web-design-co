@@ -119,7 +119,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
               className={cn(
                 'flex justify-between items-center h-14 sm:h-16 md:h-20',
                 // Improve text contrast when scrolled
-                isScrolled && 'text-slate-900 dark:text-white'
+                isScrolled && 'text-primary dark:text-white'
               )}
             >
               {/* Logo Section with Shimmer fallback */}
@@ -155,7 +155,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       <div className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-azure/20" />
 
                       {/* Pulsing background */}
-                      <div className="absolute inset-0 rounded-full bg-sky/10 dark:bg-azure/10" />
+                      <div className="absolute inset-0 rounded-full bg-sky-100 dark:bg-azure/10" />
 
                       {/* Add Shimmer while image loads */}
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
@@ -199,8 +199,8 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     className={cn(
                       'font-bold text-base sm:text-lg md:text-lg lg:text-xl leading-none whitespace-nowrap relative z-10',
                       isScrolled
-                        ? 'text-slate-900 dark:text-white'
-                        : 'text-slate-700 dark:text-powder'
+                        ? 'text-primary dark:text-white'
+                        : 'text-slate-700 dark:text-frost'
                     )}
                   >
                     Sanfor
@@ -233,8 +233,8 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   className={cn(
                     'p-2 rounded-full',
                     isScrolled
-                      ? 'text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure'
-                      : 'text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure',
+                      ? 'text-primary hover:text-sky dark:text-white dark:hover:text-azure'
+                      : 'text-slate-700 hover:text-sky dark:text-frost dark:hover:text-azure',
                     'transition-colors hover:bg-slate-100 dark:hover:bg-slate-800'
                   )}
                   aria-label={isOpen ? 'Close menu' : 'Open menu'}

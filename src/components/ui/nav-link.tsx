@@ -27,8 +27,8 @@ export function NavLink({ href, label, onClick, className }: NavLinkProps) {
         className,
         'relative transition-colors duration-200',
         isScrolled
-          ? 'text-slate-900 hover:text-sky dark:text-white dark:hover:text-azure font-medium'
-          : 'text-slate-700 hover:text-sky dark:text-powder dark:hover:text-azure',
+          ? 'text-primary hover:text-sky dark:text-white dark:hover:text-azure font-medium'
+          : 'text-slate-700 hover:text-sky dark:text-frost dark:hover:text-azure',
         pathname === href && 'text-azure dark:text-sky font-medium'
         // Removed any drop-shadow or opacity changes on scroll
       )}

@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 
 import { implementations } from '@/data';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 
 export const ServicesSidebar = () => {
   return (

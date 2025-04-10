@@ -1,8 +1,8 @@
 'use client';
 
 import PageWrapper from '@/components/PageWrapper';
-import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/ui/icon';
+import { Button } from '@ui/button';
+import { Icon } from '@ui/icon';
 import { clientLogger } from '@/lib/logger';
 
 export default function BlogError({

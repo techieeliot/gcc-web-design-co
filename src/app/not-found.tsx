@@ -1,7 +1,7 @@
 'use client';
 
-import { Icon } from '@/components/ui/icon';
-import { Link } from '@/components/ui/link';
+import { Icon } from '@ui/icon';
+import { Link } from '@ui/link';
 import { useEffect, useState } from 'react';
 
 export default function NotFound() {

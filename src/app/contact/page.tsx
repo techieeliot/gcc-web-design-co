@@ -1,6 +1,6 @@
 import { ContactSidebar } from './components/ContactSidebar';
 import ContactForm from './components/ContactForm';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import PageWrapper from '@/components/PageWrapper';
 
 export const revalidate = 3600; // Revalidate every hour
@@ -18,10 +18,10 @@ export default function ContactPage() {
 
         {/* Hero content with icon */}
         <div className="flex flex-col items-center gap-6">
-          <div className="rounded-full bg-slate-200 p-4 border border-azure dark:border-powder shadow-lg">
+          <div className="rounded-full bg-slate-200 p-4 border border-azure dark:border-frost shadow-lg">
             <Icon
               name="Mail"
-              className="text-azure dark:text-powder"
+              className="text-azure dark:text-frost"
               size={24}
             />
           </div>
@@ -30,7 +30,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
 
-          <p className="text-xl text-slate dark:text-offwhite max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Ready to transform your digital presence? We genuinely care about
             your vision and are here to listen, advise, and partner with you on
             your next project. Whether you're bursting with a creative idea or

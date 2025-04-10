@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'sonner';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+
 import { domains } from '@/config/domains';
 import { cn } from '@/lib/utils';
 import { ErrorHandler } from '@/components/error-handler';
 import { ReactNode } from 'react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={cn(
           poppins.variable,
           'min-h-screen bg-white dark:bg-slate-900',
-          'text-slate-900 dark:text-slate-50 font-sans antialiased'
+          'text-primary dark:text-slate-50 font-sans antialiased'
         )}
         suppressHydrationWarning
         data-remove-attribute="cz-shortcut-listen"

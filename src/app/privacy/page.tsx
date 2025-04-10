@@ -1,5 +1,5 @@
 import PageWrapper from '@/components/PageWrapper';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import { cn } from '@/lib/utils';
 import dynamic from 'next/dynamic';
 
@@ -20,10 +20,10 @@ export default function PrivacyPolicyRoute() {
 
         {/* Hero content with icon */}
         <div className="flex flex-col items-center gap-6">
-          <div className="rounded-full border border-azure dark:bg-azure dark:border-powder p-4 shadow-lg">
+          <div className="rounded-full border border-azure dark:bg-azure dark:border-frost p-4 shadow-lg">
             <Icon
               name="Shield"
-              className="text-azure dark:text-powder"
+              className="text-azure dark:text-frost"
               size={24}
             />
           </div>
@@ -37,7 +37,7 @@ export default function PrivacyPolicyRoute() {
             Privacy Policy
           </h1>
 
-          <p className="text-xl text-slate-600 dark:text-powder/80 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-frost/80 max-w-2xl mx-auto">
             At SanforDEV Consulting, we take your privacy seriously. Our
             approach is rooted in genuine care and thoughtful
             cultivation—ensuring every aspect of your data is protected with the

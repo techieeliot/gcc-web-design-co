@@ -1,7 +1,7 @@
 'use client';
 
-import { Icon } from '@/components/ui/icon';
-import { Link } from '@/components/ui/link';
+import { Icon } from '@ui/icon';
+import { Link } from '@ui/link';
 import { caseStudies } from '@/data';
 
 export function CaseStudyNav({ currentId }: { currentId: string }) {

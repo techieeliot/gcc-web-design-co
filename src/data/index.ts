@@ -8,6 +8,7 @@ import {
   PolicyItem,
   QuickLink,
   ServiceCategory,
+  SiteMapRoute,
   SocialLink,
 } from './types';
 
@@ -615,3 +616,21 @@ export const connectWithUs: AnchorLink[] = [
     icon: 'Github',
   },
 ];
+
+export const staticRoutes: Array<Partial<SiteMapRoute>> = [
+  { path: '/', priority: 1.0, changeFrequency: 'weekly' },
+  { path: '/blog', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/services', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/blog/all', priority: 0.5, changeFrequency: 'monthly' },
+  { path: '/privacy-policy', priority: 0.5, changeFrequency: 'yearly' },
+];
+
+export const caseStudyRoutes = caseStudies.map(
+  (study): Partial<SiteMapRoute> => ({
+    path: `/portfolio/${study.id}`,
+    priority: 0.6,
+    changeFrequency: 'monthly',
+  })
+);

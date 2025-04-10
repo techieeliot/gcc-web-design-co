@@ -1,10 +1,11 @@
-import { Link } from '@/components/ui/link';
+import { Link } from '@ui/link';
 import Image from 'next/image';
-import { getAllPosts, Post } from './[slug]/utils';
 import { ValueProposition } from '../components';
 import { generateBlurPlaceholder } from '@/lib/image';
 import Markdown from 'markdown-to-jsx';
 import DateDisplay from '@/components/DateDisplay';
+import { getAllPosts } from './utils';
+import { Post } from './types';
 
 export const RecentPosts = ({ posts }: { posts: Post[] }) => {
   return (

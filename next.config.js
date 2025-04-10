@@ -1,4 +1,4 @@
-const { domainHostnames, domains } = require('./src/config/domains');
+const { domains } = require('./src/config/domains');
 
 /** @type {import('next').NextConfig} */
 let config = {
@@ -13,40 +13,6 @@ let config = {
   reactStrictMode: true,
   // Enable SWC minification for faster builds
   swcMinify: true,
-
-  // Optimize image loading
-  images: {
-    // Remove deprecated domains
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-        port: '',
-        pathname: '**',
-      },
-      ...domainHostnames.map((hostname) => ({
-        protocol: 'https',
-        hostname,
-        port: '',
-        pathname: '**',
-      })),
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '',
-        pathname: '**',
-      },
-    ],
-    deviceSizes: [640, 750, 828, 1080, 1200],
-    imageSizes: [16, 32, 48, 64, 96],
-    formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 60,
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    unoptimized: true, // Required for Netlify
-    domains: ['devsouth.us'],
-  },
 
   // Security & performance headers
   poweredByHeader: false,
@@ -120,15 +86,6 @@ let config = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
-          },
-        ],
-      },
-      {
-        source: '/favicon.ico',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

@@ -5,7 +5,7 @@ The Button component is a versatile interactive element that supports multiple v
 ## Import
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from '@ui/button';
 ```
 
 ## Usage

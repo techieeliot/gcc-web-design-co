@@ -1,9 +1,9 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Link } from '@/components/ui/link';
+import { Link } from '@ui/link';
 import { policyItems } from '@/data';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 
 export default function PrivacyContent() {
   return (
@@ -42,7 +42,7 @@ export default function PrivacyContent() {
             )}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-md bg-sky/10 dark:bg-azure/10">
+              <div className="p-2 rounded-md bg-sky-100 dark:bg-azure/10">
                 <Icon
                   name={item.icon}
                   className="w-5 h-5 text-sky dark:text-azure"
@@ -72,7 +72,7 @@ export default function PrivacyContent() {
       {/* Contact Section */}
       <div className="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-slate-900 rounded-xl shadow-lg">
         <div className="mb-4 inline-flex items-center justify-center">
-          <div className="p-2 rounded-md bg-sky/10 dark:bg-azure/10">
+          <div className="p-2 rounded-md bg-sky-100 dark:bg-azure/10">
             <Icon name="Phone" className="w-5 h-5 text-sky dark:text-azure" />
           </div>
         </div>
@@ -84,18 +84,18 @@ export default function PrivacyContent() {
           please contact us at:
         </p>
         <div className="space-y-1">
-          <p className="text-slate-800 dark:text-powder font-medium">
+          <p className="text-slate-800 dark:text-frost font-medium">
             SanforDEV Consulting LLC
           </p>
-          <p className="text-slate-600 dark:text-powder/80">
+          <p className="text-slate-600 dark:text-frost/80">
             110 Lake Forest Ln, Clinton, MS 39056
           </p>
-          <p className="text-slate-600 dark:text-powder/80">
+          <p className="text-slate-600 dark:text-frost/80">
             <Link href="mailto:devsouth.us@gmail.com" variant="inlineLink">
               devsouth.us@gmail.com
             </Link>
           </p>
-          <p className="text-slate-600 dark:text-powder/80">
+          <p className="text-slate-600 dark:text-frost/80">
             <Link href="tel:+16623126815" variant="inlineLink">
               +1 (662) 312-6815
             </Link>

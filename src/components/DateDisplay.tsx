@@ -1,6 +1,6 @@
 'use client';
 
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import { format } from 'date-fns';
 
 export default function DateDisplay({ date }: { date: string }) {

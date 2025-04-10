@@ -1,6 +1,6 @@
 import { Children, cloneElement, isValidElement, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-import { Icon } from '@/components/ui/icon';
+import { Icon } from '@ui/icon';
 import { FieldError } from 'react-hook-form';
 
 interface FormFieldProps {
@@ -29,7 +29,7 @@ export function FormField({
           {label} {required && <span className="text-red-500">*</span>}
         </span>
         {description && (
-          <p className="text-xs text-slate-600 dark:text-powder/80 mb-2">
+          <p className="text-xs text-slate-600 dark:text-frost/80 mb-2">
             {description}
           </p>
         )}
@@ -46,7 +46,7 @@ export function FormField({
                   // Border
                   'border border-slate-300 dark:border-slate-700 ring-2',
                   // Text
-                  'text-slate-900 dark:text-powder',
+                  'text-primary dark:text-frost',
                   // Placeholder
                   'placeholder:text-slate-500 dark:placeholder:text-slate-400',
                   // Focus states

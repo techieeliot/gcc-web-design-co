@@ -3,29 +3,10 @@ import path from 'path';
 import matter from 'gray-matter';
 import { generateBlurPlaceholder } from '@/lib/image';
 import { clientLogger } from '@/lib/logger';
+import { Post } from './types';
 
-export type Author = {
-  name: string;
-  image: string;
-};
-
-export interface Post {
-  slug: string;
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image: string;
-  content: string;
-  blurDataUrl?: string;
-  author: Author;
-  featured?: boolean;
-  tags?: string[];
-  readingTime?: string;
-  canonical?: string;
-  ogImage?: string;
-}
-
-const postsDirectory = path.join(process.cwd(), 'src/content/blog');
+const projectRoot = process.cwd();
+const postsDirectory = path.join(projectRoot, 'src/content/blog');
 
 export function getAllPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);

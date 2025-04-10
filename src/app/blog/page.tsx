@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { getAllPosts } from './[slug]/utils';
+import { getAllPosts } from './utils';
 import {
   BlogEngagementSection,
   BlogHero,
@@ -7,7 +7,7 @@ import {
   RecentPosts,
 } from './components';
 import PageWrapper from '@/components/PageWrapper';
-import { Shimmer } from '@/components/ui/shimmer';
+import { Shimmer } from '@ui/shimmer';
 
 export default async function Blog() {
   // Use async/await to properly handle data fetching

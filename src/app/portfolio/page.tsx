@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import { caseStudies } from '@/data';
 import { cn } from '@/lib/utils';
 import { CaseStudyCard } from './[id]/CaseStudyCard';
-import { ValueProposition } from '../components';
 import PageWrapper from '@/components/PageWrapper';
 import Image from 'next/image';
 import { generateBlurPlaceholder } from '@/lib/image';
 import { Suspense } from 'react';
-import { Shimmer } from '@/components/ui/shimmer';
+import { Shimmer } from '@ui/shimmer';
+import { ValueProposition } from '../components';
 
 // Metadata configuration
 export const metadata: Metadata = {

@@ -107,7 +107,7 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
                 className={cn(
                   'w-full text-left px-4 py-2 text-sm',
                   'hover:bg-slate-50 dark:hover:bg-slate-800',
-                  'text-slate-900 dark:text-slate-100',
+                  'text-primary dark:text-slate-100',
                   'flex items-center gap-2',
                   'transition-colors duration-150'
                 )}

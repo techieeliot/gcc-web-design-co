@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Link } from '@/components/ui/link';
+import { Link } from '@ui/link';
 import { companySocialLinks, quickLinks } from '@/data';
 
 import { Icon, IconName } from '../ui/icon';
@@ -10,7 +10,7 @@ export function QuickLinks({ showHeading = false }) {
   return (
     <div className={cn('w-full', showHeading ? 'mb-6' : 'mb-0')}>
       {showHeading && (
-        <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-6 text-center md:text-left">
+        <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6 text-center md:text-left">
           Quick Links
         </h3>
       )}
@@ -66,14 +66,14 @@ function ContactItem({
 }: ContactItemProps) {
   return (
     <div className="flex items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0">
-      <div className="p-2 rounded-full bg-sky/10 dark:bg-azure/10 shrink-0">
+      <div className="p-2 rounded-full bg-sky-100 dark:bg-azure/10 shrink-0">
         <Icon name={icon} className="w-5 h-5 text-sky dark:text-azure" />
       </div>
       <Link
         href={href}
         variant={variant}
         className={cn(
-          'text-slate-600 dark:text-powder/80',
+          'text-slate-600 dark:text-frost/80',
           'hover:text-sky dark:hover:text-azure',
           'group flex items-center gap-1'
         )}
@@ -94,7 +94,7 @@ function ContactItem({
 export function Contact() {
   return (
     <section className="widget contact text-center md:text-left">
-      <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-6">
+      <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6">
         Contact Us
       </h3>
       <div className="space-y-5">
@@ -109,7 +109,7 @@ export function Contact() {
           href="https://www.google.com/maps/place/110+Lake+Forest+Ln,+Clinton,+MS+39056"
           showExternalIcon={false}
         >
-          <address className="text-slate-600 dark:text-powder/80 not-italic">
+          <address className="text-slate-600 dark:text-frost/80 not-italic">
             110 Lake Forest Ln
             <br />
             Clinton, MS 39056
@@ -125,10 +125,10 @@ export function Contact() {
 export function CompanyInfo() {
   return (
     <div className="text-center md:text-left">
-      <h3 className="text-slate-800 dark:text-powder text-xl font-semibold mb-6">
+      <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6">
         About SanforDEV
       </h3>
-      <p className="text-slate-600 dark:text-powder/80 mb-5">
+      <p className="text-slate-600 dark:text-frost/80 mb-5">
         We build modern web applications with a focus on React, Next.js, and the
         broader JavaScript ecosystem. Our mission is to make the web more
         accessible, performant, and delightful.
@@ -152,7 +152,7 @@ export function SocialLinks() {
               'w-10 h-10 rounded-full',
               'transition-all duration-300',
               color,
-              'dark:text-powder/90'
+              'dark:text-frost/90'
             )}
             aria-label={label}
           >
@@ -173,7 +173,7 @@ export function Copyright({ currentYear }: { currentYear: number }) {
       )}
     >
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-slate-600 dark:text-powder/80 flex items-center">
+        <p className="text-sm text-slate-600 dark:text-frost/80 flex items-center">
           &copy; {currentYear} SanforDEV Consulting. All rights reserved.
         </p>
         <MadeWithLove />
@@ -184,7 +184,7 @@ export function Copyright({ currentYear }: { currentYear: number }) {
 
 function MadeWithLove() {
   return (
-    <div className="text-sm text-slate-500 dark:text-powder/70 flex items-center gap-1">
+    <div className="text-sm text-slate-500 dark:text-frost/70 flex items-center gap-1">
       Made with
       <span className="inline-flex items-center mx-1">
         <Icon name="Heart" className="w-4 h-4 text-red-500 fill-current" />

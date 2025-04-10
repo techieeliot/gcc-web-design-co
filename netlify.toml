@@ -1,36 +1,87 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ./package-lock.json"
 
 [build.environment]
-  NODE_VERSION = "20"
-  NPM_VERSION = "10"
   NEXT_TELEMETRY_DISABLED = "1"
+  NODE_VERSION = "20"
+  NPM_VERSION = "10.2.4"
+  NEXT_PUBLIC_SITE_URL = "https://devsouth.us"
+  NEXT_USE_NETLIFY_EDGE = "true"
+  NEXT_FORCE_EDGE_IMAGES = "true"
+
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[functions]
-  node_bundler = "esbuild"
-  included_files = ["public/**"]
-
+# Development settings
 [dev]
-  command = "next dev"
+  command = "npm run dev"
   port = 8888
-  publish = ".next"
-  autoLaunch = true
+  targetPort = 3000
   framework = "next"
 
+# Headers to enable security and caching best practices
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:;"
 
+# Cache control for static assets
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
 
+# Edge functions configuration
+[functions]
+  directory = ".netlify/edge-functions"
+  node_bundler = "esbuild"
 
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
+
+[build.lifecycle]
+  onSuccess = "npm run verify:files"
+
+# Environment-specific settings
+[context.production]
+  environment = { NODE_ENV = "production", NEXT_PUBLIC_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "production", NEXT_PUBLIC_ENV = "preview" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "production", NEXT_PUBLIC_ENV = "staging" }

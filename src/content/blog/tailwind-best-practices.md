@@ -166,7 +166,6 @@ Properly configuring PurgeCSS ensures your CSS remains lean, just like we prune 
 module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
-    './public/index.html',
     './src/**/*.stories.{js,jsx,ts,tsx}',
     './src/**/*.spec.{js,jsx,ts,tsx}',
   ],
