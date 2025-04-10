@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,10 +23,18 @@
       }
     ],
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@lib/*": ["src/lib/*"],
-      "@ui/*": ["src/components/ui/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@ui/*": [
+        "src/components/ui/*"
+      ]
     },
     "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
@@ -33,27 +45,27 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowImportingTsExtensions": true,
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types"]
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@testing-library/react"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/__tests__/types"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "next.config.js",
-    "src/config/domains.js",
-    "tailwind.config.js",
-    "out/types/**/*.ts",
-    "netlify.toml",
-    ".netlify/**/*.ts",
-    ".netlify/edge-functions/**/*.ts"
+    "src/__tests__/**/*.ts",
+    "src/__tests__/**/*.tsx",
+    "jest.config.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    ".next",
-    "out",
-    // Exclude Netlify cache
-    ".netlify/cache"
+    "node_modules"
   ]
 }
