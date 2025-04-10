@@ -8,6 +8,7 @@ import { Shimmer } from '../ui/shimmer';
 import { usePathname } from 'next/navigation';
 import { Icon } from '../ui/icon';
 import { Button } from '../ui/button';
+import { CldImage } from 'next-cloudinary';
 
 function LogoSkeleton() {
   return (
@@ -161,11 +162,10 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
                         <Shimmer className="absolute inset-0 rounded-full" />
                         <Suspense fallback={<Shimmer height="full" />}>
-                          <Image
-                            src="/blueberry-atom.svg"
+                          <CldImage
+                            src="emblem"
                             alt="SanforDEV Logo"
-                            width={36}
-                            height={36}
+                            fill
                             className={cn(
                               'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', // Add this line for centering
                               'w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9',
