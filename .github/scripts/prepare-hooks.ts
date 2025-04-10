@@ -48,6 +48,9 @@ npm run type-check
 echo "⌛ Running ESLint..."
 npm run lint
 
+echo "⌛ Running Tests..."
+npm run test:unit # Only run unit tests in pre-commit to keep it fast
+
 echo "⌛ Processing files..."
 # Process files in smaller batches using find
 git diff --cached --name-only --diff-filter=ACM |
