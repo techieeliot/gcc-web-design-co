@@ -49,7 +49,7 @@ echo "⌛ Running ESLint..."
 npm run lint
 
 echo "⌛ Running Tests..."
-npm run test:unit # Only run unit tests in pre-commit to keep it fast
+npm run test
 
 echo "⌛ Processing files..."
 # Process files in smaller batches using find
