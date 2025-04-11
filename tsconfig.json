@@ -46,14 +46,13 @@
     "strictNullChecks": true,
     "allowImportingTsExtensions": true,
     "types": [
-      "node",
-      "jest",
       "@testing-library/jest-dom",
       "@testing-library/react",
+      "node",
+      "jest",
     ],
     "typeRoots": [
       "./node_modules/@types",
-      "./src/__tests__/types"
     ]
   },
   "include": [
