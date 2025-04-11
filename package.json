@@ -14,7 +14,6 @@
     "format": "prettier --write",
     "format:check": "prettier --check",
     "analyze": "ANALYZE=true NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "postbuild": "next-on-netlify",
     "prepare": "node .github/scripts/prepare-hooks.ts",
     "dev:netlify": "netlify dev",
     "clean": "rm -rf .next out .netlify/plugins/node_modules node_modules/.cache",

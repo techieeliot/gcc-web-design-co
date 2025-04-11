@@ -96,6 +96,8 @@ let config = {
     optimizeCss: false,
     optimizePackageImports: ['lucide-react'],
     swcMinify: true,
+    // Disable edge runtime if needed
+    runtime: 'nodejs',
   },
 
   // Increase timeout for font loading
