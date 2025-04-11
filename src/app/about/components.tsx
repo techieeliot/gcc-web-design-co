@@ -5,8 +5,6 @@ import { Link } from '@ui/link';
 import { cn } from '@/lib/utils';
 import { Icon } from '@ui/icon';
 import { facts, socialLinks } from '@/data';
-import { CldImage } from 'next-cloudinary';
-import { defaultImageSizes } from '@/lib/image';
 import LogoEmblem from '@/components/logo-emblem';
 
 export const AboutSection = () => {
