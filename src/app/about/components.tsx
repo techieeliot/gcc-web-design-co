@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils';
 import { Icon } from '@ui/icon';
 import { facts, socialLinks } from '@/data';
 import { CldImage } from 'next-cloudinary';
+import { defaultImageSizes } from '@/lib/image';
+import LogoEmblem from '@/components/logo-emblem';
 
 export const AboutSection = () => {
   return (
@@ -13,12 +15,11 @@ export const AboutSection = () => {
       className={cn(
         'lg:col-span-8 space-y-12',
         'bg-white dark:bg-slate-800 rounded-xl',
-        'prose lg:prose-lg max-w-none',
         'p-6 sm:p-8 lg:p-10'
       )}
     >
       {/* Hero section with image and icons */}
-      <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 mb-8 lg:mb-12 rounded-lg overflow-hidden">
+      <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 rounded-lg overflow-hidden">
         <Image
           src={'/images/pic03.webp'}
           alt="Modern development workspace"
@@ -27,7 +28,7 @@ export const AboutSection = () => {
           sizes="(max-width: 768px) 100vw, 75vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo/40 to-sky/30 dark:from-indigo/50 dark:to-sky/40 flex items-center justify-center gap-6">
+        <div className="absolute inset-0 flex items-center justify-center gap-6">
           <div>
             <Icon
               name="Code2"
@@ -55,7 +56,7 @@ export const AboutSection = () => {
       <div className="mb-10 lg:mb-14">
         <h3 className="text-2xl md:text-3xl font-bold mb-4">📖 Our Story</h3>
         <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
-          Since 2018, SanforDEV has been on a journey of transforming big ideas
+          Since 2018, SANFORDEV has been on a journey of transforming big ideas
           into breakthrough digital solutions. We started out partnering with
           passionate startups and today we collaborate with enterprise
           leaders—all while keeping our innovative spirit alive.
@@ -375,16 +376,7 @@ export function BlueberryStory() {
   return (
     <section className="bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 rounded-xl p-6">
       <div className="flex flex-col items-center gap-8">
-        <div className="relative w-fit rounded-full flex-shrink-0 mx-auto lg:mx-0 bg-night">
-          <CldImage
-            src="emblem"
-            alt="SanforDEV Logo"
-            width={400}
-            height={400}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            loading="lazy"
-          />
-        </div>
+        <LogoEmblem />
         <div>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             🌱 The Logo 🫐

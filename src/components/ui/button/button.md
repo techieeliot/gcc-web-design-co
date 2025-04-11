@@ -11,7 +11,7 @@ import { Button } from '@ui/button';
 ## Usage
 
 ```tsx
-<Button variant="default">Click me</Button>
+<Button>Primary</Button>
 <Button variant="outline">Outline</Button>
 <Button variant="secondary">Secondary</Button>
 ```

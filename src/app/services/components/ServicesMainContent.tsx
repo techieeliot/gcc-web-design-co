@@ -80,7 +80,7 @@ export function ServicesMainContent() {
               'text-slate-700 dark:text-slate-300'
             )}
           >
-            At SanforDEV Consulting, we cultivate digital solutions with the
+            At SANFORDEV Consulting, we cultivate digital solutions with the
             same attention to detail as tending a thoughtfully nurtured garden.
             Each project grows from a strong foundation, combining innovative
             technology with genuine, heartfelt service.
@@ -105,7 +105,7 @@ export function ServicesMainContent() {
                 className="p-6 bg-sky/5 dark:bg-indigo/5 rounded-lg hover:bg-sky-100 
                 dark:hover:bg-indigo/10 transition-colors"
               >
-                <h3 className="text-title mb-3">{feature.title}</h3>
+                <h3 className="text-2xl mb-3">{feature.title}</h3>
                 <p className="text-body text-slate-600 dark:text-slate-400">
                   {feature.description}
                 </p>

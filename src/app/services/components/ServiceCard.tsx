@@ -51,7 +51,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
               name="ArrowUpRight"
               className="w-5 h-5 text-sky dark:text-indigo flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-1"
             />
-            <span className="text-small text-slate-600 dark:text-slate-300">
+            <span className="text-sm text-slate-600 dark:text-slate-300">
               {feature}
             </span>
           </li>

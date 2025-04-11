@@ -5,6 +5,7 @@ import { CaseStudyNav } from './CaseStudyNav';
 import { CaseStudyLayout } from './CaseStudyLayout';
 import { Suspense } from 'react';
 import { Shimmer } from '@ui/shimmer';
+import PageWrapper from '@/components/PageWrapper';
 
 export async function generateStaticParams(): Promise<{ id: string }[]> {
   return caseStudies.map((study) => ({
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       canonical: `/portfolio/${params.id}`,
     },
     openGraph: {
-      title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
+      title: `${caseStudy.title} | SANFORDEV Consulting Case Study`,
       description: caseStudy.description,
       url: `https://devsouth.us/portfolio/${params.id}`,
       images: [
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${caseStudy.title} | SanforDEV Consulting Case Study`,
+      title: `${caseStudy.title} | SANFORDEV Consulting Case Study`,
       description: caseStudy.description,
       images: [caseStudy.image || '/images/portfolio-social.webp'],
     },
@@ -59,7 +60,7 @@ export default async function CaseStudyPage({ params }: any) {
   }
 
   return (
-    <div className="min-h-screen">
+    <PageWrapper>
       <Suspense fallback={<Shimmer />}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-8">
           <CaseStudyNav currentId={params.id} />
@@ -107,6 +108,6 @@ export default async function CaseStudyPage({ params }: any) {
           <CaseStudyNav currentId={params.id} />
         </div>
       </Suspense>
-    </div>
+    </PageWrapper>
   );
 }

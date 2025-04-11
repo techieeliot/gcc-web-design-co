@@ -53,7 +53,7 @@ interface ContactItemProps {
   icon: IconName;
   href: string;
   children: React.ReactNode;
-  variant?: 'nav' | 'default';
+  variant?: 'nav' | 'primary';
   showExternalIcon?: boolean;
 }
 
@@ -126,7 +126,7 @@ export function CompanyInfo() {
   return (
     <div className="text-center md:text-left">
       <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6">
-        About SanforDEV
+        About SANFORDEV
       </h3>
       <p className="text-slate-600 dark:text-frost/80 mb-5">
         We build modern web applications with a focus on React, Next.js, and the
@@ -174,7 +174,7 @@ export function Copyright({ currentYear }: { currentYear: number }) {
     >
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-slate-600 dark:text-frost/80 flex items-center">
-          &copy; {currentYear} SanforDEV Consulting. All rights reserved.
+          &copy; {currentYear} SANFORDEV Consulting. All rights reserved.
         </p>
         <MadeWithLove />
       </div>

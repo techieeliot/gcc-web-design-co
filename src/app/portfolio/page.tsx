@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     canonical: '/portfolio',
   },
   openGraph: {
-    title: 'Case Studies & Development Projects | SanforDEV Consulting',
+    title: 'Case Studies & Development Projects | SANFORDEV Consulting',
     description:
       'Explore our portfolio of successful React and Next.js projects for startups and enterprises.',
     url: 'https://devsouth.us/portfolio',
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
         url: '/images/portfolio-social.webp',
         width: 1200,
         height: 630,
-        alt: 'SanforDEV Consulting Portfolio',
+        alt: 'SANFORDEV Consulting Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case Studies & Development Projects | SanforDEV Consulting',
+    title: 'Case Studies & Development Projects | SANFORDEV Consulting',
     description:
       'Explore our portfolio of successful React and Next.js projects.',
     images: ['/images/portfolio-social.webp'],
@@ -63,7 +63,7 @@ export default function PortfolioRoute() {
               'text-slate-600 dark:text-slate-300'
             )}
           >
-            At SanforDEV Consulting, we blend a city boy's sensibility with deep
+            At SANFORDEV Consulting, we blend a city boy's sensibility with deep
             agrarian roots. We cultivate genuine relationships and gather top
             talent and trusted partners to nurture every project from idea to
             reality. Explore our case studies to see how we help businesses
@@ -73,7 +73,7 @@ export default function PortfolioRoute() {
             <Suspense fallback={<Shimmer width={400} height={300} />}>
               <Image
                 src="/images/pic14.webp"
-                alt="SanforDEV Portfolio"
+                alt="SANFORDEV Portfolio"
                 width={400}
                 height={300}
                 className="rounded-lg shadow-lg"

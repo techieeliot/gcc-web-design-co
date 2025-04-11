@@ -52,7 +52,7 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
                   </Link>
                 </h3>
               </header>
-              <p className="text-slate-600 dark:text-slate-300 line-clamp-2">
+              <p className="text-slate-600 dark:text-slate-300 line-clamp-3">
                 {post.summary}
               </p>
             </div>
@@ -90,14 +90,14 @@ export const FeaturedPost = () => {
               loading="lazy"
             />
           </Link>
-          <header className="mb-4">
+          <header className="flex flex-col gap-2">
             <DateDisplay date={featuredPost.publishedAt} />
             <Link href={`/blog/${featuredPost.slug}`} variant="inlineLink">
               <h3 className="text-xl font-semibold whitespace-break-spaces">
                 {featuredPost.title}
               </h3>
             </Link>
-            <p className="text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+            <p className="text-slate-500 dark:text-slate-400 mt-1 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg line-clamp-2 border-l-4 border-l-sky">
               {featuredPost.summary}
             </p>
           </header>
@@ -124,7 +124,7 @@ export const FeaturedPost = () => {
                 },
               },
             }}
-            className="line-clamp-5 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg"
+            className="line-clamp-5 "
           >
             {
               // skip the title that's already displayed in the header
@@ -136,11 +136,12 @@ export const FeaturedPost = () => {
                 .replace(featuredPost.title, '')
             }
           </Markdown>
-
-          <Link href={`/blog/${featuredPost.slug}`} variant="cta">
-            Continue Reading
-            <span className="sr-only">{featuredPost.title}</span>
-          </Link>
+          <div>
+            <Link href={`/blog/${featuredPost.slug}`} variant="cta">
+              Continue Reading
+              <span className="sr-only">{featuredPost.title}</span>
+            </Link>
+          </div>
         </article>
       )}
     </section>
@@ -158,12 +159,14 @@ export const BlogEngagementSection = () => {
         find value in our content, imagine what we could achieve by
         collaborating on your next project.
       </p>
-      <Link href="/blog/all" variant="default">
-        Explore More Articles
-      </Link>
-      <Link href="/services" variant="outline">
-        Discover Our Services
-      </Link>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Link href="/blog/all" variant="primary">
+          Explore More Articles
+        </Link>
+        <Link href="/services" variant="outline">
+          Discover Our Services
+        </Link>
+      </div>
       <div className="mt-8">
         <ValueProposition />
       </div>

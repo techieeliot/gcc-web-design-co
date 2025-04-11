@@ -20,7 +20,7 @@ export default function PrivacyContent() {
             <Link href="/" variant="inlineLink">
               devsouth.us
             </Link>
-            , along with any services or events associated with SanforDEV
+            , along with any services or events associated with SANFORDEV
             Consulting.
           </p>
           <p className={cn('text-base leading-relaxed')}>
@@ -85,7 +85,7 @@ export default function PrivacyContent() {
         </p>
         <div className="space-y-1">
           <p className="text-slate-800 dark:text-frost font-medium">
-            SanforDEV Consulting LLC
+            SANFORDEV Consulting LLC
           </p>
           <p className="text-slate-600 dark:text-frost/80">
             110 Lake Forest Ln, Clinton, MS 39056

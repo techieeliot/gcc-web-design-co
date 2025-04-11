@@ -28,7 +28,7 @@ export default function NotFound() {
           upon unexpected beauty. Let's get you back home.
         </p>
 
-        <Link href="/" variant="default">
+        <Link href="/" variant="cta">
           <Icon name="ArrowLeft" className="w-4 h-4" />
           Back to Home
         </Link>

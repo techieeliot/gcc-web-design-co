@@ -2,10 +2,8 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,ts,md,jsx,tsx,mdx}', // Updated path pattern
-  ],
-  darkMode: 'class',
+  content: ['./src/**/*.{js,ts,md,jsx,tsx,mdx}'],
+  darkMode: 'selector',
   theme: {
     extend: {
       colors: {
@@ -98,8 +96,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-poppins)', ...fontFamily.sans],
-        display: ['var(--font-poppins)', ...fontFamily.sans],
-        title: ['var(--font-poppins)', ...fontFamily.sans],
+        display: ['var(--font-montserrat)', ...fontFamily.sans],
+        title: ['var(--font-montserrat)', ...fontFamily.sans],
       },
     },
   },

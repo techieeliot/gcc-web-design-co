@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { implementations } from '@/data';
 import { Icon } from '@ui/icon';
+import { Link } from '@/components/ui/link';
 
 export const ServicesSidebar = () => {
   return (
@@ -31,7 +32,7 @@ export const ServicesSidebar = () => {
             {section.items.map((item, itemIndex) => (
               <li
                 key={itemIndex}
-                className="flex items-center gap-2 text-small text-slate-600 dark:text-slate-300"
+                className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300"
               >
                 <Icon
                   name="ArrowUpRight"
@@ -45,6 +46,16 @@ export const ServicesSidebar = () => {
           </ul>
         </div>
       ))}
+      <div className="border rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all border-l-4 border-l-sky flex flex-col gap-4">
+        <h3 className="text-2xl font-bold">Ready to get started?</h3>
+        <p>
+          Let us help you bring your vision to life. Contact us today to discuss
+          your project and how we can assist you.
+        </p>
+        <Link href="/contact" variant="primary">
+          Get in Touch
+        </Link>
+      </div>
     </aside>
   );
 };

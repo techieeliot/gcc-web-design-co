@@ -38,7 +38,7 @@ export default function PrivacyPolicyRoute() {
           </h1>
 
           <p className="text-xl text-slate-600 dark:text-frost/80 max-w-2xl mx-auto">
-            At SanforDEV Consulting, we take your privacy seriously. Our
+            At SANFORDEV Consulting, we take your privacy seriously. Our
             approach is rooted in genuine care and thoughtful
             cultivation—ensuring every aspect of your data is protected with the
             same attention you'd give to a cherished garden.

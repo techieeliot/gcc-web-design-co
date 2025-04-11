@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 
   return {
-    title: `${post.title} | SanforDEV Blog`,
+    title: `${post.title} | SANFORDEV Blog`,
     description: post.summary,
     openGraph: {
       title: post.title,

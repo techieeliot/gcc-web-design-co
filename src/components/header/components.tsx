@@ -1,6 +1,5 @@
 'use client';
 import React, { Suspense, useState, useEffect } from 'react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Link } from '../ui/link';
 import { NavLink } from '../ui/nav-link';
@@ -9,6 +8,8 @@ import { usePathname } from 'next/navigation';
 import { Icon } from '../ui/icon';
 import { Button } from '../ui/button';
 import { CldImage } from 'next-cloudinary';
+import { defaultImageSizes } from '@/lib/image';
+import LogoTypography from '../logo-typography';
 
 function LogoSkeleton() {
   return (
@@ -159,57 +160,35 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       <div className="absolute inset-0 rounded-full bg-sky-100 dark:bg-indigo/10" />
 
                       {/* Add Shimmer while image loads */}
-                      <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
-                        <Shimmer className="absolute inset-0 rounded-full" />
+                      <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-navy p-2 rounded-full">
                         <Suspense fallback={<Shimmer height="full" />}>
                           <CldImage
                             src="emblem"
-                            alt="SanforDEV Logo"
+                            alt="SANFORDEV Logo"
                             fill
-                            className={cn(
-                              'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', // Add this line for centering
-                              'w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9',
-                              'object-contain',
-                              'transform-gpu opacity-0 transition-opacity duration-200',
-                              'relative z-10'
-                            )}
-                            onLoad={(e) => {
-                              const img = e.target as HTMLImageElement;
-                              img.classList.remove('opacity-0');
-                              img.classList.add('opacity-100');
-                              const shimmer =
-                                img.previousElementSibling as HTMLElement;
-                              if (shimmer) {
-                                shimmer.classList.add('opacity-0');
-                              }
-                            }}
+                            sizes={defaultImageSizes}
                             loading="eager"
                             priority
+                            className="object-cover"
                           />
                         </Suspense>
                       </div>
-
-                      {/* Hover effect */}
-                      <div className="absolute inset-0 bg-indigo/20 rounded-full" />
                     </div>
                   </div>
 
                   {/* Brand text */}
-                  <span
+                  <div
                     className={cn(
-                      'font-bold text-base sm:text-lg md:text-lg lg:text-xl leading-none whitespace-nowrap relative z-10',
+                      'whitespace-nowrap relative z-10',
+                      'flex flex-col sm:flex-row gap-1 sm:gap-2 items-center sm:items-baseline',
                       isScrolled
-                        ? 'text-primary dark:text-white'
+                        ? 'text-primary'
                         : 'text-slate-700 dark:text-frost'
                     )}
+                    aria-label="SANFORDEV CONSULTING"
                   >
-                    Sanfor
-                    <span className="text-sky relative inline-block">DEV</span>
-                    <span className="hidden sm:inline md:hidden xl:inline">
-                      {' '}
-                      Consulting
-                    </span>
-                  </span>
+                    <LogoTypography size="sm" variant="split" />
+                  </div>
                 </Link>
               </div>
 

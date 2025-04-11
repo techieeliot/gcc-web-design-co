@@ -2,18 +2,20 @@
 
 import { cn } from '@/lib/utils';
 
+type Size = 'auto' | 'full' | 'fit' | number;
+
 interface ShimmerProps {
   className?: string;
-  width?: string | number;
-  height?: string | number;
+  width?: Size;
+  height?: Size;
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
   duration?: number;
 }
 
 export function Shimmer({
   className,
-  width,
-  height,
+  width = 'full',
+  height = 'full',
   rounded = 'none',
 }: ShimmerProps) {
   const roundedMap = {
@@ -27,14 +29,11 @@ export function Shimmer({
 
   return (
     <span
-      style={{
-        width,
-        height,
-      }}
       className={cn(
         'inline-block bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200',
         'dark:from-gray-800 dark:via-gray-700 dark:to-gray-800',
-        'animate-shimmer bg-[length:200%_100%]',
+        'shimmer-optimized animate-pulse bg-[length:200%_100%]',
+        `h-${height} w-${width}`,
         roundedMap[rounded],
         className
       )}

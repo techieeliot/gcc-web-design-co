@@ -30,12 +30,7 @@ export const Icon = memo(
       {
         loading: () => (
           <span className={cn('inline-flex', className)}>
-            <Shimmer
-              width={size}
-              height={size}
-              rounded="full"
-              className="flex-shrink-0"
-            />
+            <Shimmer rounded="full" className="flex-shrink-0" />
           </span>
         ),
         ssr: false,
@@ -45,12 +40,7 @@ export const Icon = memo(
     if (!isClient) {
       return (
         <span className={cn('inline-flex', className)}>
-          <Shimmer
-            width={size}
-            height={size}
-            rounded="full"
-            className="flex-shrink-0"
-          />
+          <Shimmer rounded="full" className="flex-shrink-0" />
         </span>
       );
     }

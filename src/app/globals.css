@@ -2,25 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animation Keyframes */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes optimized-shimmer {
-  0% {
-    transform: translateX(-100%) translateZ(0);
-  }
-  100% {
-    transform: translateX(100%) translateZ(0);
-  }
-}
-
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
@@ -172,10 +153,24 @@
   }
 
   /* Base Styles */
+
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     max-width: 100vw;
     overflow-x: hidden;
+  }
+
+  html,
+  body,
+  nav,
+  main,
+  footer {
+    background-color: var(--background);
+    transition: background-color 0.3s ease;
   }
 
   body {
@@ -187,20 +182,13 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span {
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+  /* Dark Mode Global Transitions */
+  html.dark {
+    transition: background-color 0.3s ease;
+    background-color: var(--slate-900);
   }
 
-  /* Global Transitions */
+  /* Smooth transitions for all color changes */
   *,
   *::before,
   *::after {
@@ -212,6 +200,24 @@
   /* Remove default focus styles for mouse users ONLY if :focus-visible is supported */
   .js-focus-visible :focus:not(.focus-visible) {
     outline: none;
+  }
+
+  /* Shimmer Effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+  @keyframes optimized-shimmer {
+    0% {
+      background-position: -200%;
+    }
+    100% {
+      background-position: 200%;
+    }
   }
 
   .shimmer-optimized {
@@ -241,7 +247,6 @@
     transform: translateZ(0);
   }
 
-  /* For dark mode */
   .dark .shimmer-optimized {
     background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
     background-size: 200% 100%;
@@ -256,37 +261,108 @@
     );
   }
 
-  html.dark {
-    transition: background-color 0.3s ease;
-    background-color: var(--slate-900);
+  /* Prevent text overflow */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  li,
+  blockquote,
+  dt,
+  dd,
+  code,
+  pre {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
-  /* Smooth transitions for all color changes */
-  *,
-  *::before,
-  *::after {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.3s;
+  /* Font Size */
+  h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 700;
+    font-family: var(--font-montserrat);
   }
-
-  * {
-    box-sizing: border-box;
+  h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    font-family: var(--font-montserrat);
   }
-
-  html,
-  body {
-    max-width: 100vw;
-    overflow-x: hidden;
+  h3 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: 500;
+    font-family: var(--font-montserrat);
   }
-
-  html,
-  body,
-  nav,
-  main,
-  footer {
-    background-color: var(--background);
-    transition: background-color 0.3s ease;
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 500;
+    font-family: var(--font-montserrat);
+  }
+  h5 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    font-family: var(--font-montserrat);
+  }
+  h6 {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    font-family: var(--font-montserrat);
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+  }
+  span {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+  }
+  a {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+  }
+  li {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+  }
+  blockquote {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+  }
+  dt {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+  }
+  dd {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+  }
+  code {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+  }
+  pre {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
   }
 }
 

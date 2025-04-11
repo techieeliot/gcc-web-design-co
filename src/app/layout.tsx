@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Poppins, Montserrat } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'sonner';
 
@@ -15,19 +15,15 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-poppins',
-  fallback: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    'sans-serif',
-  ],
+  fallback: ['Roboto', 'Fira Sans', '-apple-system', 'sans-serif'],
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-montserrat',
+  fallback: ['Poppins', 'Roboto', 'Fira Sans', '-apple-system', 'sans-serif'],
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -36,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={cn(
           poppins.variable,
+          montserrat.variable,
           'min-h-screen bg-white dark:bg-slate-900',
           'text-primary dark:text-slate-50 font-sans antialiased'
         )}
@@ -56,13 +53,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 export const metadata: Metadata = {
   title: {
-    default: 'SanforDEV Consulting | Modern Web Development Services',
-    template: '%s | SanforDEV Consulting',
+    default: 'SANFORDEV Consulting | Modern Web Development Services',
+    template: '%s | SANFORDEV Consulting',
   },
   description:
     'Expert React ecosystem development services for startups and enterprises. Performance-focused web applications built with Next.js, TypeScript, and modern tools.',
   keywords: [
-    'SanforDEV Consulting',
+    'SANFORDEV Consulting',
     'React Ecosystem Specialists',
     'Eliot Sanford',
     'SanfordDEV',
@@ -123,7 +120,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Eliot Sanford', url: 'https://www.techieeliot.com' }],
   creator: 'Eliot Sanford',
-  publisher: 'SanforDEV Consulting LLC',
+  publisher: 'SANFORDEV Consulting LLC',
   formatDetection: {
     email: true,
     address: true,
@@ -139,17 +136,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'SanforDEV Consulting | Modern Web Development Services',
+    title: 'SANFORDEV Consulting | Modern Web Development Services',
     description:
       'Expert React ecosystem development services for startups and enterprises. Performance-focused web applications built with Next.js, TypeScript, and modern tools.',
     url: domains.primary,
-    siteName: 'SanforDEV Consulting',
+    siteName: 'SANFORDEV Consulting',
     images: [
       {
         url: `${domains.primary}/images/social-card.webp`,
         width: 1200,
         height: 630,
-        alt: 'SanforDEV Consulting - React Ecosystem Specialists',
+        alt: 'SANFORDEV Consulting - React Ecosystem Specialists',
       },
     ],
     locale: 'en_US',
@@ -157,7 +154,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SanforDEV Consulting | Modern Web Development Services',
+    title: 'SANFORDEV Consulting | Modern Web Development Services',
     description:
       'Expert React ecosystem development services for startups and enterprises.',
     creator: '@techieEliot',

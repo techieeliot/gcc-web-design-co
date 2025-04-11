@@ -29,14 +29,14 @@ export default function Error({
           {error.message || 'An unexpected error occurred'}
         </p>
         <div className="space-x-4">
-          <Button onClick={() => reset()} variant="default">
+          <Button onClick={() => reset()} variant="cta">
             Try again
           </Button>
           <Button
             onClick={() =>
               (window.location.href = isHomePage ? '/contact' : '/')
             }
-            variant="outline"
+            variant="secondary"
           >
             {isHomePage ? 'Contact Us' : 'Return Home'}
           </Button>

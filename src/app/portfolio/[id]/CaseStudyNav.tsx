@@ -28,7 +28,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
         {prevCase && (
           <Link
             href={`/portfolio/${prevCase.id}`}
-            variant="secondary"
+            variant="primary"
             size="lg"
             title={`Previous: ${prevCase.title}`}
           >
@@ -42,8 +42,8 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
         {nextCase && (
           <Link
             href={`/portfolio/${nextCase.id}`}
-            variant="secondary"
             size="lg"
+            variant="primary"
             className="text-sm"
             title={`Next: ${nextCase.title}`}
           >

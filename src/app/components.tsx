@@ -8,6 +8,7 @@ import { Link } from '@ui/link';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import { Shimmer } from '@ui/shimmer';
 import { CldImage } from 'next-cloudinary';
+import LogoTypography from '@/components/logo-typography';
 
 export const HeroSection = () => (
   <section data-testid="hero-section">
@@ -15,15 +16,15 @@ export const HeroSection = () => (
       <div className="order-2 lg:order-1">
         <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10  font-medium rounded-full mb-4">
           <Icon name="Code" className="w-4 h-4" />
-          <span className="text-small">React & Next.js Specialists</span>
+          <span className="text-sm">React & Next.js Specialists</span>
         </span>
 
         <h1 className="text-display font-display text-foreground max-w-lg mb-6">
           Digital Solutions You Can Grow With
         </h1>
 
-        <p className="text-large max-w-lg mb-8">
-          At SanforDEV, we view tech solutions as if we're carefully and
+        <p className="text-lg max-w-lg mb-8">
+          At SANFORDEV, we view tech solutions as if we're carefully and
           methodically nurturing a well-tended garden. We combine modern React
           expertise with a grounded, relationship-focused approach—helping your
           digital ideas grow.
@@ -67,10 +68,10 @@ export const FeaturesSection = () => (
   <section data-testid="features-section">
     <div className="w-full">
       <div className="text-center mb-12">
-        <h2 className="text-title font-title text-foreground mb-4">
+        <h2 className="text-2xl font-title text-foreground mb-4">
           Cultivated Digital Solutions
         </h2>
-        <p className="text-large  max-w-3xl mx-auto">
+        <p className="text-lg  max-w-3xl mx-auto">
           We nurture each project with the dedicated care of a well-tended
           orchard—melding React expertise with creativity and a genuine
           commitment to our partners.
@@ -118,16 +119,16 @@ export const ShowcaseSection = () => (
 export const CallToActionSection = () => (
   <section data-testid="cta-section">
     <div className="rounded-xl p-12 text-foreground relative flex flex-col justify-center items-center gap-4">
-      <h2 className="text-title font-title mb-4">
+      <h2 className="text-2xl font-title mb-4">
         Ready to transform your digital presence?
       </h2>
-      <p className="text-large max-w-2xl">
+      <p className="text-lg max-w-2xl">
         Whether you're looking to launch a new product or enhance an existing
         one, we have the expertise to help you succeed.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Link href="/contact" variant="cta" size="lg">
+        <Link href="/contact" size="lg">
           Get in Touch
         </Link>
         <Link href="/portfolio" variant="outline" size="lg">
@@ -211,7 +212,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-small text-night dark:text-white px-2 py-1 bg-muted rounded"
+              className="text-sm text-night dark:text-white px-2 py-1 bg-muted rounded"
             >
               {tag}
             </span>
@@ -236,14 +237,14 @@ export function ValueProposition() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-title font-title text-foreground mb-4">
-          Why SanforDEV Consulting?
+        <h2 className="text-2xl font-title text-foreground mb-4">
+          Why <LogoTypography />?
         </h2>
 
-        <p className="text-large mb-8">
+        <p className="text-lg mb-8">
           Imagine the care and commitment of a meticulously nurtured
           garden—every component grown with patience, passion, and precision. At
-          SanforDEV, we bring that ethos to digital work, crafting solutions in
+          SANFORDEV, we bring that ethos to digital work, crafting solutions in
           a carefully cultivated partnership between innovation and genuine
           collaboration. Let's grow digital greatness together.
         </p>
@@ -276,13 +277,13 @@ export function ValueProposition() {
         </Link>
       </div>
 
-      <div className="bg-sky-100 dark:bg-indigo/10 p-6 rounded-lg border border-sky/20 dark:border-indigo/20">
+      <div className=" p-6 rounded-lg border border-sky/20 dark:border-indigo/20 border-l-4 border-l-sky">
         <p className="text-slate-700 dark:text-slate-200 italic mb-4">
-          "SanforDEV turned our digital challenges into a harvest of
+          "SANFORDEV turned our digital challenges into a harvest of
           opportunities, merging modern tech with sincere, hands-on care."
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2 text-sky dark:text-indigo">
+        <div className="flex flex-col sm:flex-row items-center gap-2 text-primary">
           <span className="font-medium">Melissa Brogdan</span>
           <span className="hidden sm:block">|</span>
           <span className="text-sm">Co-Owner, Fourth Party</span>
@@ -310,21 +311,16 @@ export const BlogHighlightSection = () => (
                 loading="lazy"
               />
             </div>
-            <h2 className="text-title font-title text-foreground mb-4">
+            <h2 className="text-2xl font-title text-foreground mb-4">
               Fresh Insights & Stories
             </h2>
-            <p className="text-large mb-6">
+            <p className="text-lg mb-6">
               Dive into our carefully cultivated collection of articles—where we
               share practical wisdom, emerging trends, and real experiences from
               our journey in modern web development. Like tending to a garden,
               we nurture each article with careful attention and genuine care.
             </p>
-            <Link
-              href="/blog"
-              variant="cta"
-              size="lg"
-              className="inline-flex items-center"
-            >
+            <Link href="/blog" size="lg" className="inline-flex items-center">
               Explore Our Blog
               <Icon name="ArrowRight" className="w-4 h-4 ml-2" />
             </Link>
@@ -355,8 +351,8 @@ export const BlogHighlightSection = () => (
           </div>
         </div>
 
-        <div className="mt-8 p-6 bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 rounded-lg">
-          <h3 className="text-subtitle font-subtitle text-foreground mb-3">
+        <div className="mt-8 p-6 bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 rounded-lg border-l-4 border-l-sky">
+          <h3 className="text-subtitle font-subtitle text-foreground mb-3 ">
             Why Read Our Blog?
           </h3>
           <ul className="space-y-3">
