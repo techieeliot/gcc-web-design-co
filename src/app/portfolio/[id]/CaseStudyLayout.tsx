@@ -64,7 +64,7 @@ export function CaseStudyLayout({
           'prose prose-slate dark:prose-invert max-w-none',
           'prose-headings:text-primary dark:prose-headings:text-white',
           'prose-p:text-slate-600 dark:prose-p:text-slate-300',
-          'prose-a:text-sky dark:prose-a:text-azure',
+          'prose-a:text-sky dark:prose-a:text-indigo',
           'prose-strong:text-primary dark:prose-strong:text-white'
         )}
       >

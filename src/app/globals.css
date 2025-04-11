@@ -44,7 +44,7 @@
     --color-background: var(--background);
     --color-foreground: var(--foreground);
 
-    --muted: 240 5% 61%;
+    --muted: var(--frost);
     --muted-foreground: 240 6% 69%;
 
     --card: var(--ghost);
@@ -89,9 +89,9 @@
     /* Chart Colors */
     --chart-1: var(--frost);
     --chart-2: var(--sky);
-    --chart-3: var(--azure);
-    --chart-4: var(--blueberry);
-    --chart-5: var(--midnight);
+    --chart-3: var(--indigo);
+    --chart-4: var(--navy);
+    --chart-5: var(--night);
 
     /* Radius Scale */
     --radius: 0.625rem;
@@ -145,8 +145,8 @@
     --background: var(--night-900);
     --foreground: var(--ghost);
 
-    --muted: var(--night-700);
-    --muted-foreground: var(--night-300);
+    --muted: var(--frost);
+    --muted-foreground: var(--night-500);
 
     --card: var(--night-800);
     --card-foreground: var(--ghost);

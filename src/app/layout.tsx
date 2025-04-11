@@ -183,10 +183,6 @@ export const metadata: Metadata = {
         url: '/favicon.ico',
         sizes: '32x32',
       },
-      {
-        url: '/icon.png',
-        sizes: '192x192',
-      },
     ],
   },
 };

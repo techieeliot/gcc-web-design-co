@@ -194,7 +194,7 @@ export default function ContactForm() {
                     id="privacy"
                     {...register('privacy')}
                     className={cn(
-                      'rounded border-slate-300 dark:border-slate-700 text-sky dark:text-azure focus:ring-sky dark:focus:ring-azure/50',
+                      'rounded border-slate-300 dark:border-slate-700 text-sky dark:text-indigo focus:ring-sky dark:focus:ring-indigo/50',
                       errors.privacy && 'border-red-500 dark:border-red-500'
                     )}
                   />
@@ -221,9 +221,8 @@ export default function ContactForm() {
               <div tabIndex={-1}>
                 <Button
                   type="submit"
-                  variant="outline"
+                  variant="cta"
                   disabled={isSubmitting || !isDirty}
-                  className="w-full sm:w-auto bg-sky hover:bg-sky/90 dark:bg-azure dark:hover:bg-azure/90 relative overflow-hidden group"
                 >
                   <span className="flex items-center relative z-10 gap-2">
                     {!isDirty ? (
@@ -243,12 +242,11 @@ export default function ContactForm() {
                       </>
                     )}
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-sky via-azure to-sky dark:from-azure dark:via-sky dark:to-azure" />
                 </Button>
               </div>
 
               {isSubmitting && (
-                <p className="mt-2 text-sky dark:text-azure flex items-center">
+                <p className="mt-2 text-sky dark:text-indigo flex items-center">
                   <Icon name="Rocket" className="inline mr-2 animate-pulse" />
                   Igniting your message...
                 </p>

@@ -89,7 +89,7 @@ export const CaseStudyCard = ({
             className={cn(
               'text-xl font-bold mb-2',
               'text-primary dark:text-white',
-              'group-hover:text-sky dark:group-hover:text-azure',
+              'group-hover:text-sky dark:group-hover:text-indigo',
               'transition-colors duration-300'
             )}
           >
@@ -122,7 +122,7 @@ export const CaseStudyCard = ({
                   >
                     <Icon
                       name={icon}
-                      className="w-4 h-4 mb-1 text-sky dark:text-azure"
+                      className="w-4 h-4 mb-1 text-sky dark:text-indigo"
                       strokeWidth={1.5}
                     />
                     <span className="text-lg font-semibold text-primary dark:text-white">

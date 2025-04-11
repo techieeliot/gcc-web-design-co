@@ -13,7 +13,7 @@ interface ContactInfoProps {
 const ContactInfo = ({ icon, title, content }: ContactInfoProps) => (
   <div className="flex gap-4">
     <div className="flex-shrink-0">
-      <div className="p-3 bg-sky-100 dark:bg-azure/10 rounded-lg">{icon}</div>
+      <div className="p-3 bg-sky-100 dark:bg-indigo/10 rounded-lg">{icon}</div>
     </div>
     <div>
       <h3 className="font-medium mb-1">{title}</h3>
@@ -35,7 +35,7 @@ export function ContactSidebar() {
       <div className="space-y-6">
         <ContactInfo
           icon={
-            <Icon name="Mail" className="w-6 h-6 text-sky dark:text-azure" />
+            <Icon name="Mail" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Email"
           content={
@@ -44,14 +44,14 @@ export function ContactSidebar() {
         />
         <ContactInfo
           icon={
-            <Icon name="Phone" className="w-6 h-6 text-sky dark:text-azure" />
+            <Icon name="Phone" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Phone"
           content={<Link href="tel:+16012979575">(601) 297-9575</Link>}
         />
         <ContactInfo
           icon={
-            <Icon name="MapPin" className="w-6 h-6 text-sky dark:text-azure" />
+            <Icon name="MapPin" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Location"
           content="Clinton, Mississippi, USA"

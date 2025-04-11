@@ -92,7 +92,7 @@ export default async function CaseStudyPage({ params }: any) {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {caseStudy.stats.map((stat, idx) => (
                     <div key={idx} className="text-center">
-                      <p className="text-3xl font-bold text-sky dark:text-azure">
+                      <p className="text-3xl font-bold text-sky dark:text-indigo">
                         {stat.value}
                       </p>
                       <p className="text-sm text-slate-600 dark:text-slate-400">

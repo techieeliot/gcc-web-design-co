@@ -42,10 +42,10 @@ export default function PrivacyContent() {
             )}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-md bg-sky-100 dark:bg-azure/10">
+              <div className="p-2 rounded-md bg-sky-100 dark:bg-indigo/10">
                 <Icon
                   name={item.icon}
-                  className="w-5 h-5 text-sky dark:text-azure"
+                  className="w-5 h-5 text-sky dark:text-indigo"
                 />
               </div>
               <h2 className={cn('text-2xl md:text-3xl font-bold')} id={item.id}>
@@ -72,8 +72,8 @@ export default function PrivacyContent() {
       {/* Contact Section */}
       <div className="max-w-2xl mx-auto text-center p-8 bg-white dark:bg-slate-900 rounded-xl shadow-lg">
         <div className="mb-4 inline-flex items-center justify-center">
-          <div className="p-2 rounded-md bg-sky-100 dark:bg-azure/10">
-            <Icon name="Phone" className="w-5 h-5 text-sky dark:text-azure" />
+          <div className="p-2 rounded-md bg-sky-100 dark:bg-indigo/10">
+            <Icon name="Phone" className="w-5 h-5 text-sky dark:text-indigo" />
           </div>
         </div>
         <h2 className={cn('text-2xl md:text-3xl font-bold', 'mb-4')}>

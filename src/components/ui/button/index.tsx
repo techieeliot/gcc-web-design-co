@@ -18,25 +18,25 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: cn(
-          'bg-blueberry text-white dark:bg-azure dark:text-white',
+          'bg-navy text-white dark:bg-indigo dark:text-white',
           'shadow-sm',
-          'hover:bg-blueberry/90 dark:hover:bg-azure/90',
-          'active:bg-blueberry/80 active:scale-[0.98] dark:active:bg-azure/80',
+          'hover:bg-navy/90 dark:hover:bg-indigo/90',
+          'active:bg-navy/80 active:scale-[0.98] dark:active:bg-indigo/80',
           'transition-all'
         ),
         cta: cn(
-          'bg-sky text-white dark:bg-azure dark:text-white',
+          'bg-sky text-white dark:bg-indigo dark:text-white',
           'shadow-sm',
-          'hover:bg-sky/90 dark:hover:bg-azure/90',
-          'active:bg-sky/80 active:scale-[0.98] dark:active:bg-azure/80',
+          'hover:bg-sky/90 dark:hover:bg-indigo/90',
+          'active:bg-sky/80 active:scale-[0.98] dark:active:bg-indigo/80',
           'transition-all'
         ),
         outline: cn(
           'bg-transparent border-2',
-          'border-blueberry text-blueberry',
+          'border-navy text-navy',
           'shadow-sm',
-          'hover:bg-blueberry/10 dark:hover:bg-azure/10',
-          'active:bg-blueberry/20 active:scale-[0.98] dark:active:bg-azure/20',
+          'hover:bg-navy/10 dark:hover:bg-indigo/10',
+          'active:bg-navy/20 active:scale-[0.98] dark:active:bg-indigo/20',
           'transition-all'
         ),
         secondary: cn(
@@ -48,8 +48,8 @@ const buttonVariants = cva(
         ),
         standaloneLink: cn(
           'text-sky font-medium underline',
-          'hover:text-blueberry hover:no-underline',
-          'active:text-azure active:scale-[0.98]',
+          'hover:text-navy hover:no-underline',
+          'active:text-indigo active:scale-[0.98]',
           'dark:hover:text-frost dark:hover:no-underline',
           'dark:active:text-frost/80',
           'transition-all'
@@ -57,34 +57,34 @@ const buttonVariants = cva(
         inlineLink: cn(
           '[&]:inline [&]:p-0 [&]:m-0 underline',
           'font-inherit text-inherit',
-          'text-sky hover:text-blueberry',
+          'text-sky hover:text-navy',
           'dark:text-sky dark:hover:text-frost dark:hover:no-underline',
-          'hover:no-underline active:text-azure active:scale-[0.98]',
+          'hover:no-underline active:text-indigo active:scale-[0.98]',
           'transition-all'
         ),
         nav: cn(
           'rounded-md transition-all font-medium',
           'text-slate-600',
           'hover:text-sky hover:bg-sky/5',
-          'active:text-blueberry active:scale-[0.98]',
-          'data-[active=true]:bg-azure/90',
+          'active:text-navy active:scale-[0.98]',
+          'data-[active=true]:bg-indigo/90',
           'data-[active=true]:text-white',
           'dark:text-slate-300',
-          'dark:hover:text-azure dark:hover:bg-azure/10',
+          'dark:hover:text-indigo dark:hover:bg-indigo/10',
           'dark:active:text-frost dark:active:scale-[0.98]',
           'dark:data-[active=true]:bg-sky/90',
           'dark:data-[active=true]:text-white'
         ),
         light: cn(
-          'bg-white text-azure font-medium',
+          'bg-white text-indigo font-medium',
           'border border-transparent',
           'shadow-sm',
-          'hover:bg-azure/10 hover:text-ghost/10 hover:border-azure/10',
+          'hover:bg-indigo/10 hover:text-ghost/10 hover:border-indigo/10',
           'hover:shadow-md',
           'active:bg-slate-100 active:scale-[0.98] active:shadow-inner',
           'focus-visible:ring-2 focus-visible:ring-sky/30',
-          'dark:bg-azure dark:text-frost',
-          'dark:hover:bg-azure/90 dark:hover:border-azure/30',
+          'dark:bg-indigo dark:text-frost',
+          'dark:hover:bg-indigo/90 dark:hover:border-indigo/30',
           'dark:hover:text-white',
           'dark:active:bg-slate-600',
           'transition-all duration-200'

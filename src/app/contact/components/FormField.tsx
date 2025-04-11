@@ -51,7 +51,7 @@ export function FormField({
                   'placeholder:text-slate-500 dark:placeholder:text-slate-400',
                   // Focus states
                   'focus:ring-sky/50 focus:border-sky/50',
-                  'dark:focus:ring-azure/50 dark:focus:border-azure/50',
+                  'dark:focus:ring-indigo/50 dark:focus:border-indigo/50',
                   error ? 'border-red-500 dark:border-red-500' : undefined
                 ),
                 'aria-invalid': error ? true : undefined,

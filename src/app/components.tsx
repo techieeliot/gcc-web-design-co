@@ -83,13 +83,13 @@ export const FeaturesSection = () => (
             key={feature.title}
             className="rounded-xl p-6 shadow-lg backdrop-blur-md bg-card text-card-foreground w-full"
           >
-            <div className="rounded-full w-12 h-12 bg-sky-100 dark:bg-azure/10 flex items-center justify-center mb-4">
+            <div className="rounded-full w-12 h-12 bg-sky-100 dark:bg-indigo/10 flex items-center justify-center mb-4">
               <Icon
                 name={feature.icon}
-                className="w-6 h-6 text-sky dark:text-azure"
+                className="w-6 h-6 text-sky dark:text-indigo"
               />
             </div>
-            <h3 className="text-subtitle font-subtitle text-blueberry dark:text-body mb-2">
+            <h3 className="text-subtitle font-subtitle text-navy dark:text-body mb-2">
               {feature.title}
             </h3>
             <p>{feature.description}</p>
@@ -201,7 +201,7 @@ const ProjectCard = ({
       </div>
 
       <div className="p-4">
-        <h4 className="text-subtitle font-subtitle text-midnight dark:text-white mb-1">
+        <h4 className="text-subtitle font-subtitle text-night dark:text-white mb-1">
           {title}
         </h4>
 
@@ -211,7 +211,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-small text-midnight dark:text-white px-2 py-1 bg-muted rounded"
+              className="text-small text-night dark:text-white px-2 py-1 bg-muted rounded"
             >
               {tag}
             </span>
@@ -258,7 +258,7 @@ export function ValueProposition() {
         ))}
       </ul>
 
-      <div className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 p-6 rounded-lg ">
+      <div className="bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 p-6 rounded-lg ">
         <h3 className="text-subtitle font-subtitle text-foreground mb-3">
           Our Approach
         </h3>
@@ -276,13 +276,13 @@ export function ValueProposition() {
         </Link>
       </div>
 
-      <div className="bg-sky-100 dark:bg-azure/10 p-6 rounded-lg border border-sky/20 dark:border-azure/20">
+      <div className="bg-sky-100 dark:bg-indigo/10 p-6 rounded-lg border border-sky/20 dark:border-indigo/20">
         <p className="text-slate-700 dark:text-slate-200 italic mb-4">
           "SanforDEV turned our digital challenges into a harvest of
           opportunities, merging modern tech with sincere, hands-on care."
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2 text-sky dark:text-azure">
+        <div className="flex flex-col sm:flex-row items-center gap-2 text-sky dark:text-indigo">
           <span className="font-medium">Melissa Brogdan</span>
           <span className="hidden sm:block">|</span>
           <span className="text-sm">Co-Owner, Fourth Party</span>
@@ -355,7 +355,7 @@ export const BlogHighlightSection = () => (
           </div>
         </div>
 
-        <div className="mt-8 p-6 bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-lg">
+        <div className="mt-8 p-6 bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 rounded-lg">
           <h3 className="text-subtitle font-subtitle text-foreground mb-3">
             Why Read Our Blog?
           </h3>
@@ -363,21 +363,21 @@ export const BlogHighlightSection = () => (
             <li className="flex items-center gap-2">
               <Icon
                 name="CheckCircle"
-                className="w-5 h-5 text-sky dark:text-azure"
+                className="w-5 h-5 text-sky dark:text-indigo"
               />
               <span>Practical insights from real-world React projects</span>
             </li>
             <li className="flex items-center gap-2">
               <Icon
                 name="CheckCircle"
-                className="w-5 h-5 text-sky dark:text-azure"
+                className="w-5 h-5 text-sky dark:text-indigo"
               />
               <span>Performance optimization techniques & best practices</span>
             </li>
             <li className="flex items-center gap-2">
               <Icon
                 name="CheckCircle"
-                className="w-5 h-5 text-sky dark:text-azure"
+                className="w-5 h-5 text-sky dark:text-indigo"
               />
               <span>Modern development approaches & emerging trends</span>
             </li>

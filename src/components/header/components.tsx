@@ -131,7 +131,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   className={cn(
                     'no-underline flex items-center gap-2 sm:gap-3',
                     'rounded-md px-3 py-3',
-                    'hover:bg-azure/10 transition-all duration-300',
+                    'hover:bg-indigo/10 transition-all duration-300',
                     'relative overflow-visible'
                   )}
                 >
@@ -140,7 +140,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     {/* Outer animated ring */}
                     <div
                       className={cn(
-                        'absolute rounded-full border-2 border-sky/20 dark:border-azure/20',
+                        'absolute rounded-full border-2 border-sky/20 dark:border-indigo/20',
                         '-left-1 -top-1'
                       )}
                     />
@@ -153,10 +153,10 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                         'w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14'
                       )}
                     >
-                      <div className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-azure/20" />
+                      <div className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-indigo/20" />
 
                       {/* Pulsing background */}
-                      <div className="absolute inset-0 rounded-full bg-sky-100 dark:bg-azure/10" />
+                      <div className="absolute inset-0 rounded-full bg-sky-100 dark:bg-indigo/10" />
 
                       {/* Add Shimmer while image loads */}
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14">
@@ -190,7 +190,7 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       </div>
 
                       {/* Hover effect */}
-                      <div className="absolute inset-0 bg-azure/20 rounded-full" />
+                      <div className="absolute inset-0 bg-indigo/20 rounded-full" />
                     </div>
                   </div>
 
@@ -233,8 +233,8 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                   className={cn(
                     'p-2 rounded-full',
                     isScrolled
-                      ? 'text-primary hover:text-sky dark:text-white dark:hover:text-azure'
-                      : 'text-slate-700 hover:text-sky dark:text-frost dark:hover:text-azure',
+                      ? 'text-primary hover:text-sky dark:text-white dark:hover:text-indigo'
+                      : 'text-slate-700 hover:text-sky dark:text-frost dark:hover:text-indigo',
                     'transition-colors hover:bg-slate-100 dark:hover:bg-slate-800'
                   )}
                   aria-label={isOpen ? 'Close menu' : 'Open menu'}

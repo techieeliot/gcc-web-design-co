@@ -24,22 +24,22 @@ export function QuickLinks({ showHeading = false }) {
               className={cn(
                 'group flex items-center gap-3',
                 'py-2 px-3 rounded-md',
-                'hover:bg-sky/5 dark:hover:bg-azure/5',
+                'hover:bg-sky/5 dark:hover:bg-indigo/5',
                 'transition-colors duration-200',
                 'text-slate-600 dark:text-slate-300',
-                'hover:text-sky dark:hover:text-azure',
+                'hover:text-sky dark:hover:text-indigo',
                 'text-base',
                 'w-full'
               )}
             >
               <Icon
                 name={icon}
-                className="w-4 h-4 flex-shrink-0 text-slate-400 dark:text-slate-500 group-hover:text-sky dark:group-hover:text-azure transition-colors"
+                className="w-4 h-4 flex-shrink-0 text-slate-400 dark:text-slate-500 group-hover:text-sky dark:group-hover:text-indigo transition-colors"
               />
               <span className="font-medium">{label}</span>
               <Icon
                 name="ChevronRight"
-                className="w-3.5 h-3.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover:text-sky dark:group-hover:text-azure opacity-0 group-hover:opacity-100 transition-all ml-auto"
+                className="w-3.5 h-3.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover:text-sky dark:group-hover:text-indigo opacity-0 group-hover:opacity-100 transition-all ml-auto"
               />
             </Link>
           </li>
@@ -66,15 +66,15 @@ function ContactItem({
 }: ContactItemProps) {
   return (
     <div className="flex items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0">
-      <div className="p-2 rounded-full bg-sky-100 dark:bg-azure/10 shrink-0">
-        <Icon name={icon} className="w-5 h-5 text-sky dark:text-azure" />
+      <div className="p-2 rounded-full bg-sky-100 dark:bg-indigo/10 shrink-0">
+        <Icon name={icon} className="w-5 h-5 text-sky dark:text-indigo" />
       </div>
       <Link
         href={href}
         variant={variant}
         className={cn(
           'text-slate-600 dark:text-frost/80',
-          'hover:text-sky dark:hover:text-azure',
+          'hover:text-sky dark:hover:text-indigo',
           'group flex items-center gap-1'
         )}
       >

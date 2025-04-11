@@ -12,16 +12,16 @@ export default function ContactPage() {
       <div className="text-center mb-12 lg:mb-20 relative">
         {/* Decorative gradient circles */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute right-1/2 -top-32 h-[400px] w-[400px] rounded-full bg-gradient-radial from-azure/20 via-transparent to-transparent blur-3xl" />
+          <div className="absolute right-1/2 -top-32 h-[400px] w-[400px] rounded-full bg-gradient-radial from-indigo/20 via-transparent to-transparent blur-3xl" />
           <div className="absolute left-1/2 -top-40 h-[400px] w-[400px] rounded-full bg-gradient-radial from-sky/20 via-transparent to-transparent blur-3xl" />
         </div>
 
         {/* Hero content with icon */}
         <div className="flex flex-col items-center gap-6">
-          <div className="rounded-full bg-slate-200 p-4 border border-azure dark:border-frost shadow-lg">
+          <div className="rounded-full bg-slate-200 p-4 border border-indigo dark:border-frost shadow-lg">
             <Icon
               name="Mail"
-              className="text-azure dark:text-frost"
+              className="text-indigo dark:text-frost"
               size={24}
             />
           </div>

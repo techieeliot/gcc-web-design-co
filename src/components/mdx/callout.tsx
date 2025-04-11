@@ -16,7 +16,7 @@ const icons: Record<CalloutType, IconName> = {
 };
 
 const styles = {
-  info: 'bg-sky-100 border-sky/20 text-sky dark:bg-azure/10 dark:border-azure/20 dark:text-azure',
+  info: 'bg-sky-100 border-sky/20 text-sky dark:bg-indigo/10 dark:border-indigo/20 dark:text-indigo',
   warning:
     'bg-amber-500/10 border-amber-500/20 text-amber-600 dark:text-amber-400',
   success:

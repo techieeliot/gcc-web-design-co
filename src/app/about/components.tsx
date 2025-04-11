@@ -5,6 +5,7 @@ import { Link } from '@ui/link';
 import { cn } from '@/lib/utils';
 import { Icon } from '@ui/icon';
 import { facts, socialLinks } from '@/data';
+import { CldImage } from 'next-cloudinary';
 
 export const AboutSection = () => {
   return (
@@ -26,7 +27,7 @@ export const AboutSection = () => {
           sizes="(max-width: 768px) 100vw, 75vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-azure/40 to-sky/30 dark:from-azure/50 dark:to-sky/40 flex items-center justify-center gap-6">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo/40 to-sky/30 dark:from-indigo/50 dark:to-sky/40 flex items-center justify-center gap-6">
           <div>
             <Icon
               name="Code2"
@@ -65,19 +66,19 @@ export const AboutSection = () => {
         <h3 className="text-2xl md:text-3xl font-bold mb-4">Our Mission</h3>
 
         {/* Quote Card with Artistic Iconography */}
-        <div className="relative bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-lg p-8 mb-8 overflow-hidden">
+        <div className="relative bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 rounded-lg p-8 mb-8 overflow-hidden">
           {/* Decorative Quote Marks */}
           <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 opacity-10">
             <Icon
               name="Quote"
-              className="w-32 h-32 text-sky dark:text-azure"
+              className="w-32 h-32 text-sky dark:text-indigo"
               strokeWidth={1}
             />
           </div>
           <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 opacity-10">
             <Icon
               name="Quote"
-              className="w-32 h-32 text-sky dark:text-azure rotate-180"
+              className="w-32 h-32 text-sky dark:text-indigo rotate-180"
               strokeWidth={1}
             />
           </div>
@@ -86,14 +87,14 @@ export const AboutSection = () => {
           <div className="absolute top-1/2 left-2 -translate-y-1/2 opacity-10">
             <Icon
               name="Rocket"
-              className="w-16 h-16 text-azure dark:text-sky"
+              className="w-16 h-16 text-indigo dark:text-sky"
               strokeWidth={1}
             />
           </div>
           <div className="absolute top-1/2 right-2 -translate-y-1/2 opacity-10">
             <Icon
               name="Code2"
-              className="w-16 h-16 text-azure dark:text-sky"
+              className="w-16 h-16 text-indigo dark:text-sky"
               strokeWidth={1}
             />
           </div>
@@ -103,7 +104,7 @@ export const AboutSection = () => {
             <div className="flex justify-center items-start relative mb-6">
               <Icon
                 name="Quote"
-                className="w-6 h-6 text-sky dark:text-azure absolute -left-2 -top-3 rotate-180 opacity-90"
+                className="w-6 h-6 text-sky dark:text-indigo absolute -left-2 -top-3 rotate-180 opacity-90"
                 strokeWidth={2}
               />
               <div className="text-2xl md:text-3xl font-semibold text-primary dark:text-white leading-tight px-8">
@@ -113,7 +114,7 @@ export const AboutSection = () => {
                 </span>
                 <Icon
                   name="Quote"
-                  className="w-6 h-6 text-sky dark:text-azure inline-block ml-6 transform translate-y-1 opacity-90"
+                  className="w-6 h-6 text-sky dark:text-indigo inline-block ml-6 transform translate-y-1 opacity-90"
                   strokeWidth={2}
                 />
               </div>
@@ -130,7 +131,7 @@ export const AboutSection = () => {
             <div className="flex items-center gap-3 mb-2">
               <Icon
                 name="Hammer"
-                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                className="w-6 h-6 text-sky dark:text-indigo flex-shrink-0"
                 strokeWidth={1.5}
               />
               <h4 className="font-semibold text-primary dark:text-white">
@@ -147,7 +148,7 @@ export const AboutSection = () => {
             <div className="flex items-center gap-3 mb-2">
               <Icon
                 name="Users"
-                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                className="w-6 h-6 text-sky dark:text-indigo flex-shrink-0"
                 strokeWidth={1.5}
               />
               <h4 className="font-semibold text-primary dark:text-white">
@@ -164,7 +165,7 @@ export const AboutSection = () => {
             <div className="flex items-center gap-3 mb-2">
               <Icon
                 name="Goal"
-                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                className="w-6 h-6 text-sky dark:text-indigo flex-shrink-0"
                 strokeWidth={1.5}
               />
               <h4 className="font-semibold text-primary dark:text-white">
@@ -181,7 +182,7 @@ export const AboutSection = () => {
             <div className="flex items-center gap-3 mb-2">
               <Icon
                 name="Heart"
-                className="w-6 h-6 text-sky dark:text-azure flex-shrink-0"
+                className="w-6 h-6 text-sky dark:text-indigo flex-shrink-0"
                 strokeWidth={1.5}
               />
               <h4 className="font-semibold text-primary dark:text-white">
@@ -217,7 +218,7 @@ export const AboutSection = () => {
               'Supporting nonprofits through GiveCamp',
             ].map((item, index) => (
               <li key={index} className="flex items-start gap-3">
-                <span className="text-sky dark:text-azure">•</span>
+                <span className="text-sky dark:text-indigo">•</span>
                 <span className="text-slate-700 dark:text-slate-300">
                   {item}
                 </span>
@@ -246,7 +247,7 @@ export const AboutSection = () => {
                 <h4 className="text-xl md:text-2xl font-semibold mb-1 text-center sm:text-left">
                   Eliot Sanford
                 </h4>
-                <p className="text-sky dark:text-azure font-medium mb-2 text-center sm:text-left">
+                <p className="text-sky dark:text-indigo font-medium mb-2 text-center sm:text-left">
                   Lead Engineer
                 </p>
                 <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">
@@ -265,7 +266,7 @@ export const AboutSection = () => {
                     href="https://www.techieeliot.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                   >
                     <Icon name="Globe" className="w-4 h-4" />
                     <span>Website</span>
@@ -274,7 +275,7 @@ export const AboutSection = () => {
                     href="https://www.linkedin.com/in/techieeliot"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                   >
                     <Icon name="Linkedin" className="w-4 h-4" />
                     <span>LinkedIn</span>
@@ -283,14 +284,14 @@ export const AboutSection = () => {
                     href="https://github.com/techieeliot"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                   >
                     <Icon name="Github" className="w-4 h-4" />
                     <span>GitHub</span>
                   </Link>
                   <Link
                     href="mailto:techieEliot@gmail.com"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-azure/10 text-sky dark:text-azure hover:bg-sky/20 dark:hover:bg-azure/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                   >
                     <Icon name="Mail" className="w-4 h-4" />
                     <span>Email</span>
@@ -326,7 +327,7 @@ export const CompanyFacts = () => {
           <li key={label} className="flex items-start gap-3">
             <Icon
               name={icon || 'Info'} // Fallback to "Info" icon if none specified
-              className="w-5 h-5 text-sky dark:text-azure mt-1 flex-shrink-0"
+              className="w-5 h-5 text-sky dark:text-indigo mt-1 flex-shrink-0"
             />
             <div className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
               <strong className="text-primary dark:text-white">{label}:</strong>
@@ -355,7 +356,7 @@ export const ConnectWithUs = () => {
               <div className="flex items-center gap-3">
                 <Icon
                   name={icon}
-                  className="w-5 h-5  text-sky dark:text-azure"
+                  className="w-5 h-5  text-sky dark:text-indigo"
                 />
                 <span className="text-left">{label}</span>
               </div>
@@ -372,8 +373,18 @@ export const ConnectWithUs = () => {
 
 export function BlueberryStory() {
   return (
-    <section className="bg-gradient-to-r from-sky/5 to-azure/5 dark:from-sky/10 dark:to-azure/10 rounded-xl p-6">
-      <div className="flex flex-col lg:flex-row items-center gap-8">
+    <section className="bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 rounded-xl p-6">
+      <div className="flex flex-col items-center gap-8">
+        <div className="relative w-fit rounded-full flex-shrink-0 mx-auto lg:mx-0 bg-night">
+          <CldImage
+            src="emblem"
+            alt="SanforDEV Logo"
+            width={400}
+            height={400}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+          />
+        </div>
         <div>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             🌱 The Logo 🫐

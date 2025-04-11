@@ -35,7 +35,7 @@ export function ServicesMainContent() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky/40 to-azure/30 dark:from-sky/50 dark:to-azure/40 flex flex-col items-center justify-center text-center px-6">
+        <div className="absolute inset-0 bg-gradient-to-br from-sky/40 to-indigo/30 dark:from-sky/50 dark:to-indigo/40 flex flex-col items-center justify-center text-center px-6">
           <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-lg">
             Cultivating Digital Excellence
           </h1>
@@ -102,8 +102,8 @@ export function ServicesMainContent() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="p-6 bg-sky/5 dark:bg-azure/5 rounded-lg hover:bg-sky-100 
-                dark:hover:bg-azure/10 transition-colors"
+                className="p-6 bg-sky/5 dark:bg-indigo/5 rounded-lg hover:bg-sky-100 
+                dark:hover:bg-indigo/10 transition-colors"
               >
                 <h3 className="text-title mb-3">{feature.title}</h3>
                 <p className="text-body text-slate-600 dark:text-slate-400">

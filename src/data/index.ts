@@ -19,19 +19,19 @@ export const socialLinks: SocialLink[] = [
     href: 'mailto:devsouth.us@gmail.com',
     icon: 'Mail',
     label: 'Email',
-    hoverColor: 'group-hover:text-sky dark:group-hover:text-azure',
+    hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
   },
   {
     href: 'https://twitter.com/devsouthdotus',
     icon: 'Twitter',
     label: 'Twitter/X',
-    hoverColor: 'group-hover:text-sky dark:group-hover:text-azure',
+    hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
   },
   {
     href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
     icon: 'Linkedin',
     label: 'LinkedIn',
-    hoverColor: 'group-hover:text-sky dark:group-hover:text-azure',
+    hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
   },
 ];
 

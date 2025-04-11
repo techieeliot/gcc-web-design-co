@@ -30,7 +30,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           >
             <Icon
               name={icon}
-              className="w-12 h-12 text-midnight dark:text-sky transition-colors group-hover:text-azure dark:group-hover:text-azure"
+              className="w-12 h-12 text-night dark:text-sky transition-colors group-hover:text-indigo dark:group-hover:text-indigo"
               strokeWidth={1.5}
             />
           </div>
@@ -49,7 +49,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           <li key={featureIndex} className="flex items-start gap-3 group">
             <Icon
               name="ArrowUpRight"
-              className="w-5 h-5 text-sky dark:text-azure flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-1"
+              className="w-5 h-5 text-sky dark:text-indigo flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-1"
             />
             <span className="text-small text-slate-600 dark:text-slate-300">
               {feature}

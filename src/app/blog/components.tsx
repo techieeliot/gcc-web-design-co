@@ -137,7 +137,7 @@ export const FeaturedPost = () => {
             }
           </Markdown>
 
-          <Link href={`/blog/${featuredPost.slug}`} variant="outline">
+          <Link href={`/blog/${featuredPost.slug}`} variant="cta">
             Continue Reading
             <span className="sr-only">{featuredPost.title}</span>
           </Link>
@@ -158,7 +158,7 @@ export const BlogEngagementSection = () => {
         find value in our content, imagine what we could achieve by
         collaborating on your next project.
       </p>
-      <Link href="/blog/all" variant="outline">
+      <Link href="/blog/all" variant="default">
         Explore More Articles
       </Link>
       <Link href="/services" variant="outline">
@@ -188,7 +188,7 @@ export const BlogHero = ({}) => {
           placeholder="blur"
           blurDataURL={defaultBlurDataURL}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky/40 to-azure/30 dark:from-sky/50 dark:to-azure/40 flex flex-col items-center justify-center text-center px-6">
+        <div className="absolute inset-0 bg-gradient-to-br from-sky/40 to-indigo/30 dark:from-sky/50 dark:to-indigo/40 flex flex-col items-center justify-center text-center px-6">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-lg">
             Our Blog
           </h1>

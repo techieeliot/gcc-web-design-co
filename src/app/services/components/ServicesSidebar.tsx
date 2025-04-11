@@ -21,7 +21,7 @@ export const ServicesSidebar = () => {
             <div>
               <Icon
                 name={section.icon}
-                className="w-10 h-10 text-midnight dark:text-sky"
+                className="w-10 h-10 text-night dark:text-sky"
               />
             </div>
             <h3 className="text-2xl font-bold">{section.title}</h3>
@@ -35,7 +35,7 @@ export const ServicesSidebar = () => {
               >
                 <Icon
                   name="ArrowUpRight"
-                  className="w-4 h-4 text-sky dark:text-azure"
+                  className="w-4 h-4 text-sky dark:text-indigo"
                 />
                 <span className="text-sm text-slate-600 dark:text-slate-300">
                   {item}
