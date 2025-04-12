@@ -113,7 +113,7 @@ export default async function BlogPost({ params }: any) {
 
       {/* Content */}
       <article className="prose dark:prose-invert max-w-none">
-        <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-slate-200 [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-slate-200 [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
+        <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
           {post.content}
         </Markdown>
         <AuthorSection {...post.author} />
