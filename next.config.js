@@ -12,8 +12,8 @@ let config = {
   poweredByHeader: false,
   compress: true,
 
-  // Remove rewrites since they don't work with static export
-  // Remove headers since they don't work with static export
+  // DO NOT ADD rewrites or headers since they don't work with static export
+  output: 'export',
 
   // Keep static generation config
   generateBuildId: async () => {
@@ -21,8 +21,6 @@ let config = {
   },
 
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-
-  output: 'export',
 
   experimental: {
     optimizeCss: false,
@@ -41,9 +39,18 @@ let config = {
 
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
   },
 
   trailingSlash: true,
+
+  // Allow Sanity Studio to work with static export
+  transpilePackages: ['@sanity/ui', '@sanity/icons', 'sanity'],
 };
 
 // Bundle analyzer (keep this part)
