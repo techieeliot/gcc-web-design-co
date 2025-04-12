@@ -1,21 +1,17 @@
 import { engines } from '../package.json';
 
 const checkVersion = (current: string, required: string): boolean => {
-  const [currentMajor, currentMinor] = current
+  const [currentMajor, currentMinor = 0] = current
     .replace(/^v/, '')
     .split('.')
     .map(Number);
-  const [reqMajor, reqMinor] = required
+  const [reqMajor, reqMinor = 0] = required
     .replace(/[\^~]/, '')
     .split('.')
     .map(Number);
 
-  return (
-    currentMajor === reqMajor &&
-    typeof currentMinor === 'number' &&
-    typeof reqMinor === 'number' &&
-    currentMinor >= reqMinor
-  );
+  // Allow minor version to be higher than required
+  return currentMajor === reqMajor && currentMinor >= reqMinor;
 };
 
 const nodeVersion = process.version;
