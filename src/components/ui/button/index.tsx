@@ -75,6 +75,16 @@ const buttonVariants = cva(
           'dark:data-[active=true]:bg-sky/90 dark:data-[active=true]:text-white',
           'transition-all'
         ),
+        icon: cn(
+          'bg-transparent text-slate-600 dark:text-slate-300 min-w-12',
+          'hover:bg-slate-100 dark:hover:bg-slate-800',
+          'active:bg-slate-200 dark:active:bg-slate-700',
+          'shadow-sm',
+          'rounded-full',
+          'transition-all',
+          'data-[active=true]:bg-slate-200 data-[active=true]:text-slate-900',
+          'dark:data-[active=true]:bg-slate-700 dark:data-[active=true]:text-slate-300'
+        ),
       },
       size: {
         sm: cn('h-9 px-4 py-2', 'text-sm'),

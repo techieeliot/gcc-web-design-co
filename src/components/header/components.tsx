@@ -204,27 +204,26 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
               </nav>
 
               {/* Mobile Menu Button - Enhanced interaction */}
-              <div className="md:hidden flex items-center gap-2">
+              <div className="md:hidden flex items-center gap-2 min-w-12">
                 {/* <ThemeToggle /> */}
                 <Button
                   onClick={() => setIsOpen(!isOpen)}
                   className={cn(
                     'p-2 rounded-full',
                     isScrolled
-                      ? 'text-primary hover:text-sky dark:text-white dark:hover:text-indigo'
+                      ? 'text-primary bg-transparent hover:text-sky dark:text-white dark:hover:text-indigo'
                       : 'text-slate-700 hover:text-sky dark:text-frost dark:hover:text-indigo',
-                    'transition-colors hover:bg-slate-100 dark:hover:bg-slate-800'
+                    'hover:bg-slate-100 dark:hover:bg-slate-800'
                   )}
                   aria-label={isOpen ? 'Close menu' : 'Open menu'}
                   aria-expanded={isOpen}
+                  variant="icon"
                 >
-                  <div>
-                    {isOpen ? (
-                      <Icon name="X" className="w-6 h-6" />
-                    ) : (
-                      <Icon name="Menu" className="w-6 h-6" />
-                    )}
-                  </div>
+                  {isOpen ? (
+                    <Icon name="X" className="w-6 h-6" />
+                  ) : (
+                    <Icon name="Menu" className="w-6 h-6" />
+                  )}
                 </Button>
               </div>
             </div>
