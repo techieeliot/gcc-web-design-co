@@ -111,8 +111,8 @@ export function Contact() {
         Contact Us
       </h3>
       <div className="space-y-5 flex flex-col items-center md:items-start">
-        <ContactItem icon="Mail" href="mailto:devsouth.us@gmail.com">
-          devsouth.us@gmail.com
+        <ContactItem icon="Mail" href="mailto:hey@sanfor.dev">
+          hey@sanfor.dev
         </ContactItem>
         <ContactItem icon="Phone" href="tel:+16623126815">
           +1 (662) 312-6815

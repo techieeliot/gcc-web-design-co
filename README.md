@@ -104,7 +104,7 @@ Copyright © 2024 SANFORDEV Consulting. All rights reserved.
 
 ## 📞 Support
 
-For support or questions, please email [support@devsouth.dev](mailto:support@devsouth.dev)
+For support or questions, please email [hey@sanfor.dev](mailto:hey@sanfor.dev)
 
 ## 🙏 Acknowledgments
 

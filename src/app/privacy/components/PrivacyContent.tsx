@@ -18,7 +18,7 @@ export default function PrivacyContent() {
           <p className={cn('text-base leading-relaxed', 'mb-3')}>
             This Privacy Policy applies to all data collected via our website{' '}
             <Link href="/" variant="inlineLink">
-              devsouth.us
+              sanfor.dev
             </Link>
             , along with any services or events associated with SANFORDEV
             Consulting.
@@ -91,8 +91,8 @@ export default function PrivacyContent() {
             110 Lake Forest Ln, Clinton, MS 39056
           </p>
           <p className="text-slate-600 dark:text-frost/80">
-            <Link href="mailto:devsouth.us@gmail.com" variant="inlineLink">
-              devsouth.us@gmail.com
+            <Link href="mailto:hey@sanfor.dev" variant="inlineLink">
+              hey@sanfor.dev
             </Link>
           </p>
           <p className="text-slate-600 dark:text-frost/80">

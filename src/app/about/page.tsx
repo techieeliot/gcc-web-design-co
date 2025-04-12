@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'About SANFORDEV Consulting | Trailblazing Innovation',
     description:
       'Discover how SANFORDEV Consulting turns everyday challenges into extraordinary opportunities with tech designed for performance, accessibility, and impact.',
-    url: 'https://devsouth.us/about',
+    url: 'https://sanfor.dev/about',
     images: [
       {
         url: '/images/about-social.webp',

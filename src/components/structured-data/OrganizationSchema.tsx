@@ -9,7 +9,7 @@ export default function OrganizationSchema() {
           '@context': 'https://schema.org',
           '@type': 'ProfessionalService',
           name: 'SANFORDEV Consulting',
-          alternateName: 'devSouth',
+          alternateName: 'SANFORDEV',
           url: domains.primary,
           logo: `${domains.primary}/images/logo.png`,
           description:
@@ -23,7 +23,7 @@ export default function OrganizationSchema() {
             addressCountry: 'US',
           },
           telephone: '+16623126815',
-          email: 'devsouth.us@gmail.com',
+          email: 'hey@sanfor.dev',
           sameAs: [
             'https://www.linkedin.com/in/techieeliot',
             'https://github.com/techieeliot',

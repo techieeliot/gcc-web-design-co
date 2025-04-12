@@ -1,9 +1,9 @@
 const domainUrls = [
-  'https://devsouth.us', // Make this your primary domain since that's what you're using
-  'https://sanfor.dev',
-  'https://www.sanfordev.com',
+  'https://sanfor.dev', // Primary domain
   'https://www.sanfordev.io',
+  'https://www.sanfordev.com',
   'https://www.sanfordev.net',
+  'https://devsouth.us',
 ];
 
 // Extract just the hostnames for Next.js images config

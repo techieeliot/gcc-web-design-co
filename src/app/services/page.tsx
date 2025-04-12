@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'React & Next.js Development Services | SANFORDEV Consulting',
     description:
       'From front-end development to performance optimization, we offer specialized React ecosystem services for modern web applications.',
-    url: 'https://devsouth.us/services',
+    url: 'https://sanfor.dev/services',
     images: [
       {
         url: '/images/services-social.webp',

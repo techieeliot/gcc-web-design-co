@@ -9,6 +9,8 @@
   "scripts": {
     "preinstall": "ts-node --project tsconfig.node.json ./scripts/check-versions.ts",
     "dev": "next dev -p 8888",
+    "ntl": "netlify dev --target-port 3000 --port 8888",
+    "ntl:build": "next build",
     "build": "next build",
     "start": "next start -p 9999",
     "lint": "next lint --fix",
@@ -16,7 +18,6 @@
     "format:check": "prettier --check",
     "analyze": "ANALYZE=true NODE_OPTIONS='--max-old-space-size=4096' next build",
     "prepare": "ts-node --project tsconfig.node.json .github/scripts/prepare-hooks.ts",
-    "dev:netlify": "netlify dev",
     "clean": "rm -rf .next out .netlify/plugins/node_modules node_modules/.cache",
     "reset": "npm run clean && npm install",
     "ci": "npm run lint && npm run type-check && npm run test:unit:ci",
@@ -33,7 +34,6 @@
     "prebuild": "npm run clean",
     "pre-commit": "lint-staged",
     "type-check": "tsc --noEmit",
-    "netlify:build": "next build",
     "verify:files": "ls -la .next/"
   },
   "dependencies": {

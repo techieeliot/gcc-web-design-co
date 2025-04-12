@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       title: `${caseStudy.title} | SANFORDEV Consulting Case Study`,
       description: caseStudy.description,
-      url: `https://devsouth.us/portfolio/${params.id}`,
+      url: `https://sanfor.dev/portfolio/${params.id}`,
       images: [
         {
           url: caseStudy.image || '/images/portfolio-social.webp',

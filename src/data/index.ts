@@ -16,7 +16,7 @@ import {
 
 export const socialLinks: SocialLink[] = [
   {
-    href: 'mailto:devsouth.us@gmail.com',
+    href: 'mailto:hey@sanfor.dev',
     icon: 'Mail',
     label: 'Email',
     hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',

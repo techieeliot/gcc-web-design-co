@@ -38,16 +38,14 @@ export function ContactSidebar() {
             <Icon name="Mail" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Email"
-          content={
-            <Link href="mailto:devsouth@gmail.com">devsouth@gmail.com</Link>
-          }
+          content={<Link href="mailto:hey@sanfor.dev">hey@sanfor.dev</Link>}
         />
         <ContactInfo
           icon={
             <Icon name="Phone" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Phone"
-          content={<Link href="tel:+16012979575">(601) 297-9575</Link>}
+          content={<Link href="tel:+16623126815">(662) 312-6815</Link>}
         />
         <ContactInfo
           icon={

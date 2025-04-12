@@ -9,7 +9,7 @@
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_VERSION = "20.19.0"
   NPM_VERSION = "10.9.2"
-  NEXT_PUBLIC_SITE_URL = "https://devsouth.us"
+  NEXT_PUBLIC_SITE_URL = "https://sanfor.dev"
 
 # Development settings
 [dev]
@@ -47,15 +47,27 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Redirects
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
+  from = "https://www.sanfor.dev/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "https://www.devsouth.us/*"
-  to = "https://devsouth.us/:splat"
+  from = "https://www.sanfordev.io/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sanfordev.com/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sanfordev.net/*"
+  to = "https://sanfor.dev/:splat"
   status = 301
   force = true
 
@@ -76,14 +88,9 @@
 
 [[redirects]]
   from = "/studio"
-  to = "https://studio.devsouth.us"
+  to = "https://studio.sanfor.dev"
   status = 301
   force = true
-
-# Edge functions configuration
-[functions]
-  directory = ".netlify/edge-functions"
-  node_bundler = "esbuild"
 
 [build.processing]
   skip_processing = false
@@ -106,7 +113,7 @@
   environment = { NODE_ENV = "production", NEXT_PUBLIC_ENV = "production" }
 
 [context.deploy-preview]
-  environment = { NODE_ENV = "production", NEXT_PUBLIC_ENV = "preview" }
+  environment = { NODE_ENV = "preview", NEXT_PUBLIC_ENV = "preview" }
 
 [context.branch-deploy]
-  environment = { NODE_ENV = "production", NEXT_PUBLIC_ENV = "staging" }
+  environment = { NODE_ENV = "staging", NEXT_PUBLIC_ENV = "staging" }
