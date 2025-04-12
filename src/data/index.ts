@@ -22,13 +22,13 @@ export const socialLinks: SocialLink[] = [
     hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
   },
   {
-    href: 'https://twitter.com/devsouthdotus',
+    href: 'https://twitter.com/sanfordev',
     icon: 'Twitter',
     label: 'Twitter/X',
     hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
   },
   {
-    href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
+    href: 'https://www.linkedin.com/company/sanfordev/',
     icon: 'Linkedin',
     label: 'LinkedIn',
     hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
@@ -473,13 +473,13 @@ export const quickLinks: QuickLink[] = [
 
 export const companySocialLinks: CompanyLink[] = [
   {
-    href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
+    href: 'https://www.linkedin.com/company/sanfordev/',
     icon: 'Linkedin',
     label: 'LinkedIn',
     color: 'bg-[#0077B5]/20 hover:bg-[#0077B5]/30 text-[#0077B5]',
   },
   {
-    href: 'https://twitter.com/devsouthdotus',
+    href: 'https://twitter.com/sanfordev',
     icon: 'Twitter',
     label: 'Twitter',
     color: 'bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 text-[#1DA1F2]',
@@ -606,7 +606,7 @@ export const facts: Fact[] = [
 
 export const connectWithUs: AnchorLink[] = [
   {
-    href: 'https://www.linkedin.com/company/devsouth-consulting-llc/',
+    href: 'https://www.linkedin.com/company/sanfordev/',
     label: 'LinkedIn',
     icon: 'LinkedinIcon',
   },

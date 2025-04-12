@@ -16,7 +16,7 @@ export function QuickLinks({ showHeading = false }) {
         </h3>
       )}
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {quickLinks.map(({ href, label, icon }) => (
           <li
             key={href}
@@ -26,8 +26,8 @@ export function QuickLinks({ showHeading = false }) {
               href={href}
               variant="standaloneLink"
               className={cn(
-                'group flex items-center gap-3',
-                'py-2 px-3 rounded-md',
+                'group flex items-center gap-1 xl:gap-3',
+                'py-2 px-2 lg:px-3 rounded-md',
                 'hover:bg-sky/5 dark:hover:bg-indigo/5',
                 'transition-colors duration-200',
                 'text-slate-600 dark:text-slate-300',
@@ -49,7 +49,7 @@ export function QuickLinks({ showHeading = false }) {
                   'text-slate-300 dark:text-slate-600',
                   'group-hover:text-sky dark:group-hover:text-indigo',
                   'opacity-0 group-hover:opacity-100 transition-all',
-                  'ml-auto'
+                  'lg:ml-auto'
                 )}
               />
             </Link>
@@ -76,7 +76,7 @@ function ContactItem({
   showExternalIcon = true,
 }: ContactItemProps) {
   return (
-    <div className="flex items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0">
+    <div className="flex md:flex-col lg:flex-row items-center justify-center sm:justify-start gap-3 md:gap-4 lg:gap-5 max-w-[300px] mx-auto sm:mx-0 w-fit">
       <div className="p-2 rounded-full bg-sky-100 dark:bg-indigo/10 shrink-0">
         <Icon name={icon} className="w-5 h-5 text-sky dark:text-indigo" />
       </div>
@@ -86,7 +86,9 @@ function ContactItem({
         className={cn(
           'text-slate-600 dark:text-frost/80',
           'hover:text-sky dark:hover:text-indigo',
-          'group flex items-center gap-1'
+          'group flex items-center gap-1',
+          'break-words whitespace-pre',
+          'w-full'
         )}
       >
         {children}
@@ -108,7 +110,7 @@ export function Contact() {
       <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6">
         Contact Us
       </h3>
-      <div className="space-y-5">
+      <div className="space-y-5 flex flex-col items-center md:items-start">
         <ContactItem icon="Mail" href="mailto:devsouth.us@gmail.com">
           devsouth.us@gmail.com
         </ContactItem>
@@ -135,8 +137,8 @@ export function Contact() {
 
 export function CompanyInfo() {
   return (
-    <div className="text-center md:text-left ">
-      <div className="flex items-center justify-center sm:justify-start gap-3">
+    <div className="text-center lg:text-left ">
+      <div className="flex items-center justify-center lg:justify-start gap-3">
         <CldImage
           src="atom"
           alt="SANFORDEV Logo"
@@ -160,7 +162,7 @@ export function CompanyInfo() {
 
 export function SocialLinks() {
   return (
-    <div className="flex items-center justify-center sm:justify-start gap-3 mt-5">
+    <div className="flex items-center justify-center md:justify-start gap-3 mt-5">
       {companySocialLinks.map(({ href, icon, label, color }) => (
         <div key={href}>
           <Link

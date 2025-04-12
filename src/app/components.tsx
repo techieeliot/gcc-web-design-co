@@ -238,7 +238,7 @@ export function ValueProposition() {
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-title text-foreground mb-4">
-          Why <LogoTypography />?
+          Why SANFORDEV?
         </h2>
 
         <p className="text-lg mb-8">
