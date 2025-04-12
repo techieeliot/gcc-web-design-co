@@ -88,7 +88,7 @@
 
 [[redirects]]
   from = "/studio"
-  to = "https://studio.sanfor.dev"
+  to = "https://studio.sanfor.dev/blog/draft/"
   status = 301
   force = true
 
