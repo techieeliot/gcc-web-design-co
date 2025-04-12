@@ -485,7 +485,7 @@ export const companySocialLinks: CompanyLink[] = [
     color: 'bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 text-[#1DA1F2]',
   },
   {
-    href: 'https://github.com/techieeliot/gcc-web-design-co',
+    href: 'https://github.com/sanfordev/site',
     icon: 'Github',
     label: 'GitHub',
     color:
@@ -611,7 +611,7 @@ export const connectWithUs: AnchorLink[] = [
     icon: 'LinkedinIcon',
   },
   {
-    href: 'https://github.com/techieeliot/gcc-web-design-co',
+    href: 'https://github.com/sanfordev/site',
     label: 'GitHub',
     icon: 'Github',
   },
