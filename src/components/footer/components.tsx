@@ -18,7 +18,10 @@ export function QuickLinks({ showHeading = false }) {
 
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {quickLinks.map(({ href, label, icon }) => (
-          <li key={href} className="w-full">
+          <li
+            key={href}
+            className="w-full flex justify-center md:justify-start"
+          >
             <Link
               href={href}
               variant="standaloneLink"
@@ -30,7 +33,8 @@ export function QuickLinks({ showHeading = false }) {
                 'text-slate-600 dark:text-slate-300',
                 'hover:text-sky dark:hover:text-indigo',
                 'text-base',
-                'w-full'
+                'w-full max-w-[250px] md:max-w-none',
+                'justify-center md:justify-start'
               )}
             >
               <Icon
@@ -40,7 +44,13 @@ export function QuickLinks({ showHeading = false }) {
               <span className="font-medium">{label}</span>
               <Icon
                 name="ChevronRight"
-                className="w-3.5 h-3.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover:text-sky dark:group-hover:text-indigo opacity-0 group-hover:opacity-100 transition-all ml-auto"
+                className={cn(
+                  'w-3.5 h-3.5 flex-shrink-0',
+                  'text-slate-300 dark:text-slate-600',
+                  'group-hover:text-sky dark:group-hover:text-indigo',
+                  'opacity-0 group-hover:opacity-100 transition-all',
+                  'ml-auto'
+                )}
               />
             </Link>
           </li>
