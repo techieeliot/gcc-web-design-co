@@ -71,6 +71,7 @@
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "zod": "^3.24.2"
   },
@@ -96,8 +97,7 @@
     "lint-staged": "^15.5.0",
     "next-pwa": "^5.6.0",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "ts-node": "^10.9.2"
+    "prettier": "^3.5.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,mdx}": [
