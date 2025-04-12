@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { CldImage } from 'next-cloudinary';
+import { CldImage, CldImageProps } from 'next-cloudinary';
 import { brand } from '@/config/brand';
 import { defaultImageSizes } from '@/lib/image';
 
@@ -15,14 +15,15 @@ export default function LogoEmblem({
   size = 'md',
   variant = 'default',
   className,
-}: LogoProps) {
+  ...props
+}: LogoProps & Omit<CldImageProps, 'src' | 'width' | 'height' | 'alt'>) {
   const dimensions = brand.images.sizes[size];
 
   return (
     <div
       className={cn(
         'relative flex items-center justify-center',
-        variant === 'default' && 'rounded-full bg-navy p-4',
+        variant === 'default' && 'rounded-full bg-navy p-2',
         'transition-all duration-300',
         className
       )}
@@ -36,6 +37,7 @@ export default function LogoEmblem({
         loading="eager"
         priority
         className="object-contain"
+        {...props}
       />
     </div>
   );

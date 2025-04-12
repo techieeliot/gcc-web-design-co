@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,18 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@ui/*": [
-        "src/components/ui/*"
-      ]
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@lib/*": ["src/lib/*"],
+      "@ui/*": ["src/components/ui/*"]
     },
     "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
@@ -49,11 +37,9 @@
       "@testing-library/jest-dom",
       "@testing-library/react",
       "node",
-      "jest",
+      "jest"
     ],
-    "typeRoots": [
-      "./node_modules/@types",
-    ]
+    "typeRoots": ["./node_modules/@types"]
   },
   "include": [
     "next-env.d.ts",
@@ -64,7 +50,5 @@
     "jest.config.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

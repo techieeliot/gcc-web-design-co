@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Get the commit message from the first argument
+message="$1"
+
+# Run the commit message verification script
+npx ts-node --project tsconfig.node.json scripts/verify-commit-msg.ts "$message"

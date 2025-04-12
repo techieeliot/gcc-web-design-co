@@ -4,85 +4,126 @@ import { domains } from '@/config/domains';
 import path from 'path';
 import fs from 'fs';
 
-// Consider adding email configuration to your domains.ts
-export const contact = {
-  email: {
-    primary: 'hey@sanfor.dev',
-    legacy: 'devsouth.us@gmail.com',
-  },
-};
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Use environment variable for base URL to handle different environments
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ??
+    domains.primary) as string;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = domains.primary;
+  try {
+    const postsDirectory = path.join(process.cwd(), 'src/content/blog');
+    const fileNames = await fs.promises.readdir(postsDirectory);
 
-  const postsDirectory = path.join(process.cwd(), 'src/content/blog');
-  const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
-    .map((fileName) => {
-      return fileName.replace(/\.md$/, '');
-    });
+    const posts = fileNames
+      .filter((fileName) => fileName.endsWith('.md'))
+      .map((fileName) => fileName.replace(/\.md$/, ''));
 
-  const blogPosts = posts.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  // Get case studies data
-  const portfolioItems = caseStudies.map((study) => ({
-    url: `${baseUrl}/portfolio/${study.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  // Core pages
-  const routes = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
+    const blogPosts = posts.map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: new Date().toISOString(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/portfolio`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.5,
-    },
-  ];
+      priority: 0.7,
+    }));
 
-  return [...routes, ...blogPosts, ...portfolioItems] as MetadataRoute.Sitemap;
+    const portfolioItems = caseStudies.map((study) => ({
+      url: `${baseUrl}/portfolio/${study.id}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+
+    // Core pages with ISO string dates
+    const routes = [
+      {
+        url: baseUrl,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 1.0,
+      },
+      {
+        url: `${baseUrl}/about`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/services`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/portfolio`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/blog`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/contact`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/privacy`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'yearly' as const,
+        priority: 0.5,
+      },
+    ];
+
+    return [...routes, ...blogPosts, ...portfolioItems];
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+    // Return at least the core routes on error
+    return [
+      {
+        url: baseUrl,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 1.0,
+      },
+      {
+        url: `${baseUrl}/about`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/services`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/portfolio`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/blog`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/contact`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      },
+      {
+        url: `${baseUrl}/privacy`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'yearly' as const,
+        priority: 0.5,
+      },
+    ];
+  }
 }

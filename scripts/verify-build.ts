@@ -1,19 +1,19 @@
-const fs = require('fs');
-const path = require('path');
+import { existsSync } from 'fs';
+import { join } from 'path';
 
-const requiredFiles = [
+const requiredFiles: readonly string[] = [
   '.next/server/app/page.js',
   '.next/static',
   '.next/server/app',
   '.next/types',
   'public/images',
   '.next/BUILD_ID',
-];
+] as const;
 
-function checkFiles() {
-  const missing = requiredFiles.filter((file) => {
-    const fullPath = path.join(process.cwd(), file);
-    return !fs.existsSync(fullPath);
+function checkFiles(): void {
+  const missing: string[] = requiredFiles.filter((file: string) => {
+    const fullPath: string = join(process.cwd(), file);
+    return !existsSync(fullPath);
   });
 
   if (missing.length) {
@@ -23,12 +23,12 @@ function checkFiles() {
 
   console.log('✅ All required Next.js files present');
 
-  // Additional check for Netlify function
-  const netlifyFunction = path.join(
+  const netlifyFunction: string = join(
     process.cwd(),
     '.netlify/functions/___netlify-server-handler'
   );
-  if (!fs.existsSync(netlifyFunction)) {
+
+  if (!existsSync(netlifyFunction)) {
     console.warn(
       '⚠️  Netlify server handler not found. Run `netlify build` first.'
     );

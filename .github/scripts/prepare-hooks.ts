@@ -1,105 +1,98 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import { exec } from 'child_process';
+import { mkdir, writeFile, readFile, access } from 'fs/promises';
+import { join } from 'path';
+import { promisify } from 'util';
+import { constants } from 'fs';
 
-/**
- * @typedef {Object} HookPaths
- * @property {string} hooksDir
- * @property {string} preCommitHook
- * @property {string} commitMsgHook
- */
+const execAsync = promisify(exec);
 
-function getGitDir() {
+interface GitPaths {
+  gitDir: string;
+  hookDir: string;
+  workTree: string;
+}
+
+async function fileExists(path: string): Promise<boolean> {
   try {
-    const gitCommonDir = execSync('git rev-parse --git-common-dir', { 
-      encoding: 'utf8' 
-    }).trim();
+    await access(path, constants.F_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function findGitPaths(): Promise<GitPaths> {
+  try {
+    // Get Git directory and working tree paths
+    const { stdout: gitDir } = await execAsync('git rev-parse --git-dir');
+    const { stdout: workTree } = await execAsync('git rev-parse --show-toplevel');
     
-    console.log('📂 Git common directory:', gitCommonDir);
-    return gitCommonDir;
+    const trimmedGitDir = gitDir.trim();
+    const trimmedWorkTree = workTree.trim();
+    
+    // Check if we're in a worktree
+    const isWorktree = trimmedGitDir.includes('worktrees');
+    
+    // Get the main repository's .git directory if in a worktree
+    const mainGitDir = isWorktree 
+      ? trimmedGitDir.split('worktrees')[0].replace(/\/+$/, '')
+      : trimmedGitDir;
+    
+    // Use the correct hooks directory
+    const hookDir = join(mainGitDir, 'hooks');
+    
+    // Create hooks directory if it doesn't exist
+    await mkdir(hookDir, { recursive: true });
+    
+    return {
+      gitDir: trimmedGitDir,
+      hookDir,
+      workTree: trimmedWorkTree
+    };
   } catch (error) {
-    console.error('Failed to find Git directory:', error.message);
+    console.error('Failed to find Git paths:', 
+      error instanceof Error ? error.message : 'Unknown error');
     process.exit(1);
   }
 }
 
-/**
- * @param {string} gitDir
- * @returns {HookPaths}
- */
-function getHookPaths(gitDir) {
-  return {
-    hooksDir: path.join(gitDir, 'hooks'),
-    preCommitHook: path.join(gitDir, 'hooks', 'pre-commit'),
-    commitMsgHook: path.join(gitDir, 'hooks', 'commit-msg')
-  };
+function getHookPaths(paths: GitPaths) {
+  const hooks = ['commit-msg', 'pre-commit'];
+  return hooks.map(hook => ({
+    src: join(paths.workTree, '.github/hooks', hook),
+    dest: join(paths.hookDir, hook),
+  }));
 }
 
-function createHookContent(gitDir) {
-  return `#!/bin/sh
-set -e
-
-echo "🔍 Running pre-commit checks..."
-export GIT_DIR="${gitDir}"
-
-echo "⌛ Running TypeScript checks..."
-npm run type-check
-
-echo "⌛ Running ESLint..."
-npm run lint
-
-echo "⌛ Running Tests..."
-npm run test:unit -- --watchAll=false
-
-echo "⌛ Processing files..."
-# Process files in smaller batches using find
-git diff --cached --name-only --diff-filter=ACM |
-  grep -E '\.(js|jsx|ts|tsx|md|mdx)$' |
-  while IFS= read -r file; do
-    if [ -f "$file" ]; then
-      printf "Formatting %s..." "$file"
-      npm run format "$file"
-      git add "$file"
-      echo " ✓"
-    fi
-  done
-
-echo "✅ All pre-commit checks passed!"
-`;
-}
-
-function setupHooks() {
+async function installHooks(): Promise<void> {
   try {
-    const gitDir = getGitDir();
-    const { hooksDir, preCommitHook, commitMsgHook } = getHookPaths(gitDir);
+    const paths = await findGitPaths();
+    const hookPaths = getHookPaths(paths);
 
-    // Ensure hooks directory exists
-    if (!fs.existsSync(hooksDir)) {
-      console.log('📁 Creating hooks directory...');
-      fs.mkdirSync(hooksDir, { recursive: true });
+    for (const { src, dest } of hookPaths) {
+      if (!(await fileExists(src))) {
+        console.error(`❌ Hook source file not found: ${src}`);
+        process.exit(1);
+      }
+
+      try {
+        const content = await readFile(src, 'utf-8');
+        await writeFile(dest, content, { mode: 0o755 });
+        console.log(`✓ Installed hook: ${dest}`);
+      } catch (error) {
+        console.error(`❌ Failed to install hook ${dest}:`,
+          error instanceof Error ? error.message : 'Unknown error');
+        process.exit(1);
+      }
     }
 
-    // Write pre-commit hook
-    console.log('✏️  Writing pre-commit hook...');
-    fs.writeFileSync(preCommitHook, createHookContent(gitDir));
-    fs.chmodSync(preCommitHook, '755');
-
-    // Write commit-msg hook
-    console.log('✏️  Writing commit-msg hook...');
-    fs.writeFileSync(commitMsgHook, `#!/bin/sh
-# Commit message hook
-set -e
-
-node ./scripts/verify-commit-msg.js "$1"
-`);
-    fs.chmodSync(commitMsgHook, '755');
-
-    console.log('✅ Git hooks installed successfully!');
-    console.log('📍 Hooks location:', hooksDir);
+    console.log('✓ Git hooks installed successfully');
   } catch (error) {
-    console.error('❌ Failed to install Git hooks:', error.message);
+    console.error('❌ Failed to install Git hooks:', 
+      error instanceof Error ? error.message : 'Unknown error');
     process.exit(1);
   }
 }
 
-setupHooks();
+// Start installation
+void installHooks();

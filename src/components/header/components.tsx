@@ -155,7 +155,6 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                       )}
                     >
                       <div className="absolute inset-0 rounded-full border-2 border-sky/20 dark:border-indigo/20" />
-
                       {/* Pulsing background */}
                       <div className="absolute inset-0 rounded-full bg-sky-100 dark:bg-indigo/10" />
 

@@ -5,6 +5,7 @@ import { Link } from '@ui/link';
 import { companySocialLinks, quickLinks } from '@/data';
 
 import { Icon, IconName } from '../ui/icon';
+import { CldImage } from 'next-cloudinary';
 
 export function QuickLinks({ showHeading = false }) {
   return (
@@ -124,10 +125,19 @@ export function Contact() {
 
 export function CompanyInfo() {
   return (
-    <div className="text-center md:text-left">
-      <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6">
-        About SANFORDEV
-      </h3>
+    <div className="text-center md:text-left ">
+      <div className="flex items-center justify-center sm:justify-start gap-3">
+        <CldImage
+          src="atom"
+          alt="SANFORDEV Logo"
+          width={52}
+          height={52}
+          className="rounded-full"
+        />
+        <h3 className="text-slate-800 dark:text-frost text-xl font-semibold mb-6">
+          About SANFORDEV
+        </h3>
+      </div>
       <p className="text-slate-600 dark:text-frost/80 mb-5">
         We build modern web applications with a focus on React, Next.js, and the
         broader JavaScript ecosystem. Our mission is to make the web more

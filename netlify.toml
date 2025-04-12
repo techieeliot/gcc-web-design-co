@@ -3,11 +3,11 @@
 
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
-  NODE_VERSION = "20"
+  NODE_VERSION = "20.11.0"
   NPM_VERSION = "10.2.4"
   NEXT_PUBLIC_SITE_URL = "https://devsouth.us"
 
@@ -22,7 +22,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
+    X-DNS-Prefetch-Control = "on"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
@@ -50,6 +52,27 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+[[redirects]]
+  from = "https://www.devsouth.us/*"
+  to = "https://devsouth.us/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/[slug].html"
+  status = 200
+
+[[redirects]]
+  from = "/portfolio/*"
+  to = "/portfolio/[id].html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
 # Edge functions configuration
 [functions]
