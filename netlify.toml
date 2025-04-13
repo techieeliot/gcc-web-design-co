@@ -47,14 +47,15 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Primary domain redirects
 [[redirects]]
-  from = "https://www.sanfor.dev/*"
+  from = "https://www.sanfordev.io/*"
   to = "https://sanfor.dev/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.sanfordev.io/*"
+  from = "https://sanfordev.io/*"
   to = "https://sanfor.dev/:splat"
   status = 301
   force = true
@@ -66,7 +67,31 @@
   force = true
 
 [[redirects]]
+  from = "https://sanfordev.com/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://www.sanfordev.net/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://sanfordev.net/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.devsouth.us/*"
+  to = "https://sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://devsouth.us/*"
   to = "https://sanfor.dev/:splat"
   status = 301
   force = true
@@ -81,16 +106,30 @@
   to = "/portfolio/[id].html"
   status = 200
 
+# Sanity Studio redirects
+[[redirects]]
+  from = "/studio/*"
+  to = "https://cms.sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/draft/*"
+  to = "https://cms.sanfor.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/studio/*"
+  to = "https://cms.sanfor.dev/:splat"
+  status = 301
+  force = true
+
+# Keep this as the last redirect rule
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
-
-[[redirects]]
-  from = "/studio"
-  to = "https://studio.sanfor.dev/blog/draft/"
-  status = 301
-  force = true
 
 [build.processing]
   skip_processing = false
