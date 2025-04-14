@@ -138,14 +138,6 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                 >
                   {/* Logo container with proper spacing and visibility */}
                   <div className="relative flex items-center justify-center overflow-visible">
-                    {/* Outer animated ring */}
-                    <div
-                      className={cn(
-                        'absolute rounded-full border-2 border-sky/20 dark:border-indigo/20',
-                        '-left-1 -top-1'
-                      )}
-                    />
-
                     {/* Logo circle */}
                     <div
                       className={cn(

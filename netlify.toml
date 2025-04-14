@@ -9,7 +9,7 @@
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_VERSION = "20.19.0"
   NPM_VERSION = "10.9.2"
-  NEXT_PUBLIC_SITE_URL = "https://sanfor.dev"
+  NEXT_PUBLIC_SITE_URL = "https://sanfordev.com"
 
 # Development settings
 [dev]
@@ -50,49 +50,43 @@
 # Primary domain redirects
 [[redirects]]
   from = "https://www.sanfordev.io/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://sanfordev.io/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.sanfordev.com/*"
-  to = "https://sanfor.dev/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://sanfordev.com/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.sanfordev.net/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://sanfordev.net/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.devsouth.us/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://devsouth.us/*"
-  to = "https://sanfor.dev/:splat"
+  to = "https://sanfordev.com/:splat"
   status = 301
   force = true
 

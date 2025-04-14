@@ -127,7 +127,9 @@ export const metadata: Metadata = {
     telephone: true,
   },
   metadataBase: new URL(
-    domains.primary || process.env.NEXT_PUBLIC_SITE_URL || 'https://sanfor.dev'
+    domains.primary ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      'https://sanfordev.com'
   ),
   alternates: {
     canonical: '/',

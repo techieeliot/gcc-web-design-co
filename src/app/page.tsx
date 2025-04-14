@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'SANFORDEV Consulting | Modern Web Development Services',
     description:
       'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
-    url: 'https://sanfor.dev',
+    url: 'https://sanfordev.com',
     images: [
       {
         url: '/images/home-social.webp',

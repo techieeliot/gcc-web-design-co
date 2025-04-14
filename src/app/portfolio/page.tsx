@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Case Studies & Development Projects | SANFORDEV Consulting',
     description:
       'Explore our portfolio of successful React and Next.js projects for startups and enterprises.',
-    url: 'https://sanfor.dev/portfolio',
+    url: 'https://sanfordev.com/portfolio',
     images: [
       {
         url: '/images/portfolio-social.webp',

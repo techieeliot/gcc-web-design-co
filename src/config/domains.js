@@ -1,7 +1,7 @@
 const domainUrls = [
-  'https://sanfor.dev', // Primary domain
+  'https://www.sanfordev.com', // Primary domain
+  'https://sanfor.dev',
   'https://www.sanfordev.io',
-  'https://www.sanfordev.com',
   'https://www.sanfordev.net',
   'https://devsouth.us',
 ];
