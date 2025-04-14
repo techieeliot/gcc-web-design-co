@@ -57,9 +57,7 @@ export default function ContactForm() {
     },
   });
 
-  const submit = useSubmit<FormData>(
-    process.env.NEXT_PUBLIC_CONTACT_FORM_ID as string
-  );
+  const submit = useSubmit<FormData>('xyzevwkq');
   return (
     <article
       className={cn(
