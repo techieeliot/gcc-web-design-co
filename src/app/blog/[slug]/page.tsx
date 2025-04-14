@@ -8,13 +8,33 @@ import { Icon } from '@ui/icon';
 import { AuthorSection, RelatedPosts } from './components';
 import { Suspense } from 'react';
 import PageWrapper from '@/components/PageWrapper';
-import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
+import { defaultImageSizes } from '@/lib/image';
 import DateDisplay from '@/components/DateDisplay';
+import { PortableText } from '@portabletext/react';
+import { type SanityDocument } from 'next-sanity';
+import imageUrlBuilder from '@sanity/image-url';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { client } from '@/sanity/client';
+
+const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
+const ALL_POSTS_QUERY = `*[_type == "post"] { "slug": slug.current }`;
+
+const { projectId, dataset } = client.config();
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+
+const options = { next: { revalidate: 30 } };
 
 // Add error handling for generateStaticParams
+
 export async function generateStaticParams() {
   try {
-    const posts = getAllPosts();
+    // Fetch all posts from Sanity
+    const posts = await client.fetch<Array<{ slug: string }>>(ALL_POSTS_QUERY);
+
+    // Map the slugs to the format Next.js expects
     return posts.map((post) => ({
       slug: post.slug,
     }));
@@ -27,8 +47,16 @@ export async function generateStaticParams() {
 // Add ISR for dynamic updates
 export const revalidate = 3600; // Revalidate every hour
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await client.fetch<SanityDocument>(
+    POST_QUERY,
+    { slug: params.slug },
+    options
+  );
 
   if (!post) {
     return {
@@ -40,97 +68,107 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   return {
     title: `${post.title} | SANFORDEV Blog`,
     description: post.summary,
-    openGraph: {
-      title: post.title,
-      description: post.summary,
-      type: 'article',
-      publishedTime: post.publishedAt,
-      images: [
-        {
-          url: post.image,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
+    // ...rest of your metadata
   };
 }
 
-export default async function BlogPost({ params }: any) {
-  const post = getPostBySlug(params.slug);
-  const allPosts = getAllPosts();
+export default async function BlogPost({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  try {
+    const post = await client.fetch<SanityDocument>(
+      POST_QUERY,
+      { slug: params.slug },
+      options
+    );
 
-  if (!post) {
-    notFound();
-  }
+    if (!post) {
+      notFound();
+    }
 
-  return (
-    <PageWrapper>
-      <div>
-        <Link href="/blog" variant="standaloneLink">
-          <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
-          Back to Blog
-        </Link>
-      </div>
-      {/* Hero Section */}
-      <header id="top" className="flex flex-col gap-4">
-        <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            sizes={defaultImageSizes}
-            className="object-cover"
-            priority
-            quality={90}
-            placeholder="blur"
-            blurDataURL={generateBlurPlaceholder(1200, 630)}
-          />
+    console.log('Post:', post);
+
+    const postImageUrl = post.mainImage
+      ? urlFor(post.mainImage.asset._ref)?.width(550).height(310).url()
+      : null;
+    const allPosts = getAllPosts();
+
+    return (
+      <PageWrapper>
+        <div>
+          <Link href="/blog" variant="standaloneLink">
+            <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
+            Back to Blog
+          </Link>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-        <div className="flex flex-col gap-4 text-slate-600 dark:text-slate-400">
-          <DateDisplay date={post.publishedAt} />
-          <p className="text-lg ">
-            {post.author.image && (
+        {/* Hero Section */}
+        <header id="top" className="flex flex-col gap-4">
+          <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
+            {postImageUrl && (
               <Image
-                src={post.author.image}
-                alt={post.author.name}
-                width={24}
-                height={24}
-                className="inline-block rounded-full mr-2"
-                loading="lazy"
-                quality={75}
+                src={postImageUrl}
+                alt={post.mainImage?.alt || post.title}
+                fill
+                sizes={defaultImageSizes}
+                className="object-cover aspect-video rounded-xl"
+                priority
+                quality={90}
               />
             )}
-            {post.author.name}
-          </p>
-          <p className="text-xl line-clamp-3">
-            <strong>TLDR;</strong> {post.summary}
-          </p>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.tile}</h1>
+          <div className="flex flex-col gap-4 text-slate-600 dark:text-slate-400">
+            {/*<DateDisplay date={post.publishedAt} />
+             */}
+            {/*
+            <p className="text-lg ">
+            {post.author.image && (
+              <Image
+              src={post.author.image}
+              alt={post.author.name}
+              width={24}
+              height={24}
+              className="inline-block rounded-full mr-2"
+              loading="lazy"
+              quality={75}
+              />
+              )}
+              {post.author.name}
+              </p>
+              */}
+
+            {/* 
+            <p className="text-xl line-clamp-3">
+              <strong>TLDR;</strong> {post.summary}
+            </p>
+            */}
+          </div>
+        </header>
+
+        {/* Content */}
+        <article className="prose dark:prose-invert max-w-none">
+          {Array.isArray(post.body) && <PortableText value={post.body} />}
+          {/* <AuthorSection {...post.author} /> */}
+        </article>
+
+        {/* back to the top */}
+        <div className="flex justify-center">
+          <Link
+            href="#top"
+            className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
+          >
+            Back to Top
+          </Link>
         </div>
-      </header>
-
-      {/* Content */}
-      <article className="prose dark:prose-invert max-w-none">
-        <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
-          {post.content}
-        </Markdown>
-        <AuthorSection {...post.author} />
-      </article>
-
-      {/* back to the top */}
-      <div className="flex justify-center">
-        <Link
-          href="#top"
-          className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
-        >
-          Back to Top
-        </Link>
-      </div>
-      <Suspense fallback={<div className="h-12" />}>
-        <RelatedPosts currentSlug={post.slug} posts={allPosts} />
-      </Suspense>
-    </PageWrapper>
-  );
+        <Suspense fallback={<div className="h-12" />}>
+          <RelatedPosts currentSlug={post.slug} posts={allPosts} />
+        </Suspense>
+      </PageWrapper>
+    );
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    notFound();
+  }
 }

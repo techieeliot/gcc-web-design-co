@@ -2,9 +2,23 @@ import { getAllPosts } from '../utils';
 import PageWrapper from '@/components/PageWrapper';
 import Image from 'next/image';
 import { Link } from '@ui/link';
+import { client } from '@/sanity/client';
+import { SanityDocument } from 'next-sanity';
+import DateDisplay from '@/components/DateDisplay';
 
-export default function BlogPost() {
-  const allPosts = getAllPosts();
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+const options = { next: { revalidate: 30 } };
+
+export default async function BlogPost() {
+  const allPosts = await client.fetch<SanityDocument[]>(
+    POSTS_QUERY,
+    {},
+    options
+  );
 
   return (
     <PageWrapper>
@@ -30,20 +44,20 @@ export default function BlogPost() {
           Explore our collection of blog posts, tutorials, and articles.
         </p>
         <ul className="flex flex-col gap-8">
-          {allPosts.map((post) => (
-            <li key={post.slug}>
+          {allPosts.map((post: SanityDocument) => (
+            <li key={post.id}>
               <div>
                 <Link
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.slug.current}`}
                   className="h-fit w-full lg:h-full lg:w-fit whitespace-break-spaces break-words"
                   variant="inlineLink"
                 >
                   <h2>{post.title}</h2>
                 </Link>
-                <p>{post.summary}</p>
-                <p>published: {post.publishedAt}</p>
-                <p>author: {post.author.name}</p>
+                {/* 
+                <DateDisplay date={post._createdAt} />
+               */}
               </div>
             </li>
           ))}

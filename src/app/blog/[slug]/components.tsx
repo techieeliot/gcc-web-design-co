@@ -52,8 +52,6 @@ export const AuthorSection = (author: Author) => {
         className="rounded-full"
         loading="lazy"
         priority={false}
-        placeholder="blur"
-        blurDataURL={image}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         quality={90}
       />
