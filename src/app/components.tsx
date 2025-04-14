@@ -8,7 +8,6 @@ import { Link } from '@ui/link';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import { Shimmer } from '@ui/shimmer';
 import { CldImage } from 'next-cloudinary';
-import LogoTypography from '@/components/logo-typography';
 
 export const HeroSection = () => (
   <section data-testid="hero-section">

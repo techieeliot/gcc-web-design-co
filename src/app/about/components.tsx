@@ -380,20 +380,27 @@ export function BlueberryStory() {
             🌱 The Logo 🫐
           </h3>
           <p className="text-base leading-relaxed mb-4">
-            Our logo tells a story close to our heart—a subtle nod to our roots
-            in hardworking, community-focused growth. The logo resembles a
-            blueberry encircling a React atom, with its center (the calyx)
-            representing our core belief in React.js web development. The
-            blueberry isn't just a visual mark—it's a tribute to Mississippi
-            (the official state fruit here!), evoking the hard-working
-            mentaliity of a farmer and memories of being on grandfather's farm.
-            It, also, symbolizes a commitment to nurturing both technology and
-            relationships. While we're city folks at heart, out family's
-            agrarian roots inspire our grounded approach.
+            Our logo tells a story of our roots and our mission. The ring
+            surrounding the atom represents a blueberry, a nod to our
+            Mississippi heritage and our commitment to growth. Seeing any plant
+            to fruit is a labor of love, and we believe that the same care and
+            attention should be given to the technology we create. Just as a
+            blueberry grows from a seed to a fruit, we nurture our projects from
+            concept to completion, ensuring that they are not only functional
+            but also remarkable and delightful. Inside the blueberry, there is a
+            React atom, symbolizing our focus on React.js web development. The
+            atom represents our core belief in building applications that are
+            not only reactive and fast but also accessible and user-friendly.
+            The React atom is in the center of the blueberry, also known as the
+            calyx, reprsents our core belief in React.js web development. We
+            believe in supporting grassroots efforts, and our logo reflects
+            that. The blueberry is a symbol of our commitment to nurturing both
+            technology and relationships. While we're city folks at heart, our
+            family's agrarian roots inspire our grounded approach.
           </p>
           <p className="text-base leading-relaxed italic">
-            And fun fact: Eliot's blue four-door sedan is named "Blueberry",
-            too!
+            And fun fact: Eliot's blue compact sedan was affectionately named
+            the "Blueberry", too!
           </p>
         </div>
       </div>
