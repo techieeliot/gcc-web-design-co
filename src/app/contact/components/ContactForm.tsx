@@ -58,7 +58,7 @@ export default function ContactForm() {
   });
 
   const submit = useSubmit<FormData>(
-    process.env.FORMSPREE_CONTACT_US_ID as string
+    process.env.NEXT_PUBLIC_CONTACT_FORM_ID as string
   );
   return (
     <article
