@@ -4,7 +4,6 @@ import { ValueProposition } from '../components';
 import { generateBlurPlaceholder } from '@/lib/image';
 import Markdown from 'markdown-to-jsx';
 import DateDisplay from '@/components/DateDisplay';
-import { getAllPosts } from './utils';
 import { Post } from './types';
 
 export const RecentPosts = ({ posts }: { posts: Post[] }) => {
@@ -59,91 +58,93 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
           </article>
         ))}
       </div>
+      <div className="mt-8">
+        <Link href="/blog/all" variant="outline">
+          See All Posts
+        </Link>
+      </div>
     </section>
   );
 };
 
-export const FeaturedPost = () => {
-  const featuredPost = getAllPosts().find((post) => post.featured);
+export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
   return (
     <section className="bg-white dark:bg-slate-800 rounded-xl p-6">
       <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
         <span className="dark:text-white">Featured Post</span>
       </h2>
 
-      {featuredPost && (
-        <article className="flex flex-col gap-4 group">
-          <Link
-            href={`/blog/${featuredPost.slug}`}
-            className="relative aspect-[16/9] w-full rounded-xl overflow-hidden h-fit"
-          >
-            <Image
-              src={featuredPost.image}
-              alt={featuredPost.title}
-              width={800}
-              height={450}
-              quality={75}
-              placeholder="blur"
-              blurDataURL={featuredPost.blurDataUrl}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition"
-              loading="lazy"
-            />
+      <article className="flex flex-col gap-4 group">
+        <Link
+          href={`/blog/${featuredPost.slug}`}
+          className="relative aspect-[16/9] w-full rounded-xl overflow-hidden h-fit"
+        >
+          <Image
+            src={featuredPost.image}
+            alt={featuredPost.title}
+            width={800}
+            height={450}
+            quality={75}
+            placeholder="blur"
+            blurDataURL={featuredPost.blurDataUrl}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition"
+            loading="lazy"
+          />
+        </Link>
+        <header className="flex flex-col gap-2">
+          <DateDisplay date={featuredPost.publishedAt} />
+          <Link href={`/blog/${featuredPost.slug}`} variant="inlineLink">
+            <h3 className="text-xl font-semibold whitespace-break-spaces">
+              {featuredPost.title}
+            </h3>
           </Link>
-          <header className="flex flex-col gap-2">
-            <DateDisplay date={featuredPost.publishedAt} />
-            <Link href={`/blog/${featuredPost.slug}`} variant="inlineLink">
-              <h3 className="text-xl font-semibold whitespace-break-spaces">
-                {featuredPost.title}
-              </h3>
-            </Link>
-            <p className="text-slate-500 dark:text-slate-400 mt-1 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg line-clamp-2 border-l-4 border-l-sky">
-              {featuredPost.summary}
-            </p>
-          </header>
-          <Markdown
-            // place gaps between block elements
-            options={{
-              overrides: {
-                h2: {
-                  component: ({ children }) => (
-                    <h2 className="text-xl font-semibold mb-4">{children}</h2>
-                  ),
-                },
-                h3: {
-                  component: ({ children }) => (
-                    <h3 className="text-lg font-semibold mb-4">{children}</h3>
-                  ),
-                },
-                p: {
-                  component: ({ children }) => (
-                    <p className="text-slate-600 dark:text-slate-300 mb-4">
-                      {children}
-                    </p>
-                  ),
-                },
+          <p className="text-slate-500 dark:text-slate-400 mt-1 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg line-clamp-2 border-l-4 border-l-sky">
+            {featuredPost.summary}
+          </p>
+        </header>
+        <Markdown
+          // place gaps between block elements
+          options={{
+            overrides: {
+              h2: {
+                component: ({ children }) => (
+                  <h2 className="text-xl font-semibold mb-4">{children}</h2>
+                ),
               },
-            }}
-            className="line-clamp-5 "
-          >
-            {
-              // skip the title that's already displayed in the header
-              featuredPost.content
-                .split('\n')
-                .slice(1)
-                .join('\n')
-                .replace(/^\s*#\s+/, '')
-                .replace(featuredPost.title, '')
-            }
-          </Markdown>
-          <div>
-            <Link href={`/blog/${featuredPost.slug}`} variant="cta">
-              Continue Reading
-              <span className="sr-only">{featuredPost.title}</span>
-            </Link>
-          </div>
-        </article>
-      )}
+              h3: {
+                component: ({ children }) => (
+                  <h3 className="text-lg font-semibold mb-4">{children}</h3>
+                ),
+              },
+              p: {
+                component: ({ children }) => (
+                  <p className="text-slate-600 dark:text-slate-300 mb-4">
+                    {children}
+                  </p>
+                ),
+              },
+            },
+          }}
+          className="line-clamp-5 "
+        >
+          {
+            // skip the title that's already displayed in the header
+            featuredPost.content
+              .split('\n')
+              .slice(1)
+              .join('\n')
+              .replace(/^\s*#\s+/, '')
+              .replace(featuredPost.title, '')
+          }
+        </Markdown>
+        <div>
+          <Link href={`/blog/${featuredPost.slug}`} variant="cta">
+            Continue Reading
+            <span className="sr-only">{featuredPost.title}</span>
+          </Link>
+        </div>
+      </article>
     </section>
   );
 };

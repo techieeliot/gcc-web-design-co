@@ -8,11 +8,20 @@ import {
 } from './components';
 import PageWrapper from '@/components/PageWrapper';
 import { Shimmer } from '@ui/shimmer';
+import { Post } from './types';
 
 export default async function Blog() {
   // Use async/await to properly handle data fetching
   const posts = await getAllPosts();
-  const recentPosts = posts.filter((post) => !post.featured).slice(0, 3);
+  const featuredPost = getAllPosts().find((post) => post.featured) as Post;
+  const recentPosts = posts
+    .sort((a, b) => {
+      return (
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      );
+    })
+    .filter((post) => post.slug !== featuredPost?.slug)
+    .slice(0, 5);
 
   return (
     <PageWrapper>
@@ -30,7 +39,7 @@ export default async function Blog() {
               </div>
             }
           >
-            <FeaturedPost />
+            <FeaturedPost featuredPost={featuredPost} />
             <BlogEngagementSection />
           </Suspense>
         </div>
