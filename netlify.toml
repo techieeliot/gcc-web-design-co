@@ -29,7 +29,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://formspree.io; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:;"
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://formspree.io https://*.services-prod.nsvcs.net https://*.netlify.app; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: https://*.netlify.app; font-src 'self' data: https:;"
 
 # Cache control for static assets
 [[headers]]
@@ -118,6 +118,12 @@
   to = "https://cms.sanfor.dev/:splat"
   status = 301
   force = true
+
+# Netlify Image CDN
+[[redirects]]
+  from = "/blog/images/*"
+  to = "https://sanfordev.netlify.app/.netlify/static/blog?url=/:splat"
+  status = 200
 
 # Keep this as the last redirect rule
 [[redirects]]

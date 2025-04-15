@@ -18,7 +18,7 @@
     "format:check": "prettier --check",
     "analyze": "ANALYZE=true NODE_OPTIONS='--max-old-space-size=4096' next build",
     "prepare": "ts-node --project tsconfig.node.json .github/scripts/prepare-hooks.ts",
-    "clean": "rm -rf .next out .netlify/plugins/node_modules node_modules/.cache",
+    "clean": "rm -rf out .netlify/plugins/node_modules node_modules/.cache",
     "reset": "npm run clean && npm install",
     "ci": "npm run lint && npm run type-check && npm run test:unit:ci",
     "test": "npm run test:unit && npm run test:e2e",
