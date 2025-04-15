@@ -1,6 +1,6 @@
 ---
 title: 'Deploying Your Next.js App to Netlify: A Step-by-Step Guide'
-publishedAt: '2024-04-04'
+publishedAt: '2025-04-04'
 summary: 'Learn how to deploy your Next.js application to Netlify with continuous deployment, environment variables, and custom domains.'
 image: '/blog/deploying-nextjs-netlify.webp'
 author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
