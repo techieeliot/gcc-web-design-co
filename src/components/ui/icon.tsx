@@ -28,25 +28,32 @@ export const Icon = memo(
         return mod[name as keyof typeof mod] as ComponentType<LucideProps>;
       },
       {
-        loading: () => (
-          <span className={cn('inline-flex', className)}>
-            <Shimmer rounded="full" className="flex-shrink-0" />
-          </span>
-        ),
+        loading: () => <IconShimmer size={size} className={className} />,
         ssr: false,
       }
     );
 
     if (!isClient) {
-      return (
-        <span className={cn('inline-flex', className)}>
-          <Shimmer rounded="full" className="flex-shrink-0" />
-        </span>
-      );
+      return <IconShimmer size={size} className={className} />;
     }
 
     return <IconComponent className={className} size={size} {...props} />;
   }
+);
+
+const IconShimmer = ({
+  size,
+  className,
+}: Pick<IconProps, 'size' | 'className'>) => (
+  <span
+    className={cn(
+      'inline-flex',
+      `w-${typeof size === 'number' ? size / 4 : size}`,
+      className
+    )}
+  >
+    <Shimmer rounded="full" />
+  </span>
 );
 
 Icon.displayName = 'Icon';

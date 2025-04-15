@@ -99,7 +99,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
               {featuredPost.title}
             </h3>
           </Link>
-          <p className="text-slate-500 dark:text-slate-400 mt-1 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg line-clamp-2 border-l-4 border-l-sky">
+          <p className="text-slate-500 dark:text-slate-400 mt-1 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg line-clamp-2 border-l-4 border-l-sky min-h-60 sm:min-h-fit">
             {featuredPost.summary}
           </p>
         </header>

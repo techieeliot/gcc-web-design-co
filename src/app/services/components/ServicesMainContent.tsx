@@ -26,7 +26,7 @@ export function ServicesMainContent() {
   return (
     <section className="lg:col-span-8 space-y-12">
       {/* Hero Image Section */}
-      <div className="relative h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden shadow-lg">
+      <div className="relative min-h-96 sm:h-72 md:h-80 rounded-lg overflow-hidden shadow-lg">
         <Image
           src="/images/pic09.webp"
           alt="Modern development workspace"
