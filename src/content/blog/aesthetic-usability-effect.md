@@ -64,6 +64,6 @@ Have you experienced a website or app that surprised you with its ingenious simp
 
 Have you noticed how a beautiful interface can make you overlook those little imperfections?
 
-Drop a us an email at [hey@sanfor.dev](mailto:hey@sanfor.dev). I’m always excited to chat about how beautiful design can transform our digital experiences.
+Drop us an email at [hey@sanfor.dev](mailto:hey@sanfor.dev). I’m always excited to chat about how beautiful design can transform our digital experiences.
 
 Happy designing, and keep building amazing stuff!
