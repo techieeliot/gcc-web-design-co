@@ -16,20 +16,20 @@ export function RelatedPosts({ currentSlug, posts }: RelatedPostsProps) {
     <aside className="bg-slate-100 dark:bg-slate-800 rounded-xl p-6 border-t-2">
       <h2 className="text-2xl font-bold mb-6">Related Posts</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {relatedPosts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
             variant="inlineLink"
-            className="group block bg-white dark:bg-slate-800 rounded-lg transition-all hover:-translate-y-1"
+            className="group rounded-lg transition-all hover:-translate-y-1 flex flex-wrap gap-3 h-fit"
             aria-label={`Read ${post.title}`}
             title={post.title}
           >
             <h3 className="text-xl font-semibold group-hover:text-sky transition-colors text-ellipsis whitespace-nowrap overflow-hidden">
               {post.title}
             </h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-300 text-ellipsis whitespace-nowrap overflow-hidden">
+            <p className="mt-2 text-ellipsis whitespace-nowrap overflow-hidden">
               {post.summary}
             </p>
           </Link>
