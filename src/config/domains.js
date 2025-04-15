@@ -3,7 +3,9 @@ const domainUrls = [
   'https://sanfor.dev',
   'https://www.sanfordev.io',
   'https://www.sanfordev.net',
+  'https://sanfordev.netlify.app',
   'https://devsouth.us',
+  'http://localhost', // Local development
 ];
 
 // Extract just the hostnames for Next.js images config

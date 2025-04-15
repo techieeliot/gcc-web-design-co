@@ -1,5 +1,4 @@
-const path = require('path');
-const { domains } = require('./src/config/domains');
+const { domainUrls, domainHostnames } = require('./src/config/domains');
 
 /** @type {import('next').NextConfig} */
 let config = {
@@ -50,8 +49,23 @@ let config = {
       },
       {
         protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'sanfordev.netlify.app',
       },
+      {
+        protocol: 'https',
+        hostname: '*.netlify.app',
+      },
+      { protocol: 'http', hostname: 'localhost' },
+    ],
+    domains: [
+      'cdn.sanity.io',
+      'images.unsplash.com',
+      'res.cloudinary.com',
+      ...domainHostnames,
     ],
   },
 
