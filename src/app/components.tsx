@@ -127,7 +127,7 @@ export const CallToActionSection = () => (
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Link href="/contact" size="lg">
+        <Link href="/contact" size="lg" variant="primary">
           Get in Touch
         </Link>
         <Link href="/portfolio" variant="outline" size="lg">
