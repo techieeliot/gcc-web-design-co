@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       publishedTime: post.publishedAt,
       images: [
         {
-          url: post.image,
+          url: post.image || '/images/blog-social.webp',
           width: 1200,
           height: 630,
           alt: post.title,
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       card: 'summary_large_image',
       title: post.title,
       description: post.summary,
-      images: [post.image],
+      images: [post.image || '/images/blog-social.webp'],
     },
   };
 }
