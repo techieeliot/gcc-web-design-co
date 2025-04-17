@@ -30,11 +30,21 @@ export const HeroSection = () => (
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="/contact" variant="cta" size="lg">
+          <Link
+            href="/contact"
+            variant="cta"
+            size="lg"
+            aria-label="Get Started with SANFORDEV"
+          >
             Get Started
             <Icon name="ArrowRight" className="w-4 h-4 ml-2" />
           </Link>
-          <Link href="/portfolio" variant="outline" size="lg">
+          <Link
+            href="/portfolio"
+            variant="outline"
+            size="lg"
+            aria-label="View SANFORDEV's Work"
+          >
             View Our Work
           </Link>
         </div>
@@ -127,10 +137,20 @@ export const CallToActionSection = () => (
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Link href="/contact" size="lg" variant="primary">
+        <Link
+          href="/contact"
+          size="lg"
+          variant="primary"
+          aria-label='"Get Started with SANFORDEV">'
+        >
           Get in Touch
         </Link>
-        <Link href="/portfolio" variant="outline" size="lg">
+        <Link
+          href="/portfolio"
+          variant="outline"
+          size="lg"
+          aria-label="View SANFORDEV's Work"
+        >
           View Our Work
         </Link>
       </div>
@@ -223,6 +243,7 @@ const ProjectCard = ({
           variant="standaloneLink"
           size="xl"
           className="flex justify-center"
+          aria-label={`View ${title} Project`}
         >
           See More
           <Icon name="ChevronRight" size={16} />
@@ -271,7 +292,11 @@ export function ValueProposition() {
           that feel naturally right.
         </p>
 
-        <Link href="/services" variant="inlineLink">
+        <Link
+          href="/services"
+          variant="inlineLink"
+          aria-label="Discover SANFORDEV's Process"
+        >
           Discover our process
         </Link>
       </div>
@@ -319,7 +344,12 @@ export const BlogHighlightSection = () => (
               our journey in modern web development. Like tending to a garden,
               we nurture each article with careful attention and genuine care.
             </p>
-            <Link href="/blog" size="lg" className="inline-flex items-center">
+            <Link
+              href="/blog"
+              size="lg"
+              className="inline-flex items-center"
+              aria-label="Explore SANFORDEV's Blog"
+            >
               Explore Our Blog
               <Icon name="ArrowRight" className="w-4 h-4 ml-2" />
             </Link>

@@ -254,7 +254,10 @@ export const AboutSection = () => {
                   guide both startups and enterprise teams focusing on
                   performance, accessibility, and scalable solutions. Follow me
                   on Twitter at{' '}
-                  <Link href="https://twitter.com/techieEliot">
+                  <Link
+                    href="https://twitter.com/techieEliot"
+                    variant="inlineLink"
+                  >
                     @techieEliot
                   </Link>
                   .
@@ -266,6 +269,7 @@ export const AboutSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    aria-label="Go to Eliot's Website"
                   >
                     <Icon name="Globe" className="w-4 h-4" />
                     <span>Website</span>
@@ -275,6 +279,7 @@ export const AboutSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    aria-label="Go to Eliot's LinkedIn profile"
                   >
                     <Icon name="Linkedin" className="w-4 h-4" />
                     <span>LinkedIn</span>
@@ -284,6 +289,7 @@ export const AboutSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    aria-label="Go to Eliot's GitHub profile techie eliot"
                   >
                     <Icon name="Github" className="w-4 h-4" />
                     <span>GitHub</span>
@@ -291,6 +297,7 @@ export const AboutSection = () => {
                   <Link
                     href="mailto:techieEliot@gmail.com"
                     className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    aria-label="Get in touch with Eliot at techieEliot@gmail.com"
                   >
                     <Icon name="Mail" className="w-4 h-4" />
                     <span>Email</span>
@@ -351,6 +358,7 @@ export const ConnectWithUs = () => {
             <Link
               href={href}
               className="flex justify-start gap-8 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label={`Go to ${label}`}
             >
               <div className="flex items-center gap-3">
                 <Icon

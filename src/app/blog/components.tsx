@@ -22,6 +22,7 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
             <Link
               href={`/blog/${post.slug}`}
               className="relative aspect-[16/9] rounded-xl overflow-hidden h-fit w-full lg:h-full lg:w-fit"
+              aria-label={`Go to ${post.title}`}
             >
               <Image
                 src={post.image}
@@ -46,6 +47,7 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
                     variant="inlineLink"
                     href={`/blog/${post.slug}`}
                     className="whitespace-break-spaces"
+                    aria-label={`Go to ${post.title}`}
                   >
                     {post.title}
                   </Link>
@@ -59,7 +61,11 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
         ))}
       </div>
       <div className="mt-8">
-        <Link href="/blog/all" variant="outline">
+        <Link
+          href="/blog/all"
+          variant="outline"
+          aria-label="Go to our blog library page"
+        >
           See All Posts
         </Link>
       </div>
@@ -78,6 +84,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
         <Link
           href={`/blog/${featuredPost.slug}`}
           className="relative aspect-[16/9] w-full rounded-xl overflow-hidden h-fit"
+          aria-label={`Go to our featured blog article ${featuredPost.title}`}
         >
           <Image
             src={featuredPost.image}
@@ -94,7 +101,11 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
         </Link>
         <header className="flex flex-col gap-2">
           <DateDisplay date={featuredPost.publishedAt} />
-          <Link href={`/blog/${featuredPost.slug}`} variant="inlineLink">
+          <Link
+            href={`/blog/${featuredPost.slug}`}
+            variant="inlineLink"
+            aria-label={`Go to ${featuredPost.title}`}
+          >
             <h3 className="text-xl font-semibold whitespace-break-spaces">
               {featuredPost.title}
             </h3>
@@ -139,7 +150,11 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
           }
         </Markdown>
         <div>
-          <Link href={`/blog/${featuredPost.slug}`} variant="cta">
+          <Link
+            href={`/blog/${featuredPost.slug}`}
+            variant="cta"
+            aria-label={`Like this reading excerpt? Go to the article ontinue reading ${featuredPost.title}`}
+          >
             Continue Reading
             <span className="sr-only">{featuredPost.title}</span>
           </Link>
@@ -161,10 +176,18 @@ export const BlogEngagementSection = () => {
         collaborating on your next project.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
-        <Link href="/blog/all" variant="primary">
+        <Link
+          href="/blog/all"
+          variant="primary"
+          aria-label="Click here to explore more articles"
+        >
           Explore More Articles
         </Link>
-        <Link href="/services" variant="outline">
+        <Link
+          href="/services"
+          variant="outline"
+          aria-label="Click here to go to our services page to discover what we do"
+        >
           Discover Our Services
         </Link>
       </div>

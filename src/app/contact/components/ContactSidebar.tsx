@@ -38,14 +38,28 @@ export function ContactSidebar() {
             <Icon name="Mail" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Email"
-          content={<Link href="mailto:hey@sanfor.dev">hey@sanfor.dev</Link>}
+          content={
+            <Link
+              href="mailto:hey@sanfor.dev"
+              aria-label="Click here to open a new email to hey@sanfor.dev"
+            >
+              hey@sanfor.dev
+            </Link>
+          }
         />
         <ContactInfo
           icon={
             <Icon name="Phone" className="w-6 h-6 text-sky dark:text-indigo" />
           }
           title="Phone"
-          content={<Link href="tel:+16623126815">(662) 312-6815</Link>}
+          content={
+            <Link
+              href="tel:+16623126815"
+              aria-label="If you're on a mobile device, click here to call our number: 662-312-6815"
+            >
+              (662) 312-6815
+            </Link>
+          }
         />
         <ContactInfo
           icon={

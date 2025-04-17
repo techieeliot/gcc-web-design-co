@@ -77,6 +77,7 @@ export default function BlogPost() {
                     href={`/blog/${post.slug}`}
                     className="h-fit w-full lg:h-full lg:w-fit whitespace-break-spaces break-words"
                     variant="inlineLink"
+                    aria-label={`Read ${post.title}`}
                   >
                     <h2>{post.title}</h2>
                   </Link>

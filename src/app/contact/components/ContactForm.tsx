@@ -209,6 +209,7 @@ export default function ContactForm() {
                         rel="noopener noreferrer"
                         variant="inlineLink"
                         className="text-sm"
+                        aria-label="privacy policy. Click here to read it in a new tab."
                       >
                         privacy policy
                       </Link>

@@ -19,6 +19,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
         variant="outline"
         size="lg"
         className="mb-4 sm:mb-0"
+        aria-label="Click here to go back to all case studies"
       >
         <Icon name="ArrowLeft" className="w-4 h-4" />
         <span>Back to All Case Studies</span>
@@ -31,6 +32,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
             variant="primary"
             size="lg"
             title={`Previous: ${prevCase.title}`}
+            aria-label={`Click here to go back to the previous case study ${prevCase.title}`}
           >
             <Icon name="ArrowLeft" className="w-4 h-4" />
             <span className="hidden md:inline text-sm">
@@ -46,6 +48,7 @@ export function CaseStudyNav({ currentId }: { currentId: string }) {
             variant="primary"
             className="text-sm"
             title={`Next: ${nextCase.title}`}
+            aria-label={`Click here to go ahead to the next case study ${nextCase.title}`}
           >
             <span className="hidden md:inline text-sm">
               {`${nextCase.title.split(':')[1]?.substring(0, 24) || nextCase.title.substring(0, 24)}...`}

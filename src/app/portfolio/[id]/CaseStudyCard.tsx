@@ -50,7 +50,11 @@ export const CaseStudyCard = ({
         'transition-shadow duration-300'
       )}
     >
-      <Link href={`/portfolio/${id}`} className="flex flex-col flex-1">
+      <Link
+        href={`/portfolio/${id}`}
+        className="flex flex-col flex-1"
+        aria-label={`Click on this image to find out more about ${title}`}
+      >
         {/* Image Section */}
         <div className="relative h-48 sm:h-52 overflow-hidden">
           <Image

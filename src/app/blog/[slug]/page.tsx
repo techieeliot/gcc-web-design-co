@@ -81,7 +81,11 @@ export default async function BlogPost({ params }: any) {
   return (
     <PageWrapper>
       <div>
-        <Link href="/blog" variant="standaloneLink">
+        <Link
+          href="/blog"
+          variant="standaloneLink"
+          aria-label="Go back to the blog main page"
+        >
           <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
           Back to Blog
         </Link>
@@ -137,6 +141,7 @@ export default async function BlogPost({ params }: any) {
         <Link
           href="#top"
           className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
+          aria-lable="Scroll up to the top of the page"
         >
           Back to Top
         </Link>
