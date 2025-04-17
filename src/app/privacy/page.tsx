@@ -9,7 +9,7 @@ const PrivacyContent = dynamic(() => import('./components/PrivacyContent'));
 
 // Metadata configuration
 export const metadata = {
-  title: 'Privacy Policy | SANFORDEV Consulting',
+  title: 'Privacy Policy | SANFORDEV',
   description:
     'Your privacy is important to us. Read our privacy policy to understand how we handle your data.',
   alternates: {
@@ -19,18 +19,25 @@ export const metadata = {
     'User privacy policy, rights, compliance, and data protection for the SANFORDEV Consulting website',
   ],
   openGraph: {
-    title: 'Privacy Policy | SANFORDEV Consulting',
+    title: 'Privacy Policy | SANFORDEV',
     description:
       'Your privacy is important to us. Read our privacy policy to understand how we handle your data.',
     url: 'https://sanfordev.com/privacy',
     images: [
       {
-        url: '/images/privacy-social.webp',
+        url: '/images/social-card.webp',
         width: 1200,
         height: 630,
         alt: 'SANFORDEV Consulting Privacy Policy',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy | SANFORDEV Consulting',
+    description:
+      'Your privacy is important to us. Read our privacy policy to understand how we handle your data.',
+    images: ['/images/social-card.webp'],
   },
 };
 

@@ -3,7 +3,7 @@ import { ServicesMainContent, ServicesSidebar } from './components';
 import PageWrapper from '@/components/PageWrapper';
 
 export const metadata: Metadata = {
-  title: 'Our Services | React & Next.js Development',
+  title: 'Our Services | SANFORDEV',
   description:
     'Specialized React ecosystem services including front-end development, performance optimization, UI/UX implementation, and technical consulting for startups and enterprises.',
   alternates: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'Emergency website and general technical support for businesses in the U.S.',
   ],
   openGraph: {
-    title: 'React & Next.js Development Services | SANFORDEV Consulting',
+    title: 'Hire Us | SANFORDEV',
     description:
       'From front-end development to performance optimization, we offer specialized React ecosystem services for modern web applications.',
     url: 'https://sanfordev.com/services',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'React & Next.js Development Services | SANFORDEV Consulting',
+    title: 'Hire Us for Your React & Next.js Needs | SANFORDEV',
     description:
       'Specialized React ecosystem services for modern web applications.',
     images: ['/images/services-social.webp'],

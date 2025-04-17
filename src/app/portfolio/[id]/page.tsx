@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 
   return {
-    title: `${caseStudy.title} | Case Study`,
+    title: `${caseStudy.title} | SANFORDEV`,
     description: caseStudy.description,
     alternates: {
       canonical: `/portfolio/${params.id}`,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       'Web Development services supporting startups, businesses, and enterprises focused on React, Next.js, and TypeScript programming ecosystem',
     ],
     openGraph: {
-      title: `${caseStudy.title} | SANFORDEV Consulting Case Study`,
+      title: `${caseStudy.title} | SANFORDEV Case Study`,
       description: caseStudy.description,
       url: `https://sanfordev.com/portfolio/${params.id}`,
       images: [

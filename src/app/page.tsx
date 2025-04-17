@@ -11,7 +11,7 @@ import Loading from './loading';
 import PageWrapper from '@/components/PageWrapper';
 
 export const metadata: Metadata = {
-  title: 'React Ecosystem Specialists | SANFORDEV Consulting',
+  title: 'Welcome | SANFORDEV',
   description:
     'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
   alternates: {
@@ -34,10 +34,26 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SANFORDEV Consulting | Modern Web Development Services',
+    title: 'SANFORDEV | Modern Web Development Services',
     description:
       'Transform your digital presence with high-performance web applications.',
     images: ['/images/home-social.webp'],
+  },
+  icons: {
+    icon: [
+      {
+        url: '/favicon.ico',
+        sizes: '16x16',
+      },
+      {
+        url: '/favicon.ico',
+        sizes: '32x32',
+      },
+      {
+        url: '/favicon.ico',
+        sizes: '48x48',
+      },
+    ],
   },
 };
 

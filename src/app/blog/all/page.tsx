@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import { Shimmer } from '@ui/shimmer';
 
 export const metadata = {
-  title: 'Blog Library | SANFORDEV Consulting',
+  title: 'Blog Library | SANFORDEV',
   description:
     'Explore our blog library for insights on React, Next.js, and TypeScript development.',
   alternates: {
@@ -19,7 +19,7 @@ export const metadata = {
     'JavaScript and TypeScript programming blog',
   ],
   openGraph: {
-    title: 'Blog Library | SANFORDEV Consulting',
+    title: 'Blog Library | SANFORDEV',
     description:
       'Explore our blog library for insights on React, Next.js, and TypeScript development.',
     url: 'https://sanfordev.com/blog/all',

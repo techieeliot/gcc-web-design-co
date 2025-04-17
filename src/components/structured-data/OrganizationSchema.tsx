@@ -11,7 +11,7 @@ export default function OrganizationSchema() {
           name: 'SANFORDEV Consulting',
           alternateName: 'SANFORDEV',
           url: domains.primary,
-          logo: `${domains.primary}/images/logo.png`,
+          logo: `${domains.primary}/logos/sanfordev_logo.webp`,
           description:
             'Expert React ecosystem development services for startups and enterprises.',
           address: {

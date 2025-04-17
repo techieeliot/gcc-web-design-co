@@ -12,7 +12,7 @@ import { Post } from './types';
 
 // Metadata configuration
 export const metadata = {
-  title: 'Blog | SANFORDEV Consulting',
+  title: 'Blog | SANFORDEV',
   description:
     'Explore our blog for insights on React, Next.js, and TypeScript development.',
   alternates: {
@@ -25,7 +25,7 @@ export const metadata = {
     'JavaScript and TypeScript programming blog',
   ],
   openGraph: {
-    title: 'Blog | SANFORDEV Consulting',
+    title: 'Blog | SANFORDEV',
     description:
       'Explore our blog for insights on React, Next.js, and TypeScript development.',
     url: 'https://sanfordev.com/blog',

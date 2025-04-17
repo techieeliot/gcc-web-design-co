@@ -11,7 +11,7 @@ import { ValueProposition } from '../components';
 
 // Metadata configuration
 export const metadata: Metadata = {
-  title: 'Our Work | Case Studies & Development Projects',
+  title: 'Our Work | SANFORDEV',
   description:
     "Explore our case studies showcasing successful React and Next.js projects. See how we've helped startups and enterprises transform their digital presence.",
   alternates: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'Emergency website and general technical support for businesses in the U.S.',
   ],
   openGraph: {
-    title: 'Case Studies & Development Projects | SANFORDEV Consulting',
+    title: 'Case Studies & Development Projects | SANFORDEV',
     description:
       'Explore our portfolio of successful React and Next.js projects for startups and enterprises.',
     url: 'https://sanfordev.com/portfolio',

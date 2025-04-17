@@ -7,7 +7,7 @@ import {
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us | Unmatched Innovation & Mission',
+  title: 'About Us | SANFORDEV',
   description:
     "At SANFORDEV Consulting, we're transforming tech into powerful experiences. Since 2018, we've built applications that spark creativity, drive success, and empower communities.",
   alternates: {
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     'Mississippi-based technology and software development company',
   ],
   openGraph: {
-    title: 'About SANFORDEV Consulting | Trailblazing Innovation',
+    title: 'About Us | SANFORDEV',
     description:
       'Discover how SANFORDEV Consulting turns everyday challenges into extraordinary opportunities with tech designed for performance, accessibility, and impact.',
     url: 'https://sanfordev.com/about',
     images: [
       {
-        url: '/images/about-social.webp',
+        url: '/images/social-card.webp',
         width: 1200,
         height: 630,
         alt: 'About SANFORDEV Consulting',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: 'About SANFORDEV Consulting | Trailblazing Innovation',
     description:
       'Discover how SANFORDEV Consulting turns everyday challenges into extraordinary opportunities with tech designed for performance, accessibility, and impact.',
-    images: ['/images/about-social.webp'],
+    images: ['/images/social-card.webp'],
   },
 };
 

@@ -7,7 +7,7 @@ export const revalidate = 3600; // Revalidate every hour
 
 // Metadata for the contact page
 export const metadata = {
-  title: 'Contact Us | SANFORDEV Consulting',
+  title: 'Contact Us | SANFORDEV',
   description:
     'Get in touch with us for expert React, Next.js, and TypeScript development services.',
   alternates: {
@@ -20,7 +20,7 @@ export const metadata = {
     'TypeScript development questions',
   ],
   openGraph: {
-    title: 'Contact Us | SANFORDEV Consulting',
+    title: 'Contact Us | SANFORDEV',
     description:
       'Get in touch with us for expert React, Next.js, and TypeScript development services.',
     url: 'https://sanfordev.com/contact',
