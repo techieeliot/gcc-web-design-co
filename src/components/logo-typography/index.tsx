@@ -61,7 +61,7 @@ export default function LogoTypography({
           <>
             {brand.name.prefix}
             <span className={cn(colorClasses.sky, sharedClasses, className)}>
-              {brand.name.suffix}
+              <strong>{brand.name.suffix}</strong>
             </span>
           </>
         );
@@ -70,7 +70,7 @@ export default function LogoTypography({
           <>
             {brand.name.prefix}
             <span className={cn(colorClasses.sky, sharedClasses, className)}>
-              {brand.name.suffix}
+              <strong>{brand.name.suffix}</strong>
             </span>
           </>
         );

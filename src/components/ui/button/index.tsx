@@ -33,10 +33,10 @@ const buttonVariants = cva(
           'transition-all'
         ),
         cta: cn(
-          'bg-sky text-white dark:bg-indigo dark:text-white',
+          'bg-indigo text-white dark:bg-sky dark:text-white',
           'shadow-sm',
-          'hover:bg-sky/90 dark:hover:bg-indigo/90',
-          'active:bg-sky/80 dark:active:bg-indigo/80',
+          'hover:bg-indigo/90 dark:hover:bg-sky/90',
+          'active:bg-indigo/80 dark:active:bg-sky/80',
           'transition-all'
         ),
         outline: cn(
@@ -49,9 +49,9 @@ const buttonVariants = cva(
           'transition-all'
         ),
         standaloneLink: cn(
-          'text-sky font-medium underline',
+          'text-indigo font-medium underline',
           'hover:text-navy hover:no-underline',
-          'active:text-indigo',
+          'active:text-night',
           'dark:text-sky dark:hover:text-frost dark:hover:no-underline',
           'dark:active:text-frost/80',
           'transition-all'
@@ -59,8 +59,8 @@ const buttonVariants = cva(
         inlineLink: cn(
           '[&]:inline [&]:p-0 [&]:m-0',
           'font-inherit text-inherit underline',
-          'text-sky hover:text-navy hover:no-underline',
-          'active:text-indigo',
+          'text-indigo hover:text-navy hover:no-underline',
+          'active:text-night',
           'dark:text-sky dark:hover:text-frost dark:hover:no-underline',
           'dark:active:text-frost/80',
           'transition-all'
@@ -68,7 +68,7 @@ const buttonVariants = cva(
         nav: cn(
           'rounded-md font-medium',
           'text-slate-600 dark:text-slate-300',
-          'hover:bg-sky/5 hover:text-sky',
+          'hover:bg-sky/5 hover:text-indigo/90',
           'dark:hover:bg-indigo/10 dark:hover:text-indigo',
           'active:text-navy dark:active:text-frost',
           'data-[active=true]:bg-indigo/90 data-[active=true]:text-white',

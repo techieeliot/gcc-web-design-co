@@ -40,6 +40,7 @@ export default function BrandLogo({
             variant === 'vertical' && 'text-center',
             'whitespace-nowrap'
           )}
+          aria-label="SANFORDEV CONSULTING"
         />
       )}
     </div>

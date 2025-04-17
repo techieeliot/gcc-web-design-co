@@ -18,7 +18,7 @@ export default function PrivacyContent() {
           <p className={cn('text-base leading-relaxed', 'mb-3')}>
             This Privacy Policy applies to all data collected via our website{' '}
             <Link href="/" variant="inlineLink">
-              sanfor.dev
+              sanfordev.com
             </Link>
             , along with any services or events associated with SANFORDEV
             Consulting.

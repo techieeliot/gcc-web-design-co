@@ -178,7 +178,11 @@ export function MainNav({ isOpen, setIsOpen }: MobileNavProps) {
                     )}
                     aria-label="SANFORDEV CONSULTING"
                   >
-                    <LogoTypography size="sm" variant="split" />
+                    <LogoTypography
+                      size="sm"
+                      variant="split"
+                      aria-label="SANFORDEV"
+                    />
                   </div>
                 </Link>
               </div>

@@ -246,7 +246,7 @@ export const AboutSection = () => {
                 <h4 className="text-xl md:text-2xl font-semibold mb-1 text-center sm:text-left">
                   Eliot Sanford
                 </h4>
-                <p className="text-sky dark:text-indigo font-medium mb-2 text-center sm:text-left">
+                <p className="text-indigo dark:text-sky font-medium mb-2 text-center sm:text-left">
                   Lead Engineer
                 </p>
                 <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">
@@ -268,7 +268,7 @@ export const AboutSection = () => {
                     href="https://www.techieeliot.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-indigo dark:text-sky hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                     aria-label="Go to Eliot's Website"
                   >
                     <Icon name="Globe" className="w-4 h-4" />
@@ -278,7 +278,7 @@ export const AboutSection = () => {
                     href="https://www.linkedin.com/in/techieeliot"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-indigo dark:text-sky hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                     aria-label="Go to Eliot's LinkedIn profile"
                   >
                     <Icon name="Linkedin" className="w-4 h-4" />
@@ -288,7 +288,7 @@ export const AboutSection = () => {
                     href="https://github.com/techieeliot"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-indigo dark:text-sky hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                     aria-label="Go to Eliot's GitHub profile techie eliot"
                   >
                     <Icon name="Github" className="w-4 h-4" />
@@ -296,7 +296,7 @@ export const AboutSection = () => {
                   </Link>
                   <Link
                     href="mailto:techieEliot@gmail.com"
-                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-sky dark:text-indigo hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
+                    className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-sky-100 dark:bg-indigo/10 text-indigo dark:text-sky hover:bg-sky/20 dark:hover:bg-indigo/20 transition-colors"
                     aria-label="Get in touch with Eliot at techieEliot@gmail.com"
                   >
                     <Icon name="Mail" className="w-4 h-4" />

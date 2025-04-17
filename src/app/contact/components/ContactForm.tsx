@@ -196,7 +196,7 @@ export default function ContactForm() {
                     id="privacy"
                     {...register('privacy')}
                     className={cn(
-                      'rounded border-slate-300 dark:border-slate-700 text-sky dark:text-indigo focus:ring-sky dark:focus:ring-indigo/50',
+                      'rounded border-slate-300 dark:border-slate-700 text-indigo dark:text-sky focus:ring-sky dark:focus:ring-indigo/50',
                       errors.privacy && 'border-red-500 dark:border-red-500'
                     )}
                   />
@@ -249,7 +249,7 @@ export default function ContactForm() {
               </div>
 
               {isSubmitting && (
-                <p className="mt-2 text-sky dark:text-indigo flex items-center">
+                <p className="mt-2 text-indigo dark:text-sky flex items-center">
                   <Icon name="Rocket" className="inline mr-2 animate-pulse" />
                   Igniting your message...
                 </p>

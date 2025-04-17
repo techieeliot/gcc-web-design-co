@@ -35,7 +35,7 @@ export function ContactSidebar() {
       <div className="space-y-6">
         <ContactInfo
           icon={
-            <Icon name="Mail" className="w-6 h-6 text-sky dark:text-indigo" />
+            <Icon name="Mail" className="w-6 h-6 text-indigo dark:text-sky" />
           }
           title="Email"
           content={
@@ -49,7 +49,7 @@ export function ContactSidebar() {
         />
         <ContactInfo
           icon={
-            <Icon name="Phone" className="w-6 h-6 text-sky dark:text-indigo" />
+            <Icon name="Phone" className="w-6 h-6 text-indigo dark:text-sky" />
           }
           title="Phone"
           content={
@@ -63,7 +63,7 @@ export function ContactSidebar() {
         />
         <ContactInfo
           icon={
-            <Icon name="MapPin" className="w-6 h-6 text-sky dark:text-indigo" />
+            <Icon name="MapPin" className="w-6 h-6 text-indigo dark:text-sky" />
           }
           title="Location"
           content="Clinton, Mississippi, USA"
