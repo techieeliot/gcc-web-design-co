@@ -10,6 +10,43 @@ import PageWrapper from '@/components/PageWrapper';
 import { Shimmer } from '@ui/shimmer';
 import { Post } from './types';
 
+// Metadata configuration
+export const metadata = {
+  title: 'Blog | SANFORDEV Consulting',
+  description:
+    'Explore our blog for insights on React, Next.js, and TypeScript development.',
+  alternates: {
+    canonical: '/blog',
+  },
+  keywords: [
+    'Blog on React, Next.js, and TypeScript development',
+    'SANFORDEV Consulting articles and tutorials',
+    'Website development insights and best practices',
+    'JavaScript and TypeScript programming blog',
+  ],
+  openGraph: {
+    title: 'Blog | SANFORDEV Consulting',
+    description:
+      'Explore our blog for insights on React, Next.js, and TypeScript development.',
+    url: 'https://sanfordev.com/blog',
+    images: [
+      {
+        url: '/images/blog-social.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SANFORDEV Blog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | SANFORDEV Consulting',
+    description:
+      'Explore our blog for insights on React, Next.js, and TypeScript development.',
+    images: ['/images/blog-social.webp'],
+  },
+};
+
 export default async function Blog() {
   // Use async/await to properly handle data fetching
   const posts = await getAllPosts();

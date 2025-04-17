@@ -29,6 +29,12 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     alternates: {
       canonical: `/portfolio/${params.id}`,
     },
+    keywords: [
+      'SANFORDEV Consulting Case Study',
+      caseStudy.title,
+      caseStudy.description,
+      'Web Development services supporting startups, businesses, and enterprises focused on React, Next.js, and TypeScript programming ecosystem',
+    ],
     openGraph: {
       title: `${caseStudy.title} | SANFORDEV Consulting Case Study`,
       description: caseStudy.description,

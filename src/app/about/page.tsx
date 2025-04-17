@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about',
   },
+  keywords: [
+    'About SANFORDEV Consulting',
+    'SANFORDEV Consulting company information, mission, vision, values, culture, team, and expertise',
+    'Mississippi-based technology and software development company',
+  ],
   openGraph: {
     title: 'About SANFORDEV Consulting | Trailblazing Innovation',
     description:
@@ -26,6 +31,13 @@ export const metadata: Metadata = {
         alt: 'About SANFORDEV Consulting',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About SANFORDEV Consulting | Trailblazing Innovation',
+    description:
+      'Discover how SANFORDEV Consulting turns everyday challenges into extraordinary opportunities with tech designed for performance, accessibility, and impact.',
+    images: ['/images/about-social.webp'],
   },
 };
 

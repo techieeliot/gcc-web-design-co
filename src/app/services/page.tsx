@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services',
   },
+  keywords: [
+    'Mississippi custom computer programming web development services',
+    'SANFORDEV is a Next.js, TypeScript, and React.js ecosystem technical software engineering, responsive web design, and general technology systems consulting business in Clinton, MS near Jackson, Mississippi',
+    'JavaScipt remote online computer training and education',
+    'Emergency website and general technical support for businesses in the U.S.',
+  ],
   openGraph: {
     title: 'React & Next.js Development Services | SANFORDEV Consulting',
     description:

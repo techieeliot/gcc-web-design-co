@@ -7,6 +7,33 @@ export const revalidate = 3600;
 
 const PrivacyContent = dynamic(() => import('./components/PrivacyContent'));
 
+// Metadata configuration
+export const metadata = {
+  title: 'Privacy Policy | SANFORDEV Consulting',
+  description:
+    'Your privacy is important to us. Read our privacy policy to understand how we handle your data.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  keywords: [
+    'User privacy policy, rights, compliance, and data protection for the SANFORDEV Consulting website',
+  ],
+  openGraph: {
+    title: 'Privacy Policy | SANFORDEV Consulting',
+    description:
+      'Your privacy is important to us. Read our privacy policy to understand how we handle your data.',
+    url: 'https://sanfordev.com/privacy',
+    images: [
+      {
+        url: '/images/privacy-social.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SANFORDEV Consulting Privacy Policy',
+      },
+    ],
+  },
+};
+
 export default function PrivacyPolicyRoute() {
   return (
     <PageWrapper>

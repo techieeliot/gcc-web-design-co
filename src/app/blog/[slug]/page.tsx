@@ -40,6 +40,13 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   return {
     title: `${post.title} | SANFORDEV Blog`,
     description: post.summary,
+    keywords: [
+      'SANFORDEV Consulting web development programming blogs, articles, insights, best practices, and tutorials',
+      post.title,
+      post.tags
+        ? post.tags.join(', ')
+        : 'React.js, Next.js, TypeScript, JavaScript',
+    ],
     openGraph: {
       title: post.title,
       description: post.summary,
@@ -53,6 +60,12 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
           alt: post.title,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+      images: [post.image],
     },
   };
 }

@@ -194,10 +194,20 @@ export function Copyright({ currentYear }: { currentYear: number }) {
         'mt-12 pt-8 pb-8'
       )}
     >
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-slate-600 dark:text-frost/80 flex items-center">
-          &copy; {currentYear} SANFORDEV Consulting. All rights reserved.
-        </p>
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center sm:items-start sm:flex-row gap-2">
+          <p className="text-sm text-slate-600 dark:text-frost/80 flex items-center">
+            &copy; {currentYear} SANFORDEV Consulting. All rights reserved.
+          </p>
+          <Link
+            href="/privacy"
+            variant="inlineLink"
+            className="text-sm text-slate-600 dark:text-frost/80"
+          >
+            Privacy Policy
+          </Link>
+        </div>
+
         <MadeWithLove />
       </div>
     </div>

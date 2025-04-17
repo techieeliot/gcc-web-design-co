@@ -5,6 +5,43 @@ import PageWrapper from '@/components/PageWrapper';
 
 export const revalidate = 3600; // Revalidate every hour
 
+// Metadata for the contact page
+export const metadata = {
+  title: 'Contact Us | SANFORDEV Consulting',
+  description:
+    'Get in touch with us for expert React, Next.js, and TypeScript development services.',
+  alternates: {
+    canonical: '/contact',
+  },
+  keywords: [
+    'Contact SANFORDEV Consulting',
+    'React development services inquiry',
+    'Next.js consulting contact',
+    'TypeScript development questions',
+  ],
+  openGraph: {
+    title: 'Contact Us | SANFORDEV Consulting',
+    description:
+      'Get in touch with us for expert React, Next.js, and TypeScript development services.',
+    url: 'https://sanfordev.com/contact',
+    images: [
+      {
+        url: '/images/contact-social.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Contact SANFORDEV Consulting',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us | SANFORDEV Consulting',
+    description:
+      'Get in touch with us for expert React, Next.js, and TypeScript development services.',
+    images: ['/images/contact-social.webp'],
+  },
+};
+
 export default function ContactPage() {
   return (
     <PageWrapper>
