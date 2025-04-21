@@ -595,6 +595,22 @@ export const serviceCategories: ServiceCategory[] = [
   },
 ];
 
+export const downToEarthValues = [
+  {
+    title: 'Genuine Relationships',
+    description:
+      'Building trust through authentic connections and open communication',
+  },
+  {
+    title: 'Technical Excellence',
+    description: 'Delivering robust solutions with modern best practices',
+  },
+  {
+    title: 'Southern Hospitality',
+    description: 'Bringing warmth and care to every interaction and project',
+  },
+];
+
 export const missionStatement = {
   quote:
     'Building remarkable applications that empower people through functional, delightful, and accessible experiences.',

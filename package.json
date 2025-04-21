@@ -9,7 +9,7 @@
   "scripts": {
     "preinstall": "ts-node --project tsconfig.node.json ./scripts/check-versions.ts",
     "dev": "next dev -p 8888",
-    "ntl": "netlify dev --target-port 3000 --port 8888",
+    "ntl": "netlify dev --port 8888",
     "ntl:build": "next build",
     "build": "next build",
     "start": "next start -p 9999",
