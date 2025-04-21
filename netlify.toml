@@ -1,5 +1,9 @@
+  # Installs the Next.js & Lighthouse Build Plugins for all deploy contexts
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
 
 [build]
   command = "npm run build"
