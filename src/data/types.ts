@@ -1,4 +1,4 @@
-import { IconName } from '@ui/icon';
+import { IconName, IconProps } from '@ui/icon';
 
 export interface PolicyItem {
   id: string;
@@ -87,6 +87,12 @@ export interface Fact {
   icon: IconName;
 }
 [];
+
+export interface CompanyValue {
+  iconName: IconProps['name'];
+  title: string;
+  description: string;
+}
 
 export interface SiteMapRoute {
   path: string;

@@ -99,16 +99,18 @@ export const FeaturesSection = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
         {features.map((feature) => (
-          <Card key={feature.title} className="p-6 w-full">
-            <CardTitle>
-              <div className="rounded-full w-12 h-12 bg-sky-100 dark:bg-indigo/10 flex items-center justify-center mb-4">
-                <Icon
-                  name={feature.icon}
-                  className="w-6 h-6 text-sky dark:text-indigo"
-                />
-              </div>
-              <h3 className="text-navy dark:text-body">{feature.title}</h3>
-            </CardTitle>
+          <Card key={feature.title} className="w-full pb-6">
+            <CardHeader>
+              <CardTitle>
+                <div className="rounded-full w-12 h-12 bg-sky-100 dark:bg-indigo/10 flex items-center justify-center mb-4">
+                  <Icon
+                    name={feature.icon}
+                    className="w-6 h-6 text-sky dark:text-indigo"
+                  />
+                </div>
+                <h3 className="text-navy dark:text-body">{feature.title}</h3>
+              </CardTitle>
+            </CardHeader>
             <CardContent>
               <p>{feature.description}</p>
             </CardContent>
@@ -310,7 +312,7 @@ export function ValueProposition() {
       </Card>
 
       <CardCallout>
-        <CardContent className="pt-6 flex flex-col items-end gap-8">
+        <CardContent className="py-6 flex flex-col items-end gap-8">
           <blockquote className="text-slate-700 dark:text-slate-200 italic">
             "SANFORDEV helped us create a platform from ideation that not only
             looks great but also helped us earn our first revenue generating

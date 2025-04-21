@@ -1,7 +1,9 @@
+import { IconProps } from '@/components/ui/icon';
 import {
   AnchorLink,
   CaseStudy,
   CompanyLink,
+  CompanyValue,
   Fact,
   Feature,
   Implementation,
@@ -590,6 +592,48 @@ export const serviceCategories: ServiceCategory[] = [
         icons: ['LayoutGrid', 'PenTool', 'MonitorSmartphone'],
       },
     ],
+  },
+];
+
+export const missionStatement = {
+  quote:
+    'Building remarkable applications that empower people through functional, delightful, and accessible experiences.',
+  person: 'Eliot Sanford',
+  title: 'Founder & Team Lead',
+};
+
+export const volunteerActivities = [
+  'Founding freeCodeCamp Jackson, MS',
+  'Mentoring at Base Camp Coding Academy',
+  'Teaching web development to underrepresented youth',
+  'Contributing to open source education',
+  'Supporting nonprofits through GiveCamp',
+];
+
+export const companyValues: CompanyValue[] = [
+  {
+    iconName: 'Hammer',
+    title: 'Build',
+    description:
+      "We build high-performance, accessible applications that don't just work—they inspire and connect.",
+  },
+  {
+    iconName: 'Users',
+    title: 'Empower',
+    description:
+      'We simplify technology to empower you—making every interaction intuitive and impactful.',
+  },
+  {
+    iconName: 'Goal',
+    title: 'Innovate',
+    description:
+      'We lead with creativity and adaptability—constantly exploring new horizons in tech innovation.',
+  },
+  {
+    iconName: 'Heart',
+    title: 'Support',
+    description:
+      'We stand together—nurturing a community that values diversity, collaboration, and heart.',
   },
 ];
 
