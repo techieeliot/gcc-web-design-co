@@ -1,9 +1,23 @@
-  # Installs the Next.js & Lighthouse Build Plugins for all deploy contexts
+# Installs the Next.js & Lighthouse Build Plugins for all deploy contexts
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    output_path = "reports/lighthouse"
+    audits = [
+      { path = "/" },
+      { path = "/about" },
+      { path = "/services" },
+      { path = "/portfolio" },
+      { path = "/blog" },
+      { path = "/blog/all" },
+      { path = "/contact" }
+    ]
+    thresholds = [
+      { performance = 0.9, accessibility = 0.9, "best-practices" = 0.9, seo = 0.9 }
+    ]
 
 [build]
   command = "npm run build"
@@ -14,6 +28,7 @@
   NODE_VERSION = "20.19.0"
   NPM_VERSION = "10.9.2"
   NEXT_PUBLIC_SITE_URL = "https://sanfordev.com"
+  NODE_OPTIONS = "--max-old-space-size=4096"
 
 # Development settings
 [dev]
