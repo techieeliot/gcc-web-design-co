@@ -1,6 +1,15 @@
 import { Link } from '@ui/link';
 import { Author, Post } from '../types';
 import Image from 'next/image';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  CardMediaContent,
+  CardTitle,
+} from 'components/ui/card';
+import { generateBlurPlaceholder } from '@/lib/image';
 
 interface RelatedPostsProps {
   currentSlug: string;
@@ -26,12 +35,31 @@ export function RelatedPosts({ currentSlug, posts }: RelatedPostsProps) {
             aria-label={`Read ${post.title}`}
             title={post.title}
           >
-            <h3 className="text-xl font-semibold group-hover:text-sky transition-colors text-ellipsis whitespace-nowrap overflow-hidden">
-              {post.title}
-            </h3>
-            <p className="mt-2 text-ellipsis whitespace-nowrap overflow-hidden">
-              {post.summary}
-            </p>
+            <Card>
+              <CardMediaContent className="aspect-[16/9] w-full overflow-hidden h-fit rounded-tl-xl rounded-tr-xl">
+                <CardMedia
+                  src={post.image}
+                  alt={post.title}
+                  loading="lazy"
+                  priority={false}
+                  placeholder="blur"
+                  blurDataURL={
+                    post.blurDataUrl || generateBlurPlaceholder(800, 450)
+                  }
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </CardMediaContent>
+              <CardHeader>
+                <CardTitle>
+                  <h3 className="text-xl font-semibold group-hover:text-sky transition-colors text-ellipsis whitespace-nowrap overflow-hidden">
+                    {post.title}
+                  </h3>
+                </CardTitle>
+                <p className="mt-2 text-ellipsis whitespace-nowrap overflow-hidden">
+                  {post.summary}
+                </p>
+              </CardHeader>
+            </Card>
           </Link>
         ))}
       </div>

@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation';
 import { caseStudies } from '@/data';
 import { Metadata } from 'next';
-import { CaseStudyNav } from './CaseStudyNav';
-import { CaseStudyLayout } from './CaseStudyLayout';
+import { CaseStudyLayout, CaseStudyNav } from './components';
 import { Suspense } from 'react';
 import { Shimmer } from '@ui/shimmer';
 import PageWrapper from '@/components/PageWrapper';
+import { DescriptionCard } from '@/components/DescriptionCard';
 
 export async function generateStaticParams(): Promise<{ id: string }[]> {
   return caseStudies.map((study) => ({
@@ -75,6 +75,8 @@ export default async function CaseStudyPage({ params }: any) {
             image={caseStudy.image}
             imageAlt={caseStudy.imageAlt}
             icons={caseStudy.icons}
+            footerContent={caseStudy.caseStudyUrlLabel}
+            url={caseStudy.caseStudyUrl}
           >
             <div className="space-y-8">
               {/* Introduction */}
@@ -84,12 +86,17 @@ export default async function CaseStudyPage({ params }: any) {
               <section>
                 <h2 className="text-2xl font-bold mb-6">Key Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {caseStudy.features.map((feature, idx) => (
-                    <div key={idx} className="space-y-2">
-                      <h3 className="text-xl font-semibold">{feature.title}</h3>
-                      <p>{feature.description}</p>
-                    </div>
-                  ))}
+                  {caseStudy.features.map(
+                    ({ icon, title, description }, idx) => (
+                      <DescriptionCard
+                        key={idx}
+                        iconName={icon}
+                        title={title}
+                        description={description}
+                        className="flex flex-col items-start sm:justify-center gap-2 p-2 sm:p-8 xl:p-10"
+                      />
+                    )
+                  )}
                 </div>
               </section>
 
@@ -98,14 +105,13 @@ export default async function CaseStudyPage({ params }: any) {
                 <h2 className="text-2xl font-bold mb-6">Impact</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {caseStudy.stats.map((stat, idx) => (
-                    <div key={idx} className="text-center">
-                      <p className="text-3xl font-bold text-indigo dark:text-sky">
-                        {stat.value}
-                      </p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
-                        {stat.label}
-                      </p>
-                    </div>
+                    <DescriptionCard
+                      key={idx}
+                      iconName={stat.icon}
+                      title={stat.value}
+                      description={stat.label}
+                      className="flex flex-col items-center py-8"
+                    />
                   ))}
                 </div>
               </section>

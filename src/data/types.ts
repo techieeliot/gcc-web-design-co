@@ -42,6 +42,8 @@ export interface CaseStudy {
     value: string;
     label: string;
   }>;
+  caseStudyUrlLabel: string;
+  caseStudyUrl: string;
 }
 
 export interface AnchorLink

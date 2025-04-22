@@ -10,6 +10,7 @@ import { Link } from '@ui/link';
 import { FormField, ValidationError } from './FormField';
 import { Icon } from '@ui/icon';
 import { useSubmit } from '@formspree/react';
+import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card';
 
 const formSchema = z.object({
   name: z
@@ -61,17 +62,11 @@ export default function ContactForm() {
     process.env.NEXT_PUBLIC_CONTACT_FORM_ID as string
   );
   return (
-    <article
-      className={cn(
-        'backdrop-blur-md rounded-xl p-8 shadow-lg',
-        'bg-white dark:bg-slate-900',
-        'border border-slate-200 dark:border-slate-800'
-      )}
-    >
-      <div className="text-center">
-        <h2 className="font-bold tracking-tight mb-6">
-          Let's Ignite Your Vision
-        </h2>
+    <Card>
+      <CardHeader className="text-center">
+        <CardTitle>
+          <h2 className="tracking-tight mb-6">Let's Ignite Your Vision</h2>
+        </CardTitle>
 
         <p className="text-base leading-relaxed mb-6 max-w-2xl mx-auto">
           Whether you're looking for innovative technical consulting, expertly
@@ -79,7 +74,8 @@ export default function ContactForm() {
           to help bring your vision to life. We genuinely care about your
           goals—and yes, our coffee is always strong ☕.
         </p>
-
+      </CardHeader>
+      <CardContent>
         {isSubmitSuccessful ? (
           <div className="py-8 text-center">
             <div className="flex justify-center mb-4">
@@ -262,7 +258,7 @@ export default function ContactForm() {
             </div>
           </form>
         )}
-      </div>
-    </article>
+      </CardContent>
+    </Card>
   );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { caseStudies } from '@/data';
 import { cn } from '@/lib/utils';
-import { CaseStudyCard } from './[id]/CaseStudyCard';
+import { CaseStudyCard } from './components';
 import PageWrapper from '@/components/PageWrapper';
 import Image from 'next/image';
 import { generateBlurPlaceholder } from '@/lib/image';
@@ -104,10 +104,7 @@ export default function PortfolioRoute() {
           <CaseStudyCard key={study.id} index={index} {...study} />
         ))}
       </section>
-      <section
-        // reduce the width of the section to 100% to make it full width
-        className="w-full rounded-xl p-6 md:p-8 lg:p-32 shadow-lg"
-      >
+      <section className="w-full px-0 md:px-8 lg:px-32 lg:py-8">
         <ValueProposition />
       </section>
     </PageWrapper>

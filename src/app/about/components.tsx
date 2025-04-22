@@ -15,7 +15,6 @@ import LogoEmblem from '@/components/logo-emblem';
 import {
   Card,
   CardActions,
-  CardCallout,
   CardContent,
   CardHeader,
   CardTitle,
@@ -157,7 +156,7 @@ export const AboutSection = () => {
 
       {/* Combined Community and Leadership Sections */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <Card className="bg-white/50 dark:bg-slate-800/30">
+        <Card background="off">
           <CardHeader>
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               🤝 Community Involvement
@@ -183,7 +182,7 @@ export const AboutSection = () => {
         </Card>
 
         <div>
-          <Card className="bg-white/50 dark:bg-slate-800/30">
+          <Card background="off">
             <CardHeader className="flex flex-col items-center gap-6">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 👨‍💻 Management
@@ -272,7 +271,7 @@ export const AboutSection = () => {
 
 export const CompanyFacts = () => {
   return (
-    <Card className={cn('bg-white dark:bg-slate-800 pb-6')}>
+    <Card background="mode" className="pb-6">
       <CardHeader>
         <h3 className="text-2xl md:text-3xl font-bold mb-6">Company Facts</h3>
       </CardHeader>
@@ -301,7 +300,7 @@ export const CompanyFacts = () => {
 
 export const ConnectWithUs = () => {
   return (
-    <CardCallout className="bg-white dark:bg-slate-800">
+    <Card variant="callout" background="mode">
       <CardHeader>
         <h3 className="text-2xl md:text-3xl font-bold mb-6">Connect With Us</h3>
       </CardHeader>
@@ -327,7 +326,7 @@ export const ConnectWithUs = () => {
           </div>
         ))}
       </CardContent>
-    </CardCallout>
+    </Card>
   );
 };
 

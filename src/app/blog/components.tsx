@@ -1,10 +1,19 @@
-import { Link } from '@ui/link';
 import Image from 'next/image';
 import { ValueProposition } from '../components';
 import { generateBlurPlaceholder } from '@/lib/image';
 import Markdown from 'markdown-to-jsx';
 import DateDisplay from '@/components/DateDisplay';
 import { Post } from './types';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  CardMediaContent,
+  CardTitle,
+} from 'components/ui/card';
+import { Link } from '@/components/ui/link';
+import NextLink from 'next/link';
 
 export const RecentPosts = ({ posts }: { posts: Post[] }) => {
   return (
@@ -15,33 +24,29 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
 
       <div className="space-y-8">
         {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="flex flex-col gap-6 lg:gap-3 group lg:items-center lg:justify-between xl:flex-col"
-          >
-            <Link
-              href={`/blog/${post.slug}`}
-              className="relative aspect-[16/9] rounded-xl overflow-hidden h-fit w-full lg:h-full lg:w-fit"
-              aria-label={`Go to ${post.title}`}
-            >
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={800}
-                height={450}
-                quality={75}
-                placeholder="blur"
-                blurDataURL={
-                  post.blurDataUrl || generateBlurPlaceholder(800, 450)
-                }
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-all duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-            </Link>
-            <div>
-              <header className="mb-2">
-                <DateDisplay date={post.publishedAt} />
+          <Card key={post.slug} className="group">
+            <CardMediaContent className="aspect-[16/9] w-full overflow-hidden h-fit rounded-tl-xl rounded-tr-xl">
+              <NextLink
+                href={`/blog/${post.slug}`}
+                aria-label={`Go to ${post.title}`}
+              >
+                <CardMedia
+                  src={post.image}
+                  alt={post.title}
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL={
+                    post.blurDataUrl || generateBlurPlaceholder(800, 450)
+                  }
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="transition-all duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </NextLink>
+            </CardMediaContent>
+            <CardHeader className="mb-2">
+              <DateDisplay date={post.publishedAt} />
+              <CardTitle>
                 <h3 className="text-xl font-semibold mt-1">
                   <Link
                     variant="inlineLink"
@@ -52,12 +57,12 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
                     {post.title}
                   </Link>
                 </h3>
-              </header>
-              <p className="text-slate-600 dark:text-slate-300 line-clamp-3">
-                {post.summary}
-              </p>
-            </div>
-          </article>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="line-clamp-3">{post.summary}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
       <div className="mt-8">
@@ -99,7 +104,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
             loading="lazy"
           />
         </Link>
-        <header className="flex flex-col gap-2">
+        <header className="flex flex-col gap-6">
           <DateDisplay date={featuredPost.publishedAt} />
           <Link
             href={`/blog/${featuredPost.slug}`}
@@ -110,9 +115,11 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
               {featuredPost.title}
             </h3>
           </Link>
-          <p className="text-slate-500 dark:text-slate-400 mt-1 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg line-clamp-2 border-l-4 border-l-sky min-h-60 sm:min-h-fit">
-            {featuredPost.summary}
-          </p>
+          <Card variant="callout">
+            <CardHeader>
+              <p>{featuredPost.summary}</p>
+            </CardHeader>
+          </Card>
         </header>
         <Markdown
           // place gaps between block elements

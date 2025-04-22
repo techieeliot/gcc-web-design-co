@@ -9,7 +9,6 @@ import { Shimmer } from '@ui/shimmer';
 import { CldImage } from 'next-cloudinary';
 import {
   Card,
-  CardCallout,
   CardContent,
   CardDescription,
   CardFooter,
@@ -18,15 +17,16 @@ import {
   CardMediaContent,
   CardTitle,
 } from 'components/ui/card';
+import { Pill } from '@/components/Pill';
 
 export const HeroSection = () => (
   <section data-testid="hero-section">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <div className="order-2 lg:order-1">
-        <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10  font-medium rounded-full mb-4">
+        <Pill className="gap-2 px-4 py-2 mb-4">
           <Icon name="Code" className="w-4 h-4" />
           <span className="text-sm">React & Next.js Specialists</span>
-        </span>
+        </Pill>
 
         <h1 className="text-display font-display text-foreground max-w-lg mb-6">
           Digital Solutions You Can Grow With
@@ -169,7 +169,7 @@ export const CallToActionSection = () => (
 
 export function ProjectShowcase() {
   return (
-    <Card className="sticky top-24 w-full">
+    <Card className="sticky top-24 w-full border-none shadow-none backdrop-blur-none bg-transparent">
       <CardHeader className="mb-4">
         <CardTitle>
           <h3 className="text-subtitle font-subtitle text-foreground mb-2">
@@ -184,14 +184,14 @@ export function ProjectShowcase() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        <ProjectCard
+        <ImageCard
           title="Fourth Party"
           description="An innovative platform designed to simplify mediation with clarity and purpose."
           image="/images/pic13.webp"
           tags={['React', 'Modern UI', 'CRM']}
           link="/portfolio/fourth-party"
         />
-        <ProjectCard
+        <ImageCard
           title="Room in the Inn Memphis"
           description="A complete redesign crafted to uplift community impact through empathy and user-first design."
           image="/images/pic10.webp"
@@ -203,7 +203,7 @@ export function ProjectShowcase() {
   );
 }
 
-const ProjectCard = ({
+const ImageCard = ({
   title,
   description,
   image,
@@ -236,12 +236,7 @@ const ProjectCard = ({
       <CardContent className="flex flex-wrap gap-5">
         <p>{description}</p>
         {tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-sm text-night dark:text-white bg-muted rounded"
-          >
-            {tag}
-          </span>
+          <Pill key={tag}>{tag}</Pill>
         ))}
       </CardContent>
 
@@ -311,7 +306,7 @@ export function ValueProposition() {
         </CardFooter>
       </Card>
 
-      <CardCallout>
+      <Card variant="callout">
         <CardContent className="py-6 flex flex-col items-end gap-8">
           <blockquote className="text-slate-700 dark:text-slate-200 italic">
             "SANFORDEV helped us create a platform from ideation that not only
@@ -329,7 +324,7 @@ export function ValueProposition() {
             <span className="text-sm">Co-Owner, Fourth Party</span>
           </cite>
         </CardContent>
-      </CardCallout>
+      </Card>
     </div>
   );
 }
@@ -383,7 +378,7 @@ export const BlogHighlightSection = () => (
       <div className="lg:col-span-7 w-full flex flex-col gap-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <ProjectCard
+            <ImageCard
               title="Framer Motion Animations"
               description="Learn how we create smooth, performant animations that enhance user experience without compromising load times."
               image="/blog/framer-motion-animations.webp"
@@ -393,7 +388,7 @@ export const BlogHighlightSection = () => (
           </div>
 
           <div>
-            <ProjectCard
+            <ImageCard
               title="Tailwind Best Practices"
               description="Discover our approach to building maintainable, scalable CSS with Tailwind in modern React applications."
               image="/blog/tailwind-best-practices.webp"
@@ -403,7 +398,7 @@ export const BlogHighlightSection = () => (
           </div>
         </div>
 
-        <CardCallout>
+        <Card variant="callout">
           <CardHeader>
             <h3>Why Read Our Blog?</h3>
           </CardHeader>
@@ -434,7 +429,7 @@ export const BlogHighlightSection = () => (
               </li>
             </ul>
           </CardContent>
-        </CardCallout>
+        </Card>
       </div>
     </div>
   </section>

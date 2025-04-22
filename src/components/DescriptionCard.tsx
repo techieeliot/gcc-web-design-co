@@ -1,17 +1,20 @@
 import { Card, CardHeader, CardTitle, CardContent } from 'components/ui/card';
 import { Icon, IconProps } from './ui/icon';
+import { HTMLAttributes } from 'react';
+import { cn } from '@/lib/utils';
 
 export const DescriptionCard = ({
   iconName,
   title,
   description,
-}: {
+  className,
+}: HTMLAttributes<HTMLDivElement> & {
   iconName: IconProps['name'];
   title: string;
   description: string;
 }) => {
   return (
-    <Card className="bg-white dark:bg-slate-800/50">
+    <Card background="mode" className={className}>
       <CardHeader className="flex flex-row items-center gap-3 mb-2">
         <Icon
           name={iconName}

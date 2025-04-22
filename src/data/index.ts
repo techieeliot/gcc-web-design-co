@@ -136,6 +136,9 @@ export const caseStudies: CaseStudy[] = [
         label: 'Efficiency Increase',
       },
     ],
+    caseStudyUrlLabel:
+      'Fourth Party is a web-based platform designed to streamline the mediation process. The platform focuses on automating scheduling, payments, and client communication, significantly reducing administrative time and enhancing efficiency for mediators. The comprehensive dashboard allows mediators to manage appointments, payments, and client interactions seamlessly. Check out the website to learn more about how Fourth Party is transforming the mediation process.',
+    caseStudyUrl: 'https://fourthparty.app',
   },
   {
     id: 'weed-warriors',
@@ -187,6 +190,9 @@ export const caseStudies: CaseStudy[] = [
         label: 'Customer Growth',
       },
     ],
+    caseStudyUrlLabel:
+      'We helped Weed Warriors create their first website ever, and it has proven to tremenously improve the bottomline of the business. Check out the website to learn more about their services and how they can help you maintain a beautiful lawn.',
+    caseStudyUrl: 'https://weedwarriorsjackson.com',
   },
   {
     id: 'gorilla-fund',
@@ -239,6 +245,9 @@ export const caseStudies: CaseStudy[] = [
         label: 'Team Adoption',
       },
     ],
+    caseStudyUrlLabel:
+      'The Dian Fossey Gorilla Fund is dedicated to protecting and studying endangered mountain gorillas. Visit their website to learn more about their crucial conservation work and how technology supports their mission.',
+    caseStudyUrl: 'https://gorillafund.org',
   },
   {
     id: 'dare-to-share',
@@ -291,6 +300,9 @@ export const caseStudies: CaseStudy[] = [
         label: 'Team Enabled',
       },
     ],
+    caseStudyUrlLabel:
+      'The Dare to Share organization is a national initiative that mobilizes Christian youth to share the Gospel. The website serves as a platform for information, resources, and community engagement. Check out the website to learn more about their mission and how you can get involved.',
+    caseStudyUrl: 'https://daretoshare.org',
   },
   {
     id: 'room-in-the-inn-memphis',
@@ -343,6 +355,9 @@ export const caseStudies: CaseStudy[] = [
         label: 'Mission Support',
       },
     ],
+    caseStudyUrlLabel:
+      'Room in the Inn Memphis is a nonprofit organization that provides shelter and support for homeless individuals in Memphis, TN. They work to connect people with resources and services to help them get back on their feet. If you want to learn more about their mission and how you can help, check out their website.',
+    caseStudyUrl: 'https://roomintheinn-memphis.org',
   },
 ] as const;
 

@@ -2,21 +2,44 @@ import * as React from 'react';
 import Image, { ImageProps } from 'next/image';
 
 import { cn } from '@/lib/utils';
+import { cva, VariantProps } from 'class-variance-authority';
+
+const cardVariants = cva(
+  cn(
+    'rounded-xl border border-border shadow backdrop-blur-md',
+    'hover:bg-sky-100 dark:hover:bg-indigo/10 transition-colors',
+    'hover:shadow-md transition-shadow duration-300'
+  ),
+  {
+    variants: {
+      variant: {
+        default: '',
+        callout: 'border-l-8 border-l-sky',
+      },
+      background: {
+        default: 'bg-card text-card-foreground',
+        mode: 'bg-white dark:bg-slate-800/50 text-night dark:text-white',
+        off: 'bg-white/50 dark:bg-slate-800/30',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      background: 'default',
+    },
+  }
+);
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>
+>(({ variant, background, className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      'rounded-xl border bg-card text-card-foreground shadow backdrop-blur-md',
-      'hover:bg-sky-100 dark:hover:bg-indigo/10 transition-colors',
-      className
-    )}
+    className={cn(cardVariants({ variant, background, className }))}
     {...props}
   />
 ));
+
 Card.displayName = 'Card';
 
 const CardHeader = React.forwardRef<
@@ -94,22 +117,6 @@ const CardActions = React.forwardRef<
 
 CardActions.displayName = 'CardActions';
 
-const CardCallout = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <Card
-    ref={ref}
-    className={cn(
-      'bg-gradient-to-r from-sky/5 to-indigo/5 dark:from-sky/10 dark:to-indigo/10 border-l-4 border-l-sky',
-      className
-    )}
-    {...props}
-  />
-));
-
-CardCallout.displayName = 'CardCallout';
-
 const CardMedia = React.forwardRef<HTMLImageElement, ImageProps>(
   ({ className, ...props }, ref) => (
     <Image
@@ -137,7 +144,6 @@ export {
   CardHeader,
   CardFooter,
   CardActions,
-  CardCallout,
   CardTitle,
   CardDescription,
   CardContent,

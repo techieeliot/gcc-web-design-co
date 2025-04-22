@@ -10,6 +10,7 @@ import { Suspense } from 'react';
 import PageWrapper from '@/components/PageWrapper';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import DateDisplay from '@/components/DateDisplay';
+import { Card, CardHeader } from 'components/ui/card';
 
 // Add error handling for generateStaticParams
 export async function generateStaticParams() {
@@ -106,25 +107,16 @@ export default async function BlogPost({ params }: any) {
           />
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-        <div className="flex flex-col gap-4 text-slate-600 dark:text-slate-400">
+        <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
           <DateDisplay date={post.publishedAt} />
-          <p className="text-lg ">
-            {post.author.image && (
-              <Image
-                src={post.author.image}
-                alt={post.author.name}
-                width={24}
-                height={24}
-                className="inline-block rounded-full mr-2"
-                loading="lazy"
-                quality={75}
-              />
-            )}
-            {post.author.name}
-          </p>
-          <p className="text-xl line-clamp-3">
-            <strong>TLDR;</strong> {post.summary}
-          </p>
+          <p className="text-lg ">By {post.author.name}</p>
+          <Card variant="callout">
+            <CardHeader>
+              <p className="text-xl">
+                <strong className="text-2xl">TLDR;</strong> {post.summary}
+              </p>
+            </CardHeader>
+          </Card>
         </div>
       </header>
 

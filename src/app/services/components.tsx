@@ -8,7 +8,6 @@ import { serviceCategories, implementations, downToEarthValues } from '@/data';
 import {
   Card,
   CardActions,
-  CardCallout,
   CardContent,
   CardFooter,
   CardHeader,
@@ -16,7 +15,6 @@ import {
 } from 'components/ui/card';
 import { Link } from '@/components/ui/link';
 import { ServiceCardProps } from './types';
-import { Car } from 'lucide-react';
 
 export function ServicesMainContent() {
   return (
@@ -196,7 +194,7 @@ export const ServicesSidebar = () => {
           </CardContent>
         </Card>
       ))}
-      <CardCallout>
+      <Card variant="callout">
         <CardHeader>
           <CardTitle>
             <h3 className="text-2xl font-bold">Ready to get started?</h3>
@@ -215,7 +213,7 @@ export const ServicesSidebar = () => {
             </Link>
           </CardActions>
         </CardFooter>
-      </CardCallout>
+      </Card>
     </aside>
   );
 };
