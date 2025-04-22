@@ -9,11 +9,30 @@ import {
 } from './components';
 import Loading from './loading';
 import PageWrapper from '@/components/PageWrapper';
+import JsonLd from './components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Welcome | SANFORDEV',
+  metadataBase: new URL('https://sanfordev.com'),
+  title: {
+    default: 'SANFORDEV | Modern Web Development Services',
+    template: '%s | SANFORDEV',
+  },
   description:
     'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
+  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+  themeColor: '#000000',
+  manifest: '/manifest.json',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: '/',
   },
@@ -62,6 +81,7 @@ export const revalidate = 3600; // Revalidate every hour
 export default function HomePage() {
   return (
     <PageWrapper>
+      <JsonLd />
       <Suspense fallback={<Loading />}>
         <HeroSection />
         <FeaturesSection />

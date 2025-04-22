@@ -125,6 +125,10 @@
     /* Scroll */
     --header-height: 5rem; /* 80px - adjust based on your header height */
     --scroll-margin: calc(var(--header-height) + 2rem);
+
+    /* Font */
+    --min-tap-target-height: 48px;
+    --min-font-size: 16px;
   }
 
   .dark {
@@ -382,6 +386,30 @@
 
   section[id] {
     scroll-margin-top: var(--scroll-margin);
+  }
+
+  /* Accessibility */
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-size: var(--min-font-size);
+  }
+
+  /* Ensure tap targets are large enough */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: var(--min-tap-target-height);
+    min-width: var(--min-tap-target-height);
+    padding: 8px;
+  }
+
+  /* Ensure proper spacing between interactive elements */
+  button:not(:last-child),
+  a:not(:last-child) {
+    margin-right: 8px;
+    margin-bottom: 8px;
   }
 }
 
