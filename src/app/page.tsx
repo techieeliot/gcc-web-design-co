@@ -19,8 +19,6 @@ export const metadata: Metadata = {
   },
   description:
     'Transform your digital presence with high-performance web applications built using React, Next.js, and TypeScript.',
-  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
-  themeColor: '#000000',
   manifest: '/manifest.json',
   robots: {
     index: true,
@@ -74,6 +72,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#000000',
 };
 
 export const revalidate = 3600; // Revalidate every hour
