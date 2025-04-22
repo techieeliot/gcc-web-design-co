@@ -1,6 +1,14 @@
+export interface AuthorSocialLinks {
+  twitter?: string;
+  github?: string;
+  linkedin?: string;
+  website?: string;
+}
+
 export type Author = {
   name: string;
   image: string;
+  social?: AuthorSocialLinks;
 };
 
 export interface Post {

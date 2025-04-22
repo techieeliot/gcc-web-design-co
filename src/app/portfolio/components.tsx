@@ -2,7 +2,6 @@
 
 import { Icon, IconName } from '@ui/icon';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 import { Suspense, useRef } from 'react';
 import {
   Card,
@@ -14,6 +13,7 @@ import {
 import { Shimmer } from '@/components/ui/shimmer';
 import Image from '@/components/image';
 import { generateBlurPlaceholder } from '@/lib/image';
+import { Link } from '@/components/ui/link';
 
 interface CaseStudyCardProps {
   id: string;
@@ -48,19 +48,19 @@ export const CaseStudyCard = ({
   const ref = useRef(null);
 
   return (
-    <Card
-      ref={ref}
-      background="mode"
-      className={cn('group relative flex flex-col', 'overflow-hidden')}
+    <Link
+      href={`/portfolio/${id}`}
+      aria-label={`Click on this image to find out more about ${title}`}
+      title={`Click on this image to find out more about ${title}`}
+      noButtonWrapper
     >
-      <Link
-        href={`/portfolio/${id}`}
-        className="flex flex-col flex-1"
-        aria-label={`Click on this image to find out more about ${title}`}
-        title={`Click on this image to find out more about ${title}`}
+      <Card
+        ref={ref}
+        background="mode"
+        className={cn('group relative flex flex-col', 'overflow-hidden')}
       >
-        {/* Image Section */}
         <CardMediaContent className="h-48 sm:h-52 overflow-hidden">
+          {/* Image Section */}
           <CardMedia
             src={image}
             alt={imageAlt}
@@ -137,8 +137,8 @@ export const CaseStudyCard = ({
             })}
           </div>
         </CardContent>
-      </Link>
-    </Card>
+      </Card>
+    </Link>
   );
 };
 

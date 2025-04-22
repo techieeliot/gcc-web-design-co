@@ -53,9 +53,9 @@ export const HeroSection = () => (
             href="/portfolio"
             variant="outline"
             size="lg"
-            aria-label="View SANFORDEV's Work"
+            aria-label="View SANFORDEV's Case Studies"
           >
-            View Our Work
+            View Our Case Studies
           </Link>
         </div>
       </div>
@@ -158,9 +158,9 @@ export const CallToActionSection = () => (
           href="/portfolio"
           variant="outline"
           size="lg"
-          aria-label="View SANFORDEV's Work"
+          aria-label="View SANFORDEV's Case Studies"
         >
-          View Our Work
+          View Our Case Studies
         </Link>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef } from 'react';
-import Link from 'next/link';
 import { CodeBlock } from './code-block';
+import { Link } from '../ui/link';
 
 type HeadingProps = ComponentPropsWithoutRef<'h1'>;
 type ParagraphProps = ComponentPropsWithoutRef<'p'>;
@@ -48,35 +48,11 @@ const components = {
   strong: (props: ComponentPropsWithoutRef<'strong'>) => (
     <strong className="font-medium" {...props} />
   ),
-  a: ({ href, children, ...props }: AnchorProps) => {
-    const className =
-      'text-blue-500 hover:text-blue-700 dark:text-gray-400 hover:dark:text-gray-300 dark:underline dark:underline-offset-2 dark:decoration-gray-800';
-    if (href?.startsWith('/')) {
-      return (
-        <Link href={href} className={className} {...props}>
-          {children}
-        </Link>
-      );
-    }
-    if (href?.startsWith('#')) {
-      return (
-        <a href={href} className={className} {...props}>
-          {children}
-        </a>
-      );
-    }
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-        {...props}
-      >
-        {children}
-      </a>
-    );
-  },
+  a: ({ href, children, ...props }: AnchorProps) => (
+    <Link href={href!} {...props}>
+      {children}
+    </Link>
+  ),
   code: ({ children, ...props }: ComponentPropsWithoutRef<'code'>) => {
     return <CodeBlock {...props}>{children}</CodeBlock>;
   },

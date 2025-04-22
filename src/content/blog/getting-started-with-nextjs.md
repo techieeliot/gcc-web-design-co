@@ -3,7 +3,18 @@ title: 'Getting Started with Next.js'
 publishedAt: '2025-04-02'
 summary: 'A beginner-friendly guide to setting up a Next.js project with TypeScript, App Router, and modern best practices.'
 image: '/blog/getting-started-with-nextjs.webp'
-author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+author:
+  {
+    name: 'Eliot Sanford',
+    image: '/authors/eliot.webp',
+    social:
+      {
+        twitter: 'techieeliot',
+        github: 'techieeliot',
+        linkedin: 'techieeliot',
+        website: 'https://techieeliot.com/',
+      },
+  }
 tags: ['next.js', 'beginner', 'typescript', 'best practices']
 ---
 

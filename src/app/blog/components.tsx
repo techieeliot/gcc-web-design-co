@@ -15,22 +15,23 @@ import {
   CardTitle,
 } from 'components/ui/card';
 import { Link } from '@/components/ui/link';
-import NextLink from 'next/link';
+import { AuthorSection } from './[slug]/components';
 
 export const RecentPosts = ({ posts }: { posts: Post[] }) => {
   return (
     <section className="bg-white dark:bg-slate-800 rounded-xl p-6">
-      <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-        <span className="dark:text-white">Recent Posts</span>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 flex items-center gap-2">
+        Recent Posts
       </h2>
 
       <div className="space-y-8">
         {posts.map((post) => (
           <Card key={post.slug} className="group">
             <CardMediaContent className="aspect-[16/9] w-full overflow-hidden h-fit rounded-tl-xl rounded-tr-xl">
-              <NextLink
+              <Link
                 href={`/blog/${post.slug}`}
                 aria-label={`Go to ${post.title}`}
+                noButtonWrapper
               >
                 <CardMedia
                   src={post.image}
@@ -44,24 +45,23 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
                   className="transition-all duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
-              </NextLink>
+              </Link>
             </CardMediaContent>
-            <CardHeader className="mb-2">
+            <CardHeader>
               <DateDisplay date={post.publishedAt} />
               <CardTitle>
-                <h3 className="text-xl font-semibold mt-1">
-                  <Link
-                    variant="inlineLink"
-                    href={`/blog/${post.slug}`}
-                    className="whitespace-break-spaces"
-                    aria-label={`Go to ${post.title}`}
-                  >
-                    {post.title}
-                  </Link>
-                </h3>
+                <Link
+                  variant="inlineLink"
+                  href={`/blog/${post.slug}`}
+                  className="whitespace-break-spaces"
+                  aria-label={`Go to ${post.title}`}
+                >
+                  <h3 className="text-xl font-semibold mt-1">{post.title}</h3>
+                </Link>
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex-1">
+            <CardContent className="flex-1 flex flex-col gap-4">
+              <p>By {post.author.name}</p>
               <p className="line-clamp-3">{post.summary}</p>
             </CardContent>
           </Card>
@@ -83,11 +83,10 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
 export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
   return (
     <section className="bg-white dark:bg-slate-800 rounded-xl p-6">
-      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-        <span className="dark:text-white">Featured Post</span>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 flex items-center gap-2">
+        Featured Post
       </h2>
-
-      <article className="flex flex-col gap-4 group">
+      <article className="flex flex-col gap-6 group">
         <Link
           href={`/blog/${featuredPost.slug}`}
           className="relative aspect-[16/9] w-full rounded-xl overflow-hidden h-fit"
@@ -103,7 +102,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
             blurDataURL={featuredPost.blurDataUrl}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition"
-            loading="lazy"
+            loading="eager"
           />
         </Link>
         <header className="flex flex-col gap-6">
@@ -113,16 +112,17 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
             variant="inlineLink"
             aria-label={`Go to ${featuredPost.title}`}
           >
-            <h3 className="text-xl font-semibold whitespace-break-spaces">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold whitespace-break-spaces">
               {featuredPost.title}
             </h3>
           </Link>
-          <Card className="border-l-8 border-l-sky">
-            <CardHeader>
-              <p>{featuredPost.summary}</p>
-            </CardHeader>
-          </Card>
         </header>
+        <AuthorSection {...featuredPost.author} />
+        <Card className="border-l-8 border-l-sky">
+          <CardHeader>
+            <p>{featuredPost.summary}</p>
+          </CardHeader>
+        </Card>
         <Markdown
           // place gaps between block elements
           options={{
@@ -146,7 +146,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
               },
             },
           }}
-          className="line-clamp-5 "
+          className="line-clamp-6"
         >
           {
             // skip the title that's already displayed in the header
@@ -223,6 +223,7 @@ export const BlogHero = ({}) => {
           className="object-cover"
           placeholder="blur"
           blurDataURL={defaultBlurDataURL}
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-sky/40 to-indigo/30 dark:from-sky/50 dark:to-indigo/40 flex flex-col items-center justify-center text-center px-6">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-lg">

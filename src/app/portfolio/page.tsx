@@ -8,7 +8,7 @@ import { ValueProposition } from '../components';
 
 // Metadata configuration
 export const metadata: Metadata = {
-  title: 'Our Work | SANFORDEV',
+  title: 'Our Case Studies | SANFORDEV',
   description:
     "Explore our case studies showcasing successful React and Next.js projects. See how we've helped startups and enterprises transform their digital presence.",
   alternates: {
@@ -57,7 +57,7 @@ export default function PortfolioRoute() {
       {/* Page Header */}
       <header>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-center lg:text-left">
-          Our Work
+          Our Case Studies
         </h1>
 
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10">

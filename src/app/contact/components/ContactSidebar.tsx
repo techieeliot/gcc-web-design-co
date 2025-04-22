@@ -1,7 +1,7 @@
 'use client';
 
+import { Link } from '@/components/ui/link';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 import { Icon } from '@ui/icon';
 
 interface ContactInfoProps {
@@ -42,6 +42,7 @@ export function ContactSidebar() {
             <Link
               href="mailto:hey@sanfor.dev"
               aria-label="Click here to open a new email to hey@sanfor.dev"
+              noButtonWrapper
             >
               hey@sanfor.dev
             </Link>
@@ -56,6 +57,7 @@ export function ContactSidebar() {
             <Link
               href="tel:+16623126815"
               aria-label="If you're on a mobile device, click here to call our number: 662-312-6815"
+              noButtonWrapper
             >
               (662) 312-6815
             </Link>

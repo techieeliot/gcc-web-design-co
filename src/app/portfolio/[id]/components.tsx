@@ -7,7 +7,7 @@ import { Icon, IconName } from '@ui/icon';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import { Link } from '@ui/link';
 import { caseStudies } from '@/data';
-import NextLink from 'next/link';
+import { Button } from '@/components/ui/button';
 
 interface CaseStudyLayoutProps {
   title: string;
@@ -70,11 +70,10 @@ export function CaseStudyLayout({
       <section>{children}</section>
 
       <footer className="border-b-2 border-slate-400 dark:border-slate-100 pb-8">
-        <NextLink
+        <Link
           href={url!}
-          target="_blank"
-          rel="noopener noreferrer"
           className="flex flex-col justify-center"
+          noButtonWrapper
         >
           <div className="p-4 sm:p-6 lg:p-8 xl:p-10">
             <h2 className="text-2xl font-bold mb-4">
@@ -82,16 +81,15 @@ export function CaseStudyLayout({
             </h2>
             <p>{footerContent}</p>
           </div>
-          <Link
-            href={url!}
+          <Button
             variant="cta"
             size="lg"
             className="w-full md:w-1/2 lg:w-1/3 mx-auto"
           >
             <Icon name="ExternalLink" className="w-4 h-4" />
             <span>{'View Their Site'}</span>
-          </Link>
-        </NextLink>
+          </Button>
+        </Link>
       </footer>
     </article>
   );

@@ -1,16 +1,12 @@
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '../utils';
 import { Metadata } from 'next';
-import Image from '@/components/image';
 import Markdown from 'markdown-to-jsx';
 import { Link } from '@ui/link';
 import { Icon } from '@ui/icon';
-import { AuthorSection, BlogHeader, RelatedPosts } from './components';
+import { BlogHeader, RelatedPosts } from './components';
 import { Suspense } from 'react';
 import PageWrapper from '@/components/PageWrapper';
-import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
-import DateDisplay from '@/components/DateDisplay';
-import { Card, CardHeader } from 'components/ui/card';
 import { Shimmer } from '@/components/ui/shimmer';
 
 // Add error handling for generateStaticParams
@@ -98,7 +94,6 @@ export default async function BlogPost({ params }: any) {
         <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
           {post.content}
         </Markdown>
-        <AuthorSection {...post.author} />
       </article>
 
       {/* back to the top */}

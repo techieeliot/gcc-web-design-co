@@ -3,7 +3,18 @@ title: 'Tailwind CSS Best Practices for Enterprise Projects'
 publishedAt: '2025-04-03'
 summary: 'A comprehensive guide to organizing and scaling Tailwind CSS in large enterprise applications with component patterns and performance optimization.'
 image: '/blog/tailwind-best-practices.webp'
-author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+author:
+  {
+    name: 'Eliot Sanford',
+    image: '/authors/eliot.webp',
+    social:
+      {
+        twitter: 'techieeliot',
+        github: 'techieeliot',
+        linkedin: 'techieeliot',
+        website: 'https://techieeliot.com/',
+      },
+  }
 tags: ['tailwind', 'css', 'ui/ux', 'patterns', 'performance']
 ---
 

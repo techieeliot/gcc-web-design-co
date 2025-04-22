@@ -3,7 +3,18 @@ title: 'Creating Fluid Animations with Framer Motion'
 publishedAt: '2025-04-01'
 summary: 'Learn how to create smooth, engaging animations in React applications using Framer Motion with practical examples and best practices.'
 image: '/blog/framer-motion-animations.webp'
-author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+author:
+  {
+    name: 'Eliot Sanford',
+    image: '/authors/eliot.webp',
+    social:
+      {
+        twitter: 'techieeliot',
+        github: 'techieeliot',
+        linkedin: 'techieeliot',
+        website: 'https://techieeliot.com/',
+      },
+  }
 tags: ['animations', 'react.js', 'framer-motion']
 featured: true
 ---

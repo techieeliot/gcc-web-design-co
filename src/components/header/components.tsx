@@ -45,7 +45,7 @@ const links: { href: string; label: string }[] = [
   { href: '/', label: 'Welcome' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Our Work' },
+  { href: '/portfolio', label: 'Case Studies' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];

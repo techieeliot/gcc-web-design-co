@@ -470,7 +470,7 @@ export const quickLinks: QuickLink[] = [
   },
   {
     href: '/portfolio',
-    label: 'Portfolio',
+    label: 'Case Studies',
     icon: 'Folder',
     description: 'See our past work',
   },

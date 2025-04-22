@@ -12,7 +12,6 @@ import { Link } from '@/components/ui/link';
 import DateDisplay from '@/components/DateDisplay';
 import { AuthorSection } from '../[slug]/components';
 import { Pill } from '@/components/Pill';
-import NextLink from 'next/link';
 
 export const BlogLibraryHero = () => {
   return (
@@ -48,9 +47,9 @@ export const BlogLibraryCard = ({
   return (
     <Card>
       <CardMediaContent className="h-48 rounded-tl-xl rounded-tr-xl overflow-hidden">
-        <NextLink href={`/blog/${slug}`}>
+        <Link href={`/blog/${slug}`} noButtonWrapper>
           <CardMedia src={image} alt={title} />
-        </NextLink>
+        </Link>
       </CardMediaContent>
       <CardHeader className="flex flex-col gap-6">
         <Link
@@ -63,10 +62,10 @@ export const BlogLibraryCard = ({
           <h2 className="text-lg sm:text-xl lg:text-2xl">{title}</h2>
         </Link>
         <DateDisplay date={publishedAt} />
+        <AuthorSection {...author} />
       </CardHeader>
       <CardContent className="flex flex-col gap-6 pb-6">
         <p>{summary}</p>
-        <AuthorSection {...author} />
         <p className="flex flex-wrap gap-4">
           {tags!.map((tag, index) => (
             <Pill key={index}>{tag}</Pill>

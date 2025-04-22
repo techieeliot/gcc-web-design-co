@@ -12,6 +12,8 @@ import {
 } from 'components/ui/card';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import DateDisplay from '@/components/DateDisplay';
+import { Icon } from '@/components/ui/icon';
+import { cn } from '@/lib/utils';
 
 interface RelatedPostsProps {
   currentSlug: string;
@@ -69,27 +71,93 @@ export function RelatedPosts({ currentSlug, posts }: RelatedPostsProps) {
   );
 }
 
-export const AuthorSection = (author: Author) => {
-  if (!author) return null;
-  const { name, image } = author;
+export const AuthorSection = ({ name, image, social }: Author) => {
+  if (!name) return null;
+
   return (
-    <section className="flex items-center gap-4">
-      <Image
-        src={image}
-        alt="Author's Avatar"
-        width={80}
-        height={80}
-        className="rounded-full"
-        loading="lazy"
-        priority={false}
-        placeholder="blur"
-        blurDataURL={image}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        quality={90}
-      />
-      <div>
-        <h3 className="text-lg font-semibold">Author</h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">{name}</p>
+    <section className="flex gap-8" translate="no">
+      <div className="flex flex-wrap items-center gap-4">
+        <Image
+          src={image}
+          alt={`${name}'s Avatar`}
+          width={80}
+          height={80}
+          className="rounded-full"
+          loading="lazy"
+          priority={false}
+          placeholder="blur"
+          blurDataURL={image}
+        />
+        <div className="leading-8">
+          <span
+            className={cn(
+              'font-title leading-[80%] tracking-widest',
+              'flex items-end',
+              'text-base sm:text-lg lg:text-xl',
+              'font-bold'
+            )}
+          >
+            {name}
+          </span>
+          <div className="flex items-center gap-1">
+            {social?.twitter && (
+              <span className="bg-muted rounded-full">
+                <Link
+                  href={`https://twitter.com/${social.twitter}`}
+                  aria-label={`${name} on X`}
+                  rel="me"
+                  className="hover:border-b hover:border-current shadow-none"
+                  variant="icon"
+                  size="icon"
+                >
+                  <Icon name="Twitter" />
+                </Link>
+              </span>
+            )}
+            {social?.github && (
+              <span className="bg-muted rounded-full">
+                <Link
+                  href={`https://github.com/${social.github}`}
+                  aria-label={`${name} on GitHub`}
+                  rel="me"
+                  className="hover:border-b hover:border-current shadow-none"
+                  variant="icon"
+                  size="icon"
+                >
+                  <Icon name="Github" />
+                </Link>
+              </span>
+            )}
+            {social?.linkedin && (
+              <span className="bg-muted rounded-full">
+                <Link
+                  href={`https://linkedin.com/in/${social.linkedin}`}
+                  aria-label={`${name} on LinkedIn`}
+                  rel="me"
+                  className="hover:border-b hover:border-current shadow-none"
+                  variant="icon"
+                  size="icon"
+                >
+                  <Icon name="Linkedin" />
+                </Link>
+              </span>
+            )}
+            {social?.website && (
+              <span className="bg-muted rounded-full">
+                <Link
+                  href={social.website}
+                  aria-label={`${name}'s homepage`}
+                  rel="me"
+                  className="hover:border-b hover:border-current shadow-none"
+                  variant="icon"
+                  size="icon"
+                >
+                  <Icon name="Globe" />
+                </Link>
+              </span>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -119,7 +187,7 @@ export const BlogHeader = ({
     <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
     <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
       <DateDisplay date={publishedAt} />
-      <p className="text-lg ">By {author.name}</p>
+      <AuthorSection {...author} />
       <Card className="border-l-8 border-l-sky">
         <CardHeader>
           <p className="text-xl">

@@ -3,7 +3,18 @@ title: 'Embracing the Aesthetic-Usability Effect: Beauty Meets Function in UX'
 publishedAt: '2025-04-15'
 summary: 'A personal dive into the Aesthetic-Usability Effect from The Laws of UX—exploring how beautiful design tricks our brains into loving usability.'
 image: '/blog/aesthetic-usability-effect.webp'
-author: { name: 'Eliot Sanford', image: '/authors/eliot.webp' }
+author:
+  {
+    name: 'Eliot Sanford',
+    image: '/authors/eliot.webp',
+    social:
+      {
+        twitter: 'techieeliot',
+        github: 'techieeliot',
+        linkedin: 'techieeliot',
+        website: 'https://techieeliot.com/',
+      },
+  }
 tags: ['ui/ux', 'design', 'aesthetics', 'usability', 'laws of ux']
 featured: true
 ---
