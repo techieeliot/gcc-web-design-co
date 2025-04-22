@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 
 import { Icon } from '@ui/icon';
-import Image from 'next/image';
+import Image from '@/components/image';
 import { serviceCategories, implementations, downToEarthValues } from '@/data';
 import {
   Card,
@@ -194,7 +194,7 @@ export const ServicesSidebar = () => {
           </CardContent>
         </Card>
       ))}
-      <Card variant="callout">
+      <Card className="border-l-8 border-l-sky">
         <CardHeader>
           <CardTitle>
             <h3 className="text-2xl font-bold">Ready to get started?</h3>

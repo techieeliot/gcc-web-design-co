@@ -1,4 +1,6 @@
-import Image from 'next/image';
+'use client';
+
+import Image from '@/components/image';
 import { ValueProposition } from '../components';
 import { generateBlurPlaceholder } from '@/lib/image';
 import Markdown from 'markdown-to-jsx';
@@ -115,7 +117,7 @@ export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
               {featuredPost.title}
             </h3>
           </Link>
-          <Card variant="callout">
+          <Card className="border-l-8 border-l-sky">
             <CardHeader>
               <p>{featuredPost.summary}</p>
             </CardHeader>

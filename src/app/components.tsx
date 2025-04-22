@@ -306,7 +306,7 @@ export function ValueProposition() {
         </CardFooter>
       </Card>
 
-      <Card variant="callout">
+      <Card className="border-l-8 border-l-sky">
         <CardContent className="py-6 flex flex-col items-end gap-8">
           <blockquote className="text-slate-700 dark:text-slate-200 italic">
             "SANFORDEV helped us create a platform from ideation that not only
@@ -398,7 +398,7 @@ export const BlogHighlightSection = () => (
           </div>
         </div>
 
-        <Card variant="callout">
+        <Card className="border-l-8 border-l-sky">
           <CardHeader>
             <h3>Why Read Our Blog?</h3>
           </CardHeader>

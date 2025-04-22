@@ -10,7 +10,7 @@
     "preinstall": "ts-node --project tsconfig.node.json ./scripts/check-versions.ts",
     "dev": "next dev",
     "ntl": "netlify dev",
-    "ntl:build": "next build",
+    "ntl:build": "netlify build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",

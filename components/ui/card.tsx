@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image, { ImageProps } from 'next/image';
+import Image, { ImageWithFallbackProps } from '@/components/image';
 
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
@@ -117,15 +117,18 @@ const CardActions = React.forwardRef<
 
 CardActions.displayName = 'CardActions';
 
-const CardMedia = React.forwardRef<HTMLImageElement, ImageProps>(
-  ({ className, ...props }, ref) => (
-    <Image
-      ref={ref}
-      className={cn('object-cover', className)}
-      fill
-      {...props}
-    />
-  )
+const CardMedia = React.forwardRef<HTMLImageElement, ImageWithFallbackProps>(
+  ({ className, ...props }, ref) => {
+    'use client';
+    return (
+      <Image
+        ref={ref}
+        className={cn('object-cover', className)}
+        fill
+        {...props}
+      />
+    );
+  }
 );
 
 CardMedia.displayName = 'CardMedia';

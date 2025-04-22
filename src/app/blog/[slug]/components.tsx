@@ -1,15 +1,17 @@
+'use client';
+
 import { Link } from '@ui/link';
 import { Author, Post } from '../types';
-import Image from 'next/image';
+import Image from '@/components/image';
 import {
   Card,
-  CardContent,
   CardHeader,
   CardMedia,
   CardMediaContent,
   CardTitle,
 } from 'components/ui/card';
-import { generateBlurPlaceholder } from '@/lib/image';
+import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
+import DateDisplay from '@/components/DateDisplay';
 
 interface RelatedPostsProps {
   currentSlug: string;
@@ -92,3 +94,39 @@ export const AuthorSection = (author: Author) => {
     </section>
   );
 };
+
+export const BlogHeader = ({
+  image,
+  title,
+  publishedAt,
+  author,
+  summary,
+}: Post) => (
+  <header id="top" className="flex flex-col gap-4">
+    <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes={defaultImageSizes}
+        className="object-cover"
+        priority
+        quality={90}
+        placeholder="blur"
+        blurDataURL={generateBlurPlaceholder(1200, 630)}
+      />
+    </div>
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+    <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
+      <DateDisplay date={publishedAt} />
+      <p className="text-lg ">By {author.name}</p>
+      <Card className="border-l-8 border-l-sky">
+        <CardHeader>
+          <p className="text-xl">
+            <strong className="text-2xl">TLDR;</strong> {summary}
+          </p>
+        </CardHeader>
+      </Card>
+    </div>
+  </header>
+);

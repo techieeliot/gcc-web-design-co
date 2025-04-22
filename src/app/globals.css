@@ -81,6 +81,7 @@
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
 
+    /* Theme Colors */
     --sky-100: 214 95% 96%; /* #eaf5fd */
     --sky-200: 207 89% 91%; /* #d6ecfb */
     --sky-300: 204 86% 87%; /* #c2e3f9 */
@@ -120,6 +121,10 @@
     --night-700: 240 3% 45%; /* #656a81 */
     --night-800: 240 2% 37%; /* #4f556e */
     --night-900: 233 33% 22%; /* #242b4b */
+
+    /* Scroll */
+    --header-height: 5rem; /* 80px - adjust based on your header height */
+    --scroll-margin: calc(var(--header-height) + 2rem);
   }
 
   .dark {
@@ -333,6 +338,10 @@
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 400;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: hsl(var(--accent));
   }
   li {
     font-size: 1rem;
@@ -363,6 +372,16 @@
     font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 400;
+  }
+
+  /* Scroll Behavior */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-margin);
+  }
+
+  section[id] {
+    scroll-margin-top: var(--scroll-margin);
   }
 }
 

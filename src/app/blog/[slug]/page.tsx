@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '../utils';
 import { Metadata } from 'next';
-import Image from 'next/image';
+import Image from '@/components/image';
 import Markdown from 'markdown-to-jsx';
 import { Link } from '@ui/link';
 import { Icon } from '@ui/icon';
-import { AuthorSection, RelatedPosts } from './components';
+import { AuthorSection, BlogHeader, RelatedPosts } from './components';
 import { Suspense } from 'react';
 import PageWrapper from '@/components/PageWrapper';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
@@ -92,35 +92,7 @@ export default async function BlogPost({ params }: any) {
           Back to Blog
         </Link>
       </div>
-      {/* Hero Section */}
-      <header id="top" className="flex flex-col gap-4">
-        <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            sizes={defaultImageSizes}
-            className="object-cover"
-            priority
-            quality={90}
-            placeholder="blur"
-            blurDataURL={generateBlurPlaceholder(1200, 630)}
-          />
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-        <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
-          <DateDisplay date={post.publishedAt} />
-          <p className="text-lg ">By {post.author.name}</p>
-          <Card variant="callout">
-            <CardHeader>
-              <p className="text-xl">
-                <strong className="text-2xl">TLDR;</strong> {post.summary}
-              </p>
-            </CardHeader>
-          </Card>
-        </div>
-      </header>
-
+      <BlogHeader {...post} />
       {/* Content */}
       <article className="prose dark:prose-invert max-w-none">
         <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">

@@ -35,7 +35,8 @@ const buttonVariants = cva(
         cta: cn(
           'bg-indigo text-white dark:bg-sky dark:text-white',
           'shadow-sm',
-          'hover:bg-indigo/90 dark:hover:bg-sky/90',
+          'hover:bg-sky/5 dark:hover:bg-sky/90',
+          'hover:text-indigo/90 dark:hover:text-navy',
           'active:bg-indigo/80 dark:active:bg-sky/80',
           'transition-all'
         ),
@@ -43,7 +44,7 @@ const buttonVariants = cva(
           'bg-transparent text-indigo dark:text-indigo',
           'border-2 border-indigo dark:border-indigo',
           'shadow-sm',
-          'hover:bg-sky/10 hover:text-navy hover:border-navy',
+          'hover:bg-sky/5 hover:text-navy hover:border-navy',
           'dark:hover:bg-indigo/10 dark:hover:text-navy dark:hover:border-navy',
           'active:bg-sky/20 dark:active:bg-indigo/20',
           'transition-all'

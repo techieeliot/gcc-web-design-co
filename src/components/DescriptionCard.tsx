@@ -1,7 +1,8 @@
+'use client';
+
 import { Card, CardHeader, CardTitle, CardContent } from 'components/ui/card';
 import { Icon, IconProps } from './ui/icon';
 import { HTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
 
 export const DescriptionCard = ({
   iconName,

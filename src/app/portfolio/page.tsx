@@ -1,12 +1,9 @@
 import { Metadata } from 'next';
 import { caseStudies } from '@/data';
 import { cn } from '@/lib/utils';
-import { CaseStudyCard } from './components';
+import { CaseStudyCard, PortfolioHero } from './components';
 import PageWrapper from '@/components/PageWrapper';
-import Image from 'next/image';
-import { generateBlurPlaceholder } from '@/lib/image';
-import { Suspense } from 'react';
-import { Shimmer } from '@ui/shimmer';
+
 import { ValueProposition } from '../components';
 
 // Metadata configuration
@@ -79,22 +76,7 @@ export default function PortfolioRoute() {
             reality. Explore our case studies to see how we help businesses
             grow—rooted in authenticity, care, and a forward-thinking approach.
           </p>
-          <div className="flex flex-col gap-4 order-1 lg:order-2">
-            <Suspense fallback={<Shimmer width={400} height={300} />}>
-              <Image
-                src="/images/pic14.webp"
-                alt="SANFORDEV Portfolio"
-                width={400}
-                height={300}
-                className="rounded-lg shadow-lg"
-                priority
-                quality={90}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 400px"
-                placeholder="blur"
-                blurDataURL={generateBlurPlaceholder(400, 300)}
-              />
-            </Suspense>
-          </div>
+          <PortfolioHero />
         </div>
       </header>
 

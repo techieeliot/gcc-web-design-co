@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import Image from '@/components/image';
 import { ReactNode } from 'react';
 import { Icon, IconName } from '@ui/icon';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
@@ -44,6 +44,7 @@ export function CaseStudyLayout({
             placeholder="blur"
             blurDataURL={generateBlurPlaceholder(1200, 800)}
           />
+
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
           {/* Icons Overlay */}
@@ -68,7 +69,7 @@ export function CaseStudyLayout({
       {/* Content Section */}
       <section>{children}</section>
 
-      <footer>
+      <footer className="border-b-2 border-slate-400 dark:border-slate-100 pb-8">
         <NextLink
           href={url!}
           target="_blank"

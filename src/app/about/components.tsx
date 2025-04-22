@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/image';
 import { Link } from '@ui/link';
 import { cn } from '@/lib/utils';
 import { Icon } from '@ui/icon';
@@ -300,7 +300,7 @@ export const CompanyFacts = () => {
 
 export const ConnectWithUs = () => {
   return (
-    <Card variant="callout" background="mode">
+    <Card background="mode" className="border-l-8 border-l-sky">
       <CardHeader>
         <h3 className="text-2xl md:text-3xl font-bold mb-6">Connect With Us</h3>
       </CardHeader>

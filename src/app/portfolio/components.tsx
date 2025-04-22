@@ -3,7 +3,7 @@
 import { Icon, IconName } from '@ui/icon';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import {
   Card,
   CardContent,
@@ -11,6 +11,9 @@ import {
   CardMedia,
   CardMediaContent,
 } from 'components/ui/card';
+import { Shimmer } from '@/components/ui/shimmer';
+import Image from '@/components/image';
+import { generateBlurPlaceholder } from '@/lib/image';
 
 interface CaseStudyCardProps {
   id: string;
@@ -138,3 +141,22 @@ export const CaseStudyCard = ({
     </Card>
   );
 };
+
+export const PortfolioHero = () => (
+  <div className="flex flex-col gap-4 order-1 lg:order-2">
+    <Suspense fallback={<Shimmer width={400} height={300} />}>
+      <Image
+        src="/images/pic14.webp"
+        alt="SANFORDEV Portfolio"
+        width={400}
+        height={300}
+        className="rounded-lg shadow-lg"
+        priority
+        quality={90}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 400px"
+        placeholder="blur"
+        blurDataURL={generateBlurPlaceholder(400, 300)}
+      />
+    </Suspense>
+  </div>
+);
