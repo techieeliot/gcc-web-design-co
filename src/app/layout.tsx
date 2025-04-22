@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Poppins, Montserrat } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'sonner';
@@ -9,6 +9,8 @@ import { ErrorHandler } from '@/components/error-handler';
 import { ReactNode } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Head from 'next/head';
+import OrganizationSchema from '@/components/structured-data/OrganizationSchema';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -26,9 +28,22 @@ const montserrat = Montserrat({
   fallback: ['Poppins', 'Roboto', 'Fira Sans', '-apple-system', 'sans-serif'],
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  minimumScale: 1,
+  userScalable: true,
+  viewportFit: 'cover',
+  themeColor: '#000000',
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <OrganizationSchema />
+      </Head>
       <body
         className={cn(
           poppins.variable,

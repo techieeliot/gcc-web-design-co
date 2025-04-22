@@ -7,13 +7,18 @@
   [plugins.inputs]
     output_path = "reports/lighthouse"
     audits = [
-      { path = "/" },
-      { path = "/about" },
-      { path = "/services" },
-      { path = "/portfolio" },
-      { path = "/blog" },
-      { path = "/blog/all" },
-      { path = "/contact" }
+      { path = "" },
+      { path = "_not-found" },
+      { path = "about" },
+      { path = "services" },
+      { path = "portfolio" },
+      { path = "portfolio/fourth-party" },
+      { path = "blog" },
+      { path = "blog/all" },
+      { path = "blog/aesthetic-usability-effect" },
+      { path = "contact" },
+      { path = "privacy" },
+      { path = "terms" },
     ]
     thresholds = [
       { performance = 0.9, accessibility = 0.9, "best-practices" = 0.9, seo = 0.9 }

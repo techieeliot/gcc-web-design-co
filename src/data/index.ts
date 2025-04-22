@@ -24,7 +24,7 @@ export const socialLinks: SocialLink[] = [
     hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
   },
   {
-    href: 'https://twitter.com/sanfordev',
+    href: 'https://x.com/sanfordev32857',
     icon: 'Twitter',
     label: 'Twitter/X',
     hoverColor: 'group-hover:text-sky dark:group-hover:text-indigo',
@@ -496,7 +496,7 @@ export const companySocialLinks: CompanyLink[] = [
     color: 'bg-[#0077B5]/20 hover:bg-[#0077B5]/30 text-[#0077B5]',
   },
   {
-    href: 'https://twitter.com/sanfordev',
+    href: 'https://x.com/sanfordev32857',
     icon: 'Twitter',
     label: 'Twitter',
     color: 'bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 text-[#1DA1F2]',

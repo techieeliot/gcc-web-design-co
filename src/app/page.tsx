@@ -9,7 +9,6 @@ import {
 } from './components';
 import Loading from './loading';
 import PageWrapper from '@/components/PageWrapper';
-import JsonLd from './components/JsonLd';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sanfordev.com'),
@@ -74,19 +73,11 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  viewportFit: 'cover',
-  themeColor: '#000000',
-};
-
 export const revalidate = 3600; // Revalidate every hour
 
 export default function HomePage() {
   return (
     <PageWrapper>
-      <JsonLd />
       <Suspense fallback={<Loading />}>
         <HeroSection />
         <FeaturesSection />

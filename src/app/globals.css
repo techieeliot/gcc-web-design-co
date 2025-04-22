@@ -397,7 +397,7 @@
   /* Ensure tap targets are large enough */
   button,
   a,
-  input,
+  input[type='text'],
   select,
   textarea {
     min-height: var(--min-tap-target-height);
