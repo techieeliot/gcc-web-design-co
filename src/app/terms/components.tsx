@@ -8,9 +8,11 @@ import {
   Children,
   isValidElement,
   cloneElement,
+  Suspense,
 } from 'react';
 import { Link } from '@/components/ui/link';
 import { cn } from '@/lib/utils';
+import { Shimmer } from '@/components/ui/shimmer';
 
 interface Section {
   id: string;
@@ -100,7 +102,19 @@ export function TableOfContents() {
     setSections(nodes);
   }, []);
 
-  if (sections.length === 0) return null;
+  if (sections.length === 0)
+    return (
+      <div className="flex flex-col gap-2">
+        <Shimmer className="h-6 w-1/5" />
+        <ul className="space-y-1 list-none list-inside">
+          {Array.from({ length: 25 }).map((_, index) => (
+            <li key={index} className="block py-1 transition-colors">
+              <Shimmer className="h-6 w-1/4" />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
 
   return (
     <nav aria-label="Table of contents" className="top-24">

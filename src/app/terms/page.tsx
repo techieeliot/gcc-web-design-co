@@ -8,8 +8,44 @@ export const revalidate = 3600; // cache for 1 hour
 export const metadata: Metadata = {
   title: 'Terms of Service | SANFORDEV',
   description:
-    'These Terms of Service (“Legal Terms”) govern your access to and use of SANFORDEV’s website and services. Last updated April 22, 2025.',
+    "These Terms of Service (“Legal Terms”) govern your access to and use of SANFORDEV's website and services. Last updated April 22, 2025.",
   alternates: { canonical: '/terms-of-service' },
+  keywords: [
+    'Terms of Service for SANFORDEV Consulting',
+    'Legal Terms and Conditions for SANFORDEV',
+    'User Agreement for SANFORDEV Services',
+    'Privacy Policy and Legal Disclaimer for SANFORDEV',
+    'User Responsibilities and Conduct on SANFORDEV',
+  ],
+  openGraph: {
+    title: 'Terms of Service | SANFORDEV',
+    description:
+      "These Terms of Service govern your access to and use of SANFORDEV's website and services. Last updated April 22, 2025.",
+    url: 'https://sanfordev.com/terms',
+    images: [
+      {
+        url: '/images/social-card.webp',
+        width: 1200,
+        height: 630,
+        alt: 'SANFORDEV Terms of Service',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service | SANFORDEV',
+    description:
+      'These Terms of Service govern your access to and use of SANFORDEV’s website and services. Last updated April 22, 2025.',
+    images: ['/images/social-card.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function TermsOfService() {
