@@ -11,6 +11,7 @@ import PageWrapper from '@/components/PageWrapper';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import DateDisplay from '@/components/DateDisplay';
 import { Card, CardHeader } from 'components/ui/card';
+import { Shimmer } from '@/components/ui/shimmer';
 
 // Add error handling for generateStaticParams
 export async function generateStaticParams() {
@@ -138,9 +139,12 @@ export default async function BlogPost({ params }: any) {
           Back to Top
         </Link>
       </div>
-      <Suspense fallback={<div className="h-12" />}>
+
+      <Suspense fallback={<Shimmer width="full" height={100} />}>
         <RelatedPosts currentSlug={post.slug} posts={allPosts} />
       </Suspense>
+
+      {/* TODO: Allow user to leave a comment */}
     </PageWrapper>
   );
 }

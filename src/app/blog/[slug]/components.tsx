@@ -22,7 +22,7 @@ export function RelatedPosts({ currentSlug, posts }: RelatedPostsProps) {
   if (relatedPosts.length === 0) return null;
 
   return (
-    <aside className="bg-slate-100 dark:bg-slate-800 rounded-xl p-6 border-t-2">
+    <aside className="p-6 border-t-2">
       <h2 className="text-2xl font-bold mb-6">Related Posts</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

@@ -206,6 +206,13 @@ export function Copyright({ currentYear }: { currentYear: number }) {
           >
             Privacy Policy
           </Link>
+          <Link
+            href="/terms"
+            variant="inlineLink"
+            className="text-sm text-slate-600 dark:text-frost/80"
+          >
+            Terms of Service
+          </Link>
         </div>
 
         <MadeWithLove />

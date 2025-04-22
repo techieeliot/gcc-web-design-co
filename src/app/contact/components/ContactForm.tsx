@@ -208,7 +208,19 @@ export default function ContactForm() {
                         aria-label="privacy policy. Click here to read it in a new tab."
                       >
                         privacy policy
+                      </Link>{' '}
+                      and{' '}
+                      <Link
+                        href="/terms"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="inlineLink"
+                        className="text-sm"
+                        aria-label="terms of service. Click here to read it in a new tab."
+                      >
+                        terms of service
                       </Link>
+                      .
                     </span>
                   </div>
                 </div>
