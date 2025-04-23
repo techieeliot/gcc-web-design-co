@@ -75,33 +75,38 @@ export const AuthorSection = ({ name, image, social }: Author) => {
   if (!name) return null;
 
   return (
-    <section className="flex gap-8" translate="no">
-      <div className="flex flex-wrap items-center gap-4">
+    <section className="flex gap-8 justify-center" translate="no">
+      <div className="flex flex-row md:flex-col flex-wrap items-center justify-center gap-4">
         <Image
           src={image}
           alt={`${name}'s Avatar`}
-          width={80}
-          height={80}
-          className="rounded-full"
+          width={100}
+          height={100}
+          className="rounded-full w-48 sm:w-unset"
           loading="lazy"
           priority={false}
           placeholder="blur"
           blurDataURL={image}
         />
-        <div className="leading-8">
+        <div className="leading-8 flex flex-col align-center flex-wrap justify-center gap-2 w-full">
           <span
             className={cn(
               'font-title leading-[80%] tracking-widest',
-              'flex items-end',
-              'text-base sm:text-lg lg:text-xl',
+              'flex items-center justify-center',
+              'text-lg text-center lg:text-xl',
               'font-bold'
             )}
           >
             {name}
           </span>
-          <div className="flex items-center gap-1">
+          <div
+            className={cn(
+              'grid gap-2 sm:bg-red-900 [&>span]:flex [&>span]:items-center [&>span]:justify-center',
+              '[&>span]:bg-muted [&>span]:rounded-full'
+            )}
+          >
             {social?.twitter && (
-              <span className="bg-muted rounded-full">
+              <span className="">
                 <Link
                   href={`https://twitter.com/${social.twitter}`}
                   aria-label={`${name} on X`}
@@ -170,8 +175,8 @@ export const BlogHeader = ({
   author,
   summary,
 }: Post) => (
-  <header id="top" className="flex flex-col gap-4">
-    <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
+  <header id="top">
+    <div className="relative aspect-[16/9] overflow-hidden">
       <Image
         src={image}
         alt={title}
@@ -184,8 +189,8 @@ export const BlogHeader = ({
         blurDataURL={generateBlurPlaceholder(1200, 630)}
       />
     </div>
-    <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-    <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
+    <div className="flex flex-col gap-4 pt-6">
+      <h1 className="text-4xl md:text-5xl font-bold">{title}</h1>
       <DateDisplay date={publishedAt} />
       <AuthorSection {...author} />
       <Card className="border-l-8 border-l-sky">

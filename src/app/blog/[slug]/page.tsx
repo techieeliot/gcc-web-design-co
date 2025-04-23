@@ -8,6 +8,7 @@ import { BlogHeader, RelatedPosts } from './components';
 import { Suspense } from 'react';
 import PageWrapper from '@/components/PageWrapper';
 import { Shimmer } from '@/components/ui/shimmer';
+import { cn } from '@/lib/utils';
 
 // Add error handling for generateStaticParams
 export async function generateStaticParams() {
@@ -88,19 +89,16 @@ export default async function BlogPost({ params }: any) {
           Back to Blog
         </Link>
       </div>
-      <BlogHeader {...post} />
-      {/* Content */}
-      <article className="prose dark:prose-invert max-w-none">
-        <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
-          {post.content}
-        </Markdown>
+      <article className="prose dark:prose-invert max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-8">
+        <BlogHeader {...post} />
+        <Markdown className={cn('grid grid-cols-1')}>{post.content}</Markdown>
       </article>
 
       {/* back to the top */}
       <div className="flex justify-center">
         <Link
           href="#top"
-          className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
+          className="text-sm sm:text-base lg:text-lg xl:text-xl text-slate-500 dark:text-slate-400 hover:underline"
           aria-label="Scroll up to the top of the page"
         >
           Back to Top
