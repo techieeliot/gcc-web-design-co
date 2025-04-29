@@ -16,7 +16,7 @@ import {
   CardMedia,
   CardMediaContent,
   CardTitle,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { Pill } from '@/components/Pill';
 
 export const HeroSection = () => (

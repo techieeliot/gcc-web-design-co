@@ -10,7 +10,7 @@ import { Link } from '@ui/link';
 import { FormField, ValidationError } from './FormField';
 import { Icon } from '@ui/icon';
 import { useSubmit } from '@formspree/react';
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const formSchema = z.object({
   name: z
@@ -208,7 +208,7 @@ export default function ContactForm() {
                         aria-label="privacy policy. Click here to read it in a new tab."
                       >
                         privacy policy
-                      </Link>{' '}
+                      </Link>
                       and{' '}
                       <Link
                         href="/terms"

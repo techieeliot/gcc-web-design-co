@@ -58,12 +58,16 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
           alt: post.title,
         },
       ],
+      url: `https://sanfordev.com/blog/${post.slug}`,
+      siteName: 'SANFORDEV Blog',
+      locale: 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.summary,
       images: [post.image || '/images/blog-social.webp'],
+      creator: '@sanfordev32857',
     },
   };
 }
@@ -79,39 +83,42 @@ export default async function BlogPost({ params }: any) {
   return (
     <PageWrapper>
       <div>
-        <Link
-          href="/blog"
-          variant="standaloneLink"
-          aria-label="Go back to the blog main page"
-        >
-          <Icon name="ArrowLeft" className="w-4 h-4 mr-2" />
-          Back to Blog
-        </Link>
+        <div>
+          <Link
+            href="/blog"
+            variant="standaloneLink"
+            aria-label="Go back to the blog main page"
+            className="flex items-center sm:items-start justify-center sm:justify-start text-sm"
+          >
+            <Icon name="ArrowLeft" className="w-4 h-4 mr-0 sm:mr-2" />
+            Back to Blog
+          </Link>
+        </div>
+        <article className="prose dark:prose-invert max-w-3xl mx-auto">
+          <BlogHeader {...post} />
+          {/* Content */}
+          <Markdown className="grid grid-cols-1 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-xl [&>h3]:text-lg [&>p]:text-base [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
+            {post.content}
+          </Markdown>
+        </article>
+
+        {/* back to the top */}
+        <div className="flex justify-center">
+          <Link
+            href="#top"
+            className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
+            aria-label="Scroll up to the top of the page"
+          >
+            Back to Top
+          </Link>
+        </div>
+
+        <Suspense fallback={<Shimmer width="full" height={100} />}>
+          <RelatedPosts currentSlug={post.slug} posts={allPosts} />
+        </Suspense>
+
+        {/* TODO: Allow user to leave a comment */}
       </div>
-      <BlogHeader {...post} />
-      {/* Content */}
-      <article className="prose dark:prose-invert max-w-none">
-        <Markdown className="grid grid-cols-1 gap-6 [&>break-words] [&>prose] [&>h1]:text-3xl [&>h2]:text-2xl [&>h3]:text-xl [&>p]:text-lg [&>ul]:list-disc [&>ol]:list-decimal [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>whitespace-break-spaces] [&>code]:bg-night [&>code]:rounded [&>code]:px-1.5 [&>pre>code]:whitespace-break-spaces [&>pre>code]:break-words [&>code]:py-0.5 [&>pre]:bg-night [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:my-6 [&>ul]:list-inside [&>ol]:list-inside [&>ul]:ml-4 [&>ol]:ml-4">
-          {post.content}
-        </Markdown>
-      </article>
-
-      {/* back to the top */}
-      <div className="flex justify-center">
-        <Link
-          href="#top"
-          className="text-sm text-slate-500 dark:text-slate-400 hover:underline"
-          aria-label="Scroll up to the top of the page"
-        >
-          Back to Top
-        </Link>
-      </div>
-
-      <Suspense fallback={<Shimmer width="full" height={100} />}>
-        <RelatedPosts currentSlug={post.slug} posts={allPosts} />
-      </Suspense>
-
-      {/* TODO: Allow user to leave a comment */}
     </PageWrapper>
   );
 }

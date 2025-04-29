@@ -18,7 +18,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { DescriptionCard } from '@/components/DescriptionCard';
 
 export const AboutSection = () => {

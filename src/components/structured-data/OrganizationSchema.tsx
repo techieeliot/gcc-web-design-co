@@ -16,7 +16,7 @@ export default function OrganizationSchema() {
           url: domains.primary,
           logo: {
             '@type': 'ImageObject',
-            url: `${domains.primary}/logos/sanfordev_logo.webp`,
+            url: `${domains.primary}/logos/sanfordev_logo_dark.webp`,
             width: '512',
             height: '512',
             caption: 'SANFORDEV Consulting LLC logo',

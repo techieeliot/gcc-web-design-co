@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { Link } from '@ui/link';
 import { policyItems } from '@/data';
 import { Icon } from '@ui/icon';
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function PrivacyContent() {
   return (

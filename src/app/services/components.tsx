@@ -12,7 +12,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { ServiceCardProps } from './types';
 

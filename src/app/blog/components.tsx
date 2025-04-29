@@ -13,7 +13,7 @@ import {
   CardMedia,
   CardMediaContent,
   CardTitle,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { AuthorSection } from './[slug]/components';
 
@@ -83,7 +83,7 @@ export const RecentPosts = ({ posts }: { posts: Post[] }) => {
 export const FeaturedPost = ({ featuredPost }: { featuredPost: Post }) => {
   return (
     <section className="bg-white dark:bg-slate-800 rounded-xl p-6">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 flex items-center gap-2">
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 flex items-center gap-2">
         Featured Post
       </h2>
       <article className="flex flex-col gap-6 group">

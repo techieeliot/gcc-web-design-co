@@ -9,7 +9,7 @@ import {
   CardMedia,
   CardMediaContent,
   CardTitle,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import DateDisplay from '@/components/DateDisplay';
 import { Icon } from '@/components/ui/icon';
@@ -170,21 +170,21 @@ export const BlogHeader = ({
   author,
   summary,
 }: Post) => (
-  <header id="top" className="flex flex-col gap-4">
-    <div className="relative aspect-[16/9] mb-8 rounded-xl overflow-hidden">
+  <header id="top" className="flex flex-col items-center gap-2 sm:gap-4">
+    <div className="relative aspect-square sm:aspect-[16/9] w-full rounded-xl h-fit overflow-hidden">
       <Image
         src={image}
         alt={title}
         fill
         sizes={defaultImageSizes}
-        className="object-cover"
+        className="object-cover rounded-xl"
         priority
         quality={90}
         placeholder="blur"
         blurDataURL={generateBlurPlaceholder(1200, 630)}
       />
     </div>
-    <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+    <h1 className="text-2xl md:text-5xl font-bold mb-4">{title}</h1>
     <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
       <DateDisplay date={publishedAt} />
       <AuthorSection {...author} />

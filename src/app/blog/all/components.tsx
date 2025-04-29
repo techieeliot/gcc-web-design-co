@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardMedia,
   CardMediaContent,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import DateDisplay from '@/components/DateDisplay';
 import { AuthorSection } from '../[slug]/components';

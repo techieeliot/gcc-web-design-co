@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardMedia,
   CardMediaContent,
-} from 'components/ui/card';
+} from '@/components/ui/card';
 import { Shimmer } from '@/components/ui/shimmer';
 import Image from '@/components/image';
 import { generateBlurPlaceholder } from '@/lib/image';
