@@ -14,6 +14,7 @@ import { defaultImageSizes, generateBlurPlaceholder } from '@/lib/image';
 import DateDisplay from '@/components/DateDisplay';
 import { Icon } from '@/components/ui/icon';
 import { cn } from '@/lib/utils';
+import { ShareButton } from '@/components/share-button';
 
 interface RelatedPostsProps {
   currentSlug: string;
@@ -169,6 +170,7 @@ export const BlogHeader = ({
   publishedAt,
   author,
   summary,
+  slug,
 }: Post) => (
   <header id="top" className="flex flex-col items-center gap-2 sm:gap-4">
     <div className="relative aspect-square sm:aspect-[16/9] w-full rounded-xl h-fit overflow-hidden">
@@ -186,7 +188,15 @@ export const BlogHeader = ({
     </div>
     <h1 className="text-2xl md:text-5xl font-bold mb-4">{title}</h1>
     <div className="flex flex-col gap-6 text-slate-600 dark:text-slate-400">
-      <DateDisplay date={publishedAt} />
+      <div className="flex items-baseline md:gap-4">
+        <DateDisplay date={publishedAt} />
+        <ShareButton
+          title={title}
+          url={`https://sanfordev.com/blog/${slug}`}
+          description={summary}
+          className="ml-auto md:ml-0"
+        />
+      </div>
       <AuthorSection {...author} />
       <Card className="border-l-8 border-l-sky">
         <CardHeader>
