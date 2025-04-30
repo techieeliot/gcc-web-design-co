@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, HTMLAttributes } from 'react';
+import { useState, useRef, HTMLAttributes, useCallback } from 'react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { useOnClickOutside } from './hooks';
@@ -31,9 +31,11 @@ export function ShareButton({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(dropdownRef as React.RefObject<HTMLElement>, () =>
-    setIsOpen(false)
-  );
+  const handleClickOutside = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  useOnClickOutside(dropdownRef, handleClickOutside);
 
   const shareOptions: ShareOption[] = [
     {
@@ -93,6 +95,8 @@ export function ShareButton({
         variant="standaloneLink"
         size="none"
         aria-label="Share this article"
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
         className="m-2"
         {...props}
       >
@@ -104,14 +108,13 @@ export function ShareButton({
         <div
           className={cn(
             'absolute right-0 rounded-md shadow-lg',
-            'bg-white dark:bg-slate-900 border-2',
-            'z-[60]',
-            // animate with tailwindcss transition so it comes smoothly from the button
+            'bg-white dark:bg-slate-900 border-2 z-[60]',
             'transition-discrete delay-300 duration-1000 ease-in-out',
-            // use transform to move it down
             'transform translate-y-2'
           )}
           role="menu"
+          aria-orientation="vertical"
+          tabIndex={-1}
         >
           {shareOptions.map((option) => (
             <Button
