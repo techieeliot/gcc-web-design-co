@@ -1,6 +1,7 @@
 'use client';
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 type CarouselProps = {
   children?: ReactNode[];
@@ -49,38 +50,40 @@ const Carousel = ({ delay = 0, children = [] }: CarouselProps) => {
           <div
             className={cn(
               'flex items-center justify-center text-center text-6xl',
-              'font-bold text-black p-2 rounded-lg w-64 h-64',
+              'font-bold text-black p-2 rounded-lg w-64 md:w-96 h-64',
               'border-2 border-black shadow-xl [&>span]:text-3xl'
             )}
             aria-live="polite"
             tabIndex={0}
-            role="status"
+            role="slide"
           >
             {activeCard}
           </div>
           {cards.length >= 2 ? (
             <div
               className={cn(
-                '[&>button]:w-32 [&>button]:h-12 [&>button]:bg-blue-700 [&>button]:rounded-xl',
-                '[&>button]:border-2 [&>button]:border-black [&>button]:text-lg',
-                '[&>button]:text-white [&>button]:font-bold [&>button]:hover:bg-blue-800'
+                'w-full flex justify-center',
+                '[&>button]:w-28 [&>button]:md:w-48 [&>button]:h-12 [&>button]:bg-blue-700 [&>button]:rounded-xl',
+                '[&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button]:gap-1',
+                '[&>button]:border-2 [&>button]:border-black [&>button]:text-sm',
+                '[&>button]:text-white [&>button]:font-bold'
               )}
             >
               <button
                 type="button"
                 onClick={handlePrev}
-                className="disabled:bg-slate-200 disabled:text-black"
+                className="disabled:bg-slate-200 disabled:text-black hover:bg-blue-800"
                 aria-label="Go to previous card"
               >
-                {'< '}Previous
+                <ArrowLeft className="hidden md:block" /> Previous
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="disabled:bg-slate-200 disabled:text-black"
+                className="disabled:bg-slate-200 disabled:text-black hover:bg-blue-800"
                 aria-label="Go to next card"
               >
-                Next{' >'}
+                Next <ArrowRight className="hidden md:block" />
               </button>
             </div>
           ) : null}
