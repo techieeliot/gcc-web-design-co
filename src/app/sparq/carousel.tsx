@@ -48,9 +48,9 @@ const Carousel = ({ delay = 0, children = [] }: CarouselProps) => {
         <>
           <div
             className={cn(
-              'flex items-center justify-center text-center w-64',
-              'font-bold text-black p-2 rounded-lg h-64',
-              'border-2 border-black shadow-lg'
+              'flex items-center justify-center text-center text-6xl',
+              'font-bold text-black p-2 rounded-lg w-64 h-64',
+              'border-2 border-black shadow-xl [&>span]:text-3xl'
             )}
             aria-live="polite"
             tabIndex={0}
@@ -61,8 +61,9 @@ const Carousel = ({ delay = 0, children = [] }: CarouselProps) => {
           {cards.length >= 2 ? (
             <div
               className={cn(
-                '[&>button]:w-32 [&>button]:bg-blue-700 [&>button]:rounded-xl',
-                '[&>button]:border-2 [&>button]:border-black [&>button]:text-white [&>button]:h-16'
+                '[&>button]:w-32 [&>button]:h-12 [&>button]:bg-blue-700 [&>button]:rounded-xl',
+                '[&>button]:border-2 [&>button]:border-black [&>button]:text-lg',
+                '[&>button]:text-white [&>button]:font-bold [&>button]:hover:bg-blue-800'
               )}
             >
               <button
@@ -84,7 +85,17 @@ const Carousel = ({ delay = 0, children = [] }: CarouselProps) => {
             </div>
           ) : null}
         </>
-      ) : null}
+      ) : (
+        <div
+          className={cn(
+            'flex items-center justify-center text-center text-3xl',
+            'font-bold text-black p-2 rounded-lg w-64 h-64',
+            'border-2 border-black shadow-xl'
+          )}
+        >
+          No items available
+        </div>
+      )}
     </div>
   );
 };

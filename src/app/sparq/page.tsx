@@ -5,7 +5,9 @@ export default function SparqPage() {
   return (
     <PageWrapper>
       <header>
-        <h2>Sparq carousels page</h2>
+        <h2 className="text-4xl font-bold text-center">
+          Sparq Carousel Variants
+        </h2>
       </header>
       <section>
         <Carousels />
