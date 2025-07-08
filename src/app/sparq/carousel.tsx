@@ -59,7 +59,7 @@ const Carousel = ({ delay = 0, children = [] }: CarouselProps) => {
           activeCard
         ) : (
           <p className="text-3xl flex items-center gap-2 text-red-700">
-            <AlertTriangle /> Empty Carousel
+            <AlertTriangle className="hidden md:block" /> Empty Carousel
           </p>
         )}
       </div>
