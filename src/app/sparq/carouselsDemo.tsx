@@ -3,11 +3,11 @@
 import Carousel from './carousel';
 import cn from 'classnames';
 
-export const Carousels = () => {
+export const CarouselsDemo = () => {
   const cards = [1, 2, 3, 4, 5];
   const randomItems = ['test', 42, <span>I'm a span</span>];
   return (
-    <div
+    <section
       className={cn(
         'flex flex-col items-center gap-16',
         'p-4 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-4'
@@ -41,6 +41,6 @@ export const Carousels = () => {
         <h2>Empty Carousel</h2>
         <Carousel />
       </div>
-    </div>
+    </section>
   );
 };

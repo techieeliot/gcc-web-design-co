@@ -1,5 +1,5 @@
 import PageWrapper from '@/components/PageWrapper';
-import { Carousels } from './carousels';
+import { CarouselsDemo } from './carouselsDemo';
 
 export default function SparqPage() {
   return (
@@ -9,9 +9,7 @@ export default function SparqPage() {
           Sparq Carousel Variants
         </h2>
       </header>
-      <section>
-        <Carousels />
-      </section>
+      <CarouselsDemo />
     </PageWrapper>
   );
 }
